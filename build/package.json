@@ -1,0 +1,26 @@
+{
+  "name": "alumican.js",
+  "version": "1.0.0",
+  "description": "Utilities",
+  "main": "lib/alumican.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yukiya Okuda",
+  "license": "ISC",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/alumican/alumican.js.git"
+  },
+  "dependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-plumber": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-typescript": "*",
+    "gulp-uglify": "*",
+    "typescript": "*"
+  },
+  "devDependencies": {
+    "@types/jquery": "*"
+  }
+}
