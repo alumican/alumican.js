@@ -21,6 +21,7 @@
     "typescript": "*"
   },
   "devDependencies": {
-    "@types/jquery": "*"
+    "@types/jquery": "*",
+    "@types/three": "*"
   }
 }

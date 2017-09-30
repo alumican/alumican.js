@@ -23,7 +23,7 @@ function typescriptOptions(declaration, outFile) {
 		target: 'ES5',
 		'lib': ['es6', 'dom'],
 		'typeRoots': ['node_modules/@types/'],
-		'types': ['jquery']
+		'types': ['jquery', 'three']
 	};
 }
 

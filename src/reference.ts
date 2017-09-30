@@ -1,4 +1,3 @@
-/// <reference types="jquery" />
 /// <reference path="../dependency/command/lib/command.d.ts" />
 
 

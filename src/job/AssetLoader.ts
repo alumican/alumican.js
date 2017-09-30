@@ -276,11 +276,3 @@ namespace alm {
 		public isLoadComplete:boolean;
 	}
 }
-
-// Three.js modules
-declare namespace THREE {
-	class TextureLoader {
-		load(url: string, onLoad?: (result: any) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): any;
-	}
-	class Texture {}
-}

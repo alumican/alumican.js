@@ -503,13 +503,6 @@ declare namespace alm {
         isLoadComplete: boolean;
     }
 }
-declare namespace THREE {
-    class TextureLoader {
-        load(url: string, onLoad?: (result: any) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): any;
-    }
-    class Texture {
-    }
-}
 declare namespace alm {
     class AssetLoaderEvent extends cmd.Event {
         static PROGRESS: string;
