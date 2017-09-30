@@ -1,0 +1,3 @@
+[submodule "dependency/command"]
+	path = dependency/command
+	url = git@github.com:alumican/Command.js.git
