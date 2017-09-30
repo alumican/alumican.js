@@ -77,7 +77,7 @@ declare namespace alm {
         private velocity;
     }
 }
-declare module project {
+declare namespace alm {
     class LocalStorage {
         static save(key: string, value: any, expiredAt?: number): boolean;
         static saveWithTerm(key: string, value: any, milliseconds?: number): boolean;

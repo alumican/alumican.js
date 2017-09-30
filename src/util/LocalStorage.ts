@@ -1,6 +1,6 @@
 /// <reference path="../reference.ts" />
 
-module project {
+namespace alm {
 
 	export class LocalStorage {
 
