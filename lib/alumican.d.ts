@@ -1,4 +1,3 @@
-/// <reference path="../dependency/command/lib/command.d.ts" />
 /// <reference types="jquery" />
 declare namespace alm {
     class Num {
