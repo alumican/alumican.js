@@ -23,8 +23,9 @@ declare namespace alm {
 }
 declare namespace alm {
     class Arr {
-        static unique(list: any[]): any[];
-        static duplicated(list: any[], unique?: boolean): any[];
+        static unique<T>(list: T[]): T[];
+        static duplicated<T>(list: T[], unique?: boolean): T[];
+        static roundRobin<T>(list1: T[], list2: T[], callback: (count: number, index1: number, index2: number, element1: T, element2: T) => void): void;
     }
 }
 declare namespace project {

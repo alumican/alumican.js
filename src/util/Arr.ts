@@ -7,10 +7,10 @@ namespace alm {
 		/**
 		 * 重複を削除したリストを生成する
 		 * @param list 入力配列
-		 * @returns {any[]} 出力配列
+		 * @returns {T[]} 出力配列
 		 */
-		public static unique(list:any[]):any[] {
-			return list.filter(function (x:any, i:number, self:any[]) {
+		public static unique<T>(list:T[]):T[] {
+			return list.filter(function (x:T, i:number, self:T[]) {
 				return self.indexOf(x) === i;
 			});
 		}
@@ -19,17 +19,40 @@ namespace alm {
 		 * 重複のみを抽出したリストを生成する
 		 * @param list 入力配列
 		 * @param unique trueの場合は、重複したものの中を重複しないようにする
-		 * @returns {any[]} 出力配列
+		 * @returns {T[]} 出力配列
 		 */
-		public static duplicated(list:any[], unique:boolean = false):any[] {
+		public static duplicated<T>(list:T[], unique:boolean = false):T[] {
+
 			if (unique) {
-				return list.filter(function (x:any, i:number, self:any[]) {
+				return list.filter(function (x:T, i:number, self:T[]) {
 					return self.indexOf(x) !== self.lastIndexOf(x);
 				});
 			} else {
-				return list.filter(function (x:any, i:number, self:any[]) {
+				return list.filter(function (x:T, i:number, self:T[]) {
 					return (self.indexOf(x) === i) && (self.lastIndexOf(x) !== i);
 				});
+			}
+		}
+
+		/**
+		 * 2つの入力配列に対して総当たり戦をおこなう
+		 * @param {T[]} list1 入力配列1
+		 * @param {T[]} list2 入力配列2
+		 * @param {(count: number, index1: number, index2: number, element1: T, element2: T) => void} callback コールバック関数
+		 * @param callback.count コールバックの呼ばれた回数
+		 * @param callback.index1 入力配列1の現在のインデックス
+		 * @param callback.index2 入力配列2の現在のインデックス
+		 * @param callback.element1 入力配列1の現在の要素
+		 * @param callback.element2 入力配列2の現在の要素
+		 */
+		public static roundRobin<T>(list1:T[], list2:T[], callback:(count:number, index1:number, index2:number, element1:T, element2:T) => void):void {
+			let i:number, j:number, p:number = 1;
+			const m:number = list1.length;
+			const n:number = list2.length;
+			for (i = 0; i < m; ++i) {
+				for (j = i + 1; j < n; ++j) {
+					callback(p++, i, j, list1[i], list2[j]);
+				}
 			}
 		}
 	}
