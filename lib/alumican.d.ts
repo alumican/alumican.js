@@ -115,7 +115,7 @@ declare namespace alm {
         private static DEG2RAD;
     }
 }
-declare namespace project {
+declare namespace alm {
     class Raffle<T = any> {
         constructor(values?: T[]);
         set(values: T[]): void;

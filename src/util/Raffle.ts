@@ -1,6 +1,6 @@
 /// <reference path="../reference.ts" />
 
-namespace project {
+namespace alm {
 
 	export class Raffle<T = any> {
 
