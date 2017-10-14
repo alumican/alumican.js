@@ -1,36 +1,10 @@
 /// <reference types="jquery" />
 declare namespace alm {
-    class Num {
-        static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number, clamp?: boolean): number;
-        static random(min?: number, max?: number): number;
-        static clamp(value: number, min: number, max: number): number;
-        static dist(x1: number, y1: number, x2: number, y2: number, squared?: boolean): number;
-        static radToDeg(radian: number): number;
-        static degToRad(degree: number): number;
-        static turn(from: number, to: number, radian?: boolean): number;
-        static PI2: number;
-        static PI3: number;
-        static PI4: number;
-        static PI5: number;
-        static PI6: number;
-        static PI_2: number;
-        static PI_3: number;
-        static PI_4: number;
-        static PI_6: number;
-        private static RAD2DEG;
-        private static DEG2RAD;
-    }
-}
-declare namespace alm {
     class Arr {
+        static sequence(count: number, init?: number, step?: number): number[];
         static unique<T>(list: T[]): T[];
         static duplicated<T>(list: T[], unique?: boolean): T[];
         static roundRobin<T>(list1: T[], list2: T[], callback: (count: number, index1: number, index2: number, element1: T, element2: T) => void): void;
-    }
-}
-declare namespace project {
-    class Str {
-        static toTimeString(hours?: number, minutes?: number, seconds?: number): string;
     }
 }
 declare namespace alm {
@@ -56,26 +30,35 @@ declare namespace alm {
     }
 }
 declare namespace alm {
-    class Rotator {
-        constructor(angle?: number, velocity?: number, radian?: boolean);
-        getAngle(radian?: boolean): number;
-        setAngle(angle: number, radian?: boolean): void;
-        getVelocity(radian?: boolean): number;
-        setVelocity(velocity: number, radian?: boolean): void;
-        update(): void;
-        getSin(length?: number): number;
-        getCos(length?: number): number;
-        getTan(length?: number): number;
-        getMagnitude(length?: number): number;
-        getVector(length?: number, xy?: {
-            x: number;
-            y: number;
-        }): {
-            x: number;
-            y: number;
-        };
-        private angle;
-        private velocity;
+    class CommandUtil {
+        static stop(command: cmd.Command): any;
+        static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
+    }
+}
+declare namespace alm {
+    class DeviceInfo {
+        private constructor();
+        private static initialize();
+        static getIsDesktop(): boolean;
+        static getIsTablet(): boolean;
+        static getIsMobile(): boolean;
+        static getIsIOS(): boolean;
+        static getIsAndroid(): boolean;
+        static getIsRetina(): boolean;
+        private static isDesktop;
+        private static isTablet;
+        private static isMobile;
+        private static isRetina;
+        private static isIOS;
+        private static isAndroid;
+        private static isInitialized;
+    }
+}
+declare namespace alm {
+    class JQueryUtil {
+        static fadeTo(target: JQuery, opacity: number, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeInJquery(target: JQuery, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeOutJquery(target: JQuery, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
     }
 }
 declare namespace alm {
@@ -111,35 +94,72 @@ declare function trace(...messages: any[]): void;
 declare function throwWarn(target: any, message: string, condition?: boolean): void;
 declare function throwError(target: any, message: string, condition?: boolean): void;
 declare namespace alm {
-    class DeviceInfo {
-        private constructor();
-        private static initialize();
-        static getIsDesktop(): boolean;
-        static getIsTablet(): boolean;
-        static getIsMobile(): boolean;
-        static getIsIOS(): boolean;
-        static getIsAndroid(): boolean;
-        static getIsRetina(): boolean;
-        private static isDesktop;
-        private static isTablet;
-        private static isMobile;
-        private static isRetina;
-        private static isIOS;
-        private static isAndroid;
-        private static isInitialized;
+    class Num {
+        static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number, clamp?: boolean): number;
+        static random(min?: number, max?: number): number;
+        static clamp(value: number, min: number, max: number): number;
+        static dist(x1: number, y1: number, x2: number, y2: number, squared?: boolean): number;
+        static radToDeg(radian: number): number;
+        static degToRad(degree: number): number;
+        static turn(from: number, to: number, radian?: boolean): number;
+        static PI2: number;
+        static PI3: number;
+        static PI4: number;
+        static PI5: number;
+        static PI6: number;
+        static PI_2: number;
+        static PI_3: number;
+        static PI_4: number;
+        static PI_6: number;
+        private static RAD2DEG;
+        private static DEG2RAD;
+    }
+}
+declare namespace project {
+    class Raffle<T = any> {
+        constructor(values?: T[]);
+        set(values: T[]): void;
+        get(): T;
+        reset(): void;
+        getRestCount(): number;
+        getIsEmply(): boolean;
+        getIsAutoResetEnabled(): boolean;
+        setIsAutoResetEnabled(enabled: boolean): void;
+        static createIndices(count: number): Raffle<number>;
+        onCheck: (value: T) => boolean;
+        private isAutoResetEnabled;
+        private isEmpty;
+        private restCount;
+        private restValues;
+        private initValues;
     }
 }
 declare namespace alm {
-    class CommandUtil {
-        static stop(command: cmd.Command): any;
-        static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
+    class Rotator {
+        constructor(angle?: number, velocity?: number, radian?: boolean);
+        getAngle(radian?: boolean): number;
+        setAngle(angle: number, radian?: boolean): void;
+        getVelocity(radian?: boolean): number;
+        setVelocity(velocity: number, radian?: boolean): void;
+        update(): void;
+        getSin(length?: number): number;
+        getCos(length?: number): number;
+        getTan(length?: number): number;
+        getMagnitude(length?: number): number;
+        getVector(length?: number, xy?: {
+            x: number;
+            y: number;
+        }): {
+            x: number;
+            y: number;
+        };
+        private angle;
+        private velocity;
     }
 }
-declare namespace alm {
-    class JQueryUtil {
-        static fadeTo(target: JQuery, opacity: number, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static fadeInJquery(target: JQuery, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static fadeOutJquery(target: JQuery, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
+declare namespace project {
+    class Str {
+        static toTimeString(hours?: number, minutes?: number, seconds?: number): string;
     }
 }
 declare namespace alm {

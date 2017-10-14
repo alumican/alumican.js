@@ -5,6 +5,23 @@ namespace alm {
 	export class Arr {
 
 		/**
+		 * 等差数列を生成する
+		 * @param {number} count 要素数
+		 * @param {number} init 初期値
+		 * @param {number} step 等差
+		 * @returns {number[]} 出力配列
+		 */
+		public static sequence(count:number, init:number = 0, step:number = 1):number[] {
+			const result:number[] = new Array(count);
+			let v:number = init;
+			for (let i:number = 0; i < count; ++i) {
+				result[i] = v;
+				v += step;
+			}
+			return result;
+		}
+
+		/**
 		 * 重複を削除したリストを生成する
 		 * @param list 入力配列
 		 * @returns {T[]} 出力配列

@@ -5,16 +5,17 @@
 
 
 /* ---------- project ---------- */
-/// <reference path="util/Num.ts" />
 /// <reference path="util/Arr.ts" />
-/// <reference path="util/Str.ts" />
 /// <reference path="util/Boxer.ts" />
-/// <reference path="util/Rotator.ts" />
+/// <reference path="util/CommandUtil.ts" />
+/// <reference path="util/DeviceInfo.ts" />
+/// <reference path="util/JQueryUtil.ts" />
 /// <reference path="util/LocalStorage.ts" />
 /// <reference path="util/Logger.ts" />
-/// <reference path="util/DeviceInfo.ts" />
-/// <reference path="util/CommandUtil.ts" />
-/// <reference path="util/JQueryUtil.ts" />
+/// <reference path="util/Num.ts" />
+/// <reference path="util/Raffle.ts" />
+/// <reference path="util/Rotator.ts" />
+/// <reference path="util/Str.ts" />
 
 /// <reference path="geom/Vector2.ts" />
 /// <reference path="geom/Vector3.ts" />
