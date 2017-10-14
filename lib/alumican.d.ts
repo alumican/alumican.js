@@ -97,6 +97,7 @@ declare namespace alm {
     class Num {
         static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number, clamp?: boolean): number;
         static random(min?: number, max?: number): number;
+        static randomInt(min?: number, max?: number): number;
         static clamp(value: number, min: number, max: number): number;
         static dist(x1: number, y1: number, x2: number, y2: number, squared?: boolean): number;
         static radToDeg(radian: number): number;

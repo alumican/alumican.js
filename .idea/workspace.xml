@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependency/command" afterPath="$PROJECT_DIR$/dependency/command" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.d.ts" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js" afterPath="$PROJECT_DIR$/lib/alumican.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js.map" afterPath="$PROJECT_DIR$/lib/alumican.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js" afterPath="$PROJECT_DIR$/lib/alumican.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Raffle.ts" afterPath="$PROJECT_DIR$/src/util/Raffle.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Num.ts" afterPath="$PROJECT_DIR$/src/util/Num.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/src/util/Raffle.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,8 +44,18 @@
       <file leaf-file-name="alumican.d.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="1007">
+              <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Num.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/Num.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="741">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,11 +137,11 @@
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/build/package.json" />
         <option value="$PROJECT_DIR$/build/gulpfile.js" />
-        <option value="$PROJECT_DIR$/src/util/Num.ts" />
         <option value="$PROJECT_DIR$/src/util/Str.ts" />
         <option value="$PROJECT_DIR$/src/reference.ts" />
         <option value="$PROJECT_DIR$/src/util/Arr.ts" />
         <option value="$PROJECT_DIR$/src/util/Raffle.ts" />
+        <option value="$PROJECT_DIR$/src/util/Num.ts" />
         <option value="$PROJECT_DIR$/lib/alumican.d.ts" />
       </list>
     </option>
@@ -166,6 +177,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,10 +241,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -395,12 +406,13 @@
       <workItem from="1507269326162" duration="262000" />
       <workItem from="1507275420711" duration="2180000" />
       <workItem from="1507981886549" duration="512000" />
-      <workItem from="1507982703757" duration="28000" />
+      <workItem from="1507982703757" duration="88000" />
+      <workItem from="1507988362607" duration="106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9498000" />
+    <option name="totallyTimeSpent" value="9664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="298" y="23" width="1440" height="1773" extended-state="0" />
@@ -778,14 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Num.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="87" column="32" lean-forward="false" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reference.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -813,15 +817,23 @@
     <entry file="file://$PROJECT_DIR$/src/util/Raffle.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Num.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1007">
+          <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
           <folding />
         </state>
       </provider>

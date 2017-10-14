@@ -29,13 +29,23 @@ namespace alm {
 		}
 
 		/**
-		 * 乱数を取得する
-		 * @param {number} min 最小知
+		 * 乱数（小数）を取得する
+		 * @param {number} min 最小値
 		 * @param {number} max 最大値
 		 * @returns {number} 出力値
 		 */
 		public static random(min:number = 0, max:number = 1):number {
 			return min + (max - min) * Math.random();
+		}
+
+		/**
+		 * 乱数（整数）を取得する
+		 * @param {number} min 最小値
+		 * @param {number} max 最大値
+		 * @returns {number} 出力値
+		 */
+		public static randomInt(min:number = 0, max:number = 1):number {
+			return Math.floor(Num.random(min, max));
 		}
 
 		/**
