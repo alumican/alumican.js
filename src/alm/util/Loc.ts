@@ -4,8 +4,8 @@ namespace alm.util {
 
 	export class Loc {
 
-		public static getQuery():alm.Hash<string> {
-			const query:alm.Hash<string> = {};
+		public static getQuery():Hash<string> {
+			const query:Hash<string> = {};
 			const pairs:string[] = location.search.substring(1).split("&");
 			let pair:string[];
 			for(let i:number = 0; pairs[i]; ++i) {

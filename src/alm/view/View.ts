@@ -228,6 +228,6 @@ namespace alm.view {
 		private id:number;
 
 		private static id:number = 0;
-		private static viewsById:Hash<View> = {};
+		private static viewsById:util.Hash<View> = {};
 	}
 }

@@ -230,7 +230,7 @@ namespace alm.browser {
 		private static pressedKeyCount:number = 0;
 
 		public static getIsKeyPressed(keyCode:number):boolean { return this.isKeyPressedByKeyCode[keyCode] != null; }
-		private static isKeyPressedByKeyCode:Hash<boolean> = {};
+		private static isKeyPressedByKeyCode:util.Hash<boolean> = {};
 
 
 		public static getIsContinuousPressEnabled():boolean { return this.isContinuousPressEnabled; }

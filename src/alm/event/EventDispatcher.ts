@@ -95,6 +95,6 @@ namespace alm.event {
 		// --------------------------------------------------
 
 		private target:any;
-		private listeners:Hash<EventListener[]>;
+		private listeners:util.Hash<EventListener[]>;
 	}
 }

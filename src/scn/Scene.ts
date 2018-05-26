@@ -341,7 +341,7 @@ namespace scn {
 		private state:SceneState;
 		private lastState:SceneState;
 		private parent:Scene;
-		private childrenByName:alm.Hash<Scene>;
+		private childrenByName:alm.util.Hash<Scene>;
 		private numChildren:number;
 		private transferInfo:SceneTransferInfo;
 	}

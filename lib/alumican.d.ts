@@ -356,7 +356,7 @@ declare namespace alm.geom {
         height: number;
     }
 }
-declare namespace alm {
+declare namespace alm.util {
     interface Hash<T> {
         [key: string]: T;
     }
@@ -402,7 +402,7 @@ declare namespace alm.util {
 }
 declare namespace alm.util {
     class Loc {
-        static getQuery(): alm.Hash<string>;
+        static getQuery(): Hash<string>;
         private constructor();
     }
 }
@@ -580,7 +580,7 @@ declare namespace alm.util {
         static fadeTo(target: JQuery, opacity: number, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
         static fadeInJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
         static fadeOutJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static getQuery(): alm.Hash<string>;
+        static getQuery(): Hash<string>;
         private constructor();
     }
 }

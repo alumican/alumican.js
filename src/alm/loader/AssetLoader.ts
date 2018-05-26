@@ -244,16 +244,16 @@ namespace alm.loader {
 		private totalCount:number;
 
 		public getTexturesByUrl(url:string):THREE.Texture { return this.texturesByUrl[url]; }
-		private texturesByUrl:Hash<THREE.Texture>;
+		private texturesByUrl:util.Hash<THREE.Texture>;
 
 		public getTexturesByQueryId(textureId:string):THREE.Texture { return this.texturesByQueryId[textureId]; }
-		private texturesByQueryId:Hash<THREE.Texture>;
+		private texturesByQueryId:util.Hash<THREE.Texture>;
 
 		private loadingQueries:LoaderQuery[];
 		private loadingQueryIndex:number;
 
-		private queriesByQueryId:Hash<LoaderQuery>;
-		private queriesByUrl:Hash<LoaderQuery>;
+		private queriesByQueryId:util.Hash<LoaderQuery>;
+		private queriesByUrl:util.Hash<LoaderQuery>;
 		private eventDispatcher:EventDispatcher;
 
 		private static id:number = 0;
