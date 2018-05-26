@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Scene Test</title>
+	<script src="lib/jquery-3.2.1.min.js"></script>
+	<script src="../lib/alumican.js"></script>
+	<style>
+		body {
+			margin: 0;
+			padding: 30px;
+		}
+		h1 {
+			margin: 0;
+		}
+		nav {
+			display: table;
+			padding-right: 30px;
+			box-sizing: border-box;
+			border: 1px solid #999;
+			border-radius: 5px;
+		}
+		a {
+			text-decoration: none;
+			margin-bottom: 10px;
+			display: inline-block;
+		}
+		#content {
+			display: flex;
+			margin-top: 20px;
+		}
+		textarea {
+			width: 50%;
+			margin-left: 20px;
+			border: 1px solid #999;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+
+<h1 id="page-title">Title</h1>
+
+<div id="content">
+	<nav>
+		<ul>
+			<li><a class="page-link" name="/">TOP</a></li>
+			<li><a class="page-link" name="/about">ABOUT</a></li>
+			<li>
+				<a class="page-link" name="/gallery">GALLERY</a>
+				<ul>
+					<li>
+						<a class="page-link" name="/gallery/web">WEB</a>
+						<ul>
+							<li><a class="page-link" name="/gallery/web/web-1">WEB 1</a></li>
+							<li><a class="page-link" name="/gallery/web/web-2">WEB 2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="page-link" name="/gallery/photo">PHOTO</a>
+						<ul>
+							<li><a class="page-link" name="/gallery/photo/photo-1">PHOTO 1</a></li>
+							<li><a class="page-link" name="/gallery/photo/photo-2">PHOTO 2</a></li>
+							<li><a class="page-link" name="/gallery/photo/photo-3">PHOTO 3</a></li>
+							<li><a class="page-link" name="/gallery/photo/photo-4">PHOTO 4</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="page-link" name="/gallery/movie">MOVIE</a>
+						<ul>
+							<li><a class="page-link" name="/gallery/movie/movie-1">MOVIE 1</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a class="page-link" name="/contact">CONTACT</a></li>
+		</ul>
+	</nav>
+	<textarea></textarea>
+</div>
+
+<script src="js/test.js"></script>
+</body>
+</html>

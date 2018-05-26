@@ -3,6 +3,7 @@
 //----------------------------------------
 var SRC_DIR = '../src';
 var DST_DIR = '../lib';
+var TEST_DIR = '../test';
 
 var SRC_FILENAME = 'reference';
 var DST_FILENAME = 'alumican';
@@ -16,15 +17,18 @@ var uglify = require('gulp-uglify');
 
 //----------------------------------------
 function typescriptOptions(declaration, outFile) {
-	return {
+	var option = {
 		declaration: declaration,
-		outFile: outFile,
 		removeComments: true,
 		target: 'ES5',
 		'lib': ['es6', 'dom'],
 		'typeRoots': ['node_modules/@types/'],
 		'types': ['jquery', 'three']
 	};
+	if (outFile) {
+		option.outFile = outFile;
+	}
+	return option;
 }
 
 gulp.task('compile', function() {
@@ -47,10 +51,20 @@ gulp.task('compile-min', function() {
 		.pipe(gulp.dest(DST_DIR));
 });
 
-//----------------------------------------
-gulp.task('watch', function() {
-	gulp.watch(SRC_DIR + '/**/*.ts', gulp.series(['compile', 'compile-min']));
+gulp.task('compile-test', function() {
+	return gulp.src([TEST_DIR + '/**/*.ts'])
+		.pipe(plumber())
+		.pipe(sourcemaps.init('./'))
+		.pipe(typescript(typescriptOptions(false, null)))
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(TEST_DIR));
 });
 
 //----------------------------------------
-gulp.task('default', gulp.parallel(['compile', 'compile-min', 'watch']));
+gulp.task('watch', function() {
+	gulp.watch(SRC_DIR + '/**/*.ts', gulp.series(['compile', 'compile-min']));
+	gulp.watch(TEST_DIR + '/**/*.ts', gulp.series(['compile-test']));
+});
+
+//----------------------------------------
+gulp.task('default', gulp.parallel(['compile', 'compile-min', 'compile-test', 'watch']));

@@ -9,8 +9,8 @@
   "author": "Yukiya Okuda",
   "license": "ISC",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/alumican/alumican.js.git"
+    "type": "git",
+    "url": "https://github.com/alumican/alumican.js.git"
   },
   "dependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
