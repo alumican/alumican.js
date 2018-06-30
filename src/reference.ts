@@ -21,6 +21,7 @@
 /// <reference path="alm/geom/Vector3.ts" />
 /// <reference path="alm/geom/Rectangle.ts" />
 /// <reference path="alm/util/Hash.ts" />
+/// <reference path="alm/util/Obj.ts" />
 /// <reference path="alm/util/Arr.ts" />
 /// <reference path="alm/util/Num.ts" />
 /// <reference path="alm/util/Str.ts" />

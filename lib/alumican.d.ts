@@ -362,6 +362,12 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
+    class Obj {
+        static each(target: any, func: (element: any) => void): void;
+        private constructor();
+    }
+}
+declare namespace alm.util {
     class Arr {
         static sequence(count: number, init?: number, step?: number): number[];
         static unique<T>(list: T[]): T[];
