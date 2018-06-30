@@ -363,7 +363,7 @@ declare namespace alm.util {
 }
 declare namespace alm.util {
     class Obj {
-        static each(target: any, func: (element: any) => void): void;
+        static each(target: any, func: (key: string, value: any) => void): void;
         private constructor();
     }
 }
