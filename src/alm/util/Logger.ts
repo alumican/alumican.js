@@ -48,19 +48,19 @@ namespace alm.util {
 	export class ConsoleLogging implements ILogging {
 
 		public verbose(messages:any[]):void {
-			console.debug.apply(console, Array.prototype.slice.call(["Verbose: "].concat(messages)));
+			console.debug.apply(console, Array.prototype.slice.call(["[Verbose] "].concat(messages)));
 		}
 
 		public info(messages:any[]):void {
-			console.log.apply(console, Array.prototype.slice.call(["Info   : "].concat(messages)));
+			console.log.apply(console, Array.prototype.slice.call(["[Info   ] "].concat(messages)));
 		}
 
 		public warn(messages:any[]):void {
-			console.warn.apply(console, Array.prototype.slice.call(["Warn   : "].concat(messages)));
+			console.warn.apply(console, Array.prototype.slice.call(["[Warn   ] "].concat(messages)));
 		}
 
 		public error(messages:any[]):void {
-			console.error.apply(console, Array.prototype.slice.call(["Error  : "].concat(messages)));
+			console.error.apply(console, Array.prototype.slice.call(["[Error  ] "].concat(messages)));
 		}
 	}
 
@@ -76,19 +76,19 @@ namespace alm.util {
 		}
 
 		public verbose(messages:any[]):void {
-			this.print("Verbose: ", messages);
+			this.print("[Verbose] ", messages);
 		}
 
 		public info(messages:any[]):void {
-			this.print("Info   : ", messages);
+			this.print("[Info   ] ", messages);
 		}
 
 		public warn(messages:any[]):void {
-			this.print("Warn   : ", messages);
+			this.print("[Warn   ] ", messages);
 		}
 
 		public error(messages:any[]):void {
-			this.print("Error  : ", messages);
+			this.print("[Error  ] ", messages);
 		}
 
 		private print(prefix:string, messages:any[]):void {
@@ -180,43 +180,6 @@ namespace alm.util {
 
 		private constructor() {}
 	}
-
-
-
-
-
-	/*
-	export class Logger {
-
-		public static level:number = LoggerLevel.Verbose;
-
-		public static verbose(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Verbose) console.debug.apply(console, Array.prototype.slice.call(["Verbose: "].concat(messages)));
-		}
-
-		public static info(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Info) console.log.apply(console, Array.prototype.slice.call(["Info   : "].concat(messages)));
-		}
-
-		public static warn(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Warn) console.warn.apply(console, Array.prototype.slice.call(["Warn   : "].concat(messages)));
-		}
-
-		public static error(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Error) console.error.apply(console, Array.prototype.slice.call(["Error  : "].concat(messages)));
-		}
-
-		public static warnIf(target:any, message:string, condition:boolean = true):void {
-			if (Logger.level <= LoggerLevel.Warn && condition) Logger.warn(message + " : ", target);
-		}
-
-		public static errorIf(target:any, message: string, condition:boolean = true):void {
-			if (Logger.level <= LoggerLevel.Error && condition) Logger.error(message + " : ", target);
-		}
-
-		private constructor() {}
-	}
-	*/
 }
 
 function trace(...messages:any[]):void {
