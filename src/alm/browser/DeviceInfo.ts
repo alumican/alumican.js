@@ -69,6 +69,17 @@ namespace alm.browser {
 			return this.isRetina;
 		}
 
+		public static getDpi():number {
+			if (this.dpi == -1) {
+				const div:HTMLElement = document.createElement("div");
+				div.setAttribute("style", "height:1in;left:-100%;top:-100%;position:absolute;width:1in;");
+				document.body.appendChild(div);
+				this.dpi = div.offsetHeight;
+				document.body.removeChild(div);
+			}
+			return this.dpi;
+		}
+
 
 
 
@@ -87,6 +98,8 @@ namespace alm.browser {
 
 		private static isIOS:boolean;
 		private static isAndroid:boolean;
+
+		private static dpi:number = -1;
 
 		private static isInitialized:boolean = false;
 

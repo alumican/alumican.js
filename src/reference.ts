@@ -1,3 +1,7 @@
+/* ---------- dependency ---------- */
+/// <reference types="jquery" />
+/// <reference types="three" />
+
 /* ---------- project ---------- */
 /// <reference path="alm/util/Easing.ts" />
 /// <reference path="alm/event/Event.ts" />
@@ -32,11 +36,16 @@
 /// <reference path="alm/util/Logger.ts" />
 /// <reference path="alm/util/Timer.ts" />
 /// <reference path="alm/util/TimerEvent.ts" />
+/// <reference path="alm/util/ObjectPool.ts" />
 /// <reference path="alm/util/JQueryUtil.ts" />
 /// <reference path="alm/util/CommandUtil.ts" />
 /// <reference path="alm/loader/AssetLoader.ts" />
 /// <reference path="alm/loader/AssetLoaderEvent.ts" />
 /// <reference path="alm/view/View.ts" />
+/// <reference path="alm/view/ButtonBehavior.ts" />
+/// <reference path="alm/view/IButton.ts" />
+/// <reference path="alm/view/SelectionBehavior.ts" />
+/// <reference path="alm/view/ISelection.ts" />
 /// <reference path="alm/browser/DeviceInfo.ts" />
 /// <reference path="alm/browser/LocalStorage.ts" />
 /// <reference path="alm/browser/KeyWatcher.ts" />

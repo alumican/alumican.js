@@ -40,7 +40,6 @@ gulp.task('compile', function() {
 		.pipe(gulp.dest(DST_DIR));
 });
 
-//----------------------------------------
 gulp.task('compile-min', function() {
 	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
 		.pipe(plumber())

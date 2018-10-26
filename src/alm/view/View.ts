@@ -14,16 +14,17 @@ namespace alm.view {
 
 		constructor(view:T = null) {
 			super();
+			this.id = View.id;
 			this.view = view;
+			this.name = "";
+			this.autoHideWithInit = true;
 			this.isInitializing = false;
 			this.isInitialized = false;
-			this.isReady = false;
+			this.isReadying = false;
+			this.isReadied = false;
 			this.isShowing = false;
 			this.isShown = true;
 			this.isHiding = false;
-			this.autoHideWithInit = true;
-			this.name = "";
-			this.id = View.id;
 
 			View.viewsById[View.id] = this;
 			++View.id;
@@ -43,21 +44,31 @@ namespace alm.view {
 			if (this.isInitializing || this.isInitialized) return;
 			this.isInitializing = true;
 			this.view = this.implInitialize();
-			throwError(this.name || this, "view is null", !this.view);
-			this.hide(false);
-			this.isInitializing = false;
-			this.isInitialized = true;
+			if (this.isInitializing) {
+				throwError(this.name || this, "view is null", !this.view);
+				this.hide(false);
+				this.isInitializing = false;
+				this.isInitialized = true;
+			} else {
+				// finalized while initializing
+				this.view = null;
+			}
 		}
 
 		public ready():void {
-			if (this.isReady) return;
+			if (this.isReadying || this.isReadied) return;
+			this.isReadying = true;
 			throwError(this.name || this, "ready() was called without being initialized", !this.isInitialized);
 			this.implReady();
-			this.isReady = true;
+			this.isReadying = false;
+			this.isReadied = true;
 		}
 
 		public finalize():void {
+			if (!this.isInitializing && !this.isInitialized) return;
 			this.implFinalize();
+			this.isInitializing = false;
+			this.isInitialized = false;
 		}
 
 		public show(useTransition:boolean = true):void {
@@ -75,8 +86,8 @@ namespace alm.view {
 			command.addCommand(
 				new cmd.Func(():void => {
 					if (this.isShown) return;
-					throwError(this.name || this, "getShowCommand() was called without being initialized", !this.isInitialized);
-					throwWarn(this.name || this, "getShowCommand() was called without being ready", !this.isReady);
+					throwError(this.name || this, "getShowCommand() was called without being initialized", this.isInitializing || !this.isInitialized);
+					throwWarn(this.name || this, "getShowCommand() was called without being ready", this.isReadying|| !this.isReadied);
 					this.isShown = true;
 					this.isShowing = true;
 					this.isHiding = false;
@@ -109,8 +120,8 @@ namespace alm.view {
 				new cmd.Func(():void => {
 					if (!this.isShown) return;
 					if (!this.isInitializing) {
-						throwError(this.name || this, "getHideCommand() was called without being initialized", !this.isInitialized);
-						throwWarn(this.name || this, "getHideCommand() was called without being ready", !this.isReady);
+						throwError(this.name || this, "getHideCommand() was called without being initialized", this.isInitializing || !this.isInitialized);
+						throwWarn(this.name || this, "getHideCommand() was called without being ready", this.isReadying || !this.isReadied);
 					}
 					this.isShown = false;
 					this.isShowing = false;
@@ -146,8 +157,12 @@ namespace alm.view {
 			return this.isInitialized;
 		}
 
-		public getIsReady():boolean {
-			return this.isReady;
+		public getIsReadying():boolean {
+			return this.isReadying;
+		}
+
+		public getIsReadied():boolean {
+			return this.isReadied;
 		}
 
 		public getIsShowing():boolean {
@@ -166,16 +181,12 @@ namespace alm.view {
 			return !this.isShown;
 		}
 
+		public getId():number {
+			return this.id;
+		}
+
 		public getView():T {
 			return this.view;
-		}
-
-		public getAutoHideWithInit():boolean {
-			return this.autoHideWithInit;
-		}
-
-		public setAutoHideWithInit(value:boolean):void {
-			this.autoHideWithInit = value;
 		}
 
 		public getName():string {
@@ -184,6 +195,14 @@ namespace alm.view {
 
 		public setName(value:string):void {
 			this.name = value;
+		}
+
+		public getAutoHideWithInit():boolean {
+			return this.autoHideWithInit;
+		}
+
+		public setAutoHideWithInit(value:boolean):void {
+			this.autoHideWithInit = value;
 		}
 
 
@@ -214,18 +233,19 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
+		private id:number;
+		private view:T;
+		private name:string;
+		private autoHideWithInit:boolean;
+		private showCommand:cmd.Command;
+		private hideCommand:cmd.Command;
 		private isInitializing:boolean;
 		private isInitialized:boolean;
-		private isReady:boolean;
+		private isReadying:boolean;
+		private isReadied:boolean;
 		private isShowing:boolean;
 		private isShown:boolean;
 		private isHiding:boolean;
-		private view:T;
-		private autoHideWithInit:boolean;
-		private name:string;
-		private showCommand:cmd.Command;
-		private hideCommand:cmd.Command;
-		private id:number;
 
 		private static id:number = 0;
 		private static viewsById:util.Hash<View> = {};
