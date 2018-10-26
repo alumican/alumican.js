@@ -1,49 +1,50 @@
+/// <reference types="jquery" />
 declare namespace alm.util {
-    type EasingFunction = (x: number, t: number, b: number, c: number, d: number) => number;
+    type EasingFunction = (t: number, b: number, c: number, d: number) => number;
     class Easing {
-        static linear(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInQuad(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutQuad(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutQuad(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInCubic(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutCubic(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutCubic(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInQuart(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutQuart(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutQuart(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInQuint(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutQuint(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutQuint(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInSine(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutSine(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutSine(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInExpo(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutExpo(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutExpo(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInCirc(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutCirc(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutCirc(x: number, t: number, b: number, c: number, d: number): number;
+        static linear(t: number, b: number, c: number, d: number): number;
+        static easeInQuad(t: number, b: number, c: number, d: number): number;
+        static easeOutQuad(t: number, b: number, c: number, d: number): number;
+        static easeInOutQuad(t: number, b: number, c: number, d: number): number;
+        static easeInCubic(t: number, b: number, c: number, d: number): number;
+        static easeOutCubic(t: number, b: number, c: number, d: number): number;
+        static easeInOutCubic(t: number, b: number, c: number, d: number): number;
+        static easeInQuart(t: number, b: number, c: number, d: number): number;
+        static easeOutQuart(t: number, b: number, c: number, d: number): number;
+        static easeInOutQuart(t: number, b: number, c: number, d: number): number;
+        static easeInQuint(t: number, b: number, c: number, d: number): number;
+        static easeOutQuint(t: number, b: number, c: number, d: number): number;
+        static easeInOutQuint(t: number, b: number, c: number, d: number): number;
+        static easeInSine(t: number, b: number, c: number, d: number): number;
+        static easeOutSine(t: number, b: number, c: number, d: number): number;
+        static easeInOutSine(t: number, b: number, c: number, d: number): number;
+        static easeInExpo(t: number, b: number, c: number, d: number): number;
+        static easeOutExpo(t: number, b: number, c: number, d: number): number;
+        static easeInOutExpo(t: number, b: number, c: number, d: number): number;
+        static easeInCirc(t: number, b: number, c: number, d: number): number;
+        static easeOutCirc(t: number, b: number, c: number, d: number): number;
+        static easeInOutCirc(t: number, b: number, c: number, d: number): number;
         static createEaseInElastic(s?: number): EasingFunction;
         static createEaseOutElastic(s?: number): EasingFunction;
         static createEaseInOutElastic(s?: number): EasingFunction;
-        static easeInElastic(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutElastic(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutElastic(x: number, t: number, b: number, c: number, d: number): number;
+        static easeInElastic(t: number, b: number, c: number, d: number): number;
+        static easeOutElastic(t: number, b: number, c: number, d: number): number;
+        static easeInOutElastic(t: number, b: number, c: number, d: number): number;
         private static defaultEaseInElastic;
         private static defaultEaseOutElastic;
         private static defaultEaseInOutElastic;
         static createEaseInBack(s?: number): EasingFunction;
         static createEaseOutBack(s?: number): EasingFunction;
         static createEaseInOutBack(s?: number): EasingFunction;
-        static easeInBack(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutBack(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutBack(x: number, t: number, b: number, c: number, d: number): number;
+        static easeInBack(t: number, b: number, c: number, d: number): number;
+        static easeOutBack(t: number, b: number, c: number, d: number): number;
+        static easeInOutBack(t: number, b: number, c: number, d: number): number;
         private static defaultEaseInBack;
         private static defaultEaseOutBack;
         private static defaultEaseInOutBack;
-        static easeInBounce(x: number, t: number, b: number, c: number, d: number): number;
-        static easeOutBounce(x: number, t: number, b: number, c: number, d: number): number;
-        static easeInOutBounce(x: number, t: number, b: number, c: number, d: number): number;
+        static easeInBounce(t: number, b: number, c: number, d: number): number;
+        static easeOutBounce(t: number, b: number, c: number, d: number): number;
+        static easeInOutBounce(t: number, b: number, c: number, d: number): number;
     }
 }
 declare namespace alm.event {
@@ -582,6 +583,20 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
+    class ObjectPool<T> {
+        constructor(onRequireItem: () => T, onDestroyItem: (item: T) => void, initCount?: number, growthCount?: number);
+        getItem(): T;
+        returnItem(item: T): void;
+        reduce(): void;
+        destroy(): void;
+        private items;
+        private index;
+        private growthCount;
+        onRequireItem: () => T;
+        onDestroyItem: (item: T) => void;
+    }
+}
+declare namespace alm.util {
     class JQueryUtil {
         static fadeTo(target: JQuery, opacity: number, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
         static fadeInJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
@@ -668,36 +683,89 @@ declare namespace alm.view {
         getHideCommand(useTransition?: boolean): cmd.Command;
         getIsInitializing(): boolean;
         getIsInitialized(): boolean;
-        getIsReady(): boolean;
+        getIsReadying(): boolean;
+        getIsReadied(): boolean;
         getIsShowing(): boolean;
         getIsShown(): boolean;
         getIsHiding(): boolean;
         getIsHidden(): boolean;
+        getId(): number;
         getView(): T;
-        getAutoHideWithInit(): boolean;
-        setAutoHideWithInit(value: boolean): void;
         getName(): string;
         setName(value: string): void;
+        getAutoHideWithInit(): boolean;
+        setAutoHideWithInit(value: boolean): void;
         protected abstract implInitialize(): T;
         protected abstract implReady(): void;
         protected abstract implFinalize(): void;
         protected abstract implShow(view: T, useTransition: boolean): cmd.Command;
         protected abstract implHide(view: T, useTransition: boolean): cmd.Command;
         static getViewById(id: number): View;
+        private id;
+        private view;
+        private name;
+        private autoHideWithInit;
+        private showCommand;
+        private hideCommand;
         private isInitializing;
         private isInitialized;
-        private isReady;
+        private isReadying;
+        private isReadied;
         private isShowing;
         private isShown;
         private isHiding;
-        private view;
-        private autoHideWithInit;
-        private name;
-        private showCommand;
-        private hideCommand;
-        private id;
         private static id;
         private static viewsById;
+    }
+}
+declare namespace alm.view {
+    class ButtonBehavior {
+        constructor(target: IButton, hitArea?: JQuery);
+        over(useTransition?: boolean): void;
+        out(useTransition?: boolean): void;
+        down(useTransition?: boolean): void;
+        up(useTransition?: boolean): void;
+        click(useTransition?: boolean): void;
+        private on();
+        private off();
+        private mouseOverHandler;
+        private mouseOutHandler;
+        private mouseDownHandler;
+        private mouseUpHandler;
+        private clickHandler;
+        getIsOver(): boolean;
+        getIsDown(): boolean;
+        getHitArea(): JQuery;
+        setHitArea(hitArea: JQuery): void;
+        clearHitArea(): void;
+        private target;
+        private hitArea;
+        private isOver;
+        private isDown;
+    }
+}
+declare namespace alm.view {
+    interface IButton {
+        implButtonOver(useTransition: boolean): void;
+        implButtonOut(useTransition: boolean): void;
+        implButtonDown(useTransition: boolean): void;
+        implButtonUp(useTransition: boolean): void;
+        implButtonClick(useTransition: boolean): void;
+    }
+}
+declare namespace alm.view {
+    class SelectionBehavior {
+        constructor(target: ISelection);
+        select(useTransition?: boolean): void;
+        deselect(useTransition?: boolean): void;
+        getIsSelected(): boolean;
+        private target;
+        private isSelected;
+    }
+}
+declare namespace alm.view {
+    interface ISelection {
+        implSelectionChanged(isSelected: boolean, useTransition: boolean): void;
     }
 }
 declare namespace alm.browser {
@@ -709,12 +777,14 @@ declare namespace alm.browser {
         static getIsIOS(): boolean;
         static getIsAndroid(): boolean;
         static getIsRetina(): boolean;
+        static getDpi(): number;
         private static isDesktop;
         private static isTablet;
         private static isMobile;
         private static isRetina;
         private static isIOS;
         private static isAndroid;
+        private static dpi;
         private static isInitialized;
         private constructor();
     }

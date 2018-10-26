@@ -94,7 +94,7 @@ namespace cmd {
 
 		private apply(timeRatio:number):void {
 			this.progressTime = timeRatio;
-			this.progressValue = this.easing(0, this.progressTime, 0, 1, 1);
+			this.progressValue = this.easing(this.progressTime, 0, 1, 1);
 			let value0:number;
 			for (let key in this.to) {
 				value0 = this.internalFrom[key];
