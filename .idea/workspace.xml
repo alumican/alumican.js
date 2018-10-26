@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/gulpfile.js" afterPath="$PROJECT_DIR$/build/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.d.ts" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js" afterPath="$PROJECT_DIR$/lib/alumican.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js.map" afterPath="$PROJECT_DIR$/lib/alumican.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js" afterPath="$PROJECT_DIR$/lib/alumican.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alm/browser/DeviceInfo.ts" afterPath="$PROJECT_DIR$/src/alm/browser/DeviceInfo.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alm/util/Easing.ts" afterPath="$PROJECT_DIR$/src/alm/util/Easing.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alm/view/View.ts" afterPath="$PROJECT_DIR$/src/alm/view/View.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cmd/Tween.ts" afterPath="$PROJECT_DIR$/src/cmd/Tween.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reference.ts" afterPath="$PROJECT_DIR$/src/reference.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,108 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Pager.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/Pager.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Arr.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/Arr.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandUtil.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/CommandUtil.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceInfo.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/alm/browser/DeviceInfo.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="76" column="44" lean-forward="true" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Obj.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/Obj.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Logger.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/Logger.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2865">
-              <caret line="225" column="56" lean-forward="false" selection-start-line="225" selection-start-column="47" selection-end-line="225" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PagerEvent.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/PagerEvent.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alumican.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/alumican.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alumican.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObjectPool.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alm/util/ObjectPool.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -137,7 +32,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>join</find>
       <find>name</find>
       <find>currentWaypoint</find>
       <find>currentScene</find>
@@ -167,6 +61,7 @@
       <find>easing</find>
       <find>easeIn</find>
       <find>b:number, c:number, d:number</find>
+      <find>Pager</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -228,13 +123,13 @@
         <option value="$PROJECT_DIR$/src/alm/view/SelectionBehavior.ts" />
         <option value="$PROJECT_DIR$/src/alm/view/View.ts" />
         <option value="$PROJECT_DIR$/src/alm/view/ButtonBehavior.ts" />
-        <option value="$PROJECT_DIR$/src/reference.ts" />
         <option value="$PROJECT_DIR$/src/cmd/Tween.ts" />
         <option value="$PROJECT_DIR$/lib/alumican.js" />
         <option value="$PROJECT_DIR$/src/alm/util/Easing.ts" />
         <option value="$PROJECT_DIR$/src/alm/util/Pager.ts" />
         <option value="$PROJECT_DIR$/src/alm/util/PagerEvent.ts" />
         <option value="$PROJECT_DIR$/src/alm/browser/DeviceInfo.ts" />
+        <option value="$PROJECT_DIR$/src/reference.ts" />
       </list>
     </option>
   </component>
@@ -271,6 +166,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,10 +230,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -548,12 +443,13 @@
       <workItem from="1537610924974" duration="8771000" />
       <workItem from="1537632128832" duration="5652000" />
       <workItem from="1537954299330" duration="656000" />
-      <workItem from="1540561364094" duration="656000" />
+      <workItem from="1540561364094" duration="1693000" />
+      <workItem from="1540563540291" duration="322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136239000" />
+    <option name="totallyTimeSpent" value="137598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="1778" extended-state="0" />
@@ -573,7 +469,7 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33511585" sideWeight="0.55150217" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -819,14 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reference.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alm/view/View.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -884,66 +772,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alm/util/Easing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alm/util/Obj.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alm/util/Logger.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2865">
-          <caret line="225" column="56" lean-forward="false" selection-start-line="225" selection-start-column="47" selection-end-line="225" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alm/util/ObjectPool.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alm/util/PagerEvent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alm/util/Pager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -956,18 +788,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alm/util/CommandUtil.ts">
+    <entry file="file://$PROJECT_DIR$/src/alm/util/Easing.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="494">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alm/browser/DeviceInfo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="76" column="44" lean-forward="true" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+        <state relative-caret-position="382">
+          <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reference.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="42" lean-forward="true" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="1780" column="42" lean-forward="false" selection-start-line="1780" selection-start-column="42" selection-end-line="1780" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alm/util/PagerEvent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alm/util/Logger.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1299">
+          <caret line="225" column="56" lean-forward="false" selection-start-line="225" selection-start-column="47" selection-end-line="225" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alm/util/CommandUtil.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alm/util/Pager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alm/util/ObjectPool.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10431">
+          <caret line="549" column="24" lean-forward="false" selection-start-line="549" selection-start-column="24" selection-end-line="549" selection-end-column="24" />
           <folding />
         </state>
       </provider>

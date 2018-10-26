@@ -538,6 +538,53 @@ declare function trace(...messages: any[]): void;
 declare function throwWarn(target: any, message: string, condition?: boolean): void;
 declare function throwError(target: any, message: string, condition?: boolean): void;
 declare namespace alm.util {
+    class Pager extends alm.event.EventDispatcher {
+        constructor();
+        setupById(ids: string[]): void;
+        setupByCount(itemCount: number): void;
+        private setup();
+        gotoByIndex(itemIndex: number, useTransition?: boolean): boolean;
+        gotoById(itemId: string, useTransition?: boolean): boolean;
+        prev(useTransition?: boolean): boolean;
+        next(useTransition?: boolean): boolean;
+        private dispatchPagerEvent(eventType, callback, useTransition);
+        getIsLoopEnabled(): boolean;
+        setIsLoopEnabled(value: boolean): void;
+        private isLoopEnabled;
+        getNewItemIndex(): number;
+        private newItemIndex;
+        getOldItemIndex(): number;
+        private oldItemIndex;
+        getItemCount(): number;
+        private itemCount;
+        getNewItemId(): string;
+        private newItemId;
+        getOldItemId(): string;
+        private oldItemId;
+        getItemIds(): string[];
+        private itemIds;
+        private itemIndexById;
+        onChange: (event: PagerEvent) => void;
+        onPrev: (event: PagerEvent) => void;
+        onNext: (event: PagerEvent) => void;
+    }
+}
+declare namespace alm.util {
+    class PagerEvent extends alm.event.Event {
+        static CHANGE: string;
+        static PREV: string;
+        static NEXT: string;
+        constructor(eventType: string, eventTarget: any, newItemIndex: number, oldItemIndex: number, newItemId: string, oldItemId: string, useTransition: boolean);
+        clone(): PagerEvent;
+        toString(): string;
+        newItemIndex: number;
+        oldItemIndex: number;
+        newItemId: string;
+        oldItemId: string;
+        useTransition: boolean;
+    }
+}
+declare namespace alm.util {
     import EventDispatcher = alm.event.EventDispatcher;
     class Timer extends EventDispatcher {
         constructor(interval?: number, repeatCount?: number);
