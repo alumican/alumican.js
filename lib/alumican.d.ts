@@ -1,4 +1,3 @@
-/// <reference types="jquery" />
 declare namespace alm.util {
     type EasingFunction = (t: number, b: number, c: number, d: number) => number;
     class Easing {
@@ -644,15 +643,6 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
-    class JQueryUtil {
-        static fadeTo(target: JQuery, opacity: number, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static fadeInJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static fadeOutJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static getQuery(): Hash<string>;
-        private constructor();
-    }
-}
-declare namespace alm.util {
     class CommandUtil {
         static stop(command: cmd.Command): any;
         static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
@@ -661,37 +651,56 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.loader {
+    type CompleteFunction = (content: any) => void;
+    type ErrorFunction = (message: string) => void;
     class AssetLoader {
         constructor();
-        requireJQueryJson(url: string): string;
-        requireThreeTexture(url: string): string;
+        require(url: string, type: string): string;
         private addQuery(type, url, param);
         load(): void;
         private next();
+        addHandler(handler: IFileHandler): void;
+        private fileLoadCompleteHandler;
+        private fileLoadErrorHandler;
         addLoadUpdateListener(listener: (event: AssetLoaderEvent) => void): void;
         removeLoadUpdateListener(listener: (event: AssetLoaderEvent) => void): void;
         addLoadCompleteListener(listener: (event: AssetLoaderEvent) => void): void;
         removeLoadCompleteListener(listener: (event: AssetLoaderEvent) => void): void;
-        getQueryByQueryId(queryId: string): LoaderQuery;
-        getQueryByUrl(url: string): LoaderQuery;
+        getQueryByQueryId(queryId: string): FileQuery;
+        getQueryByUrl(url: string): FileQuery;
         isLoading(): boolean;
         private isLoading_;
         getCurrentCount(): number;
         private currentCount;
         getTotalCount(): number;
         private totalCount;
-        getTexturesByUrl(url: string): THREE.Texture;
-        private texturesByUrl;
-        getTexturesByQueryId(textureId: string): THREE.Texture;
-        private texturesByQueryId;
+        getContentByUrl<T = any>(url: string): THREE.Texture;
+        getContentByQueryId<T = any>(textureId: string): THREE.Texture;
         private loadingQueries;
         private loadingQueryIndex;
         private queriesByQueryId;
         private queriesByUrl;
+        private handlersByType;
         private eventDispatcher;
         private static id;
     }
-    class LoaderQuery {
+}
+declare namespace alm.loader {
+    class AssetLoaderEvent extends alm.event.Event {
+        static PROGRESS: string;
+        static COMPLETE: string;
+        static ERROR: string;
+        constructor(eventType: string, eventTarget?: any, progress?: number, loadedCount?: number, totalCount?: number, content?: any);
+        clone(): AssetLoaderEvent;
+        toString(): string;
+        progress: number;
+        loadedCount: number;
+        totalCount: number;
+        content: any;
+    }
+}
+declare namespace alm.loader {
+    class FileQuery {
         constructor();
         id: string;
         type: string;
@@ -703,18 +712,9 @@ declare namespace alm.loader {
     }
 }
 declare namespace alm.loader {
-    import Event = alm.event.Event;
-    class AssetLoaderEvent extends Event {
-        static PROGRESS: string;
-        static COMPLETE: string;
-        static ERROR: string;
-        constructor(eventType: string, eventTarget?: any, progress?: number, loadedCount?: number, totalCount?: number, content?: any);
-        clone(): AssetLoaderEvent;
-        toString(): string;
-        progress: number;
-        loadedCount: number;
-        totalCount: number;
-        content: any;
+    interface IFileHandler {
+        getType(): string;
+        load(url: string, onComplete: CompleteFunction, onError: ErrorFunction): void;
     }
 }
 declare namespace alm.view {

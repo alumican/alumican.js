@@ -1,69 +1,124 @@
 'use strict';
 
 //----------------------------------------
-var SRC_DIR = '../src';
-var DST_DIR = '../lib';
-var TEST_DIR = '../test';
+// load modules
 
-var SRC_FILENAME = 'include';
-var DST_FILENAME = 'alumican';
-
-//----------------------------------------
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var typescript = require('gulp-typescript');
+var tap = require('gulp-tap');
 var sourcemaps = require('gulp-sourcemaps');
+var typescript = require('gulp-typescript');
 var uglify = require('gulp-uglify');
 
 //----------------------------------------
-function typescriptOptions(declaration, outFile) {
+// load settings
+
+var config = require('./config.json');
+
+var srcRoot = config.path.srcRoot;
+var deployRoot = config.path.deployRoot;
+var testRoot = config.path.testRoot;
+var createDirectory = config.option.createProjectDirectory;
+var projects = config.projects;
+var typeScriptOptions = config.typeScript;
+
+//----------------------------------------
+// define functions
+
+function getTypescriptOptions(declaration, outFile) {
 	var option = {
 		declaration: declaration,
 		removeComments: true,
-		target: 'ES5',
-		'lib': ['es6', 'dom'],
-		'typeRoots': ['node_modules/@types/'],
-		'types': ['jquery', 'three']
+		'typeRoots': ['node_modules/@types/']
 	};
+	if (typeScriptOptions.target) {
+		option.target = typeScriptOptions.target;
+	}
+	if (typeScriptOptions.lib) {
+		option.lib = typeScriptOptions.lib;
+	}
+	if (typeScriptOptions.types) {
+		option.types = typeScriptOptions.types;
+	}
 	if (outFile) {
 		option.outFile = outFile;
 	}
 	return option;
 }
 
-gulp.task('compile', function() {
-	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
-		.pipe(plumber())
-		.pipe(sourcemaps.init('./'))
-		.pipe(typescript(typescriptOptions(true, DST_FILENAME + '.js')))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(DST_DIR));
-});
+function registerTask(taskName, srcPaths, getCommands) {
+	gulp.task(taskName, function() {
+		return gulp.src(srcPaths)
+			.pipe(plumber())
+			.pipe(tap(function (file, t) {
+				var names = file.path.split('/');
+				var fileName = names[names.length - 1].split(".")[0];
+				var srcIndex = names.lastIndexOf('src');
+				var outDirectory = createDirectory ? (deployRoot + '/' + names.slice(srcIndex + 1, names.length - 1).join('/')) : deployRoot;
+				// create pipeline
+				var commands = getCommands(fileName);
+				var pipeline = gulp.src(file.path);
+				pipeline = pipeline.pipe(plumber());
+				for (var i = 0; i < commands.length; ++i) {
+					pipeline = pipeline.pipe(commands[i]);
+				}
+				pipeline = pipeline.pipe(gulp.dest(outDirectory));
+				return pipeline;
+			}));
+	});
+}
 
-gulp.task('compile-min', function() {
-	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
-		.pipe(plumber())
-		.pipe(sourcemaps.init('./'))
-		.pipe(typescript(typescriptOptions(false, DST_FILENAME + '.min.js')))
-		.pipe(uglify())
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(DST_DIR));
-});
+function registerProject(project) {
+	console.log('    + ' + project);
+	var projectSrc = srcRoot + '/' + project;
 
-gulp.task('compile-test', function() {
-	return gulp.src([TEST_DIR + '/**/*.ts'])
-		.pipe(plumber())
-		.pipe(sourcemaps.init('./'))
-		.pipe(typescript(typescriptOptions(false, null)))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(TEST_DIR));
-});
+	registerTask(project + '-compile', [projectSrc + '/include.ts'], function (fileName) {
+		return [
+			sourcemaps.init('./'),
+			typescript(getTypescriptOptions(true, project + '.js')),
+			sourcemaps.write('./')
+		]
+	});
+
+	registerTask(project + '-compile-min', [projectSrc + '/include.ts'], function (fileName) {
+		return [
+			sourcemaps.init('./'),
+			typescript(getTypescriptOptions(false, project + '.min.js')),
+			uglify(),
+			sourcemaps.write('./')
+		];
+	});
+
+	gulp.task(project + '-watch', function() {
+		gulp.watch(projectSrc + '/**/*.ts', gulp.series([project + '-compile', project + '-compile-min']));
+	});
+}
+
+function run() {
+	console.log('register projects');
+
+	var defaultTasks = [];
+	for (var i = 0; i < projects.length; ++i) {
+		var project = projects[i];
+		registerProject(project);
+		defaultTasks.push(project + '-watch');
+	}
+
+	gulp.task('test-compile', function () {
+		return gulp.src([testRoot + '/**/*.ts'])
+			.pipe(plumber())
+			.pipe(sourcemaps.init('./'))
+			.pipe(typescript(getTypescriptOptions(false, null)))
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest(testRoot));
+	});
+	gulp.task('test-watch', function () {
+		gulp.watch(testRoot + '/**/*.ts', gulp.series(['test-compile']));
+	});
+	defaultTasks.push('test-watch');
+
+	gulp.task('default', gulp.parallel(defaultTasks));
+}
 
 //----------------------------------------
-gulp.task('watch', function() {
-	gulp.watch(SRC_DIR + '/**/*.ts', gulp.series(['compile', 'compile-min']));
-	gulp.watch(TEST_DIR + '/**/*.ts', gulp.series(['compile-test']));
-});
-
-//----------------------------------------
-gulp.task('default', gulp.parallel(['compile', 'compile-min', 'compile-test', 'watch']));
+run();

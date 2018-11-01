@@ -1,0 +1,20 @@
+{
+	"path": {
+		"srcRoot": "../src",
+		"deployRoot": "../lib",
+		"testRoot": "../test"
+	},
+	"projects": [
+		"alumican",
+		"alumican.jquery",
+		"alumican.three"
+	],
+	"option": {
+		"createProjectDirectory": false
+	},
+	"typeScript": {
+		"target": "ES5",
+		"lib": ["es6", "dom"],
+		"types": ["jquery", "three"]
+	}
+}

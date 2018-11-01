@@ -2,9 +2,7 @@
 
 namespace alm.loader {
 
-	import Event = alm.event.Event;
-
-	export class AssetLoaderEvent extends Event {
+	export class AssetLoaderEvent extends alm.event.Event {
 
 		// --------------------------------------------------
 		//

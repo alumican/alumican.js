@@ -1,6 +1,4 @@
 /* ---------- dependency ---------- */
-/// <reference types='jquery' />
-/// <reference types='three' />
 
 /* ---------- project ---------- */
 /// <reference path='alm/util/Easing.ts' />
@@ -39,10 +37,11 @@
 /// <reference path='alm/util/Timer.ts' />
 /// <reference path='alm/util/TimerEvent.ts' />
 /// <reference path='alm/util/ObjectPool.ts' />
-/// <reference path='alm/util/JQueryUtil.ts' />
 /// <reference path='alm/util/CommandUtil.ts' />
 /// <reference path='alm/loader/AssetLoader.ts' />
 /// <reference path='alm/loader/AssetLoaderEvent.ts' />
+/// <reference path='alm/loader/FileQuery.ts' />
+/// <reference path='alm/loader/IFileHandler.ts' />
 /// <reference path='alm/view/View.ts' />
 /// <reference path='alm/view/ButtonBehavior.ts' />
 /// <reference path='alm/view/IButton.ts' />
@@ -64,7 +63,6 @@
 /// <reference path='scn/core/Direction.ts' />
 /// <reference path='scn/core/RootScene.ts' />
 /// <reference path='scn/core/Waypoint.ts' />
-
 
 namespace alm {
 
