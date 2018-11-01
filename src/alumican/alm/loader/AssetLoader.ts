@@ -168,8 +168,8 @@ namespace alm.loader {
 		public getTotalCount():number { return this.totalCount; }
 		private totalCount:number;
 
-		public getContentByUrl<T = any>(url:string):THREE.Texture { return this.queriesByUrl[url].content; }
-		public getContentByQueryId<T = any>(textureId:string):THREE.Texture { return this.queriesByQueryId[textureId].content; }
+		public getContentByUrl<T = any>(url:string):T { return this.queriesByUrl[url].content; }
+		public getContentByQueryId<T = any>(textureId:string):T { return this.queriesByQueryId[textureId].content; }
 
 		private loadingQueries:FileQuery[];
 		private loadingQueryIndex:number;

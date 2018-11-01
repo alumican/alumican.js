@@ -2,73 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/alumican.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/alumican.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/alumican.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/alumican.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/browser/DeviceInfo.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/browser/KeyWatcher.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/KeyWatcher.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/browser/KeyWatcherEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/KeyWatcherEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/browser/LocalStorage.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/LocalStorage.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/browser/WindowWatcher.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/browser/WindowWatcherEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcherEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/event/Event.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/event/Event.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/event/EventDispatcher.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/geom/Rectangle.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/geom/Rectangle.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/geom/Vector2.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/geom/Vector2.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/geom/Vector3.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/geom/Vector3.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/loader/AssetLoader.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/loader/AssetLoaderEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoaderEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Arr.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Arr.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Boxer.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Boxer.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/CommandUtil.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/CommandUtil.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Easing.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Easing.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Hash.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Hash.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/JQueryUtil.ts" afterPath="$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Loc.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Loc.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Logger.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Logger.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Num.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Num.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Obj.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Obj.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/ObjectPool.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/ObjectPool.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Pager.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/PagerEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Raffle.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Raffle.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Rotator.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Rotator.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Str.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Str.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/Timer.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Timer.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/util/TimerEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/util/TimerEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/view/ButtonBehavior.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/view/IButton.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/view/IButton.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/view/ISelection.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/view/ISelection.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/view/SelectionBehavior.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/view/SelectionBehavior.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/alm/view/View.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/view/View.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Break.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Break.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Command.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Command.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/CommandEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/CommandEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/CommandList.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/CommandList.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/CommandState.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/CommandState.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Func.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Func.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Listen.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Listen.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Log.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Log.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Parallel.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Parallel.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Return.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Return.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Serial.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Serial.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Tween.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Tween.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cmd/Wait.ts" afterPath="$PROJECT_DIR$/src/alumican/cmd/Wait.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/include.ts" afterPath="$PROJECT_DIR$/src/alumican/include.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/Scene.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/Scene.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/SceneEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/SceneManager.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneManager.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/SceneManagerEvent.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneManagerEvent.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/SceneState.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneState.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/SceneTransferInfo.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneTransferInfo.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/core/Direction.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/core/Direction.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/core/RootScene.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/core/RootScene.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scn/core/Waypoint.ts" afterPath="$PROJECT_DIR$/src/alumican/scn/core/Waypoint.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/gulpfile.js" afterPath="$PROJECT_DIR$/build/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/package.json" afterPath="$PROJECT_DIR$/build/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.d.ts" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.jquery.d.ts" afterPath="$PROJECT_DIR$/lib/alumican.jquery.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.jquery.js" afterPath="$PROJECT_DIR$/lib/alumican.jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.jquery.js.map" afterPath="$PROJECT_DIR$/lib/alumican.jquery.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.jquery.min.js" afterPath="$PROJECT_DIR$/lib/alumican.jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.jquery.min.js.map" afterPath="$PROJECT_DIR$/lib/alumican.jquery.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js.map" afterPath="$PROJECT_DIR$/lib/alumican.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts" afterPath="$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,11 +23,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="746">
-              <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+            <state relative-caret-position="1012">
+              <caret line="100" column="47" lean-forward="true" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alumican.three.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/alumican.three.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="37" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alumican.jquery.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/alumican.jquery.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileQuery.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/FileQuery.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssetLoader.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alumican.d.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Loc.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Loc.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JQueryUtil.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Arr.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Arr.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hash.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Hash.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,7 +156,6 @@
       <find>THREE.</find>
       <find>&quot;</find>
       <find>THREE</find>
-      <find>JQuery</find>
       <find>aluminium/</find>
       <find>AssetLoader</find>
       <find>jQuery</find>
@@ -132,6 +164,7 @@
       <find>LoaderQuery</find>
       <find>queriesByQueryId</find>
       <find>param</find>
+      <find>JQuery</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -151,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/alm/view/IButton.ts" />
         <option value="$PROJECT_DIR$/src/alm/view/ISelection.ts" />
         <option value="$PROJECT_DIR$/src/alm/view/SelectionBehavior.ts" />
         <option value="$PROJECT_DIR$/src/alm/view/View.ts" />
@@ -185,23 +217,24 @@
         <option value="$PROJECT_DIR$/src/aluminium/include.ts" />
         <option value="$PROJECT_DIR$/build/package.json" />
         <option value="$PROJECT_DIR$/build/gulpfile.js" />
-        <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoaderEvent.ts" />
         <option value="$PROJECT_DIR$/build/config.json" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/FileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/loader/FileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican.three/alm/loader/ThreeTextureAtlasFileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/FileQuery.ts" />
-        <option value="$PROJECT_DIR$/lib/alumican.d.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/IFileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/loader/JQueryJsonFileHandler.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
         <option value="$PROJECT_DIR$/src/alumican.three/alm/loader/ThreeTextureFileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican.three/include.ts" />
         <option value="$PROJECT_DIR$/src/alumican/include.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/include.ts" />
-        <option value="$PROJECT_DIR$/lib/alumican.jquery.d.ts" />
         <option value="$PROJECT_DIR$/lib/alumican.three.d.ts" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
+        <option value="$PROJECT_DIR$/lib/alumican.d.ts" />
+        <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/util/Loc.ts" />
+        <option value="$PROJECT_DIR$/lib/alumican.jquery.d.ts" />
       </list>
     </option>
   </component>
@@ -263,6 +296,56 @@
               <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+              <item name="browser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican.jquery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican.jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican.jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -483,15 +566,16 @@
       <workItem from="1540561364094" duration="1693000" />
       <workItem from="1540563540291" duration="381000" />
       <workItem from="1540565372010" duration="185000" />
-      <workItem from="1541040207707" duration="16750000" />
+      <workItem from="1541040207707" duration="17045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154592000" />
+    <option name="totallyTimeSpent" value="154887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="1778" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -507,7 +591,7 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33511585" sideWeight="0.55150217" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976827" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -719,22 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Arr.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Loc.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Num.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -752,14 +820,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Boxer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Hash.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -831,14 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="80" column="36" lean-forward="false" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoaderEvent.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -855,24 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/FileQuery.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.three.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.three/include.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -885,14 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -925,24 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.jquery.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12882">
-          <caret line="678" column="31" lean-forward="true" selection-start-line="678" selection-start-column="31" selection-end-line="678" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.three/alm/loader/ThreeTextureFileHandler.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -953,8 +961,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+        <state relative-caret-position="1012">
+          <caret line="100" column="47" lean-forward="true" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/FileQuery.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Hash.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Arr.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Loc.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.three.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="37" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.jquery.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding />
         </state>
       </provider>

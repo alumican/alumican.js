@@ -674,8 +674,8 @@ declare namespace alm.loader {
         private currentCount;
         getTotalCount(): number;
         private totalCount;
-        getContentByUrl<T = any>(url: string): THREE.Texture;
-        getContentByQueryId<T = any>(textureId: string): THREE.Texture;
+        getContentByUrl<T = any>(url: string): T;
+        getContentByQueryId<T = any>(textureId: string): T;
         private loadingQueries;
         private loadingQueryIndex;
         private queriesByQueryId;
