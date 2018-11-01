@@ -983,21 +983,19 @@ declare namespace alm.browser {
         static setIsContinuousPressEnabled(enabled: boolean): void;
         private static isContinuousPressEnabled;
         private static isInitialized;
-        private static pressTimer;
         private static isLongPressed;
         private static eventDispatcher;
         private constructor();
     }
 }
 declare namespace alm.browser {
-    import Event = alm.event.Event;
-    class KeyWatcherEvent extends Event {
+    class KeyWatcherEvent extends alm.event.Event {
         static KEY_UP: string;
         static KEY_DOWN: string;
-        constructor(eventType: string, eventTarget?: any, jqueryEvent?: JQuery.Event);
+        constructor(eventType: string, eventTarget?: any, originalEvent?: KeyboardEvent);
         clone(): KeyWatcherEvent;
         toString(): string;
-        jqueryEvent: JQuery.Event;
+        originalEvent: KeyboardEvent;
         key: string;
         keyCode: number;
         altKey: boolean;
@@ -1015,8 +1013,8 @@ declare namespace alm.browser {
         static removeEventListener(eventType: string, listener: (event: WindowWatcherEvent) => void): void;
         static calcScrolledPosition(y: number): number;
         static calcScrolledPositionRatio(y: number): number;
-        private static windowScrollHandler;
         private static windowResizeHandler;
+        private static windowScrollHandler;
         static getIsRunning(): boolean;
         private static isRunning;
         static getScrollTop(): number;
@@ -1033,14 +1031,13 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    import Event = alm.event.Event;
-    class WindowWatcherEvent extends Event {
+    class WindowWatcherEvent extends alm.event.Event {
         static SCROLL: string;
         static RESIZE: string;
-        constructor(eventType: string, eventTarget?: any, jqueryEvent?: JQuery.Event, scrollTop?: number, scrollBottom?: number, windowWidth?: number, windowHeight?: number);
+        constructor(eventType: string, eventTarget?: any, originalEvent?: Event, scrollTop?: number, scrollBottom?: number, windowWidth?: number, windowHeight?: number);
         clone(): WindowWatcherEvent;
         toString(): string;
-        jqueryEvent: JQuery.Event;
+        originalEvent: Event;
         scrollTop: number;
         scrollBottom: number;
         windowWidth: number;

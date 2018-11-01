@@ -2,9 +2,6 @@
 
 namespace alm.browser {
 
-	import Timer = alm.util.Timer;
-	import EventDispatcher = alm.event.EventDispatcher;
-
 	// https://github.com/nfriend/ts-keycode-enum
 	export enum KeyCode {
 		Backspace = 8,
@@ -151,7 +148,7 @@ namespace alm.browser {
 			if (this.isInitialized) return;
 			this.isInitialized = true;
 
-			this.eventDispatcher = new EventDispatcher();
+			this.eventDispatcher = new alm.event.EventDispatcher();
 		}
 
 		public static start():void {
@@ -161,9 +158,8 @@ namespace alm.browser {
 			this.initialize();
 			trace("[KeyWatcher] start");
 
-			const $window:JQuery = jQuery(window);
-			$window.on("keydown", this.windowKeyDownHandler);
-			$window.on("keyup", this.windowKeyUpHandler);
+			window.addEventListener("keydown", this.windowKeyDownHandler);
+			window.addEventListener("keyup", this.windowKeyUpHandler);
 		}
 
 
@@ -174,9 +170,8 @@ namespace alm.browser {
 			this.initialize();
 			trace("[KeyWatcher] stop");
 
-			const $window:JQuery = jQuery(window);
-			$window.off("keydown", this.windowKeyDownHandler);
-			$window.off("keyup", this.windowKeyUpHandler);
+			window.removeEventListener("keydown", this.windowKeyDownHandler);
+			window.removeEventListener("keyup", this.windowKeyUpHandler);
 		}
 
 		public static addEventListener(eventType:string, listener:(event:KeyWatcherEvent) => void):void {
@@ -193,7 +188,7 @@ namespace alm.browser {
 
 
 
-		private static windowKeyDownHandler = (event:JQuery.Event):void => {
+		private static windowKeyDownHandler = (event:KeyboardEvent):void => {
 			const keyCode:number = event.keyCode;
 			if (KeyWatcher.isKeyPressedByKeyCode[keyCode] == null) {
 				KeyWatcher.isKeyPressedByKeyCode[keyCode] = true;
@@ -204,7 +199,7 @@ namespace alm.browser {
 			}
 		};
 
-		private static windowKeyUpHandler = (event:JQuery.Event):void => {
+		private static windowKeyUpHandler = (event:KeyboardEvent):void => {
 			const keyCode:number = event.keyCode;
 			if (KeyWatcher.isKeyPressedByKeyCode[keyCode] != null) {
 				delete KeyWatcher.isKeyPressedByKeyCode[keyCode];
@@ -238,9 +233,8 @@ namespace alm.browser {
 		private static isContinuousPressEnabled:boolean = false;
 
 		private static isInitialized:boolean = false;
-		private static pressTimer:Timer = null;
 		private static isLongPressed:boolean = false;
-		private static eventDispatcher:EventDispatcher = null;
+		private static eventDispatcher:alm.event.EventDispatcher = null;
 
 
 

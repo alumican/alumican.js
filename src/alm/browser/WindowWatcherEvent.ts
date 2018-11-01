@@ -2,9 +2,7 @@
 
 namespace alm.browser {
 
-	import Event = alm.event.Event;
-
-	export class WindowWatcherEvent extends Event {
+	export class WindowWatcherEvent extends alm.event.Event {
 
 		// --------------------------------------------------
 		//
@@ -25,9 +23,9 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, jqueryEvent:JQuery.Event = null, scrollTop:number = 0, scrollBottom:number = 0, windowWidth:number = 0, windowHeight:number = 0) {
+		constructor(eventType:string, eventTarget:any = null, originalEvent:Event = null, scrollTop:number = 0, scrollBottom:number = 0, windowWidth:number = 0, windowHeight:number = 0) {
 			super(eventType, eventTarget);
-			this.jqueryEvent = jqueryEvent;
+			this.originalEvent = originalEvent;
 			this.scrollTop = scrollTop;
 			this.scrollBottom = scrollBottom;
 			this.windowWidth = windowWidth;
@@ -45,7 +43,7 @@ namespace alm.browser {
 		// --------------------------------------------------
 
 		public clone():WindowWatcherEvent {
-			return new WindowWatcherEvent(this.getType(), this.getTarget(), this.jqueryEvent, this.scrollTop, this.scrollBottom, this.windowWidth, this.windowHeight);
+			return new WindowWatcherEvent(this.getType(), this.getTarget(), this.originalEvent, this.scrollTop, this.scrollBottom, this.windowWidth, this.windowHeight);
 		}
 
 		public toString():string {
@@ -62,7 +60,7 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		public jqueryEvent:JQuery.Event;
+		public originalEvent:Event;
 		public scrollTop:number;
 		public scrollBottom:number;
 		public windowWidth:number;

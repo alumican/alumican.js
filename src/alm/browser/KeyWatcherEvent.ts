@@ -2,9 +2,7 @@
 
 namespace alm.browser {
 
-	import Event = alm.event.Event;
-
-	export class KeyWatcherEvent extends Event {
+	export class KeyWatcherEvent extends alm.event.Event {
 
 		// --------------------------------------------------
 		//
@@ -25,14 +23,14 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, jqueryEvent:JQuery.Event = null) {
+		constructor(eventType:string, eventTarget:any = null, originalEvent:KeyboardEvent = null) {
 			super(eventType, eventTarget);
-			this.jqueryEvent = jqueryEvent;
-			this.key = this.jqueryEvent.key;
-			this.keyCode = this.jqueryEvent.keyCode;
-			this.altKey = this.jqueryEvent.altKey;
-			this.ctrlKey = this.jqueryEvent.ctrlKey;
-			this.shiftKey = this.jqueryEvent.shiftKey;
+			this.originalEvent = originalEvent;
+			this.key = this.originalEvent.key;
+			this.keyCode = this.originalEvent.keyCode;
+			this.altKey = this.originalEvent.altKey;
+			this.ctrlKey = this.originalEvent.ctrlKey;
+			this.shiftKey = this.originalEvent.shiftKey;
 		}
 
 
@@ -46,7 +44,7 @@ namespace alm.browser {
 		// --------------------------------------------------
 
 		public clone():KeyWatcherEvent {
-			return new KeyWatcherEvent(this.getType(), this.getTarget(), this.jqueryEvent);
+			return new KeyWatcherEvent(this.getType(), this.getTarget(), this.originalEvent);
 		}
 
 		public toString():string {
@@ -63,7 +61,7 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		public jqueryEvent:JQuery.Event;
+		public originalEvent:KeyboardEvent;
 		public key:string;
 		public keyCode:number;
 		public altKey:boolean;

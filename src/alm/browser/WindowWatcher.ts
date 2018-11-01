@@ -2,8 +2,6 @@
 
 namespace alm.browser {
 
-	import EventDispatcher = alm.event.EventDispatcher;
-
 	export class WindowWatcher {
 
 		// --------------------------------------------------
@@ -16,7 +14,7 @@ namespace alm.browser {
 			if (this.isInitialized) return;
 			this.isInitialized = true;
 
-			this.eventDispatcher = new EventDispatcher();
+			this.eventDispatcher = new alm.event.EventDispatcher();
 		}
 
 		public static start():void {
@@ -26,8 +24,8 @@ namespace alm.browser {
 			this.initialize();
 			trace("[WindowWatcher] start");
 
-			jQuery(window).on("resize", this.windowScrollHandler);
-			jQuery(window).on("scroll", this.windowScrollHandler);
+			window.addEventListener("resize", this.windowResizeHandler);
+			window.addEventListener("scroll", this.windowScrollHandler);
 			this.apply();
 		}
 
@@ -38,17 +36,15 @@ namespace alm.browser {
 			this.initialize();
 			trace("[WindowWatcher] stop");
 
-			jQuery(window).off("resize", this.windowScrollHandler);
-			jQuery(window).off("scroll", this.windowScrollHandler);
+			window.removeEventListener("resize", this.windowResizeHandler);
+			window.removeEventListener("scroll", this.windowScrollHandler);
 		}
 
 		public static apply():void {
-			const $window:JQuery = jQuery(window);
+			this.windowWidth = window.innerWidth;
+			this.windowHeight = window.innerHeight;
 
-			this.windowWidth = $window.width();
-			this.windowHeight = $window.height();
-
-			this.scrollTop = $window.scrollTop();
+			this.scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : document.documentElement.scrollTop;;
 			this.scrollBottom = this.scrollTop + this.windowHeight;
 		}
 
@@ -74,14 +70,14 @@ namespace alm.browser {
 
 
 
-		private static windowScrollHandler = (event:JQuery.Event):void => {
-			WindowWatcher.apply();
-			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.SCROLL, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
-		};
-
-		private static windowResizeHandler = (event:JQuery.Event):void => {
+		private static windowResizeHandler = (event:Event):void => {
 			WindowWatcher.apply();
 			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.RESIZE, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
+		};
+
+		private static windowScrollHandler = (event:Event):void => {
+			WindowWatcher.apply();
+			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.SCROLL, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
 		};
 
 
@@ -110,7 +106,7 @@ namespace alm.browser {
 		private static windowHeight:number = 0;
 
 		private static isInitialized:boolean = false;
-		private static eventDispatcher:EventDispatcher = null;
+		private static eventDispatcher:alm.event.EventDispatcher = null;
 
 
 
