@@ -10,7 +10,7 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
-		constructor(target:IButton, hitArea:JQuery = null) {
+		constructor(target:IButton, hitArea:HTMLElement = null) {
 			this.target = target;
 			this.hitArea = null;
 			this.isOver = false;
@@ -58,38 +58,38 @@ namespace alm.view {
 		}
 
 		private on():void {
-			this.hitArea.on("mouseover", this.mouseOverHandler);
-			this.hitArea.on("mouseout", this.mouseOutHandler);
-			this.hitArea.on("mousedown", this.mouseDownHandler);
-			this.hitArea.on("mouseup", this.mouseUpHandler);
-			this.hitArea.on("click", this.clickHandler);
+			this.hitArea.addEventListener("mouseover", this.mouseOverHandler);
+			this.hitArea.addEventListener("mouseout", this.mouseOutHandler);
+			this.hitArea.addEventListener("mousedown", this.mouseDownHandler);
+			this.hitArea.addEventListener("mouseup", this.mouseUpHandler);
+			this.hitArea.addEventListener("click", this.clickHandler);
 		}
 
 		private off():void {
-			this.hitArea.off("mouseover", this.mouseOverHandler);
-			this.hitArea.off("mouseout", this.mouseOutHandler);
-			this.hitArea.off("mousedown", this.mouseDownHandler);
-			this.hitArea.off("mouseup", this.mouseUpHandler);
-			this.hitArea.off("click", this.clickHandler);
+			this.hitArea.addEventListener("mouseover", this.mouseOverHandler);
+			this.hitArea.addEventListener("mouseout", this.mouseOutHandler);
+			this.hitArea.addEventListener("mousedown", this.mouseDownHandler);
+			this.hitArea.addEventListener("mouseup", this.mouseUpHandler);
+			this.hitArea.addEventListener("click", this.clickHandler);
 		}
 
-		private mouseOverHandler = (event:JQuery.Event):void => {
+		private mouseOverHandler = (event:MouseEvent):void => {
 			this.over();
 		};
 
-		private mouseOutHandler = (event:JQuery.Event):void => {
+		private mouseOutHandler = (event:MouseEvent):void => {
 			this.out();
 		};
 
-		private mouseDownHandler = (event:JQuery.Event):void => {
+		private mouseDownHandler = (event:MouseEvent):void => {
 			this.down();
 		};
 
-		private mouseUpHandler = (event:JQuery.Event):void => {
+		private mouseUpHandler = (event:MouseEvent):void => {
 			this.over();
 		};
 
-		private clickHandler = (event:JQuery.Event):void => {
+		private clickHandler = (event:MouseEvent):void => {
 			this.click();
 		};
 
@@ -101,11 +101,11 @@ namespace alm.view {
 			return this.isDown;
 		}
 
-		public getHitArea():JQuery {
+		public getHitArea():HTMLElement {
 			return this.hitArea;
 		}
 
-		public setHitArea(hitArea:JQuery):void {
+		public setHitArea(hitArea:HTMLElement):void {
 			if (this.hitArea !== hitArea) {
 				if (this.hitArea !== null) {
 					this.off();
@@ -132,7 +132,7 @@ namespace alm.view {
 		// --------------------------------------------------
 
 		private target:IButton;
-		private hitArea:JQuery;
+		private hitArea:HTMLElement;
 		private isOver:boolean;
 		private isDown:boolean;
 	}

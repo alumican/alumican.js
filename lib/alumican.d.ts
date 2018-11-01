@@ -767,7 +767,7 @@ declare namespace alm.view {
 }
 declare namespace alm.view {
     class ButtonBehavior {
-        constructor(target: IButton, hitArea?: JQuery);
+        constructor(target: IButton, hitArea?: HTMLElement);
         over(useTransition?: boolean): void;
         out(useTransition?: boolean): void;
         down(useTransition?: boolean): void;
@@ -782,8 +782,8 @@ declare namespace alm.view {
         private clickHandler;
         getIsOver(): boolean;
         getIsDown(): boolean;
-        getHitArea(): JQuery;
-        setHitArea(hitArea: JQuery): void;
+        getHitArea(): HTMLElement;
+        setHitArea(hitArea: HTMLElement): void;
         clearHitArea(): void;
         private target;
         private hitArea;
