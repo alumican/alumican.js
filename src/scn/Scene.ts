@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace scn {
 
@@ -43,7 +43,7 @@ namespace scn {
 			if (child) {
 				const childName:string = child.name;
 				if (this.childrenByName[childName]) {
-					Logger.warn("[Scene '" + this.name + "'] addChild was failed, because child name '" + childName + "' is already contained.");
+					Logger.warn('[Scene \'' + this.name + '\'] addChild was failed, because child name \'' + childName + '\' is already contained.');
 				} else {
 					++this.numChildren;
 					child.parent = this;
@@ -51,7 +51,7 @@ namespace scn {
 					return child;
 				}
 			} else {
-				Logger.warn("[Scene '" + this.name + "'] addChild was failed, because child is null.");
+				Logger.warn('[Scene \'' + this.name + '\'] addChild was failed, because child is null.');
 			}
 			return null;
 		}
@@ -65,10 +65,10 @@ namespace scn {
 					delete this.childrenByName[childName];
 					return child;
 				} else {
-					Logger.warn("[Scene '" + this.name + "'] removeChild was failed, because child name '" + childName + "' is not contained.");
+					Logger.warn('[Scene \'' + this.name + '\'] removeChild was failed, because child name \'' + childName + '\' is not contained.');
 				}
 			} else {
-				Logger.warn("[Scene '" + this.name + "'] removeChild was failed, because child is null.");
+				Logger.warn('[Scene \'' + this.name + '\'] removeChild was failed, because child is null.');
 			}
 			return null;
 		}
@@ -114,7 +114,7 @@ namespace scn {
 
 		public contains(child:Scene|string):boolean {
 			if (child) {
-				return this.childrenByName[typeof child == "string" ? child : child.name] != null;
+				return this.childrenByName[typeof child == 'string' ? child : child.name] != null;
 			} else {
 				return false;
 			}
@@ -148,7 +148,7 @@ namespace scn {
 			if (this.parent) {
 				return this.parent.getManager();
 			} else {
-				Logger.warn("[Scene '" + this.name + "'] getManager was failed, check whether if scene is connected to root.");
+				Logger.warn('[Scene \'' + this.name + '\'] getManager was failed, check whether if scene is connected to root.');
 			}
 			return null;
 		}
@@ -163,7 +163,7 @@ namespace scn {
 				}
 				return manager.getScenePathByNames(names);
 			} else {
-				Logger.warn("[Scene '" + this.name + "'] getPath was failed, check whether if scene is connected to root.");
+				Logger.warn('[Scene \'' + this.name + '\'] getPath was failed, check whether if scene is connected to root.');
 			}
 			return null;
 		}
@@ -183,7 +183,7 @@ namespace scn {
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.LOAD, this));
-					const c:cmd.Command = typeof(this.onLoad) == "function" ? this.onLoad() : this.implOnLoad();
+					const c:cmd.Command = typeof(this.onLoad) == 'function' ? this.onLoad() : this.implOnLoad();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
@@ -202,7 +202,7 @@ namespace scn {
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.UNLOAD, this));
-					const c:cmd.Command = typeof(this.onUnload) == "function" ? this.onUnload() : this.implOnUnload();
+					const c:cmd.Command = typeof(this.onUnload) == 'function' ? this.onUnload() : this.implOnUnload();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
@@ -221,7 +221,7 @@ namespace scn {
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.ARRIVE, this));
-					const c:cmd.Command = typeof(this.onArrive) == "function" ? this.onArrive() : this.implOnArrive();
+					const c:cmd.Command = typeof(this.onArrive) == 'function' ? this.onArrive() : this.implOnArrive();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
@@ -240,7 +240,7 @@ namespace scn {
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.LEAVE, this));
-					const c:cmd.Command = typeof(this.onLeave) == "function" ? this.onLeave() : this.implOnLeave();
+					const c:cmd.Command = typeof(this.onLeave) == 'function' ? this.onLeave() : this.implOnLeave();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
@@ -259,7 +259,7 @@ namespace scn {
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.ASCEND, this));
-					const c:cmd.Command = typeof(this.onAscend) == "function" ? this.onAscend() : this.implOnAscend();
+					const c:cmd.Command = typeof(this.onAscend) == 'function' ? this.onAscend() : this.implOnAscend();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
@@ -278,7 +278,7 @@ namespace scn {
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.DESCEND, this));
-					const c:cmd.Command = typeof(this.onDescend) == "function" ? this.onDescend() : this.implOnDescend();
+					const c:cmd.Command = typeof(this.onDescend) == 'function' ? this.onDescend() : this.implOnDescend();
 					if (c) command.insertCommand(c);
 				},
 				():void => {

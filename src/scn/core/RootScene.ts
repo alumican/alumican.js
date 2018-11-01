@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace scn.core {
 
@@ -11,7 +11,7 @@ namespace scn.core {
 		// --------------------------------------------------
 
 		constructor(manager:SceneManager) {
-			super("");
+			super('');
 			this.manager = manager;
 		}
 

@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.event {
 
@@ -28,7 +28,7 @@ namespace alm.event {
 		// --------------------------------------------------
 
 		public addEventListener(eventType:string, listener:EventListener):void {
-			if (typeof(listener) != "function") return;
+			if (typeof(listener) != 'function') return;
 			let listeners:EventListener[] = this.listeners[eventType];
 			if (listeners) {
 				const numListeners:number = listeners.length;
@@ -42,7 +42,7 @@ namespace alm.event {
 		}
 
 		public removeEventListener(eventType:string, listener:EventListener):void {
-			if (typeof(listener) != "function") return;
+			if (typeof(listener) != 'function') return;
 			let listeners:EventListener[] = this.listeners[eventType];
 			if (listeners) {
 				const numListeners:number = listeners.length;

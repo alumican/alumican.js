@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace cmd {
 
@@ -12,7 +12,7 @@ namespace cmd {
 		//
 		// --------------------------------------------------
 
-		public static COMPLETE:string = "complete";
+		public static COMPLETE:string = 'complete';
 
 
 
@@ -43,7 +43,7 @@ namespace cmd {
 		}
 
 		public toString():string {
-			return "[CommandEvent] type = " + this.getType();
+			return '[CommandEvent] type = ' + this.getType();
 		}
 
 

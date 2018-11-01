@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.browser {
 
@@ -22,10 +22,10 @@ namespace alm.browser {
 			this.isRunning = true;
 
 			this.initialize();
-			trace("[WindowWatcher] start");
+			trace('[WindowWatcher] start');
 
-			window.addEventListener("resize", this.windowResizeHandler);
-			window.addEventListener("scroll", this.windowScrollHandler);
+			window.addEventListener('resize', this.windowResizeHandler);
+			window.addEventListener('scroll', this.windowScrollHandler);
 			this.apply();
 		}
 
@@ -34,10 +34,10 @@ namespace alm.browser {
 			this.isRunning = false;
 
 			this.initialize();
-			trace("[WindowWatcher] stop");
+			trace('[WindowWatcher] stop');
 
-			window.removeEventListener("resize", this.windowResizeHandler);
-			window.removeEventListener("scroll", this.windowScrollHandler);
+			window.removeEventListener('resize', this.windowResizeHandler);
+			window.removeEventListener('scroll', this.windowScrollHandler);
 		}
 
 		public static apply():void {

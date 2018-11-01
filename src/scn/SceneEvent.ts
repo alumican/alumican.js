@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace scn {
 
@@ -12,19 +12,19 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static LOAD:string = "load";
-		public static UNLOAD:string = "unload";
-		public static ARRIVE:string = "arrive";
-		public static LEAVE:string = "leave";
-		public static ASCEND:string = "ascend";
-		public static DESCEND:string = "descend";
+		public static LOAD:string = 'load';
+		public static UNLOAD:string = 'unload';
+		public static ARRIVE:string = 'arrive';
+		public static LEAVE:string = 'leave';
+		public static ASCEND:string = 'ascend';
+		public static DESCEND:string = 'descend';
 
-		public static LOAD_COMPLETE:string = "loadComplete";
-		public static UNLOAD_COMPLETE:string = "unloadComplete";
-		public static ARRIVE_COMPLETE:string = "arriveComplete";
-		public static LEAVE_COMPLETE:string = "leaveComplete";
-		public static ASCEND_COMPLETE:string = "ascendComplete";
-		public static DESCEND_COMPLETE:string = "descendComplete";
+		public static LOAD_COMPLETE:string = 'loadComplete';
+		public static UNLOAD_COMPLETE:string = 'unloadComplete';
+		public static ARRIVE_COMPLETE:string = 'arriveComplete';
+		public static LEAVE_COMPLETE:string = 'leaveComplete';
+		public static ASCEND_COMPLETE:string = 'ascendComplete';
+		public static DESCEND_COMPLETE:string = 'descendComplete';
 
 
 
@@ -55,7 +55,7 @@ namespace scn {
 		}
 
 		public toString():string {
-			return "[SceneEvent] type = " + this.getType();
+			return '[SceneEvent] type = ' + this.getType();
 		}
 
 

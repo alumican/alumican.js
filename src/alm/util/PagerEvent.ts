@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.util {
 
@@ -10,9 +10,9 @@ namespace alm.util {
 		//
 		// --------------------------------------------------
 
-		public static CHANGE:string = "change";
-		public static PREV:string = "prev";
-		public static NEXT:string = "next";
+		public static CHANGE:string = 'change';
+		public static PREV:string = 'prev';
+		public static NEXT:string = 'next';
 
 
 
@@ -48,7 +48,7 @@ namespace alm.util {
 		}
 
 		public toString():string {
-			return "[PagerEvent] type = " + this.getType() + ", " + this.oldItemIndex + " -> " + this.newItemIndex + ", transition = " + this.useTransition;
+			return '[PagerEvent] type = ' + this.getType() + ', ' + this.oldItemIndex + ' -> ' + this.newItemIndex + ', transition = ' + this.useTransition;
 		}
 
 

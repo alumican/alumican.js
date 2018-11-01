@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.browser {
 
@@ -16,25 +16,25 @@ namespace alm.browser {
 
 			const u:string = window.navigator.userAgent.toLowerCase();
 
-			this.isTablet = (u.indexOf("windows") != -1 && u.indexOf("touch") != -1)
-				|| u.indexOf("ipad") != -1
-				|| (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
-				|| (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
-				|| u.indexOf("kindle") != -1
-				|| u.indexOf("silk") != -1
-				|| u.indexOf("playbook") != -1;
+			this.isTablet = (u.indexOf('windows') != -1 && u.indexOf('touch') != -1)
+				|| u.indexOf('ipad') != -1
+				|| (u.indexOf('android') != -1 && u.indexOf('mobile') == -1)
+				|| (u.indexOf('firefox') != -1 && u.indexOf('tablet') != -1)
+				|| u.indexOf('kindle') != -1
+				|| u.indexOf('silk') != -1
+				|| u.indexOf('playbook') != -1;
 
-			this.isMobile = (u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
-				|| u.indexOf("iphone") != -1
-				|| u.indexOf("ipod") != -1
-				|| (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
-				|| (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
-				|| u.indexOf("blackberry") != -1;
+			this.isMobile = (u.indexOf('windows') != -1 && u.indexOf('phone') != -1)
+				|| u.indexOf('iphone') != -1
+				|| u.indexOf('ipod') != -1
+				|| (u.indexOf('android') != -1 && u.indexOf('mobile') != -1)
+				|| (u.indexOf('firefox') != -1 && u.indexOf('mobile') != -1)
+				|| u.indexOf('blackberry') != -1;
 
 			this.isDesktop = !this.isTablet && !this.isMobile;
 
-			this.isIOS = u.indexOf("ipad") != -1 || u.indexOf("iphone") != -1 || u.indexOf("ipod") != -1;
-			this.isAndroid = u.indexOf("android") != -1 && u.indexOf("mobile") != -1;
+			this.isIOS = u.indexOf('ipad') != -1 || u.indexOf('iphone') != -1 || u.indexOf('ipod') != -1;
+			this.isAndroid = u.indexOf('android') != -1 && u.indexOf('mobile') != -1;
 
 			this.isRetina = Math.round(window.devicePixelRatio) == 2;
 		}
@@ -71,8 +71,8 @@ namespace alm.browser {
 
 		public static getDpi():number {
 			if (this.dpi == -1) {
-				const div:HTMLElement = document.createElement("div");
-				div.setAttribute("style", "height:1in;left:-100%;top:-100%;position:absolute;width:1in;");
+				const div:HTMLElement = document.createElement('div');
+				div.setAttribute('style', 'height:1in;left:-100%;top:-100%;position:absolute;width:1in;');
 				document.body.appendChild(div);
 				this.dpi = div.offsetHeight;
 				document.body.removeChild(div);

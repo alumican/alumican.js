@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.loader {
 
@@ -41,23 +41,23 @@ namespace alm.loader {
 		// --------------------------------------------------
 
 		public requireJQueryJson(url:string):string {
-			return this.addQuery("jQuery.JSON", url, {});
+			return this.addQuery('jQuery.JSON', url, {});
 		}
 
 		public requireThreeTexture(url:string):string {
-			return this.addQuery("THREE.Texture", url, {});
+			return this.addQuery('THREE.Texture', url, {});
 		}
 
 		//public requireJQueryJson(url:string, onLoad?:(data:any)=>void):string {
-		//	return this.addQuery("jQuery.JSON", url, { onLoad: onLoad });
+		//	return this.addQuery('jQuery.JSON', url, { onLoad: onLoad });
 		//}
 
 		//public requireThreeTexture(url:string, onLoad?:(texture:THREE.Texture)=>void, onError?:(message:string)=>void):string {
-		//	return this.addQuery("THREE.Texture", url, { onLoad: onLoad, onError: onError });
+		//	return this.addQuery('THREE.Texture', url, { onLoad: onLoad, onError: onError });
 		//}
 
 		//public requireThreeTextureAtlas(baseUrl:string, onLoad?:(texture:THREE.Texture)=>void, onError?:(message:string)=>void):string {
-		//	return this.addQuery("THREE.TextureAtlas", baseUrl, { onLoad: onLoad, onError: onError });
+		//	return this.addQuery('THREE.TextureAtlas', baseUrl, { onLoad: onLoad, onError: onError });
 		//}
 
 		private addQuery(type:string, url:string, param:any):string {
@@ -95,12 +95,12 @@ namespace alm.loader {
 				const query:LoaderQuery = this.loadingQueries[this.loadingQueryIndex];
 				query.isLoading = true;
 				query.isLoadComplete = false;
-				trace("[AssetLoader] loading... " + "'" + query.url + "' as '" + query.type + "'");
+				trace('[AssetLoader] loading... ' + '\'' + query.url + '' as '' + query.type + '\'');
 				switch (query.type) {
 
 					// --------------------------------------------------
 					// jQuery JSON
-					case "jQuery.JSON":
+					case 'jQuery.JSON':
 						jQuery.getJSON(
 							query.url,
 							(data:any):void => {
@@ -116,7 +116,7 @@ namespace alm.loader {
 
 					// --------------------------------------------------
 					// Three.js Texture
-					case "THREE.Texture":
+					case 'THREE.Texture':
 						let url:string = query.url;
 						const loader:THREE.TextureLoader = new THREE.TextureLoader();
 						const texture:THREE.Texture = loader.load(
@@ -135,7 +135,7 @@ namespace alm.loader {
 								query.isLoading = false;
 								query.isLoadComplete = true;
 								if (query.param.onError)
-									query.param.onError(event.type + " : " + event.message);
+									query.param.onError(event.type + ' : ' + event.message);
 								this.next();
 							}
 						);
@@ -146,9 +146,9 @@ namespace alm.loader {
 					/*
 					// --------------------------------------------------
 					// Three.js Texture Atlas
-					case "THREE.TextureAtlas":
+					case 'THREE.TextureAtlas':
 						jQuery.getJSON(
-							query.url + ".json",
+							query.url + '.json',
 							(json:any):void => {
 								THREE.ImageUtils.loadTexture(
 									query.url,

@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace scn {
 
@@ -15,20 +15,20 @@ namespace scn {
 	export function getSceneStateString(state:SceneState):string {
 		switch (state) {
 			case SceneState.Idling:
-				return "idling";
+				return 'idling';
 			case SceneState.Loading:
-				return "loading";
+				return 'loading';
 			case SceneState.Unloading:
-				return "unloading";
+				return 'unloading';
 			case SceneState.Arriving:
-				return "arriving";
+				return 'arriving';
 			case SceneState.Leaving:
-				return "leaving";
+				return 'leaving';
 			case SceneState.Ascending:
-				return "ascending";
+				return 'ascending';
 			case SceneState.Descending:
-				return "descending";
+				return 'descending';
 		}
-		return "";
+		return '';
 	}
 }

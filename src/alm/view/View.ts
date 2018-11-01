@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.view {
 
@@ -16,7 +16,7 @@ namespace alm.view {
 			super();
 			this.id = View.id;
 			this.view = view;
-			this.name = "";
+			this.name = '';
 			this.autoHideWithInit = true;
 			this.isInitializing = false;
 			this.isInitialized = false;
@@ -45,7 +45,7 @@ namespace alm.view {
 			this.isInitializing = true;
 			this.view = this.implInitialize();
 			if (this.isInitializing) {
-				throwError(this.name || this, "view is null", !this.view);
+				throwError(this.name || this, 'view is null', !this.view);
 				this.hide(false);
 				this.isInitializing = false;
 				this.isInitialized = true;
@@ -58,7 +58,7 @@ namespace alm.view {
 		public ready():void {
 			if (this.isReadying || this.isReadied) return;
 			this.isReadying = true;
-			throwError(this.name || this, "ready() was called without being initialized", !this.isInitialized);
+			throwError(this.name || this, 'ready() was called without being initialized', !this.isInitialized);
 			this.implReady();
 			this.isReadying = false;
 			this.isReadied = true;
@@ -86,8 +86,8 @@ namespace alm.view {
 			command.addCommand(
 				new cmd.Func(():void => {
 					if (this.isShown) return;
-					throwError(this.name || this, "getShowCommand() was called without being initialized", this.isInitializing || !this.isInitialized);
-					throwWarn(this.name || this, "getShowCommand() was called without being ready", this.isReadying|| !this.isReadied);
+					throwError(this.name || this, 'getShowCommand() was called without being initialized', this.isInitializing || !this.isInitialized);
+					throwWarn(this.name || this, 'getShowCommand() was called without being ready', this.isReadying|| !this.isReadied);
 					this.isShown = true;
 					this.isShowing = true;
 					this.isHiding = false;
@@ -120,8 +120,8 @@ namespace alm.view {
 				new cmd.Func(():void => {
 					if (!this.isShown) return;
 					if (!this.isInitializing) {
-						throwError(this.name || this, "getHideCommand() was called without being initialized", this.isInitializing || !this.isInitialized);
-						throwWarn(this.name || this, "getHideCommand() was called without being ready", this.isReadying || !this.isReadied);
+						throwError(this.name || this, 'getHideCommand() was called without being initialized', this.isInitializing || !this.isInitialized);
+						throwWarn(this.name || this, 'getHideCommand() was called without being ready', this.isReadying || !this.isReadied);
 					}
 					this.isShown = false;
 					this.isShowing = false;

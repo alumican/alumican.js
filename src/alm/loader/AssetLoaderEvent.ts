@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.loader {
 
@@ -12,9 +12,9 @@ namespace alm.loader {
 		//
 		// --------------------------------------------------
 
-		static PROGRESS:string = "progress";
-		static COMPLETE:string = "complete";
-		static ERROR:string = "error";
+		static PROGRESS:string = 'progress';
+		static COMPLETE:string = 'complete';
+		static ERROR:string = 'error';
 
 
 
@@ -49,7 +49,7 @@ namespace alm.loader {
 		}
 
 		public toString():string {
-			return "[AssetLoaderEvent] type = " + this.getType() + ", progress = " + this.progress + ", loadedCount = " + this.loadedCount + ", totalCount = " + this.totalCount;
+			return '[AssetLoaderEvent] type = ' + this.getType() + ', progress = ' + this.progress + ', loadedCount = ' + this.loadedCount + ', totalCount = ' + this.totalCount;
 		}
 
 

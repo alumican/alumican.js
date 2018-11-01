@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace scn.core {
 
@@ -52,7 +52,7 @@ namespace scn.core {
 		}
 
 		public toString():string {
-			return "[Waypoint] path = '" + this.path + "', level = " + this.level + ", from = " + getDirectionString(this.from) + ", to = " + getDirectionString(this.to);
+			return '[Waypoint] path = \'' + this.path + '\', level = ' + this.level + ', from = ' + getDirectionString(this.from) + ', to = ' + getDirectionString(this.to);
 		}
 
 

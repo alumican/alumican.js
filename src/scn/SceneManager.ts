@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace scn {
 
@@ -14,7 +14,7 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		constructor(name:string = "") {
+		constructor(name:string = '') {
 			super();
 			this.name = name;
 			this.root = new core.RootScene(this);
@@ -39,8 +39,8 @@ namespace scn {
 		// --------------------------------------------------
 
 		public start():void {
-			Logger.verbose("----- scene manager start -----");
-			this.goto("/");
+			Logger.verbose('----- scene manager start -----');
+			this.goto('/');
 		}
 
 		public goto(path:string):void {
@@ -57,7 +57,7 @@ namespace scn {
 				newWaypoints = this.createWaypoints(this.waypoints[this.waypointIndex].getPath(), path);
 			} else {
 				// Init
-				newWaypoints = [new core.Waypoint("/", 0)];
+				newWaypoints = [new core.Waypoint('/', 0)];
 			}
 
 			// Transfer
@@ -70,8 +70,8 @@ namespace scn {
 					++this.transferId;
 					this.waypoints = newWaypoints;
 				} else {
-					Logger.verbose("destination is changed");
-					Logger.verbose("waypoint index : " + this.waypointIndex);
+					Logger.verbose('destination is changed');
+					Logger.verbose('waypoint index : ' + this.waypointIndex);
 					this.waypoints = this.waypoints.slice(0, this.waypointIndex + 1).concat(newWaypoints.slice(1));
 					this.setDirection(this.waypoints);
 					this.printWaypoint(this.waypoints);
@@ -89,29 +89,29 @@ namespace scn {
 
 		public resolvePath(path:string):string {
 			// Relative to absolute
-			if (path[0] != "/") {
+			if (path[0] != '/') {
 				if (this.currentScene) {
-					path = this.currentScene.getPath() + "/" + path;
+					path = this.currentScene.getPath() + '/' + path;
 				} else {
-					path = "/" + path;
+					path = '/' + path;
 				}
 			}
 
 			// Normalize
-			const names:string[] = path.split("/");
+			const names:string[] = path.split('/');
 			const normalized:string[] = [];
 			for (let i:number = 0; i < names.length; ++i) {
 				const name:string = names[i];
-				if (name == "") continue;
-				if (name == ".") continue;
-				if (name == "..") {
+				if (name == '') continue;
+				if (name == '.') continue;
+				if (name == '..') {
 					normalized.pop();
 					continue;
 				}
 				normalized.push(name);
 			}
 
-			return "/" + normalized.join("/");
+			return '/' + normalized.join('/');
 		}
 
 		public addSceneAt(path:string, createScene:boolean = false):Scene {
@@ -123,7 +123,7 @@ namespace scn {
 				const name:string = names[i];
 				if (i == n - 1) {
 					if (scene.contains(name)) {
-						Logger.warn("[SceneManager '" + this.name + "'] addSceneAt was failed, because path '" + path + "' is already exist.");
+						Logger.warn('[SceneManager \'' + this.name + '\'] addSceneAt was failed, because path \'' + path + '\' is already exist.');
 					} else {
 						scene = scene.addChild(new Scene(name));
 						success = true;
@@ -158,7 +158,7 @@ namespace scn {
 		}
 
 		public getSceneNamesByPath(path:string):string[] {
-			return path == "/" ? [""] : this.resolvePath(path).split("/");
+			return path == '/' ? [''] : this.resolvePath(path).split('/');
 		}
 
 		public getSceneLevelByNames(names:string[]):number {
@@ -166,16 +166,16 @@ namespace scn {
 		}
 
 		public getScenePathByNames(names:string[]):string {
-			return names.length == 0 ? "/" : names.length == 1 ? ("/" + names[0]) : names.join("/");
+			return names.length == 0 ? '/' : names.length == 1 ? ('/' + names[0]) : names.join('/');
 		}
 
 		private createWaypoints(departurePath:string, destinationPath:string):core.Waypoint[] {
 			if (departurePath == destinationPath) {
-				Logger.warn("[SceneManager] departure path and destination path is same, path = '" + departurePath + "'");
+				Logger.warn('[SceneManager] departure path and destination path is same, path = \'' + departurePath + '\'');
 				return [];
 			}
 
-			Logger.verbose("----- scene flow -----");
+			Logger.verbose('----- scene flow -----');
 
 			const waypoints:core.Waypoint[] = [
 				new core.Waypoint(departurePath, this.getSceneLevelByNames(this.getSceneNamesByPath(departurePath)))
@@ -184,22 +184,22 @@ namespace scn {
 			const departureNames:string[] = this.getSceneNamesByPath(departurePath);
 			const destinationNames:string[] = this.getSceneNamesByPath(destinationPath);
 
-			Logger.verbose("    path");
-			Logger.verbose("        current    : '" + departurePath + "'");
-			Logger.verbose("        destination: '" + destinationPath + "'");
+			Logger.verbose('    path');
+			Logger.verbose('        current    : \'' + departurePath + '\'');
+			Logger.verbose('        destination: \'' + destinationPath + '\'');
 
-			Logger.verbose("    names");
-			Logger.verbose("        current(" + departureNames.length + ")    : '" + departureNames + "'");
-			Logger.verbose("        destination(" + destinationNames.length + "): '" + destinationNames + "'");
+			Logger.verbose('    names');
+			Logger.verbose('        current(' + departureNames.length + ')    : \'' + departureNames + '\'');
+			Logger.verbose('        destination(' + destinationNames.length + '): \'' + destinationNames + '\'');
 
 			// 折り返しを見つける
 			let turningLevel:number = 0;
 			let turningNames:string[] = [];
 			let turningPath:string;
-			if (destinationPath == "/") {
+			if (destinationPath == '/') {
 				turningLevel = -1;
 				turningNames = [];
-				turningPath = "/";
+				turningPath = '/';
 			} else {
 				while (true) {
 					if (departureNames[turningLevel] == destinationNames[turningLevel]) {
@@ -213,10 +213,10 @@ namespace scn {
 				turningPath = this.getScenePathByNames(turningNames);
 			}
 
-			Logger.verbose("    turning");
-			Logger.verbose("        path     : " + turningPath);
-			Logger.verbose("        level    : " + turningLevel);
-			Logger.verbose("        names(" + turningNames.length + ") : '" + turningNames + "'");
+			Logger.verbose('    turning');
+			Logger.verbose('        path     : ' + turningPath);
+			Logger.verbose('        level    : ' + turningLevel);
+			Logger.verbose('        names(' + turningNames.length + ') : \'' + turningNames + '\'');
 
 			// 出発シーンから折り返しまで
 			{
@@ -283,12 +283,12 @@ namespace scn {
 		}
 
 		private printWaypoint(waypoints:core.Waypoint[]):void {
-			Logger.verbose("    waypoints");
+			Logger.verbose('    waypoints');
 			const n:number = waypoints.length;
 			for (let i:number = 0; i < n; ++i) {
-				Logger.verbose("        [" + i + "] " + waypoints[i]);
+				Logger.verbose('        [' + i + '] ' + waypoints[i]);
 			}
-			Logger.verbose("");
+			Logger.verbose('');
 		}
 
 
@@ -296,12 +296,12 @@ namespace scn {
 
 
 		private checkState():void {
-			trace("lastState : " + scn.getSceneStateString(this.lastState));
+			trace('lastState : ' + scn.getSceneStateString(this.lastState));
 
-			//trace(this.waypointIndex + " / " + this.waypoints.length);
+			//trace(this.waypointIndex + ' / ' + this.waypoints.length);
 
 			if (this.waypointIndex >= this.waypoints.length) {
-				Logger.verbose("----- scene transfer complete -----");
+				Logger.verbose('----- scene transfer complete -----');
 				const tmpTransferId:number = this.transferInfo.getTransferId();
 				this.waypointIndex = this.waypoints.length - 1;
 				this.dispatchEvent(new SceneManagerEvent(SceneManagerEvent.TRANSFER_COMPLETE, this));
@@ -318,11 +318,11 @@ namespace scn {
 
 				// Departure scene
 				if (this.waypoints.length > 1 && this.waypointIndex == 0) {
-					trace("Departure scene");
+					trace('Departure scene');
 
 					// Leave
 					if (this.lastState != SceneState.Leaving && this.currentScene.getLastState() == SceneState.Arriving) {
-						Logger.verbose(this.eventIndex + " Leave   : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Leave   : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.LEAVE_COMPLETE, this.sceneLeaveCompleteHandler);
 						this.currentScene._leave(this.transferInfo);
 						return;
@@ -331,7 +331,7 @@ namespace scn {
 					// Unload
 					if (this.lastState != SceneState.Unloading && (currentWaypoint.getTo() == core.Direction.Sibling || currentWaypoint.getTo() == core.Direction.Ascend)) {
 						++this.waypointIndex;
-						Logger.verbose(this.eventIndex + " Unload  : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Unload  : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.UNLOAD_COMPLETE, this.sceneUnloadCompleteHandler);
 						this.currentScene._unload(this.transferInfo);
 						return;
@@ -346,11 +346,11 @@ namespace scn {
 
 				// Through scene
 				if (this.waypointIndex > 0 && this.waypointIndex < this.waypoints.length - 1) {
-					trace("Through scene");
+					trace('Through scene');
 
 					// Load
 					if (this.lastState != SceneState.Loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
-						Logger.verbose(this.eventIndex + " Load    : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Load    : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
 						this.currentScene._load(this.transferInfo);
 						return;
@@ -358,7 +358,7 @@ namespace scn {
 
 					// Ascend
 					if (this.lastState != SceneState.Ascending && currentWaypoint.getFrom() == core.Direction.Ascend) {
-						Logger.verbose(this.eventIndex + " Ascend  : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Ascend  : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.ASCEND_COMPLETE, this.sceneAscendCompleteHandler);
 						this.currentScene._ascend(this.transferInfo);
 						return;
@@ -367,7 +367,7 @@ namespace scn {
 					// Unload
 					if (this.lastState != SceneState.Unloading && (currentWaypoint.getTo() == core.Direction.Sibling || currentWaypoint.getTo() == core.Direction.Ascend)) {
 						++this.waypointIndex;
-						Logger.verbose(this.eventIndex + " Unload  : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Unload  : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.UNLOAD_COMPLETE, this.sceneUnloadCompleteHandler);
 						this.currentScene._unload(this.transferInfo);
 						return;
@@ -376,7 +376,7 @@ namespace scn {
 					// Descend
 					if (this.lastState != SceneState.Descending && currentWaypoint.getTo() == core.Direction.Descend) {
 						++this.waypointIndex;
-						Logger.verbose(this.eventIndex + " Descend : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Descend : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.DESCEND_COMPLETE, this.sceneDescendCompleteHandler);
 						this.currentScene._descend(this.transferInfo);
 						return;
@@ -385,11 +385,11 @@ namespace scn {
 
 				// Destination scene
 				if (this.waypointIndex == this.waypoints.length - 1) {
-					trace("Destination scene");
+					trace('Destination scene');
 
 					// Load
 					if (this.lastState != SceneState.Loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
-						Logger.verbose(this.eventIndex + " Load    : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Load    : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
 						this.currentScene._load(this.transferInfo);
 						return;
@@ -398,7 +398,7 @@ namespace scn {
 					// Arrive
 					if (this.lastState != SceneState.Arriving) {
 						++this.waypointIndex;
-						Logger.verbose(this.eventIndex + " Arrive  : '" + this.currentScene.getPath() + "'");
+						Logger.verbose(this.eventIndex + ' Arrive  : \'' + this.currentScene.getPath() + '\'');
 						this.currentScene.addEventListener(SceneEvent.ARRIVE_COMPLETE, this.sceneArriveCompleteHandler);
 						this.currentScene._arrive(this.transferInfo);
 						return;
@@ -406,12 +406,12 @@ namespace scn {
 				}
 
 			} else {
-				trace("Init scene");
+				trace('Init scene');
 
 				// Init
 				this.lastState = SceneState.Idling;
 				this.currentScene = this.root;
-				Logger.verbose(this.eventIndex + " Load    : '" + this.currentScene.getPath() + "'");
+				Logger.verbose(this.eventIndex + ' Load    : \'' + this.currentScene.getPath() + '\'');
 				this.currentScene.addEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
 				this.currentScene._load(this.transferInfo);
 			}

@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace scn.core {
 
@@ -12,14 +12,14 @@ namespace scn.core {
 	export function getDirectionString(direction:Direction):string {
 		switch (direction) {
 			case Direction.Static:
-				return "static";
+				return 'static';
 			case Direction.Sibling:
-				return "sibling";
+				return 'sibling';
 			case Direction.Ascend:
-				return "ascend";
+				return 'ascend';
 			case Direction.Descend:
-				return "descend";
+				return 'descend';
 		}
-		return "";
+		return '';
 	}
 }

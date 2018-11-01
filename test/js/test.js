@@ -8,20 +8,20 @@ var test;
                     return new cmd.Serial(new cmd.Wait(1000), function () {
                         var state = scn.getSceneStateString(scene.getState());
                         var path = scene.getPath();
-                        _this.title.text(state + " : " + path);
+                        _this.title.text(state + ' : ' + path);
                     });
                 };
             };
             this.linkClickHandler = function (path) {
                 _this.sceneManager.goto(path);
             };
-            this.title = jQuery("#page-title");
-            this.sceneManager = new scn.SceneManager("homepage");
-            jQuery(".page-link").each(function (index, element) {
+            this.title = jQuery('#page-title');
+            this.sceneManager = new scn.SceneManager('homepage');
+            jQuery('.page-link').each(function (index, element) {
                 var link = jQuery(element);
-                var path = link.attr("name");
-                link.attr("href", "javascript:void(0)");
-                link.attr("onclick", "onMenuClick('" + path + "');");
+                var path = link.attr('name');
+                link.attr('href', 'javascript:void(0)');
+                link.attr('onclick', 'onMenuClick(\'' + path + '\');');
                 var scene = _this.sceneManager.addSceneAt(path);
                 if (scene) {
                     _this.setupSceneEventHandler(scene);

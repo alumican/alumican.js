@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.util {
 
@@ -12,8 +12,8 @@ namespace alm.util {
 		//
 		// --------------------------------------------------
 
-		public static TICK:string = "tick";
-		public static COMPLETE:string = "complete";
+		public static TICK:string = 'tick';
+		public static COMPLETE:string = 'complete';
 
 
 
@@ -47,7 +47,7 @@ namespace alm.util {
 		}
 
 		public toString():string {
-			return "[TimerEvent] type = " + this.getType() + ", elapsedCount = " + this.elapsedCount + ", repeatCount=" + this.repeatCount + ", restCount=" + this.restCount;
+			return '[TimerEvent] type = ' + this.getType() + ', elapsedCount = ' + this.elapsedCount + ', repeatCount=' + this.repeatCount + ', restCount=' + this.restCount;
 		}
 
 

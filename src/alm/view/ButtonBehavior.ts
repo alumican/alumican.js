@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.view {
 
@@ -58,19 +58,19 @@ namespace alm.view {
 		}
 
 		private on():void {
-			this.hitArea.addEventListener("mouseover", this.mouseOverHandler);
-			this.hitArea.addEventListener("mouseout", this.mouseOutHandler);
-			this.hitArea.addEventListener("mousedown", this.mouseDownHandler);
-			this.hitArea.addEventListener("mouseup", this.mouseUpHandler);
-			this.hitArea.addEventListener("click", this.clickHandler);
+			this.hitArea.addEventListener('mouseover', this.mouseOverHandler);
+			this.hitArea.addEventListener('mouseout', this.mouseOutHandler);
+			this.hitArea.addEventListener('mousedown', this.mouseDownHandler);
+			this.hitArea.addEventListener('mouseup', this.mouseUpHandler);
+			this.hitArea.addEventListener('click', this.clickHandler);
 		}
 
 		private off():void {
-			this.hitArea.addEventListener("mouseover", this.mouseOverHandler);
-			this.hitArea.addEventListener("mouseout", this.mouseOutHandler);
-			this.hitArea.addEventListener("mousedown", this.mouseDownHandler);
-			this.hitArea.addEventListener("mouseup", this.mouseUpHandler);
-			this.hitArea.addEventListener("click", this.clickHandler);
+			this.hitArea.addEventListener('mouseover', this.mouseOverHandler);
+			this.hitArea.addEventListener('mouseout', this.mouseOutHandler);
+			this.hitArea.addEventListener('mousedown', this.mouseDownHandler);
+			this.hitArea.addEventListener('mouseup', this.mouseUpHandler);
+			this.hitArea.addEventListener('click', this.clickHandler);
 		}
 
 		private mouseOverHandler = (event:MouseEvent):void => {

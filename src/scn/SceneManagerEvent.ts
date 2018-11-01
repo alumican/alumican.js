@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace scn {
 
@@ -12,8 +12,8 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static TRANSFER_START:string = "transferStart";
-		public static TRANSFER_COMPLETE:string = "transferComplete";
+		public static TRANSFER_START:string = 'transferStart';
+		public static TRANSFER_COMPLETE:string = 'transferComplete';
 
 
 
@@ -44,7 +44,7 @@ namespace scn {
 		}
 
 		public toString():string {
-			return "[SceneManagerEvent] type = " + this.getType();
+			return '[SceneManagerEvent] type = ' + this.getType();
 		}
 
 

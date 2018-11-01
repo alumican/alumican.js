@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.util {
 
@@ -15,11 +15,11 @@ namespace alm.util {
 			seconds += minutes * 60 + hours * 3600;
 			let h:string = Math.floor(seconds / 3600).toString();
 			let m:string = Math.floor((seconds / 60) % 60).toString();
-			let s:string = ("0" + Math.floor(seconds % 60)).substr(-2, 2);
-			if (h != "0") {
-				return h + ":" + ("0" + m).substr(-2, 2) + ":" + s;
+			let s:string = ('0' + Math.floor(seconds % 60)).substr(-2, 2);
+			if (h != '0') {
+				return h + ':' + ('0' + m).substr(-2, 2) + ':' + s;
 			} else {
-				return m + ":" + s;
+				return m + ':' + s;
 			}
 		}
 

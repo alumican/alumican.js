@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.browser {
 
@@ -10,8 +10,8 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		static KEY_UP:string = "keyUp";
-		static KEY_DOWN:string = "keyDown";
+		static KEY_UP:string = 'keyUp';
+		static KEY_DOWN:string = 'keyDown';
 
 
 
@@ -48,7 +48,7 @@ namespace alm.browser {
 		}
 
 		public toString():string {
-			return "[KeyWatcherEvent] type = " + this.getType() + ", key = " + this.key + ", keyCode = " + this.keyCode + ", altKey = " + this.altKey + ", ctrlKey = " + this.ctrlKey + ", shiftKey = " + this.shiftKey;
+			return '[KeyWatcherEvent] type = ' + this.getType() + ', key = ' + this.key + ', keyCode = ' + this.keyCode + ', altKey = ' + this.altKey + ', ctrlKey = ' + this.ctrlKey + ', shiftKey = ' + this.shiftKey;
 		}
 
 

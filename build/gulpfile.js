@@ -5,7 +5,7 @@ var SRC_DIR = '../src';
 var DST_DIR = '../lib';
 var TEST_DIR = '../test';
 
-var SRC_FILENAME = 'reference';
+var SRC_FILENAME = 'include';
 var DST_FILENAME = 'alumican';
 
 //----------------------------------------

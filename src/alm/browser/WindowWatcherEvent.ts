@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.browser {
 
@@ -10,8 +10,8 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		static SCROLL:string = "scroll";
-		static RESIZE:string = "resize";
+		static SCROLL:string = 'scroll';
+		static RESIZE:string = 'resize';
 
 
 
@@ -47,7 +47,7 @@ namespace alm.browser {
 		}
 
 		public toString():string {
-			return "[WindowWatcherEvent] type = " + this.getType() + ", scrollTop = " + this.scrollTop + ", scrollBottom = " + this.scrollBottom + ", windowWidth = " + this.windowWidth + ", windowHeight = " + this.windowHeight;
+			return '[WindowWatcherEvent] type = ' + this.getType() + ', scrollTop = ' + this.scrollTop + ', scrollBottom = ' + this.scrollBottom + ', windowWidth = ' + this.windowWidth + ', windowHeight = ' + this.windowHeight;
 		}
 
 

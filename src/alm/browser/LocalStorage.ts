@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.browser {
 
@@ -81,8 +81,8 @@ namespace alm.browser {
 		public static isAvailable():boolean {
 			if (LocalStorage.isAvailable_ == null) {
 				try {
-					localStorage.setItem("__CKECK__", "__CKECK__");
-					localStorage.removeItem("__CKECK__");
+					localStorage.setItem('__CKECK__', '__CKECK__');
+					localStorage.removeItem('__CKECK__');
 					LocalStorage.isAvailable_ = true;
 				} catch (error) {
 					LocalStorage.isAvailable_ = false;

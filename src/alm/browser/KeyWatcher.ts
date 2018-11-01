@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path='../../include.ts' />
 
 namespace alm.browser {
 
@@ -156,10 +156,10 @@ namespace alm.browser {
 			this.isRunning = true;
 
 			this.initialize();
-			trace("[KeyWatcher] start");
+			trace('[KeyWatcher] start');
 
-			window.addEventListener("keydown", this.windowKeyDownHandler);
-			window.addEventListener("keyup", this.windowKeyUpHandler);
+			window.addEventListener('keydown', this.windowKeyDownHandler);
+			window.addEventListener('keyup', this.windowKeyUpHandler);
 		}
 
 
@@ -168,10 +168,10 @@ namespace alm.browser {
 			this.isRunning = false;
 
 			this.initialize();
-			trace("[KeyWatcher] stop");
+			trace('[KeyWatcher] stop');
 
-			window.removeEventListener("keydown", this.windowKeyDownHandler);
-			window.removeEventListener("keyup", this.windowKeyUpHandler);
+			window.removeEventListener('keydown', this.windowKeyDownHandler);
+			window.removeEventListener('keyup', this.windowKeyUpHandler);
 		}
 
 		public static addEventListener(eventType:string, listener:(event:KeyWatcherEvent) => void):void {

@@ -1,4 +1,4 @@
-/// <reference path="../reference.ts" />
+/// <reference path='../include.ts' />
 
 namespace cmd {
 
@@ -25,7 +25,7 @@ namespace cmd {
 		// --------------------------------------------------
 
 		protected implExecuteFunction(command:Command):void {
-			const func:Function = this.getParent()["notifyBreak"];
+			const func:Function = this.getParent()['notifyBreak'];
 			if (func) func();
 			this.notifyComplete();
 		}
