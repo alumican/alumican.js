@@ -767,7 +767,7 @@ declare namespace alm.view {
 }
 declare namespace alm.view {
     class ButtonBehavior {
-        constructor(target: IButton, hitArea?: HTMLElement);
+        constructor(target: IButton, hitArea?: HTMLElement, isPreventDefaultEnabled?: boolean, isStopPropagationEnabled?: boolean);
         over(useTransition?: boolean): void;
         out(useTransition?: boolean): void;
         down(useTransition?: boolean): void;
@@ -785,10 +785,16 @@ declare namespace alm.view {
         getHitArea(): HTMLElement;
         setHitArea(hitArea: HTMLElement): void;
         clearHitArea(): void;
+        getIsPreventDefaultEnabled(): boolean;
+        setIsPreventDefaultEnabled(enabled: boolean): void;
+        getIsStopPropagationEnabled(): boolean;
+        setIsStopPropagationEnabled(enabled: boolean): void;
         private target;
         private hitArea;
         private isOver;
         private isDown;
+        private isPreventDefaultEnabled;
+        private isStopPropagationEnabled;
     }
 }
 declare namespace alm.view {

@@ -10,9 +10,11 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
-		constructor(target:IButton, hitArea:HTMLElement = null) {
+		constructor(target:IButton, hitArea:HTMLElement = null, isPreventDefaultEnabled:boolean = true, isStopPropagationEnabled:boolean = true) {
 			this.target = target;
 			this.hitArea = null;
+			this.isPreventDefaultEnabled = isPreventDefaultEnabled;
+			this.isStopPropagationEnabled = isStopPropagationEnabled;
 			this.isOver = false;
 			this.isDown = false;
 
@@ -74,22 +76,32 @@ namespace alm.view {
 		}
 
 		private mouseOverHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.over();
 		};
 
 		private mouseOutHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.out();
 		};
 
 		private mouseDownHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.down();
 		};
 
 		private mouseUpHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.over();
 		};
 
 		private clickHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.click();
 		};
 
@@ -121,6 +133,22 @@ namespace alm.view {
 			this.setHitArea(null);
 		}
 
+		public getIsPreventDefaultEnabled():boolean {
+			return this.isPreventDefaultEnabled;
+		}
+
+		public setIsPreventDefaultEnabled(enabled:boolean):void {
+			this.isPreventDefaultEnabled = enabled;
+		}
+
+		public getIsStopPropagationEnabled():boolean {
+			return this.isStopPropagationEnabled;
+		}
+
+		public setIsStopPropagationEnabled(enabled:boolean):void {
+			this.isStopPropagationEnabled = enabled;
+		}
+
 
 
 
@@ -135,5 +163,7 @@ namespace alm.view {
 		private hitArea:HTMLElement;
 		private isOver:boolean;
 		private isDown:boolean;
+		private isPreventDefaultEnabled:boolean;
+		private isStopPropagationEnabled:boolean;
 	}
 }
