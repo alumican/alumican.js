@@ -1,10 +1,15 @@
 /// <reference types="jquery" />
 /// <reference path="alumican.d.ts" />
 declare namespace alm.util {
-    class JQueryUtil {
-        static fadeTo(target: JQuery, opacity: number, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static fadeInJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
-        static fadeOutJquery(target: JQuery, duration: number, easing: EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
+    import EasingFunction = alm.util.EasingFunction;
+    class TweenCSS {
+        static scale(target: JQuery, from: number, to: number, duration?: number, easing?: EasingFunction, execute?: boolean): cmd.Tween;
+        static fade(target: JQuery, from: number, to: number, duration?: number, easing?: EasingFunction, updateDisplayTo?: string, updateVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeTo(target: JQuery, to: number, duration?: number, easing?: EasingFunction, updateDisplayTo?: string, updateVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeIn(target: JQuery, duration?: number, easing?: EasingFunction, updateDisplayTo?: string, updateVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeOut(target: JQuery, duration?: number, easing?: EasingFunction, updateDisplay?: boolean, updateVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static show(target: JQuery, updateDisplayTo?: string, updateVisibility?: boolean, execute?: boolean): cmd.Func;
+        static hide(target: JQuery, updateDisplay?: boolean, updateVisibility?: boolean, execute?: boolean): cmd.Func;
         private constructor();
     }
 }

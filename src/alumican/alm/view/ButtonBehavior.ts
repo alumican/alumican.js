@@ -68,11 +68,11 @@ namespace alm.view {
 		}
 
 		private off():void {
-			this.hitArea.addEventListener('mouseover', this.mouseOverHandler);
-			this.hitArea.addEventListener('mouseout', this.mouseOutHandler);
-			this.hitArea.addEventListener('mousedown', this.mouseDownHandler);
-			this.hitArea.addEventListener('mouseup', this.mouseUpHandler);
-			this.hitArea.addEventListener('click', this.clickHandler);
+			this.hitArea.removeEventListener('mouseover', this.mouseOverHandler);
+			this.hitArea.removeEventListener('mouseout', this.mouseOutHandler);
+			this.hitArea.removeEventListener('mousedown', this.mouseDownHandler);
+			this.hitArea.removeEventListener('mouseup', this.mouseUpHandler);
+			this.hitArea.removeEventListener('click', this.clickHandler);
 		}
 
 		private mouseOverHandler = (event:MouseEvent):void => {
