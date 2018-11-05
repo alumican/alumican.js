@@ -837,11 +837,12 @@ declare namespace alm.browser {
         static getIsFireFox(): boolean;
         static getIsOpera(): boolean;
         static getIsUnknownBrowser(): boolean;
+        static getIsTouchEnabled(): boolean;
+        static getIsDownloadEnabled(): boolean;
         static getDpi(): number;
         private static isDesktop;
         private static isTablet;
         private static isMobile;
-        private static isRetina;
         private static isIOS;
         private static isAndroid;
         private static isIE;
@@ -851,6 +852,9 @@ declare namespace alm.browser {
         private static isFireFox;
         private static isOpera;
         private static isUnknownBrowser;
+        private static isTouchEnabled;
+        private static isDownloadEnabled;
+        private static isRetina;
         private static dpi;
         private static isInitialized;
         private constructor();

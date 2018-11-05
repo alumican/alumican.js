@@ -55,9 +55,16 @@ namespace alm.browser {
 				this.isUnknownBrowser = true;
 			}
 
+			// Function
+			this.isTouchEnabled = (typeof window.ontouchstart) !== 'undefined';
+			this.isDownloadEnabled = !this.isIE && !this.isIOS;
+
 			// Resolution
 			this.isRetina = Math.round(window.devicePixelRatio) == 2;
 		}
+
+		// --------------------
+		// Device
 
 		public static getIsDesktop():boolean {
 			this.initialize();
@@ -74,6 +81,9 @@ namespace alm.browser {
 			return this.isMobile;
 		}
 
+		// --------------------
+		// OS
+
 		public static getIsIOS():boolean {
 			this.initialize();
 			return this.isIOS;
@@ -88,6 +98,9 @@ namespace alm.browser {
 			this.initialize();
 			return this.isRetina;
 		}
+
+		// --------------------
+		// Browser
 
 		public static getIsIE():boolean {
 			this.initialize();
@@ -124,6 +137,22 @@ namespace alm.browser {
 			return this.isUnknownBrowser;
 		}
 
+		// --------------------
+		// Function
+
+		public static getIsTouchEnabled():boolean {
+			this.initialize();
+			return this.isTouchEnabled;
+		}
+
+		public static getIsDownloadEnabled():boolean {
+			this.initialize();
+			return this.isDownloadEnabled;
+		}
+
+		// --------------------
+		// Resolution
+
 		public static getDpi():number {
 			if (this.dpi == -1) {
 				const div:HTMLElement = document.createElement('div');
@@ -149,8 +178,6 @@ namespace alm.browser {
 		private static isTablet:boolean = false;
 		private static isMobile:boolean = false;
 
-		private static isRetina:boolean = false;
-
 		private static isIOS:boolean = false;
 		private static isAndroid:boolean = false;
 
@@ -162,6 +189,10 @@ namespace alm.browser {
 		private static isOpera:boolean = false;
 		private static isUnknownBrowser:boolean = false;
 
+		private static isTouchEnabled:boolean = false;
+		private static isDownloadEnabled:boolean = false;
+
+		private static isRetina:boolean = false;
 		private static dpi:number = -1;
 
 		private static isInitialized:boolean = false;
