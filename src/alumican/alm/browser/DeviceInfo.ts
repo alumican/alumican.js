@@ -89,6 +89,41 @@ namespace alm.browser {
 			return this.isRetina;
 		}
 
+		public static getIsIE():boolean {
+			this.initialize();
+			return this.isIE;
+		}
+
+		public static getIsEdge():boolean {
+			this.initialize();
+			return this.isEdge;
+		}
+
+		public static getIsChrome():boolean {
+			this.initialize();
+			return this.isChrome;
+		}
+
+		public static getIsSafari():boolean {
+			this.initialize();
+			return this.isSafari;
+		}
+
+		public static getIsFireFox():boolean {
+			this.initialize();
+			return this.isFireFox;
+		}
+
+		public static getIsOpera():boolean {
+			this.initialize();
+			return this.isOpera;
+		}
+
+		public static getIsUnknownBrowser():boolean {
+			this.initialize();
+			return this.isUnknownBrowser;
+		}
+
 		public static getDpi():number {
 			if (this.dpi == -1) {
 				const div:HTMLElement = document.createElement('div');

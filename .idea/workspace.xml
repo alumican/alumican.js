@@ -5,9 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.d.ts" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js" afterPath="$PROJECT_DIR$/lib/alumican.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js.map" afterPath="$PROJECT_DIR$/lib/alumican.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js" afterPath="$PROJECT_DIR$/lib/alumican.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,12 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="DeviceInfo.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="26" />
+            <state relative-caret-position="941">
+              <caret line="135" column="9" lean-forward="false" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -179,7 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
@@ -230,6 +227,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -448,16 +446,16 @@
       <workItem from="1541040207707" duration="17137000" />
       <workItem from="1541086728907" duration="1264000" />
       <workItem from="1541089701692" duration="835000" />
-      <workItem from="1541429615841" duration="351000" />
+      <workItem from="1541429615841" duration="407000" />
+      <workItem from="1541430083589" duration="140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157429000" />
+    <option name="totallyTimeSpent" value="157625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="22" width="1440" height="1778" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -468,7 +466,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17052881" sideWeight="0.537196" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17052881" sideWeight="0.537196" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33511585" sideWeight="0.55150217" order="0" side_tool="false" content_ui="tabs" />
@@ -881,8 +879,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="26" />
+        <state relative-caret-position="941">
+          <caret line="135" column="9" lean-forward="false" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
           <folding />
         </state>
       </provider>

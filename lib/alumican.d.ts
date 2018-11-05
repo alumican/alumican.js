@@ -830,6 +830,13 @@ declare namespace alm.browser {
         static getIsIOS(): boolean;
         static getIsAndroid(): boolean;
         static getIsRetina(): boolean;
+        static getIsIE(): boolean;
+        static getIsEdge(): boolean;
+        static getIsChrome(): boolean;
+        static getIsSafari(): boolean;
+        static getIsFireFox(): boolean;
+        static getIsOpera(): boolean;
+        static getIsUnknownBrowser(): boolean;
         static getDpi(): number;
         private static isDesktop;
         private static isTablet;
