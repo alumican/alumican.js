@@ -837,6 +837,13 @@ declare namespace alm.browser {
         private static isRetina;
         private static isIOS;
         private static isAndroid;
+        private static isIE;
+        private static isEdge;
+        private static isChrome;
+        private static isSafari;
+        private static isFireFox;
+        private static isOpera;
+        private static isUnknownBrowser;
         private static dpi;
         private static isInitialized;
         private constructor();

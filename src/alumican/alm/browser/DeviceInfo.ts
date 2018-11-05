@@ -16,6 +16,7 @@ namespace alm.browser {
 
 			const u:string = window.navigator.userAgent.toLowerCase();
 
+			// Device
 			this.isTablet = (u.indexOf('windows') != -1 && u.indexOf('touch') != -1)
 				|| u.indexOf('ipad') != -1
 				|| (u.indexOf('android') != -1 && u.indexOf('mobile') == -1)
@@ -33,9 +34,28 @@ namespace alm.browser {
 
 			this.isDesktop = !this.isTablet && !this.isMobile;
 
+			// OS
 			this.isIOS = u.indexOf('ipad') != -1 || u.indexOf('iphone') != -1 || u.indexOf('ipod') != -1;
 			this.isAndroid = u.indexOf('android') != -1 && u.indexOf('mobile') != -1;
 
+			// Browser
+			if(u.indexOf('msie') != -1 || u.indexOf('trident') != -1) {
+				this.isIE = true;
+			} else if(u.indexOf('edge') != -1) {
+				this.isEdge = true;
+			} else if(u.indexOf('chrome') != -1) {
+				this.isChrome = true;
+			} else if(u.indexOf('safari') != -1) {
+				this.isSafari = true;
+			} else if(u.indexOf('firefox') != -1) {
+				this.isFireFox = true;
+			} else if(u.indexOf('opera') != -1) {
+				this.isOpera = true;
+			} else {
+				this.isUnknownBrowser = true;
+			}
+
+			// Resolution
 			this.isRetina = Math.round(window.devicePixelRatio) == 2;
 		}
 
@@ -90,14 +110,22 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		private static isDesktop:boolean;
-		private static isTablet:boolean;
-		private static isMobile:boolean;
+		private static isDesktop:boolean = false;
+		private static isTablet:boolean = false;
+		private static isMobile:boolean = false;
 
-		private static isRetina:boolean;
+		private static isRetina:boolean = false;
 
-		private static isIOS:boolean;
-		private static isAndroid:boolean;
+		private static isIOS:boolean = false;
+		private static isAndroid:boolean = false;
+
+		private static isIE:boolean = false;
+		private static isEdge:boolean = false;
+		private static isChrome:boolean = false;
+		private static isSafari:boolean = false;
+		private static isFireFox:boolean = false;
+		private static isOpera:boolean = false;
+		private static isUnknownBrowser:boolean = false;
 
 		private static dpi:number = -1;
 
