@@ -10,13 +10,15 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
-		constructor(target:IButton, hitArea:HTMLElement = null, isPreventDefaultEnabled:boolean = true, isStopPropagationEnabled:boolean = true) {
+		constructor(target:IButton, hitArea:HTMLElement = null, isHoverCursorEnabled:boolean = true, isPreventDefaultEnabled:boolean = true, isStopPropagationEnabled:boolean = true) {
 			this.target = target;
 			this.hitArea = null;
+			this.isHoverCursorEnabled = isHoverCursorEnabled;
 			this.isPreventDefaultEnabled = isPreventDefaultEnabled;
 			this.isStopPropagationEnabled = isStopPropagationEnabled;
 			this.isOver = false;
 			this.isDown = false;
+			this.defaultMouseCursor = '';
 
 			this.setHitArea(hitArea);
 		}
@@ -78,12 +80,19 @@ namespace alm.view {
 		private mouseOverHandler = (event:MouseEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
+			if (this.isHoverCursorEnabled) {
+				this.defaultMouseCursor = this.hitArea.style.cursor;
+				this.hitArea.style.cursor = 'pointer';
+			}
 			this.over();
 		};
 
 		private mouseOutHandler = (event:MouseEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
+			if (this.isHoverCursorEnabled) {
+				this.hitArea.style.cursor = this.defaultMouseCursor != '' ? this.defaultMouseCursor : 'pointer';
+			}
 			this.out();
 		};
 
@@ -149,6 +158,14 @@ namespace alm.view {
 			this.isStopPropagationEnabled = enabled;
 		}
 
+		public getIsHoverCursorEnabled():boolean {
+			return this.isHoverCursorEnabled;
+		}
+
+		public setIsHoverCursorEnabled(enabled:boolean):void {
+			this.isHoverCursorEnabled = enabled;
+		}
+
 
 
 
@@ -165,5 +182,7 @@ namespace alm.view {
 		private isDown:boolean;
 		private isPreventDefaultEnabled:boolean;
 		private isStopPropagationEnabled:boolean;
+		private isHoverCursorEnabled:boolean;
+		private defaultMouseCursor:string;
 	}
 }

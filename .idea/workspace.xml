@@ -8,7 +8,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.js.map" afterPath="$PROJECT_DIR$/lib/alumican.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js" afterPath="$PROJECT_DIR$/lib/alumican.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" afterPath="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +20,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DeviceInfo.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeviceInfo.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="734">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="753">
+              <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ButtonBehavior.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1036">
+              <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -138,10 +148,10 @@
         <option value="$PROJECT_DIR$/lib/alumican.d.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/JQueryUtil.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/util/Loc.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" />
         <option value="$PROJECT_DIR$/lib/alumican.jquery.d.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
       </list>
     </option>
   </component>
@@ -157,7 +167,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1247" />
-    <option name="y" value="37" />
+    <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="1778" />
   </component>
@@ -179,6 +189,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,14 +234,20 @@
               <item name="alm" type="462c0819:PsiDirectoryNode" />
               <item name="browser" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,15 +468,17 @@
       <workItem from="1541089701692" duration="835000" />
       <workItem from="1541429615841" duration="407000" />
       <workItem from="1541430083589" duration="185000" />
-      <workItem from="1541431723290" duration="552000" />
+      <workItem from="1541431723290" duration="1139000" />
+      <workItem from="1541493114216" duration="10000" />
+      <workItem from="1541502188996" duration="2559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158222000" />
+    <option name="totallyTimeSpent" value="161378000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1247" y="37" width="1440" height="1778" extended-state="0" />
+    <frame x="1247" y="22" width="1440" height="1778" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -470,12 +490,12 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17052881" sideWeight="0.537196" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17052881" sideWeight="0.537196" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33511585" sideWeight="0.55150217" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26824033" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -575,9 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,14 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/KeyWatcher.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -883,8 +892,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="753">
+          <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1036">
+          <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
           <folding />
         </state>
       </provider>
