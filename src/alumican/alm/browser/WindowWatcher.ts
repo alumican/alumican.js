@@ -24,7 +24,11 @@ namespace alm.browser {
 			this.initialize();
 			trace('[WindowWatcher] start');
 
-			window.addEventListener('resize', this.windowResizeHandler);
+			if (DeviceInfo.getIsDesktop()) {
+				window.addEventListener('resize', this.windowResizeHandler);
+			} else {
+				window.addEventListener('orientationchange', this.windowResizeHandler);
+			}
 			window.addEventListener('scroll', this.windowScrollHandler);
 			this.apply();
 		}
@@ -36,7 +40,11 @@ namespace alm.browser {
 			this.initialize();
 			trace('[WindowWatcher] stop');
 
-			window.removeEventListener('resize', this.windowResizeHandler);
+			if (DeviceInfo.getIsDesktop()) {
+				window.removeEventListener('resize', this.windowResizeHandler);
+			} else {
+				window.removeEventListener('orientationchange', this.windowResizeHandler);
+			}
 			window.removeEventListener('scroll', this.windowScrollHandler);
 		}
 
