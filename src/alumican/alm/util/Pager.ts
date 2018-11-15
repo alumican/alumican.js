@@ -113,7 +113,7 @@ namespace alm.util {
 			const oldItemId:string = this.oldItemIndex != -1 ? this.itemIds[this.oldItemIndex] : null;
 			const newItemId:string = this.newItemIndex != -1 ? this.itemIds[this.newItemIndex] : null;
 
-			const event:PagerEvent = new PagerEvent(eventType, this, this.newItemIndex, this.oldItemIndex, this.newItemId, this.newItemId, useTransition);
+			const event:PagerEvent = new PagerEvent(eventType, this, this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, useTransition);
 			if (callback) {
 				callback(event);
 			}
