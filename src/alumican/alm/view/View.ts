@@ -43,6 +43,11 @@ namespace alm.view {
 		public initialize():void {
 			if (this.isInitializing || this.isInitialized) return;
 			this.isInitializing = true;
+
+			if (View.viewsById[this.id] == null) {
+				View.viewsById[this.id] = this;
+			}
+
 			this.view = this.implInitialize();
 			if (this.isInitializing) {
 				throwError(this.name || this, 'view is null', !this.view);
@@ -69,6 +74,9 @@ namespace alm.view {
 			this.implFinalize();
 			this.isInitializing = false;
 			this.isInitialized = false;
+
+			delete View.viewsById[this.id];
+			View.viewsById[this.id] = null;
 		}
 
 		public show(useTransition:boolean = true):void {
