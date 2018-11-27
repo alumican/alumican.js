@@ -57,7 +57,7 @@ namespace alm.browser {
 
 			// Function
 			this.isTouchEnabled = (typeof window.ontouchstart) !== 'undefined';
-			this.isDownloadEnabled = !this.isIE && !this.isIOS;
+			this.isDownloadEnabled = !this.isIOS;
 
 			// Resolution
 			this.isRetina = Math.round(window.devicePixelRatio) == 2;
