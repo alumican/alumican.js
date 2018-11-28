@@ -17,19 +17,21 @@ namespace alm.browser {
 			this.eventDispatcher = new alm.event.EventDispatcher();
 		}
 
-		public static start():void {
+		public static start(target:Window = null):void {
 			if (this.isRunning) return;
 			this.isRunning = true;
 
 			this.initialize();
 			trace('[WindowWatcher] start');
 
+			this.window = target || window;
+
 			if (DeviceInfo.getIsDesktop()) {
-				window.addEventListener('resize', this.windowResizeHandler);
+				this.window.addEventListener('resize', this.windowResizeHandler);
 			} else {
-				window.addEventListener('orientationchange', this.windowResizeHandler);
+				this.window.addEventListener('orientationchange', this.windowResizeHandler);
 			}
-			window.addEventListener('scroll', this.windowScrollHandler);
+			this.window.addEventListener('scroll', this.windowScrollHandler);
 			this.apply();
 		}
 
@@ -41,18 +43,18 @@ namespace alm.browser {
 			trace('[WindowWatcher] stop');
 
 			if (DeviceInfo.getIsDesktop()) {
-				window.removeEventListener('resize', this.windowResizeHandler);
+				this.window.removeEventListener('resize', this.windowResizeHandler);
 			} else {
-				window.removeEventListener('orientationchange', this.windowResizeHandler);
+				this.window.removeEventListener('orientationchange', this.windowResizeHandler);
 			}
-			window.removeEventListener('scroll', this.windowScrollHandler);
+			this.window.removeEventListener('scroll', this.windowScrollHandler);
 		}
 
 		public static apply():void {
-			this.windowWidth = window.innerWidth;
-			this.windowHeight = window.innerHeight;
+			this.windowWidth = this.window.innerWidth;
+			this.windowHeight = this.window.innerHeight;
 
-			this.scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : document.documentElement.scrollTop;;
+			this.scrollTop = (this.window.pageYOffset !== undefined) ? this.window.pageYOffset : document.documentElement.scrollTop;
 			this.scrollBottom = this.scrollTop + this.windowHeight;
 		}
 
@@ -100,6 +102,9 @@ namespace alm.browser {
 
 		public static getIsRunning():boolean { return this.isRunning; }
 		private static isRunning:boolean = false;
+
+		public static getWindow():Window { return this.window; }
+		private static window:Window = null;
 
 		public static getScrollTop():number { return this.scrollTop; }
 		private static scrollTop:number;

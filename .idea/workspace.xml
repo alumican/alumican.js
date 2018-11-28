@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,15 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Pager.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1976">
-              <caret line="104" column="25" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -52,17 +44,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/View.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="779">
               <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+            <state relative-caret-position="469">
+              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
             </state>
           </provider>
         </entry>
@@ -111,7 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkState</find>
       <find>this.lastState</find>
       <find>messages</find>
       <find>...</find>
@@ -141,6 +141,7 @@
       <find>queriesByQueryId</find>
       <find>param</find>
       <find>JQuery</find>
+      <find>window</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -201,11 +202,11 @@
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" />
         <option value="$PROJECT_DIR$/lib/alumican.jquery.d.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/view/View.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts" />
       </list>
     </option>
   </component>
@@ -224,8 +225,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,6 +288,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -466,26 +467,25 @@
       <workItem from="1542334894220" duration="16000" />
       <workItem from="1542335554000" duration="873000" />
       <workItem from="1542369069216" duration="132000" />
-      <workItem from="1543315248196" duration="110000" />
+      <workItem from="1543315248196" duration="168000" />
+      <workItem from="1543373314893" duration="173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166728000" />
+    <option name="totallyTimeSpent" value="166959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="22" width="1440" height="1778" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.40772533" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.4134478" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Run" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="TypeScript" order="2" sideWeight="0.55150217" weight="0.33511585" />
@@ -495,7 +495,8 @@
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32976827" />
       <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Ant Build" order="2" />
@@ -504,6 +505,7 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,13 +739,6 @@
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/KeyWatcherEvent.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcherEvent.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -782,6 +777,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/View.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/IButton.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -806,17 +808,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/View.ts">
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="469">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts">
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        <state relative-caret-position="460">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
         </state>
       </provider>
     </entry>

@@ -1034,7 +1034,7 @@ declare namespace alm.browser {
 declare namespace alm.browser {
     class WindowWatcher {
         private static initialize();
-        static start(): void;
+        static start(target?: Window): void;
         static stop(): void;
         static apply(): void;
         static addEventListener(eventType: string, listener: (event: WindowWatcherEvent) => void): void;
@@ -1045,6 +1045,8 @@ declare namespace alm.browser {
         private static windowScrollHandler;
         static getIsRunning(): boolean;
         private static isRunning;
+        static getWindow(): Window;
+        private static window;
         static getScrollTop(): number;
         private static scrollTop;
         static getScrollBottom(): number;
