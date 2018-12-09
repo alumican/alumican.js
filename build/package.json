@@ -1,9 +1,10 @@
 {
   "name": "alumican.js",
   "version": "1.0.0",
-  "description": "Utilities",
+  "description": "JavaScript utility libraries",
   "main": "lib/alumican.js",
   "scripts": {
+    "preinstall": "npm install -g gulp-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yukiya Okuda",
@@ -13,13 +14,13 @@
     "url": "https://github.com/alumican/alumican.js.git"
   },
   "dependencies": {
-    "gulp": "github:gulpjs/gulp#4.0",
+    "typescript": "*",
+    "gulp": "github:gulpjs/gulp",
     "gulp-plumber": "*",
     "gulp-tap": "*",
     "gulp-sourcemaps": "*",
     "gulp-typescript": "*",
-    "gulp-uglify": "*",
-    "typescript": "*"
+    "gulp-uglify": "*"
   },
   "devDependencies": {
     "@types/jquery": "*",

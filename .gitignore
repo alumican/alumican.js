@@ -9,6 +9,7 @@ Icon
 *~.nib
 *.webloc
 
+
 ### Application ###
 *.apk
 *.ipa
@@ -25,8 +26,9 @@ bin-release-temp/
 
 
 ### Node.js ###
-**/node_modules/
-**/package-lock.json
+node_modules/
+package-lock.json
+
 
 ### Project ###
 src/**/*.js
