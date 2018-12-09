@@ -76,7 +76,7 @@ declare namespace cmd {
     enum CommandState {
         Sleeping = 0,
         Executing = 1,
-        Interrupting = 2,
+        Interrupting = 2
     }
 }
 declare namespace cmd {
@@ -129,7 +129,7 @@ declare namespace cmd {
         getLength(): number;
         getCommandByIndex(index: number): Command;
         getCommands(): Command[];
-        private preProcess(commands);
+        private preProcess;
         protected implExecuteFunction(command: Command): void;
         protected implInterruptFunction(command: Command): void;
         protected implDestroyFunction(command: Command): void;
@@ -171,7 +171,7 @@ declare namespace cmd {
         protected implExecuteFunction(command: Command): void;
         protected implInterruptFunction(command: Command): void;
         protected implDestroyFunction(command: Command): void;
-        private cancel();
+        private cancel;
         private completeHandler;
         getTime(): number;
         setTime(time: number): void;
@@ -225,8 +225,8 @@ declare namespace cmd {
         protected implExecuteFunction(command: Command): void;
         protected implInterruptFunction(command: Command): void;
         protected implDestroyFunction(command: Command): void;
-        private cancel();
-        private apply(timeRatio);
+        private cancel;
+        private apply;
         private intervalHandler;
         getTarget(): Object;
         setTarget(target: Object): void;
@@ -271,7 +271,7 @@ declare namespace cmd {
         insertCommand(...commands: (Command | Function)[]): void;
         addCommandArray(commands: (Command | Function)[]): void;
         insertCommandArray(commands: (Command | Function)[]): void;
-        private next();
+        private next;
         private completeHandler;
         protected implExecuteFunction(command: Command): void;
         protected implInterruptFunction(command: Command): void;
@@ -422,13 +422,13 @@ declare namespace alm.util {
         Middle_Right = 5,
         Bottom_Left = 6,
         Bottom_Center = 7,
-        Bottom_Right = 8,
+        Bottom_Right = 8
     }
     enum ScaleMode {
         ExactFit = 0,
         ShowAll = 1,
         NoBorder = 2,
-        NoScale = 3,
+        NoScale = 3
     }
     class Boxer {
         static resize(target: geom.Rectangle, bounds: geom.Rectangle, scaleMode?: ScaleMode, align?: Align): geom.Rectangle;
@@ -483,7 +483,7 @@ declare namespace alm.util {
         Info = 1,
         Warn = 2,
         Error = 3,
-        Silent = 4,
+        Silent = 4
     }
     interface ILogging {
         verbose(messages: any[]): void;
@@ -509,7 +509,7 @@ declare namespace alm.util {
         info(messages: any[]): void;
         warn(messages: any[]): void;
         error(messages: any[]): void;
-        private print(prefix, messages);
+        private print;
         private dom;
         private html;
     }
@@ -541,12 +541,12 @@ declare namespace alm.util {
         constructor();
         setupById(ids: string[]): void;
         setupByCount(itemCount: number): void;
-        private setup();
+        private setup;
         gotoByIndex(itemIndex: number, useTransition?: boolean): boolean;
         gotoById(itemId: string, useTransition?: boolean): boolean;
         prev(useTransition?: boolean): boolean;
         next(useTransition?: boolean): boolean;
-        private dispatchPagerEvent(eventType, callback, useTransition);
+        private dispatchPagerEvent;
         getIsLoopEnabled(): boolean;
         setIsLoopEnabled(value: boolean): void;
         private isLoopEnabled;
@@ -591,10 +591,10 @@ declare namespace alm.util {
         stop(): void;
         reset(): void;
         restart(): void;
-        private getCurrentTime();
-        private startInterval(interval);
-        private stopInterval();
-        private dispatch(eventType);
+        private getCurrentTime;
+        private startInterval;
+        private stopInterval;
+        private dispatch;
         private timerHandler;
         getIsRunning(): boolean;
         private isRunning;
@@ -656,9 +656,9 @@ declare namespace alm.loader {
     class AssetLoader {
         constructor();
         require(url: string, type: string): string;
-        private addQuery(type, url, param);
+        private addQuery;
         load(): void;
-        private next();
+        private next;
         addHandler(handler: IFileHandler): void;
         private fileLoadCompleteHandler;
         private fileLoadErrorHandler;
@@ -773,8 +773,8 @@ declare namespace alm.view {
         down(useTransition?: boolean): void;
         up(useTransition?: boolean): void;
         click(useTransition?: boolean): void;
-        private on();
-        private off();
+        private on;
+        private off;
         private mouseOverHandler;
         private mouseOutHandler;
         private mouseDownHandler;
@@ -827,7 +827,7 @@ declare namespace alm.view {
 }
 declare namespace alm.browser {
     class DeviceInfo {
-        private static initialize();
+        private static initialize;
         static getIsDesktop(): boolean;
         static getIsTablet(): boolean;
         static getIsMobile(): boolean;
@@ -991,10 +991,10 @@ declare namespace alm.browser {
         GraveAccent = 192,
         OpenBracket = 219,
         ClosedBracket = 221,
-        Quote = 222,
+        Quote = 222
     }
     class KeyWatcher {
-        private static initialize();
+        private static initialize;
         static start(): void;
         static stop(): void;
         static addEventListener(eventType: string, listener: (event: KeyWatcherEvent) => void): void;
@@ -1033,7 +1033,7 @@ declare namespace alm.browser {
 }
 declare namespace alm.browser {
     class WindowWatcher {
-        private static initialize();
+        private static initialize;
         static start(target?: Window): void;
         static stop(): void;
         static apply(): void;
@@ -1155,10 +1155,10 @@ declare namespace scn {
         getSceneNamesByPath(path: string): string[];
         getSceneLevelByNames(names: string[]): number;
         getScenePathByNames(names: string[]): string;
-        private createWaypoints(departurePath, destinationPath);
-        private setDirection(waypoints);
-        private printWaypoint(waypoints);
-        private checkState();
+        private createWaypoints;
+        private setDirection;
+        private printWaypoint;
+        private checkState;
         private sceneLoadCompleteHandler;
         private sceneUnloadCompleteHandler;
         private sceneArriveCompleteHandler;
@@ -1206,7 +1206,7 @@ declare namespace scn {
         Arriving = 3,
         Leaving = 4,
         Ascending = 5,
-        Descending = 6,
+        Descending = 6
     }
     function getSceneStateString(state: SceneState): string;
 }
@@ -1215,7 +1215,7 @@ declare namespace scn.core {
         Static = 0,
         Sibling = 1,
         Ascend = 2,
-        Descend = 3,
+        Descend = 3
     }
     function getDirectionString(direction: Direction): string;
 }
