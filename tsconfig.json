@@ -9,7 +9,9 @@
     ],
     "types": [
       "jquery",
-      "three"
+      "three",
+      "pixi.js",
+      "paper"
     ],
     "noEmit": true,
     "noImplicitAny": false,

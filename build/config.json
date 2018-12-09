@@ -7,7 +7,10 @@
 	"projects": [
 		"alumican",
 		"alumican.jquery",
-		"alumican.three"
+		"alumican.three",
+		"alumican.canvas",
+		"alumican.canvas.pixi",
+		"alumican.canvas.paper"
 	],
 	"option": {
 		"createProjectDirectory": false
