@@ -62,27 +62,27 @@ namespace alm.view {
 		}
 
 		private on():void {
-			this.hitArea.addEventListener('mouseover', this.mouseOverHandler);
-			this.hitArea.addEventListener('mouseout', this.mouseOutHandler);
-			this.hitArea.addEventListener('mousedown', this.mouseDownHandler);
-			this.hitArea.addEventListener('mouseup', this.mouseUpHandler);
-			this.hitArea.addEventListener('click', this.clickHandler);
+			jQuery(this.hitArea).on('mouseover', this.mouseOverHandler);
+			jQuery(this.hitArea).on('mouseout', this.mouseOutHandler);
+			jQuery(this.hitArea).on('mousedown', this.mouseDownHandler);
+			jQuery(this.hitArea).on('mouseup', this.mouseUpHandler);
+			jQuery(this.hitArea).on('click', this.clickHandler);
 
-			this.hitArea.addEventListener('touchstart', this.touchStartHandler);
-			this.hitArea.addEventListener('touchend', this.touchEndHandler);
-			this.hitArea.addEventListener('touchcancel', this.touchCancelHandler);
+			jQuery(this.hitArea).on('touchstart', this.touchStartHandler);
+			jQuery(this.hitArea).on('touchend', this.touchEndHandler);
+			jQuery(this.hitArea).on('touchcancel', this.touchCancelHandler);
 		}
 
 		private off():void {
-			this.hitArea.removeEventListener('mouseover', this.mouseOverHandler);
-			this.hitArea.removeEventListener('mouseout', this.mouseOutHandler);
-			this.hitArea.removeEventListener('mousedown', this.mouseDownHandler);
-			this.hitArea.removeEventListener('mouseup', this.mouseUpHandler);
-			this.hitArea.removeEventListener('click', this.clickHandler);
+			jQuery(this.hitArea).off('mouseover', this.mouseOverHandler);
+			jQuery(this.hitArea).off('mouseout', this.mouseOutHandler);
+			jQuery(this.hitArea).off('mousedown', this.mouseDownHandler);
+			jQuery(this.hitArea).off('mouseup', this.mouseUpHandler);
+			jQuery(this.hitArea).off('click', this.clickHandler);
 
-			this.hitArea.removeEventListener('touchstart', this.touchStartHandler);
-			this.hitArea.removeEventListener('touchend', this.touchEndHandler);
-			this.hitArea.removeEventListener('touchcancel', this.touchCancelHandler);
+			jQuery(this.hitArea).off('touchstart', this.touchStartHandler);
+			jQuery(this.hitArea).off('touchend', this.touchEndHandler);
+			jQuery(this.hitArea).off('touchcancel', this.touchCancelHandler);
 		}
 
 		public getIsOver():boolean {
@@ -140,7 +140,7 @@ namespace alm.view {
 		// --------------------------------------------------
 		// Mouse Event
 
-		private mouseOverHandler = (event:MouseEvent):void => {
+		private mouseOverHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			if (this.isHoverCursorEnabled) {
@@ -150,7 +150,7 @@ namespace alm.view {
 			this.over();
 		};
 
-		private mouseOutHandler = (event:MouseEvent):void => {
+		private mouseOutHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			if (this.isHoverCursorEnabled) {
@@ -159,19 +159,19 @@ namespace alm.view {
 			this.out();
 		};
 
-		private mouseDownHandler = (event:MouseEvent):void => {
+		private mouseDownHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.down();
 		};
 
-		private mouseUpHandler = (event:MouseEvent):void => {
+		private mouseUpHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.up();
 		};
 
-		private clickHandler = (event:MouseEvent):void => {
+		private clickHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.click();
@@ -180,22 +180,22 @@ namespace alm.view {
 		// --------------------------------------------------
 		// Touch Event
 
-		private touchStartHandler = (event:TouchEvent):void => {
+		private touchStartHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.down();
 		};
 
-		private touchEndHandler = (event:TouchEvent):void => {
+		private touchEndHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.up();
 		};
 
-		private touchCancelHandler = (event:TouchEvent):void => {
+		private touchCancelHandler = (event:JQuery.Event):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.out();
+			this.up();
 		};
 
 
