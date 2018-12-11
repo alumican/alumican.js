@@ -775,11 +775,6 @@ declare namespace alm.view {
         click(useTransition?: boolean): void;
         private on;
         private off;
-        private mouseOverHandler;
-        private mouseOutHandler;
-        private mouseDownHandler;
-        private mouseUpHandler;
-        private clickHandler;
         getIsOver(): boolean;
         getIsDown(): boolean;
         getHitArea(): HTMLElement;
@@ -791,6 +786,14 @@ declare namespace alm.view {
         setIsStopPropagationEnabled(enabled: boolean): void;
         getIsHoverCursorEnabled(): boolean;
         setIsHoverCursorEnabled(enabled: boolean): void;
+        private mouseOverHandler;
+        private mouseOutHandler;
+        private mouseDownHandler;
+        private mouseUpHandler;
+        private clickHandler;
+        private touchStartHandler;
+        private touchEndHandler;
+        private touchCancelHandler;
         private target;
         private hitArea;
         private isOver;

@@ -67,6 +67,10 @@ namespace alm.view {
 			this.hitArea.addEventListener('mousedown', this.mouseDownHandler);
 			this.hitArea.addEventListener('mouseup', this.mouseUpHandler);
 			this.hitArea.addEventListener('click', this.clickHandler);
+
+			this.hitArea.addEventListener('touchstart', this.touchStartHandler);
+			this.hitArea.addEventListener('touchend', this.touchEndHandler);
+			this.hitArea.addEventListener('touchcancel', this.touchCancelHandler);
 		}
 
 		private off():void {
@@ -75,44 +79,11 @@ namespace alm.view {
 			this.hitArea.removeEventListener('mousedown', this.mouseDownHandler);
 			this.hitArea.removeEventListener('mouseup', this.mouseUpHandler);
 			this.hitArea.removeEventListener('click', this.clickHandler);
+
+			this.hitArea.removeEventListener('touchstart', this.touchStartHandler);
+			this.hitArea.removeEventListener('touchend', this.touchEndHandler);
+			this.hitArea.removeEventListener('touchcancel', this.touchCancelHandler);
 		}
-
-		private mouseOverHandler = (event:MouseEvent):void => {
-			if (this.isPreventDefaultEnabled) event.preventDefault();
-			if (this.isStopPropagationEnabled) event.stopPropagation();
-			if (this.isHoverCursorEnabled) {
-				this.defaultMouseCursor = this.hitArea.style.cursor;
-				this.hitArea.style.cursor = 'pointer';
-			}
-			this.over();
-		};
-
-		private mouseOutHandler = (event:MouseEvent):void => {
-			if (this.isPreventDefaultEnabled) event.preventDefault();
-			if (this.isStopPropagationEnabled) event.stopPropagation();
-			if (this.isHoverCursorEnabled) {
-				this.hitArea.style.cursor = this.defaultMouseCursor != '' ? this.defaultMouseCursor : 'pointer';
-			}
-			this.out();
-		};
-
-		private mouseDownHandler = (event:MouseEvent):void => {
-			if (this.isPreventDefaultEnabled) event.preventDefault();
-			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.down();
-		};
-
-		private mouseUpHandler = (event:MouseEvent):void => {
-			if (this.isPreventDefaultEnabled) event.preventDefault();
-			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.over();
-		};
-
-		private clickHandler = (event:MouseEvent):void => {
-			if (this.isPreventDefaultEnabled) event.preventDefault();
-			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.click();
-		};
 
 		public getIsOver():boolean {
 			return this.isOver;
@@ -165,6 +136,65 @@ namespace alm.view {
 		public setIsHoverCursorEnabled(enabled:boolean):void {
 			this.isHoverCursorEnabled = enabled;
 		}
+
+		// --------------------------------------------------
+		// Mouse Event
+
+		private mouseOverHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			if (this.isHoverCursorEnabled) {
+				this.defaultMouseCursor = this.hitArea.style.cursor;
+				this.hitArea.style.cursor = 'pointer';
+			}
+			this.over();
+		};
+
+		private mouseOutHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			if (this.isHoverCursorEnabled) {
+				this.hitArea.style.cursor = this.defaultMouseCursor != '' ? this.defaultMouseCursor : 'pointer';
+			}
+			this.out();
+		};
+
+		private mouseDownHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			this.down();
+		};
+
+		private mouseUpHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			this.over();
+		};
+
+		private clickHandler = (event:MouseEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			this.click();
+		};
+
+		// --------------------------------------------------
+		// Touch Event
+
+		private touchStartHandler = (event:TouchEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			this.over();
+		};
+
+		private touchEndHandler = (event:TouchEvent):void => {
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			this.out();
+		};
+
+		private touchCancelHandler = (event:TouchEvent):void => {
+			this.touchEndHandler(event);
+		};
 
 
 
