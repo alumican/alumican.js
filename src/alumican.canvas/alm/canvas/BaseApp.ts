@@ -165,8 +165,8 @@ namespace alm.canvas {
 				this.pointerIds.push(id);
 				++this.pointingCount;
 				pointer.notifyEnter(touch.clientX, touch.clientY);
-				this.onPointerEnter(pointer);
 				pointer.notifyTouch();
+				this.onPointerEnter(pointer);
 				this.onPointerTouch(pointer);
 			}
 		};
@@ -188,8 +188,8 @@ namespace alm.canvas {
 				}
 				--this.pointingCount;
 				pointer.notifyRelease();
-				this.onPointerRelease(pointer);
 				pointer.notifyLeave();
+				this.onPointerRelease(pointer);
 				this.onPointerLeave(pointer);
 			}
 		};

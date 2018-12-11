@@ -1,5 +1,4 @@
 /// <reference path="../lib/alumican.d.ts" />
-/// <reference types="jquery" />
 declare namespace alm.canvas {
     abstract class BaseApp {
         constructor(canvasId: string, isAutoResizeEnabled?: boolean, ...platformSetupOptions: any[]);
@@ -32,7 +31,7 @@ declare namespace alm.canvas {
         private keyUpHandler;
         private resizeHandler;
         private requestAnimationFrame;
-        private getMousePointer(event);
+        private getMousePointer;
         static getPointerId(touchId: number): string;
         getPointerIds(): string[];
         private pointerIds;
