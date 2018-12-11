@@ -168,7 +168,7 @@ namespace alm.view {
 		private mouseUpHandler = (event:MouseEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.over();
+			this.up();
 		};
 
 		private clickHandler = (event:MouseEvent):void => {
@@ -183,17 +183,19 @@ namespace alm.view {
 		private touchStartHandler = (event:TouchEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.over();
+			this.down();
 		};
 
 		private touchEndHandler = (event:TouchEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
-			this.out();
+			this.up();
 		};
 
 		private touchCancelHandler = (event:TouchEvent):void => {
-			this.touchEndHandler(event);
+			if (this.isPreventDefaultEnabled) event.preventDefault();
+			if (this.isStopPropagationEnabled) event.stopPropagation();
+			this.out();
 		};
 
 
