@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="186">
+              <caret line="179" selection-start-line="179" selection-end-line="179" />
             </state>
           </provider>
         </entry>
@@ -44,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/node_modules/typescript/lib/lib.dom.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1531">
+            <state relative-caret-position="117572">
               <caret line="6201" column="4" selection-start-line="6201" selection-start-column="4" selection-end-line="6201" selection-end-column="4" />
             </state>
           </provider>
@@ -62,8 +58,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>include</find>
-      <find>Hash</find>
       <find>ObjectPool</find>
       <find>initCount</find>
       <find>/// &lt;reference types=&quot;three&quot; /&gt;</find>
@@ -92,6 +86,8 @@
       <find>alm</find>
       <find>yukiya</find>
       <find>this.hitArea.removeEventListener</find>
+      <find>isOver</find>
+      <find>isDown</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -178,8 +174,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,6 +232,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -428,18 +424,19 @@
       <workItem from="1544519271355" duration="164000" />
       <workItem from="1544520655644" duration="489000" />
       <workItem from="1544521334065" duration="1019000" />
-      <workItem from="1544522749391" duration="1978000" />
+      <workItem from="1544522749391" duration="2096000" />
+      <workItem from="1544583409566" duration="31000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174041000" />
+    <option name="totallyTimeSpent" value="174190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="911" width="1440" height="889" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.46852645" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.47496423" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -800,17 +797,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/node_modules/typescript/lib/lib.dom.d.ts">
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1531">
-          <caret line="6201" column="4" selection-start-line="6201" selection-start-column="4" selection-end-line="6201" selection-end-column="4" />
+        <state relative-caret-position="186">
+          <caret line="179" selection-start-line="179" selection-end-line="179" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
+    <entry file="file://$PROJECT_DIR$/build/node_modules/typescript/lib/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        <state relative-caret-position="117572">
+          <caret line="6201" column="4" selection-start-line="6201" selection-start-column="4" selection-end-line="6201" selection-end-column="4" />
         </state>
       </provider>
     </entry>
