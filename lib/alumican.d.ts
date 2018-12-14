@@ -720,7 +720,7 @@ declare namespace alm.loader {
 declare namespace alm.view {
     import EventDispatcher = alm.event.EventDispatcher;
     abstract class View<T = any> extends EventDispatcher {
-        constructor(view?: T);
+        constructor(view?: T, id?: string);
         initialize(): void;
         ready(): void;
         finalize(): void;
@@ -736,7 +736,7 @@ declare namespace alm.view {
         getIsShown(): boolean;
         getIsHiding(): boolean;
         getIsHidden(): boolean;
-        getId(): number;
+        getId(): string;
         getView(): T;
         getName(): string;
         setName(value: string): void;
@@ -747,7 +747,7 @@ declare namespace alm.view {
         protected abstract implFinalize(): void;
         protected abstract implShow(view: T, useTransition: boolean): cmd.Command;
         protected abstract implHide(view: T, useTransition: boolean): cmd.Command;
-        static getViewById(id: number): View;
+        static getViewById(id: string): View;
         private id;
         private view;
         private name;
@@ -761,7 +761,7 @@ declare namespace alm.view {
         private isShowing;
         private isShown;
         private isHiding;
-        private static id;
+        private static viewCount;
         private static viewsById;
     }
 }

@@ -3,6 +3,7 @@
 namespace alm.view {
 
 	import EventDispatcher = alm.event.EventDispatcher;
+	import Logger = alm.util.Logger;
 
 	export abstract class View<T = any> extends EventDispatcher {
 
@@ -12,9 +13,9 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
-		constructor(view:T = null) {
+		constructor(view:T = null, id:string = null) {
 			super();
-			this.id = View.id;
+			this.id = id != null ? id : String(View.viewCount);
 			this.view = view;
 			this.name = '';
 			this.autoHideWithInit = true;
@@ -26,8 +27,11 @@ namespace alm.view {
 			this.isShown = true;
 			this.isHiding = false;
 
-			View.viewsById[View.id] = this;
-			++View.id;
+			if (View.viewsById[this.id]) {
+				Logger.warn('View id \'' + this.id + '\' is already exists.')
+			}
+			View.viewsById[this.id] = this;
+			++View.viewCount;
 		}
 
 
@@ -44,9 +48,9 @@ namespace alm.view {
 			if (this.isInitializing || this.isInitialized) return;
 			this.isInitializing = true;
 
-			if (View.viewsById[this.id] == null) {
-				View.viewsById[this.id] = this;
-			}
+			//if (View.viewsById[this.id] == null) {
+			//	View.viewsById[this.id] = this;
+			//}
 
 			this.view = this.implInitialize();
 			if (this.isInitializing) {
@@ -189,7 +193,7 @@ namespace alm.view {
 			return !this.isShown;
 		}
 
-		public getId():number {
+		public getId():string {
 			return this.id;
 		}
 
@@ -227,7 +231,7 @@ namespace alm.view {
 
 
 
-		public static getViewById(id:number):View {
+		public static getViewById(id:string):View {
 			return View.viewsById[id];
 		}
 
@@ -241,7 +245,7 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
-		private id:number;
+		private id:string;
 		private view:T;
 		private name:string;
 		private autoHideWithInit:boolean;
@@ -255,7 +259,7 @@ namespace alm.view {
 		private isShown:boolean;
 		private isHiding:boolean;
 
-		private static id:number = 0;
+		private static viewCount:number = 0;
 		private static viewsById:util.Hash<View> = {};
 	}
 }
