@@ -2,8 +2,6 @@
 
 namespace alm.view {
 
-	import EventDispatcher = alm.event.EventDispatcher;
-
 	export class ButtonBehavior {
 
 		// --------------------------------------------------
@@ -21,7 +19,6 @@ namespace alm.view {
 			this.isOver = false;
 			this.isDown = false;
 			this.defaultMouseCursor = '';
-			this.eventDistatcher = new EventDispatcher(this.target);
 
 			this.setHitArea(hitArea);
 		}
@@ -40,33 +37,28 @@ namespace alm.view {
 			if (this.isOver) return;
 			this.isOver = true;
 			this.target.implButtonOver(useTransition);
-			this.eventDistatcher.dispatchEventType('over', this.target);
 		}
 
 		public out(useTransition:boolean = true):void {
 			if (!this.isOver) return;
 			this.isOver = false;
 			this.target.implButtonOut(useTransition);
-			this.eventDistatcher.dispatchEventType('out', this.target);
 		}
 
 		public down(useTransition:boolean = true):void {
 			if (this.isDown) return;
 			this.isDown = true;
 			this.target.implButtonDown(useTransition);
-			this.eventDistatcher.dispatchEventType('down', this.target);
 		}
 
 		public up(useTransition:boolean = true):void {
 			if (!this.isDown) return;
 			this.isDown = false;
 			this.target.implButtonUp(useTransition);
-			this.eventDistatcher.dispatchEventType('up', this.target);
 		}
 
 		public click(useTransition:boolean = true):void {
 			this.target.implButtonClick(useTransition);
-			this.eventDistatcher.dispatchEventType('click', this.target);
 		}
 
 		private on():void {
@@ -217,7 +209,6 @@ namespace alm.view {
 		// --------------------------------------------------
 
 		private target:IButton;
-		private eventDistatcher:EventDispatcher;
 		private hitArea:HTMLElement;
 		private isOver:boolean;
 		private isDown:boolean;
