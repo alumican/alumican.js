@@ -795,6 +795,7 @@ declare namespace alm.view {
         private touchEndHandler;
         private touchCancelHandler;
         private target;
+        private eventDistatcher;
         private hitArea;
         private isOver;
         private isDown;
