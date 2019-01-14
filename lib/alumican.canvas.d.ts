@@ -1,6 +1,7 @@
 /// <reference path="../lib/alumican.d.ts" />
 declare namespace alm.canvas {
-    abstract class BaseApp {
+    import EventDispatcher = alm.event.EventDispatcher;
+    abstract class BaseApp extends EventDispatcher {
         constructor(canvasId: string, isAutoResizeEnabled?: boolean, ...platformSetupOptions: any[]);
         onSetup(): void;
         onUpdate(): void;

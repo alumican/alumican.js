@@ -60,7 +60,8 @@ namespace alm.browser {
 			this.isDownloadEnabled = !this.isIOS;
 
 			// Resolution
-			this.isRetina = Math.round(window.devicePixelRatio) == 2;
+			this.devicePixelRatio = window.devicePixelRatio;
+			this.isRetina = this.devicePixelRatio > 1;
 		}
 
 		// --------------------
@@ -92,11 +93,6 @@ namespace alm.browser {
 		public static getIsAndroid():boolean {
 			this.initialize();
 			return this.isAndroid;
-		}
-
-		public static getIsRetina():boolean {
-			this.initialize();
-			return this.isRetina;
 		}
 
 		// --------------------
@@ -153,6 +149,16 @@ namespace alm.browser {
 		// --------------------
 		// Resolution
 
+		public static getIsRetina():boolean {
+			this.initialize();
+			return this.isRetina;
+		}
+
+		public static getDevicePixelRatio():number {
+			this.initialize();
+			return this.devicePixelRatio;
+		}
+
 		public static getDpi():number {
 			if (this.dpi == -1) {
 				const div:HTMLElement = document.createElement('div');
@@ -193,6 +199,7 @@ namespace alm.browser {
 		private static isDownloadEnabled:boolean = false;
 
 		private static isRetina:boolean = false;
+		private static devicePixelRatio:number = 1;
 		private static dpi:number = -1;
 
 		private static isInitialized:boolean = false;

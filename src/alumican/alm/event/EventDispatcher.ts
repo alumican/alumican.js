@@ -2,6 +2,7 @@
 
 namespace alm.event {
 
+	import Logger = alm.util.Logger;
 	export type EventListener = (event:Event) => void;
 
 	export class EventDispatcher {
@@ -28,7 +29,10 @@ namespace alm.event {
 		// --------------------------------------------------
 
 		public addEventListener(eventType:string, listener:EventListener):void {
-			if (typeof(listener) != 'function') return;
+			if (typeof(listener) != 'function') {
+				Logger.warn('[EventDispatcher] addEventListener : listener is not function, eventType = \'' + eventType + '\', listener = ' + listener);
+				return;
+			}
 			let listeners:EventListener[] = this.listeners[eventType];
 			if (listeners) {
 				const numListeners:number = listeners.length;
@@ -42,7 +46,10 @@ namespace alm.event {
 		}
 
 		public removeEventListener(eventType:string, listener:EventListener):void {
-			if (typeof(listener) != 'function') return;
+			if (typeof(listener) != 'function') {
+				Logger.warn('[EventDispatcher] removeEventListener : listener is not function, eventType = \'' + eventType + '\', listener = ' + listener);
+				return;
+			}
 			let listeners:EventListener[] = this.listeners[eventType];
 			if (listeners) {
 				const numListeners:number = listeners.length;

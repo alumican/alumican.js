@@ -9,5 +9,6 @@ namespace alm.view {
 		implButtonDown(useTransition:boolean):void;
 		implButtonUp(useTransition:boolean):void;
 		implButtonClick(useTransition:boolean):void;
+		implButtonChangeEnabled(isEnabled:boolean, useTransition:boolean):void;
 	}
 }

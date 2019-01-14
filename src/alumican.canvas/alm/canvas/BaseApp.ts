@@ -2,7 +2,9 @@
 
 namespace alm.canvas {
 
-	export abstract class BaseApp {
+	import EventDispatcher = alm.event.EventDispatcher;
+
+	export abstract class BaseApp extends EventDispatcher {
 
 		// --------------------------------------------------
 		//
@@ -11,6 +13,8 @@ namespace alm.canvas {
 		// --------------------------------------------------
 
 		constructor(canvasId:string, isAutoResizeEnabled:boolean = true, ...platformSetupOptions:any[]) {
+			super();
+
 			this.canvas = <JQuery<HTMLCanvasElement>>jQuery(canvasId);
 			this.isAutoResizeEnabled = isAutoResizeEnabled;
 

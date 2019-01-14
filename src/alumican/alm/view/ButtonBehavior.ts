@@ -16,8 +16,11 @@ namespace alm.view {
 			this.isHoverCursorEnabled = isHoverCursorEnabled;
 			this.isPreventDefaultEnabled = isPreventDefaultEnabled;
 			this.isStopPropagationEnabled = isStopPropagationEnabled;
+			this.isEnabled = true;
 			this.isOver = false;
 			this.isDown = false;
+			this.isOverInternal = false;
+			this.isDownInternal = false;
 			this.defaultMouseCursor = '';
 
 			this.setHitArea(hitArea);
@@ -34,34 +37,58 @@ namespace alm.view {
 		// --------------------------------------------------
 
 		public over(useTransition:boolean = true):void {
-			if (this.isOver) return;
-			this.isOver = true;
-			this.target.implButtonOver(useTransition);
+			this.isOverInternal = true;
+			if (this.isEnabled) {
+				if (this.isOver) return;
+				this.isOver = true;
+				this.target.implButtonOver(useTransition);
+			}
 		}
 
 		public out(useTransition:boolean = true):void {
-			if (!this.isOver) return;
-			this.isOver = false;
-			this.target.implButtonOut(useTransition);
+			this._out(true, useTransition);
+		}
+
+		private _out(checkEnabled:boolean, useTransition:boolean = true):void {
+			this.isOverInternal = false;
+			if (this.isEnabled || !checkEnabled) {
+				if (!this.isOver) return;
+				this.isOver = false;
+				this.target.implButtonOut(useTransition);
+			}
 		}
 
 		public down(useTransition:boolean = true):void {
-			if (this.isDown) return;
-			this.isDown = true;
-			this.target.implButtonDown(useTransition);
+			this.isDownInternal = true;
+			if (this.isEnabled) {
+				if (this.isDown) return;
+				this.isDown = true;
+				this.target.implButtonDown(useTransition);
+			}
 		}
 
 		public up(useTransition:boolean = true):void {
-			if (!this.isDown) return;
-			this.isDown = false;
-			this.target.implButtonUp(useTransition);
+			this._up(true, useTransition);
+		}
+
+		private _up(checkEnabled:boolean, useTransition:boolean = true):void {
+			this.isDownInternal = false;
+			if (this.isEnabled || !checkEnabled) {
+				if (!this.isDown) return;
+				this.isDown = false;
+				this.target.implButtonUp(useTransition);
+			}
 		}
 
 		public click(useTransition:boolean = true):void {
-			this.target.implButtonClick(useTransition);
+			if (this.isEnabled) {
+				this.target.implButtonClick(useTransition);
+			}
 		}
 
 		private on():void {
+			if (this.hitArea == null) return;
+
 			this.hitArea.addEventListener('mouseover', this.mouseOverHandler);
 			this.hitArea.addEventListener('mouseout', this.mouseOutHandler);
 			this.hitArea.addEventListener('mousedown', this.mouseDownHandler);
@@ -74,6 +101,8 @@ namespace alm.view {
 		}
 
 		private off():void {
+			if (this.hitArea == null) return;
+
 			this.hitArea.removeEventListener('mouseover', this.mouseOverHandler);
 			this.hitArea.removeEventListener('mouseout', this.mouseOutHandler);
 			this.hitArea.removeEventListener('mousedown', this.mouseDownHandler);
@@ -83,6 +112,34 @@ namespace alm.view {
 			//this.hitArea.removeEventListener('touchstart', this.touchStartHandler);
 			//this.hitArea.removeEventListener('touchend', this.touchEndHandler);
 			//this.hitArea.removeEventListener('touchcancel', this.touchCancelHandler);
+		}
+
+		public getIsEnabled():boolean {
+			return this.isEnabled;
+		}
+
+		public setIsEnabled(value:boolean, useTransition:boolean = true):void {
+			if (this.isEnabled != value) {
+				this.isEnabled = value;
+				if (this.isEnabled) {
+					if (this.isOverInternal) {
+						this.over();
+					}
+					if (this.isDownInternal) {
+						this.down();
+					}
+				} else {
+					if (this.isOver) {
+						this._out(false);
+						this.isOverInternal = true;
+					}
+					if (this.isDown) {
+						this._up(false);
+						this.isDownInternal = true;
+					}
+				}
+				this.target.implButtonChangeEnabled(this.isEnabled, useTransition);
+			}
 		}
 
 		public getIsOver():boolean {
@@ -99,13 +156,9 @@ namespace alm.view {
 
 		public setHitArea(hitArea:HTMLElement):void {
 			if (this.hitArea !== hitArea) {
-				if (this.hitArea !== null) {
-					this.off();
-				}
+				this.off();
 				this.hitArea = hitArea;
-				if (this.hitArea !== null) {
-					this.on();
-				}
+				this.on();
 			}
 		}
 
@@ -137,26 +190,32 @@ namespace alm.view {
 			this.isHoverCursorEnabled = enabled;
 		}
 
+		private applyMouseCursor():void {
+			if (this.isHoverCursorEnabled) {
+				if (this.isOverInternal && this.isEnabled && this.hitArea != null) {
+					this.defaultMouseCursor = this.hitArea.style.cursor;
+					this.hitArea.style.cursor = 'pointer';
+				} else {
+					this.hitArea.style.cursor = this.defaultMouseCursor != '' ? this.defaultMouseCursor : 'auto';
+				}
+			}
+		}
+
 		// --------------------------------------------------
 		// Mouse Event
 
 		private mouseOverHandler = (event:MouseEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
-			if (this.isHoverCursorEnabled) {
-				this.defaultMouseCursor = this.hitArea.style.cursor;
-				this.hitArea.style.cursor = 'pointer';
-			}
 			this.over();
+			this.applyMouseCursor();
 		};
 
 		private mouseOutHandler = (event:MouseEvent):void => {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
-			if (this.isHoverCursorEnabled) {
-				this.hitArea.style.cursor = this.defaultMouseCursor != '' ? this.defaultMouseCursor : 'pointer';
-			}
 			this.out();
+			this.applyMouseCursor();
 		};
 
 		private mouseDownHandler = (event:MouseEvent):void => {
@@ -210,8 +269,11 @@ namespace alm.view {
 
 		private target:IButton;
 		private hitArea:HTMLElement;
+		private isEnabled:boolean;
 		private isOver:boolean;
 		private isDown:boolean;
+		private isOverInternal:boolean;
+		private isDownInternal:boolean;
 		private isPreventDefaultEnabled:boolean;
 		private isStopPropagationEnabled:boolean;
 		private isHoverCursorEnabled:boolean;

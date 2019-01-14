@@ -1,4 +1,72 @@
 declare namespace alm.util {
+    class Loc {
+        static getQuery(): Hash<string>;
+        private constructor();
+    }
+}
+declare namespace alm.util {
+    enum LoggerLevel {
+        Verbose = 0,
+        Info = 1,
+        Warn = 2,
+        Error = 3,
+        Silent = 4
+    }
+    interface ILogging {
+        verbose(prefix: string, messages: any[]): void;
+        info(prefix: string, messages: any[]): void;
+        warn(prefix: string, messages: any[]): void;
+        error(prefix: string, messages: any[]): void;
+    }
+    class NullLogging implements ILogging {
+        verbose(prefix: string, messages: any[]): void;
+        info(prefix: string, messages: any[]): void;
+        warn(prefix: string, messages: any[]): void;
+        error(prefix: string, messages: any[]): void;
+    }
+    class ConsoleLogging implements ILogging {
+        verbose(prefix: string, messages: any[]): void;
+        info(prefix: string, messages: any[]): void;
+        warn(prefix: string, messages: any[]): void;
+        error(prefix: string, messages: any[]): void;
+    }
+    class DOMLogging implements ILogging {
+        constructor(dom: HTMLElement, html: boolean);
+        verbose(prefix: string, messages: any[]): void;
+        info(prefix: string, messages: any[]): void;
+        warn(prefix: string, messages: any[]): void;
+        error(prefix: string, messages: any[]): void;
+        private print;
+        private dom;
+        private html;
+    }
+    class ParallelLogging implements ILogging {
+        constructor(loggers: ILogging[]);
+        verbose(prefix: string, messages: any[]): void;
+        info(prefix: string, messages: any[]): void;
+        warn(prefix: string, messages: any[]): void;
+        error(prefix: string, messages: any[]): void;
+        private loggers;
+    }
+    class Logger {
+        static level: number;
+        static logger: ILogging;
+        private static namespace;
+        static setLevelByQuery(key: string): void;
+        static setNamespace(namespace: string): void;
+        static verbose(...messages: any[]): void;
+        static info(...messages: any[]): void;
+        static warn(...messages: any[]): void;
+        static error(...messages: any[]): void;
+        static warnIf(target: any, message: string, condition?: boolean): void;
+        static errorIf(target: any, message: string, condition?: boolean): void;
+        private constructor();
+    }
+}
+declare function trace(...messages: any[]): void;
+declare function throwWarn(target: any, message: string, condition?: boolean): void;
+declare function throwError(target: any, message: string, condition?: boolean): void;
+declare namespace alm.util {
     type EasingFunction = (t: number, b: number, c: number, d: number) => number;
     class Easing {
         static linear(t: number, b: number, c: number, d: number): number;
@@ -407,12 +475,6 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
-    class Loc {
-        static getQuery(): Hash<string>;
-        private constructor();
-    }
-}
-declare namespace alm.util {
     enum Align {
         Top_Left = 0,
         Top_Center = 1,
@@ -440,6 +502,7 @@ declare namespace alm.util {
         constructor(values?: T[]);
         set(values: T[]): void;
         get(): T;
+        add(value: T, reset?: boolean): void;
         reset(): void;
         getRestCount(): number;
         getIsEmply(): boolean;
@@ -477,65 +540,6 @@ declare namespace alm.util {
         private velocity;
     }
 }
-declare namespace alm.util {
-    enum LoggerLevel {
-        Verbose = 0,
-        Info = 1,
-        Warn = 2,
-        Error = 3,
-        Silent = 4
-    }
-    interface ILogging {
-        verbose(messages: any[]): void;
-        info(messages: any[]): void;
-        warn(messages: any[]): void;
-        error(messages: any[]): void;
-    }
-    class NullLogging implements ILogging {
-        verbose(messages: any[]): void;
-        info(messages: any[]): void;
-        warn(messages: any[]): void;
-        error(messages: any[]): void;
-    }
-    class ConsoleLogging implements ILogging {
-        verbose(messages: any[]): void;
-        info(messages: any[]): void;
-        warn(messages: any[]): void;
-        error(messages: any[]): void;
-    }
-    class DOMLogging implements ILogging {
-        constructor(dom: HTMLElement, html: boolean);
-        verbose(messages: any[]): void;
-        info(messages: any[]): void;
-        warn(messages: any[]): void;
-        error(messages: any[]): void;
-        private print;
-        private dom;
-        private html;
-    }
-    class ParallelLogging implements ILogging {
-        constructor(loggers: ILogging[]);
-        verbose(messages: any[]): void;
-        info(messages: any[]): void;
-        warn(messages: any[]): void;
-        error(messages: any[]): void;
-        private loggers;
-    }
-    class Logger {
-        static level: number;
-        static logger: ILogging;
-        static verbose(...messages: any[]): void;
-        static info(...messages: any[]): void;
-        static warn(...messages: any[]): void;
-        static error(...messages: any[]): void;
-        static warnIf(target: any, message: string, condition?: boolean): void;
-        static errorIf(target: any, message: string, condition?: boolean): void;
-        private constructor();
-    }
-}
-declare function trace(...messages: any[]): void;
-declare function throwWarn(target: any, message: string, condition?: boolean): void;
-declare function throwError(target: any, message: string, condition?: boolean): void;
 declare namespace alm.util {
     class Pager extends alm.event.EventDispatcher {
         constructor();
@@ -770,11 +774,15 @@ declare namespace alm.view {
         constructor(target: IButton, hitArea?: HTMLElement, isHoverCursorEnabled?: boolean, isPreventDefaultEnabled?: boolean, isStopPropagationEnabled?: boolean);
         over(useTransition?: boolean): void;
         out(useTransition?: boolean): void;
+        private _out;
         down(useTransition?: boolean): void;
         up(useTransition?: boolean): void;
+        private _up;
         click(useTransition?: boolean): void;
         private on;
         private off;
+        getIsEnabled(): boolean;
+        setIsEnabled(value: boolean, useTransition?: boolean): void;
         getIsOver(): boolean;
         getIsDown(): boolean;
         getHitArea(): HTMLElement;
@@ -786,6 +794,7 @@ declare namespace alm.view {
         setIsStopPropagationEnabled(enabled: boolean): void;
         getIsHoverCursorEnabled(): boolean;
         setIsHoverCursorEnabled(enabled: boolean): void;
+        private applyMouseCursor;
         private mouseOverHandler;
         private mouseOutHandler;
         private mouseDownHandler;
@@ -796,8 +805,11 @@ declare namespace alm.view {
         private touchCancelHandler;
         private target;
         private hitArea;
+        private isEnabled;
         private isOver;
         private isDown;
+        private isOverInternal;
+        private isDownInternal;
         private isPreventDefaultEnabled;
         private isStopPropagationEnabled;
         private isHoverCursorEnabled;
@@ -811,6 +823,7 @@ declare namespace alm.view {
         implButtonDown(useTransition: boolean): void;
         implButtonUp(useTransition: boolean): void;
         implButtonClick(useTransition: boolean): void;
+        implButtonChangeEnabled(isEnabled: boolean, useTransition: boolean): void;
     }
 }
 declare namespace alm.view {
@@ -836,7 +849,6 @@ declare namespace alm.browser {
         static getIsMobile(): boolean;
         static getIsIOS(): boolean;
         static getIsAndroid(): boolean;
-        static getIsRetina(): boolean;
         static getIsIE(): boolean;
         static getIsEdge(): boolean;
         static getIsChrome(): boolean;
@@ -846,6 +858,8 @@ declare namespace alm.browser {
         static getIsUnknownBrowser(): boolean;
         static getIsTouchEnabled(): boolean;
         static getIsDownloadEnabled(): boolean;
+        static getIsRetina(): boolean;
+        static getDevicePixelRatio(): number;
         static getDpi(): number;
         private static isDesktop;
         private static isTablet;
@@ -862,6 +876,7 @@ declare namespace alm.browser {
         private static isTouchEnabled;
         private static isDownloadEnabled;
         private static isRetina;
+        private static devicePixelRatio;
         private static dpi;
         private static isInitialized;
         private constructor();
@@ -1044,7 +1059,9 @@ declare namespace alm.browser {
         static removeEventListener(eventType: string, listener: (event: WindowWatcherEvent) => void): void;
         static calcScrolledPosition(y: number): number;
         static calcScrolledPositionRatio(y: number): number;
+        private static resize;
         private static windowResizeHandler;
+        private static windowOrientationChangeHandler;
         private static windowScrollHandler;
         static getIsRunning(): boolean;
         private static isRunning;
@@ -1058,6 +1075,9 @@ declare namespace alm.browser {
         private static windowWidth;
         static getWindowHeight(): number;
         private static windowHeight;
+        static getIsMobileOrientationResize(): boolean;
+        static setIsMobileOrientationResize(value: boolean): void;
+        private static isMobileOrientationResize;
         private static isInitialized;
         private static eventDispatcher;
         private constructor();

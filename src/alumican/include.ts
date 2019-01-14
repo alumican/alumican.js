@@ -1,7 +1,10 @@
 /* ---------- dependency ---------- */
 
 /* ---------- project ---------- */
+/// <reference path='alm/util/Loc.ts' />
+/// <reference path='alm/util/Logger.ts' />
 /// <reference path='alm/util/Easing.ts' />
+
 /// <reference path='alm/event/Event.ts' />
 /// <reference path='alm/event/EventDispatcher.ts' />
 
@@ -27,11 +30,9 @@
 /// <reference path='alm/util/Arr.ts' />
 /// <reference path='alm/util/Num.ts' />
 /// <reference path='alm/util/Str.ts' />
-/// <reference path='alm/util/Loc.ts' />
 /// <reference path='alm/util/Boxer.ts' />
 /// <reference path='alm/util/Raffle.ts' />
 /// <reference path='alm/util/Rotator.ts' />
-/// <reference path='alm/util/Logger.ts' />
 /// <reference path='alm/util/Pager.ts' />
 /// <reference path='alm/util/PagerEvent.ts' />
 /// <reference path='alm/util/Timer.ts' />

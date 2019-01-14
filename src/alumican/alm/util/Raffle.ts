@@ -53,6 +53,16 @@ namespace alm.util {
 			return value;
 		}
 
+		public add(value:T, reset:boolean = false):void {
+			this.initValues.push(value);
+			this.restValues.push(value);
+			this.restCount = this.restValues.length;
+			this.isEmpty = this.restCount == 0;
+			if (reset) {
+				this.reset();
+			}
+		}
+
 		public reset():void {
 			this.restValues = this.initValues.concat();
 			this.restCount = this.restValues.length;

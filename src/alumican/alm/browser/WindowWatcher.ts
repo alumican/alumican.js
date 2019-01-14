@@ -26,11 +26,8 @@ namespace alm.browser {
 
 			this.window = target || window;
 
-			if (DeviceInfo.getIsDesktop()) {
-				this.window.addEventListener('resize', this.windowResizeHandler);
-			} else {
-				this.window.addEventListener('orientationchange', this.windowResizeHandler);
-			}
+			this.window.addEventListener('resize', this.windowResizeHandler);
+			this.window.addEventListener('orientationchange', this.windowResizeHandler);
 			this.window.addEventListener('scroll', this.windowScrollHandler);
 			this.apply();
 		}
@@ -42,11 +39,8 @@ namespace alm.browser {
 			this.initialize();
 			trace('[WindowWatcher] stop');
 
-			if (DeviceInfo.getIsDesktop()) {
-				this.window.removeEventListener('resize', this.windowResizeHandler);
-			} else {
-				this.window.removeEventListener('orientationchange', this.windowResizeHandler);
-			}
+			this.window.removeEventListener('resize', this.windowResizeHandler);
+			this.window.removeEventListener('orientationchange', this.windowResizeHandler);
 			this.window.removeEventListener('scroll', this.windowScrollHandler);
 		}
 
@@ -76,13 +70,25 @@ namespace alm.browser {
 			return this.calcScrolledPosition(y) / this.windowHeight;
 		}
 
+		private static resize(event:Event):void {
+			WindowWatcher.apply();
+			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.RESIZE, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
+		};
+
 
 
 
 
 		private static windowResizeHandler = (event:Event):void => {
-			WindowWatcher.apply();
-			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.RESIZE, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
+			if (!DeviceInfo.getIsDesktop() && WindowWatcher.isMobileOrientationResize) return;
+			trace('[WindowWatcher] resize by window.resize');
+			WindowWatcher.resize(event);
+		};
+
+		private static windowOrientationChangeHandler = (event:Event):void => {
+			if (DeviceInfo.getIsDesktop() || !WindowWatcher.isMobileOrientationResize) return;
+			trace('[WindowWatcher] resize by window.orientationchange');
+			WindowWatcher.resize(event);
 		};
 
 		private static windowScrollHandler = (event:Event):void => {
@@ -117,6 +123,10 @@ namespace alm.browser {
 
 		public static getWindowHeight():number { return this.windowHeight; }
 		private static windowHeight:number = 0;
+
+		public static getIsMobileOrientationResize():boolean { return this.isMobileOrientationResize; }
+		public static setIsMobileOrientationResize(value:boolean):void { this.isMobileOrientationResize = value; }
+		private static isMobileOrientationResize:boolean = true;
 
 		private static isInitialized:boolean = false;
 		private static eventDispatcher:alm.event.EventDispatcher = null;
