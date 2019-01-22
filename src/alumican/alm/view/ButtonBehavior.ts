@@ -95,9 +95,9 @@ namespace alm.view {
 			this.hitArea.addEventListener('mouseup', this.mouseUpHandler);
 			this.hitArea.addEventListener('click', this.clickHandler);
 
-			//this.hitArea.addEventListener('touchstart', this.touchStartHandler);
-			//this.hitArea.addEventListener('touchend', this.touchEndHandler);
-			//this.hitArea.addEventListener('touchcancel', this.touchCancelHandler);
+			this.hitArea.addEventListener('touchstart', this.touchStartHandler);
+			this.hitArea.addEventListener('touchend', this.touchEndHandler);
+			this.hitArea.addEventListener('touchcancel', this.touchCancelHandler);
 		}
 
 		private off():void {
@@ -109,9 +109,9 @@ namespace alm.view {
 			this.hitArea.removeEventListener('mouseup', this.mouseUpHandler);
 			this.hitArea.removeEventListener('click', this.clickHandler);
 
-			//this.hitArea.removeEventListener('touchstart', this.touchStartHandler);
-			//this.hitArea.removeEventListener('touchend', this.touchEndHandler);
-			//this.hitArea.removeEventListener('touchcancel', this.touchCancelHandler);
+			this.hitArea.removeEventListener('touchstart', this.touchStartHandler);
+			this.hitArea.removeEventListener('touchend', this.touchEndHandler);
+			this.hitArea.removeEventListener('touchcancel', this.touchCancelHandler);
 		}
 
 		public getIsEnabled():boolean {
@@ -249,6 +249,7 @@ namespace alm.view {
 			if (this.isPreventDefaultEnabled) event.preventDefault();
 			if (this.isStopPropagationEnabled) event.stopPropagation();
 			this.up();
+			this.click();
 		};
 
 		private touchCancelHandler = (event:TouchEvent):void => {

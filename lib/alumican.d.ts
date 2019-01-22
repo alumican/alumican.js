@@ -1,7 +1,13 @@
 declare namespace alm.util {
-    class Loc {
-        static getQuery(): Hash<string>;
-        private constructor();
+    class QueryString {
+        constructor(url?: string);
+        set(url?: string): void;
+        getString(key: string, defaultValue: string): string;
+        getInt(key: string, defaultValue: number): number;
+        getFloat(key: string, defaultValue: number): number;
+        getBool(key: string, defaultValue: boolean): boolean;
+        getHash(): Hash<string>;
+        private hash;
     }
 }
 declare namespace alm.util {

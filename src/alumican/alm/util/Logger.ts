@@ -156,7 +156,7 @@ namespace alm.util {
 		private static namespace:string = '';
 
 		public static setLevelByQuery(key:string):void {
-			const level:number = parseInt(Loc.getQuery()[key]);
+			const level:number = new QueryString().getInt(key, LoggerLevel.Silent);
 			Logger.level = isNaN(level) ? LoggerLevel.Silent : level;
 		}
 

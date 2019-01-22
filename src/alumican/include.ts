@@ -1,7 +1,7 @@
 /* ---------- dependency ---------- */
 
 /* ---------- project ---------- */
-/// <reference path='alm/util/Loc.ts' />
+/// <reference path='alm/browser/QueryString.ts' />
 /// <reference path='alm/util/Logger.ts' />
 /// <reference path='alm/util/Easing.ts' />
 
