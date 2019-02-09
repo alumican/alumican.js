@@ -4,7 +4,7 @@
 
 `<script src='path/to/alumican.min.js'></script>`
 
-## namespaces
+## packages
 
 ### alm
 基本的機能を提供するクラス群
