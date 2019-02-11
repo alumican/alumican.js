@@ -79,7 +79,7 @@ namespace alm.loader {
 				const query:FileQuery = this.loadingQueries[this.loadingQueryIndex];
 				query.isLoading = true;
 				query.isLoadComplete = false;
-				trace('[AssetLoader] loading... ' + '\'' + query.url + '' as '' + query.type + '\'');
+				trace('[AssetLoader] loading... ' + '\'' + query.url + '\' as \'' + query.type + '\'');
 
 				const handler:IFileHandler = this.handlersByType[query.type];
 				if (handler) {
