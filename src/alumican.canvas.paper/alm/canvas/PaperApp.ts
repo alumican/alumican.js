@@ -32,6 +32,11 @@ namespace alm.canvas {
 		}
 
 		protected onPlatformResize(stageWidth:number, stageHeight:number):void {
+			this.getCanvas().attr({ width: stageWidth, height: stageHeight });
+
+			const viewSize:paper.Size = paper.view.viewSize;
+			viewSize.width = stageWidth;
+			viewSize.height = stageHeight;
 		}
 
 
