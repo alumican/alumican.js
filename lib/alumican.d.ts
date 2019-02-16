@@ -665,7 +665,7 @@ declare namespace alm.loader {
     type ErrorFunction = (message: string) => void;
     class AssetLoader {
         constructor();
-        require(url: string, type: string): string;
+        require(url: string, type: string, id?: string): string;
         private addQuery;
         load(): void;
         private next;

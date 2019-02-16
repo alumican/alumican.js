@@ -40,22 +40,28 @@ namespace alm.loader {
 		//
 		// --------------------------------------------------
 
-		public require(url:string, type:string):string {
-			return this.addQuery(type, url, {});
+		public require(url:string, type:string, id:string = ''):string {
+			return this.addQuery(type, url, {}, id);
 		}
 
-		private addQuery(type:string, url:string, param:any):string {
+		private addQuery(type:string, url:string, param:any, id:string = ''):string {
 			if (this.queriesByUrl[url]) return this.queriesByUrl[url].id;
 
 			const query:FileQuery = new FileQuery();
-			query.id = String(AssetLoader.id);
 			query.type = type;
 			query.url = url;
 			query.param = param;
+
+			if (id != '') {
+				query.id = id;
+			} else {
+				query.id = String(AssetLoader.id);
+				++AssetLoader.id;
+			}
+
 			this.loadingQueries.push(query);
 			this.queriesByQueryId[query.id] = query;
 			this.queriesByUrl[query.url] = query;
-			++AssetLoader.id;
 			return query.id;
 		}
 
