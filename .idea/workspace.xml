@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,21 +59,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1370">
-              <caret line="170" column="37" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="37" />
-              <caret line="276" column="37" selection-start-line="276" selection-start-column="26" selection-end-line="276" selection-end-column="37" />
+            <state relative-caret-position="458">
+              <caret line="229" column="26" lean-forward="true" selection-start-line="229" selection-start-column="26" selection-end-line="229" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+            <state relative-caret-position="1288">
+              <caret line="126" column="1" lean-forward="true" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -187,8 +183,8 @@
         <option value="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" />
+        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" />
       </list>
     </option>
   </component>
@@ -498,12 +494,12 @@
       <workItem from="1550250055961" duration="3000" />
       <workItem from="1550330777459" duration="841000" />
       <workItem from="1550382932858" duration="65000" />
-      <workItem from="1550413555865" duration="877000" />
+      <workItem from="1550413555865" duration="1627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208384000" />
+    <option name="totallyTimeSpent" value="209134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="1778" extended-state="0" />
@@ -867,18 +863,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1370">
-          <caret line="170" column="37" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="37" />
-          <caret line="276" column="37" selection-start-line="276" selection-start-column="26" selection-end-line="276" selection-end-column="37" />
+        <state relative-caret-position="1288">
+          <caret line="126" column="1" lean-forward="true" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        <state relative-caret-position="458">
+          <caret line="229" column="26" lean-forward="true" selection-start-line="229" selection-start-column="26" selection-end-line="229" selection-end-column="26" />
         </state>
       </provider>
     </entry>

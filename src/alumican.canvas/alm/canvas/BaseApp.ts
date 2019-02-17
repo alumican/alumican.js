@@ -38,10 +38,10 @@ namespace alm.canvas {
 			jQuery(window).on('touchend', this.touchEndHandler);
 			jQuery(window).on('touchcancel', this.touchCancelHandler);
 			jQuery(window).on('touchmove', this.touchMoveHandler);
-			jQuery(window).on('touchforcechange', this.touchForceChangeHandler);
 			jQuery(window).on('keydown', this.keyDownHandler);
 			jQuery(window).on('keyup', this.keyUpHandler);
 			this.canvas.on('touchmove', this.canvasTouchMoveHandler);
+			this.canvas.on('touchforcechange', this.touchForceChangeHandler);
 			requestAnimationFrame(this.requestAnimationFrame);
 
 			this.onPlatformSetup.apply(this, platformSetupOptions);
