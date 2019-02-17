@@ -11,6 +11,7 @@ declare namespace alm.canvas {
         onPointerRelease(pointer: Pointer): void;
         onPointerMove(pointer: Pointer): void;
         onPointerDrag(pointer: Pointer): void;
+        onPointerTouchForceChange(pointer: Pointer): void;
         onKeyDown(key: string): void;
         onKeyUp(key: string): void;
         onResize(stageWidth: number, stageHeight: number): void;
@@ -27,6 +28,7 @@ declare namespace alm.canvas {
         private touchEndHandler;
         private touchCancelHandler;
         private touchMoveHandler;
+        private touchForceChangeHandler;
         private canvasTouchMoveHandler;
         private keyDownHandler;
         private keyUpHandler;
@@ -67,6 +69,7 @@ declare namespace alm.canvas {
         notifyTouch(): void;
         notifyRelease(): void;
         notifyMove(x: number, y: number): void;
+        notifyTouchForce(force: number): void;
         id: string;
         isHovering: boolean;
         isTouching: boolean;
@@ -81,5 +84,6 @@ declare namespace alm.canvas {
         velocityY: number;
         touchBeginX: number;
         touchBeginY: number;
+        touchForce: number;
     }
 }

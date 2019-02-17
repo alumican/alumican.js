@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,16 +48,35 @@
         <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Num.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="627">
-              <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+              <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1370">
+              <caret line="170" column="37" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="37" />
+              <caret line="276" column="37" selection-start-line="276" selection-start-column="26" selection-end-line="276" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
+        <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="507">
+              <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -67,8 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getView</find>
-      <find>x:number,</find>
       <find>easing</find>
       <find>easeIn</find>
       <find>b:number, c:number, d:number</find>
@@ -97,6 +121,8 @@
       <find>scal</find>
       <find>onPointerMove</find>
       <find>addHandler</find>
+      <find>pointer.</find>
+      <find>new Pointer</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -140,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/alumican.canvas.pixijs/include.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.paperjs/include.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas/include.ts" />
         <option value="$PROJECT_DIR$/build/config.json" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" />
@@ -154,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/alumican/alm/util/Raffle.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/view/IButton.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcher.ts" />
         <option value="$PROJECT_DIR$/src/alumican/include.ts" />
@@ -163,6 +187,8 @@
         <option value="$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
+        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" />
+        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts" />
       </list>
     </option>
   </component>
@@ -182,7 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,11 +242,32 @@
               <item name="alm" type="462c0819:PsiDirectoryNode" />
               <item name="loader" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="alm" type="462c0819:PsiDirectoryNode" />
+              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,18 +496,20 @@
       <workItem from="1550210069304" duration="22000" />
       <workItem from="1550227606018" duration="640000" />
       <workItem from="1550250055961" duration="3000" />
-      <workItem from="1550330777459" duration="242000" />
+      <workItem from="1550330777459" duration="841000" />
+      <workItem from="1550382932858" duration="65000" />
+      <workItem from="1550413555865" duration="877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206843000" />
+    <option name="totallyTimeSpent" value="208384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="1778" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.38340485" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39484978" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -471,7 +520,7 @@
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="TypeScript" order="2" sideWeight="0.55150217" weight="0.33511585" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.537196" visible="true" weight="0.28351128" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.537196" visible="true" weight="0.28351128" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.44849786" side_tool="true" weight="0.33531865" />
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3291815" />
@@ -766,27 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1211">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="133" column="27" lean-forward="true" selection-start-line="133" selection-start-column="27" selection-end-line="133" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/loader/JQueryJsonFileHandler.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -821,14 +849,36 @@
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Num.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
-          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="236">
+          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1370">
+          <caret line="170" column="37" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="37" />
+          <caret line="276" column="37" selection-start-line="276" selection-start-column="26" selection-end-line="276" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
         </state>
       </provider>
     </entry>

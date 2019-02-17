@@ -38,6 +38,7 @@ namespace alm.canvas {
 			jQuery(window).on('touchend', this.touchEndHandler);
 			jQuery(window).on('touchcancel', this.touchCancelHandler);
 			jQuery(window).on('touchmove', this.touchMoveHandler);
+			jQuery(window).on('touchforcechange', this.touchForceChangeHandler);
 			jQuery(window).on('keydown', this.keyDownHandler);
 			jQuery(window).on('keyup', this.keyUpHandler);
 			this.canvas.on('touchmove', this.canvasTouchMoveHandler);
@@ -84,6 +85,9 @@ namespace alm.canvas {
 		}
 
 		public onPointerDrag(pointer:Pointer):void {
+		}
+
+		public onPointerTouchForceChange(pointer:Pointer):void {
 		}
 
 		public onKeyDown(key:string):void {
@@ -216,6 +220,21 @@ namespace alm.canvas {
 				if (pointer.isDragging) {
 					this.onPointerDrag(pointer);
 				}
+			}
+		};
+
+		private touchForceChangeHandler = (event:JQuery.Event):void => {
+			const touches:TouchList = event.changedTouches;
+			const touchCount:number = event.changedTouches.length;
+			let touch:Touch;
+			let id:string;
+			let pointer:Pointer;
+			for (let i:number = 0; i < touchCount; ++i) {
+				touch = touches.item(i);
+				id = BaseApp.getPointerId(touch.identifier);
+				pointer = this.pointersById[id];
+				pointer.notifyTouchForce(touch.force);
+				this.onPointerTouchForceChange(pointer);
 			}
 		};
 

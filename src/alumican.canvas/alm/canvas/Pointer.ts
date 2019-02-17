@@ -31,6 +31,8 @@ namespace alm.canvas {
 
 			this.touchBeginX = 0;
 			this.touchBeginY = 0;
+
+			this.touchForce = 0;
 		}
 
 
@@ -86,6 +88,10 @@ namespace alm.canvas {
 			}
 		}
 
+		public notifyTouchForce(force:number):void {
+			this.touchForce = force;
+		}
+
 
 
 
@@ -115,5 +121,7 @@ namespace alm.canvas {
 
 		public touchBeginX:number;
 		public touchBeginY:number;
+
+		public touchForce:number;
 	}
 }
