@@ -25,8 +25,6 @@ namespace alm.canvas {
 		// --------------------------------------------------
 
 		protected onPlatformSetup(platformSetupOptions:any[]):void {
-			trace("[PixiApp] platformSetupOptions : ", platformSetupOptions);
-
 			const options:PIXI.ApplicationOptions = platformSetupOptions[0];
 
 			this.pixi = new PIXI.Application({
