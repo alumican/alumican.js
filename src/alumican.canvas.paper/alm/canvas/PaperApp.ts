@@ -13,7 +13,7 @@ namespace alm.canvas {
 		// --------------------------------------------------
 
 		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, useGlobalPaper:boolean = true) {
-			super(canvas, isAutoResizeEnabled, useGlobalPaper);
+			super(canvas, isAutoResizeEnabled, [useGlobalPaper]);
 		}
 
 
@@ -26,9 +26,9 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		protected onPlatformSetup(...platformSetupOptions:any[]):void {
+		protected onPlatformSetup(platformSetupOptions:any[]):void {
 			this.paper = new paper.PaperScope();
-			if (platformSetupOptions[0]) { // useGlobalPaper:boolean
+			if (platformSetupOptions[0]) {
 				this.paper.install(paper);
 			}
 			this.paper.setup(this.getCanvas().get(0));

@@ -11,7 +11,7 @@ namespace alm.canvas {
 		// --------------------------------------------------
 
 		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, options?:PIXI.ApplicationOptions) {
-			super(canvas, isAutoResizeEnabled, options);
+			super(canvas, isAutoResizeEnabled, [options]);
 		}
 
 
@@ -24,7 +24,7 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		protected onPlatformSetup(...platformSetupOptions:any[]):void {
+		protected onPlatformSetup(platformSetupOptions:any[]):void {
 			const options:PIXI.ApplicationOptions = platformSetupOptions[0];
 
 			this.pixi = new PIXI.Application({

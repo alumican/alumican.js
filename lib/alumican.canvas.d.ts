@@ -2,7 +2,7 @@
 declare namespace alm.canvas {
     import EventDispatcher = alm.event.EventDispatcher;
     abstract class BaseApp extends EventDispatcher {
-        constructor(canvas: HTMLElement, isAutoResizeEnabled?: boolean, ...platformSetupOptions: any[]);
+        constructor(canvas: HTMLElement, isAutoResizeEnabled?: boolean, platformSetupOptions?: any[]);
         onSetup(): void;
         onUpdate(): void;
         onPointerEnter(pointer: Pointer): void;
@@ -15,7 +15,7 @@ declare namespace alm.canvas {
         onKeyDown(key: string): void;
         onKeyUp(key: string): void;
         onResize(stageWidth: number, stageHeight: number): void;
-        protected onPlatformSetup(...platformSetupOptions: any[]): void;
+        protected onPlatformSetup(platformSetupOptions: any[]): void;
         protected onPlatformRender(): void;
         protected onPlatformResize(stageWidth: number, stageHeight: number): void;
         resize(width: number, height: number): void;

@@ -13,7 +13,7 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, ...platformSetupOptions:any[]) {
+		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, platformSetupOptions:any[] = null) {
 			super();
 
 			this.canvas = <JQuery<HTMLCanvasElement>>jQuery(canvas);
@@ -50,7 +50,7 @@ namespace alm.canvas {
 
 			requestAnimationFrame(this.requestAnimationFrame);
 
-			this.onPlatformSetup.apply(this, platformSetupOptions);
+			this.onPlatformSetup(platformSetupOptions || []);
 			this.onSetup();
 
 			if (this.isAutoResizeEnabled) {
@@ -105,7 +105,7 @@ namespace alm.canvas {
 		public onResize(stageWidth:number, stageHeight:number):void {
 		}
 
-		protected onPlatformSetup(...platformSetupOptions:any[]):void {
+		protected onPlatformSetup(platformSetupOptions:any[]):void {
 		}
 
 		protected onPlatformRender():void {

@@ -3,34 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Logger.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/include.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/include.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2204">
-              <caret line="116" selection-start-line="116" selection-end-line="116" />
+            <state relative-caret-position="198">
+              <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
               <folding>
                 <element signature="n#EventDispatcher#0;n#canvas#0;n#alm#0" expanded="true" />
               </folding>
@@ -70,8 +45,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="424">
+              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -88,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="293">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -97,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2394">
+            <state relative-caret-position="582">
               <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
             </state>
           </provider>
@@ -558,12 +542,12 @@
       <workItem from="1550803489993" duration="10000" />
       <workItem from="1551409441678" duration="217000" />
       <workItem from="1551425153770" duration="14000" />
-      <workItem from="1551502733235" duration="2488000" />
+      <workItem from="1551502733235" duration="2875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225176000" />
+    <option name="totallyTimeSpent" value="225563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="889" extended-state="0" />
@@ -922,37 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2204">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-          <folding>
-            <element signature="n#EventDispatcher#0;n#canvas#0;n#alm#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/node_modules/@types/paper/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-872">
@@ -963,10 +916,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+          <folding>
+            <element signature="n#EventDispatcher#0;n#canvas#0;n#alm#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="424">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
         </state>
       </provider>
     </entry>
