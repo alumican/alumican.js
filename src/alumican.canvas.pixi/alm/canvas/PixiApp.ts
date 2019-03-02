@@ -10,8 +10,8 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		constructor(canvasId:string, isAutoResizeEnabled:boolean = true, options?:PIXI.ApplicationOptions) {
-			super(canvasId, isAutoResizeEnabled, options);
+		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, options?:PIXI.ApplicationOptions) {
+			super(canvas, isAutoResizeEnabled, options);
 		}
 
 

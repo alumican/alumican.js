@@ -660,6 +660,53 @@ declare namespace alm.util {
         private constructor();
     }
 }
+declare namespace alm.value {
+    class EasingValue {
+        constructor(initValue: number, easing?: number, tolerance?: number);
+        update(useTransition?: boolean): number;
+        clone(): EasingValue;
+        value: number;
+        target: number;
+        easing: number;
+        tolerance: number;
+    }
+}
+declare namespace alm.value {
+    class SpringValue {
+        constructor(initValue: number, spring?: number, friction?: number);
+        update(useTransition?: boolean): number;
+        clone(): SpringValue;
+        value: number;
+        target: number;
+        velocity: number;
+        acceleration: number;
+        spring: number;
+        friction: number;
+    }
+}
+declare namespace alm.value {
+    class SimpleAverage {
+        constructor();
+        add(n: number): number;
+        value: number;
+        count: number;
+        private _value;
+        private _count;
+    }
+}
+declare namespace alm.value {
+    class SimpleMovingAverage {
+        constructor(maxCount: number);
+        add(n: number): number;
+        value: number;
+        maxCount: number;
+        count: number;
+        private _value;
+        private _maxCount;
+        private _count;
+        private values;
+    }
+}
 declare namespace alm.loader {
     type CompleteFunction = (content: any) => void;
     type ErrorFunction = (message: string) => void;

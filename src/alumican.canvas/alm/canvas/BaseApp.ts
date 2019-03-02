@@ -3,6 +3,7 @@
 namespace alm.canvas {
 
 	import EventDispatcher = alm.event.EventDispatcher;
+	import DeviceInfo = alm.browser.DeviceInfo;
 
 	export abstract class BaseApp extends EventDispatcher {
 
@@ -12,13 +13,13 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		constructor(canvasId:string, isAutoResizeEnabled:boolean = true, ...platformSetupOptions:any[]) {
+		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, ...platformSetupOptions:any[]) {
 			super();
 
-			this.canvas = <JQuery<HTMLCanvasElement>>jQuery(canvasId);
+			this.canvas = <JQuery<HTMLCanvasElement>>jQuery(canvas);
 			this.isAutoResizeEnabled = isAutoResizeEnabled;
 
-			trace("[BaseApp] canvasId : " + canvasId);
+			trace("[BaseApp] canvas : ", canvas);
 			trace("[BaseApp] isAutoResizeEnabled : " + this.isAutoResizeEnabled);
 
 			this.pointerIds = [];
@@ -29,26 +30,31 @@ namespace alm.canvas {
 			this.startTime = new Date().getTime();
 			this.mousePointerId = 'mouse';
 
-			jQuery(window).on('mouseover', this.mouseOverHandler);
-			jQuery(window).on('mouseout', this.mouseOutHandler);
-			jQuery(window).on('mousedown', this.mouseDownHandler);
-			jQuery(window).on('mouseup', this.mouseUpHandler);
-			jQuery(window).on('mousemove', this.mouseMoveHandler);
-			jQuery(window).on('touchstart', this.touchStartHandler);
-			jQuery(window).on('touchend', this.touchEndHandler);
-			jQuery(window).on('touchcancel', this.touchCancelHandler);
-			jQuery(window).on('touchmove', this.touchMoveHandler);
-			jQuery(window).on('keydown', this.keyDownHandler);
-			jQuery(window).on('keyup', this.keyUpHandler);
-			this.canvas.on('touchmove', this.canvasTouchMoveHandler);
-			this.canvas.on('touchforcechange', this.touchForceChangeHandler);
+			if (DeviceInfo.getIsTouchEnabled()) {
+				this.canvas.on('touchstart', this.touchStartHandler);
+				this.canvas.on('touchend', this.touchEndHandler);
+				this.canvas.on('touchcancel', this.touchCancelHandler);
+				this.canvas.on('touchmove', this.touchMoveHandler);
+				this.canvas.on('touchforcechange', this.touchForceChangeHandler);
+			} else {
+				this.canvas.on('mouseover', this.mouseOverHandler);
+				this.canvas.on('mouseout', this.mouseOutHandler);
+				this.canvas.on('mousedown', this.mouseDownHandler);
+				this.canvas.on('mouseup', this.mouseUpHandler);
+				this.canvas.on('mousemove', this.mouseMoveHandler);
+			}
+
+			this.canvas.on('keydown', this.keyDownHandler);
+			this.canvas.on('keyup', this.keyUpHandler);
+			this.canvas.attr('tabindex', 1);
+
 			requestAnimationFrame(this.requestAnimationFrame);
 
 			this.onPlatformSetup.apply(this, platformSetupOptions);
 			this.onSetup();
 
 			if (this.isAutoResizeEnabled) {
-				jQuery(window).on('resize', this.resizeHandler);
+				this.canvas.on('resize', this.resizeHandler);
 				this.resizeHandler(null);
 			}
 		}
@@ -149,7 +155,8 @@ namespace alm.canvas {
 
 		private mouseMoveHandler = (event:JQuery.Event):void => {
 			const pointer:Pointer = this.getMousePointer(event);
-			pointer.notifyMove(event.clientX, event.clientY);
+			const position:number[] = this.getPointerPosition(event);
+			pointer.notifyMove(position[0], position[1]);
 			this.onPointerMove(pointer);
 			if (pointer.isDragging) {
 				this.onPointerDrag(pointer);
@@ -172,7 +179,8 @@ namespace alm.canvas {
 				this.pointersById[id] = pointer;
 				this.pointerIds.push(id);
 				++this.pointingCount;
-				pointer.notifyEnter(touch.clientX, touch.clientY);
+				const position:number[] = this.getPointerPosition(event);
+				pointer.notifyEnter(position[0], position[1]);
 				pointer.notifyTouch();
 				this.onPointerEnter(pointer);
 				this.onPointerTouch(pointer);
@@ -207,6 +215,8 @@ namespace alm.canvas {
 		};
 
 		private touchMoveHandler = (event:JQuery.Event):void => {
+			event.originalEvent.preventDefault();
+
 			const touches:TouchList = event.changedTouches;
 			const touchCount:number = event.changedTouches.length;
 			let touch:Touch;
@@ -216,7 +226,8 @@ namespace alm.canvas {
 				touch = touches.item(i);
 				id = BaseApp.getPointerId(touch.identifier);
 				pointer = this.pointersById[id];
-				pointer.notifyMove(touch.clientX, touch.clientY);
+				const position:number[] = this.getPointerPosition(event);
+				pointer.notifyMove(position[0], position[1]);
 				if (pointer.isDragging) {
 					this.onPointerDrag(pointer);
 				}
@@ -233,13 +244,11 @@ namespace alm.canvas {
 				touch = touches.item(i);
 				id = BaseApp.getPointerId(touch.identifier);
 				pointer = this.pointersById[id];
-				pointer.notifyTouchForce(touch.force);
-				this.onPointerTouchForceChange(pointer);
+				if (pointer) {
+					pointer.notifyTouchForce(touch.force);
+					this.onPointerTouchForceChange(pointer);
+				}
 			}
-		};
-
-		private canvasTouchMoveHandler = (event:JQuery.Event):void => {
-			event.originalEvent.preventDefault();
 		};
 
 		// --------------------------------------------------
@@ -257,7 +266,7 @@ namespace alm.canvas {
 		// Other Event
 
 		private resizeHandler = (event:JQuery.Event):void => {
-			this.resize($(window).width(), $(window).height());
+			this.resize(this.canvas.width(), this.canvas.height());
 		};
 
 		private requestAnimationFrame = ():void => {
@@ -278,10 +287,21 @@ namespace alm.canvas {
 				this.pointersById[this.mousePointerId] = pointer;
 				this.pointerIds.push(this.mousePointerId);
 				++this.pointingCount;
-				pointer.notifyEnter(event.clientX, event.clientY);
+				const position:number[] = this.getPointerPosition(event);
+				pointer.notifyEnter(position[0], position[1]);
 				this.onPointerEnter(pointer);
 			}
 			return pointer;
+		}
+
+		private getPointerPosition(event:JQuery.Event):number[] {
+			//return [event.clientX, event.clientY];
+
+			const offset:JQuery.Coordinates = this.getCanvas().offset();
+			return [
+				event.pageX - offset.left,
+				event.pageY - offset.top
+			];
 		}
 
 		public static getPointerId(touchId:number):string {

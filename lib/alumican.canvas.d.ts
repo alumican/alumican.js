@@ -2,7 +2,7 @@
 declare namespace alm.canvas {
     import EventDispatcher = alm.event.EventDispatcher;
     abstract class BaseApp extends EventDispatcher {
-        constructor(canvasId: string, isAutoResizeEnabled?: boolean, ...platformSetupOptions: any[]);
+        constructor(canvas: HTMLElement, isAutoResizeEnabled?: boolean, ...platformSetupOptions: any[]);
         onSetup(): void;
         onUpdate(): void;
         onPointerEnter(pointer: Pointer): void;
@@ -29,12 +29,12 @@ declare namespace alm.canvas {
         private touchCancelHandler;
         private touchMoveHandler;
         private touchForceChangeHandler;
-        private canvasTouchMoveHandler;
         private keyDownHandler;
         private keyUpHandler;
         private resizeHandler;
         private requestAnimationFrame;
         private getMousePointer;
+        private getPointerPosition;
         static getPointerId(touchId: number): string;
         getPointerIds(): string[];
         private pointerIds;

@@ -92,11 +92,11 @@ namespace alm.util {
 		}
 
 		private print(prefix:string, messages:any[]):void {
-			const line:string = prefix + messages.join(', ') + '\n';
+			const line:string = prefix + messages.join(', ');
 			if (this.html) {
-				this.dom.innerHTML = line + this.dom.innerHTML;
+				this.dom.innerHTML = line + '<br>\n' + this.dom.innerHTML;
 			} else {
-				this.dom.innerText = line + this.dom.innerText;
+				this.dom.innerText = line + '\n' + this.dom.innerText;
 			}
 		}
 
@@ -117,28 +117,28 @@ namespace alm.util {
 		public verbose(prefix:string, messages:any[]):void {
 			const n:number = this.loggers.length;
 			for (let i:number = 0; i < n; ++i) {
-				this.loggers[i].verbose.apply(this, messages);
+				this.loggers[i].verbose(prefix, messages);
 			}
 		}
 
 		public info(prefix:string, messages:any[]):void {
 			const n:number = this.loggers.length;
 			for (let i:number = 0; i < n; ++i) {
-				this.loggers[i].info.apply(this, messages);
+				this.loggers[i].info(prefix, messages);
 			}
 		}
 
 		public warn(prefix:string, messages:any[]):void {
 			const n:number = this.loggers.length;
 			for (let i:number = 0; i < n; ++i) {
-				this.loggers[i].warn.apply(this, messages);
+				this.loggers[i].warn(prefix, messages);
 			}
 		}
 
 		public error(prefix:string, messages:any[]):void {
 			const n:number = this.loggers.length;
 			for (let i:number = 0; i < n; ++i) {
-				this.loggers[i].error.apply(this, messages);
+				this.loggers[i].error(prefix, messages);
 			}
 		}
 
