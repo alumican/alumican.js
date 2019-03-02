@@ -21,6 +21,7 @@ namespace alm.canvas {
 
 			trace("[BaseApp] canvas : ", canvas);
 			trace("[BaseApp] isAutoResizeEnabled : " + this.isAutoResizeEnabled);
+			trace("[BaseApp] platformSetupOptions : ", platformSetupOptions);
 
 			this.pointerIds = [];
 			this.pointersById = {};
