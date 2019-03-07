@@ -547,9 +547,9 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
-    class Pager extends alm.event.EventDispatcher {
+    class Pager<T = string> extends alm.event.EventDispatcher {
         constructor();
-        setupById(ids: string[]): void;
+        setupById(ids: T[]): void;
         setupByCount(itemCount: number): void;
         private setup;
         gotoByIndex(itemIndex: number, useTransition?: boolean): boolean;
@@ -566,30 +566,30 @@ declare namespace alm.util {
         private oldItemIndex;
         getItemCount(): number;
         private itemCount;
-        getNewItemId(): string;
+        getNewItemId(): T;
         private newItemId;
-        getOldItemId(): string;
+        getOldItemId(): T;
         private oldItemId;
-        getItemIds(): string[];
+        getItemIds(): T[];
         private itemIds;
         private itemIndexById;
-        onChange: (event: PagerEvent) => void;
-        onPrev: (event: PagerEvent) => void;
-        onNext: (event: PagerEvent) => void;
+        onChange: (event: PagerEvent<T>) => void;
+        onPrev: (event: PagerEvent<T>) => void;
+        onNext: (event: PagerEvent<T>) => void;
     }
 }
 declare namespace alm.util {
-    class PagerEvent extends alm.event.Event {
+    class PagerEvent<T = string> extends alm.event.Event {
         static CHANGE: string;
         static PREV: string;
         static NEXT: string;
-        constructor(eventType: string, eventTarget: any, newItemIndex: number, oldItemIndex: number, newItemId: string, oldItemId: string, useTransition: boolean);
-        clone(): PagerEvent;
+        constructor(eventType: string, eventTarget: any, newItemIndex: number, oldItemIndex: number, newItemId: T, oldItemId: T, useTransition: boolean);
+        clone(): PagerEvent<T>;
         toString(): string;
         newItemIndex: number;
         oldItemIndex: number;
-        newItemId: string;
-        oldItemId: string;
+        newItemId: T;
+        oldItemId: T;
         useTransition: boolean;
     }
 }

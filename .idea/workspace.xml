@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,58 +35,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1301">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="n#EventDispatcher#0;n#canvas#0;n#alm#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="931">
+              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts">
+        <entry file="file://$PROJECT_DIR$/build/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="31" selection-start-line="29" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Logger.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3876">
-              <caret line="204" column="1" selection-start-line="204" selection-start-column="1" selection-end-line="204" selection-end-column="1" />
+            <state relative-caret-position="570">
+              <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Pager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="399">
+              <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Hash.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
+            <state relative-caret-position="76">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -97,7 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>aluminium/</find>
       <find>AssetLoader</find>
       <find>File</find>
       <find>addQuery</find>
@@ -127,6 +120,7 @@
       <find>client</find>
       <find>position</find>
       <find>paper.</find>
+      <find>id</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -142,9 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/alumican/alm/loader/FileHandler.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.jquery/alm/loader/FileHandler.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.three/alm/loader/ThreeTextureAtlasFileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/FileQuery.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/loader/IFileHandler.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/loader/JQueryJsonFileHandler.ts" />
@@ -157,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/alumican/alm/util/Loc.ts" />
         <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" />
         <option value="$PROJECT_DIR$/lib/alumican.jquery.d.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.paperjs/alm/canvas/PaperApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.pixijs/alm/canvas/PixiApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.pixijs/include.ts" />
@@ -169,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/alumican.canvas.paper/include.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build/package.json" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/view/View.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/view/SelectionBehavior.ts" />
         <option value="$PROJECT_DIR$/src/alumican/alm/util/Raffle.ts" />
@@ -193,6 +182,11 @@
         <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" />
         <option value="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" />
+        <option value="$PROJECT_DIR$/../../../../../../work/shouwakiden/300_プロジェクト/TSDO - 脳活総研/project-study/build/config.json" />
+        <option value="$PROJECT_DIR$/build/gulpfile.js" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/util/Hash.ts" />
+        <option value="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" />
       </list>
     </option>
   </component>
@@ -200,9 +194,10 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1440" />
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="889" />
+    <option name="height" value="1778" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -212,6 +207,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,76 +218,46 @@
             <path>
               <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
               <item name="alm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
               <item name="alm" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="loader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas.paper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas.paper" type="462c0819:PsiDirectoryNode" />
+              <item name="alumican" type="462c0819:PsiDirectoryNode" />
               <item name="alm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas.paper" type="462c0819:PsiDirectoryNode" />
-              <item name="alm" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas.pixi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas.pixi" type="462c0819:PsiDirectoryNode" />
-              <item name="alm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas.pixi" type="462c0819:PsiDirectoryNode" />
-              <item name="alm" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -540,18 +506,25 @@
       <workItem from="1550803489993" duration="10000" />
       <workItem from="1551409441678" duration="217000" />
       <workItem from="1551425153770" duration="14000" />
-      <workItem from="1551502733235" duration="3842000" />
+      <workItem from="1551502733235" duration="4441000" />
+      <workItem from="1551590131812" duration="52000" />
+      <workItem from="1551680480033" duration="943000" />
+      <workItem from="1551692421065" duration="40000" />
+      <workItem from="1551780737495" duration="632000" />
+      <workItem from="1551842341175" duration="26000" />
+      <workItem from="1551868148359" duration="16000" />
+      <workItem from="1551959333493" duration="864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226530000" />
+    <option name="totallyTimeSpent" value="229702000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="889" extended-state="0" />
+    <frame x="0" y="22" width="2880" height="1778" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3955651" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2149401" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -562,7 +535,7 @@
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="TypeScript" order="2" sideWeight="0.55150217" weight="0.3351127" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.537196" visible="true" weight="0.16436638" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.537196" visible="true" weight="0.35172004" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.44849786" side_tool="true" weight="0.33531865" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32977462" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3291815" />
@@ -595,13 +568,6 @@
     <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../project/minimal-interaction/src/common/script/include.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="31" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.jquery/include.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -627,13 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -748,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Pager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="126" selection-start-line="126" selection-end-line="130" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/loader/JQueryJsonFileHandler.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -779,13 +731,6 @@
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/IFileHandler.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Arr.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -800,20 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
           <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Hash.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -897,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Logger.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3876">
-          <caret line="204" column="1" selection-start-line="204" selection-start-column="1" selection-end-line="204" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/node_modules/@types/paper/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-872">
@@ -914,24 +838,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1301">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="532">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="n#EventDispatcher#0;n#canvas#0;n#alm#0" expanded="true" />
           </folding>
@@ -940,15 +850,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="31" selection-start-line="29" selection-end-line="31" />
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Logger.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1457">
+          <caret line="204" column="1" selection-start-line="204" selection-start-column="1" selection-end-line="204" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="411">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../work/shouwakiden/300_プロジェクト/TSDO - 脳活総研/project-study/build/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1471">
+          <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Hash.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Pager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
         </state>
       </provider>
     </entry>

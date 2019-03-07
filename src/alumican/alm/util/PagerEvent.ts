@@ -2,7 +2,7 @@
 
 namespace alm.util {
 
-	export class PagerEvent extends alm.event.Event {
+	export class PagerEvent<T = string> extends alm.event.Event {
 
 		// --------------------------------------------------
 		//
@@ -24,7 +24,7 @@ namespace alm.util {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any, newItemIndex:number, oldItemIndex:number, newItemId:string, oldItemId:string, useTransition:boolean) {
+		constructor(eventType:string, eventTarget:any, newItemIndex:number, oldItemIndex:number, newItemId:T, oldItemId:T, useTransition:boolean) {
 			super(eventType, eventTarget);
 			this.newItemIndex = newItemIndex;
 			this.oldItemIndex = oldItemIndex;
@@ -43,8 +43,8 @@ namespace alm.util {
 		//
 		// --------------------------------------------------
 
-		public clone():PagerEvent {
-			return new PagerEvent(this.getType(), this.getTarget(), this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, this.useTransition);
+		public clone():PagerEvent<T> {
+			return new PagerEvent<T>(this.getType(), this.getTarget(), this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, this.useTransition);
 		}
 
 		public toString():string {
@@ -63,8 +63,8 @@ namespace alm.util {
 
 		public newItemIndex:number;
 		public oldItemIndex:number;
-		public newItemId:string;
-		public oldItemId:string;
+		public newItemId:T;
+		public oldItemId:T;
 		public useTransition:boolean;
 	}
 }

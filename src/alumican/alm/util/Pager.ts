@@ -2,7 +2,7 @@
 
 namespace alm.util {
 
-	export class Pager extends alm.event.EventDispatcher {
+	export class Pager<T = string> extends alm.event.EventDispatcher {
 
 		// --------------------------------------------------
 		//
@@ -34,13 +34,13 @@ namespace alm.util {
 		//
 		// --------------------------------------------------
 
-		public setupById(ids:string[]):void {
+		public setupById(ids:T[]):void {
 			this.itemCount = ids.length;
 			this.itemIds = ids;
 
 			this.itemIndexById = {};
 			for (let i:number = 0; i < this.itemCount; ++i) {
-				this.itemIndexById[this.itemIds[i]] = i;
+				this.itemIndexById[this.itemIds[i] as unknown as string] = i;
 			}
 
 			this.setup();
@@ -109,11 +109,11 @@ namespace alm.util {
 			return result;
 		}
 
-		private dispatchPagerEvent(eventType:string, callback:(event:PagerEvent) => void, useTransition:boolean):void {
-			const oldItemId:string = (this.itemIds && this.oldItemIndex != -1) ? this.itemIds[this.oldItemIndex] : null;
-			const newItemId:string = (this.itemIds && this.newItemIndex != -1) ? this.itemIds[this.newItemIndex] : null;
+		private dispatchPagerEvent(eventType:string, callback:(event:PagerEvent<T>) => void, useTransition:boolean):void {
+			const oldItemId:T = (this.itemIds && this.oldItemIndex != -1) ? this.itemIds[this.oldItemIndex] : null;
+			const newItemId:T = (this.itemIds && this.newItemIndex != -1) ? this.itemIds[this.newItemIndex] : null;
 
-			const event:PagerEvent = new PagerEvent(eventType, this, this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, useTransition);
+			const event:PagerEvent<T> = new PagerEvent<T>(eventType, this, this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, useTransition);
 			if (callback) {
 				callback(event);
 			}
@@ -143,19 +143,19 @@ namespace alm.util {
 		public getItemCount():number { return this.itemCount; }
 		private itemCount:number;
 
-		public getNewItemId():string { return this.newItemId; }
-		private newItemId:string;
+		public getNewItemId():T { return this.newItemId; }
+		private newItemId:T;
 
-		public getOldItemId():string { return this.oldItemId; }
-		private oldItemId:string;
+		public getOldItemId():T { return this.oldItemId; }
+		private oldItemId:T;
 
-		public getItemIds():string[] { return this.itemIds; }
-		private itemIds:string[];
+		public getItemIds():T[] { return this.itemIds; }
+		private itemIds:T[];
 
 		private itemIndexById:Hash<number>;
 
-		public onChange:(event:PagerEvent) => void;
-		public onPrev:(event:PagerEvent) => void;
-		public onNext:(event:PagerEvent) => void;
+		public onChange:(event:PagerEvent<T>) => void;
+		public onPrev:(event:PagerEvent<T>) => void;
+		public onNext:(event:PagerEvent<T>) => void;
 	}
 }
