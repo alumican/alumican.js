@@ -1,4 +1,5 @@
-declare namespace alm.util {
+declare namespace alm.browser {
+    import Hash = alm.util.Hash;
     class QueryString {
         constructor(url?: string);
         set(url?: string): void;
@@ -10,7 +11,7 @@ declare namespace alm.util {
         private hash;
     }
 }
-declare namespace alm.util {
+declare namespace alm.io {
     enum LoggerLevel {
         Verbose = 0,
         Info = 1,
@@ -66,67 +67,68 @@ declare namespace alm.util {
         static error(...messages: any[]): void;
         static warnIf(target: any, message: string, condition?: boolean): void;
         static errorIf(target: any, message: string, condition?: boolean): void;
+        static stackTrace(): void;
         private constructor();
     }
 }
 declare function trace(...messages: any[]): void;
 declare function throwWarn(target: any, message: string, condition?: boolean): void;
 declare function throwError(target: any, message: string, condition?: boolean): void;
-declare namespace alm.util {
-    type EasingFunction = (t: number, b: number, c: number, d: number) => number;
+declare namespace alm.math {
+    type EasingFunction = (t: number) => number;
     class Easing {
-        static linear(t: number, b: number, c: number, d: number): number;
-        static easeInQuad(t: number, b: number, c: number, d: number): number;
-        static easeOutQuad(t: number, b: number, c: number, d: number): number;
-        static easeInOutQuad(t: number, b: number, c: number, d: number): number;
-        static easeInCubic(t: number, b: number, c: number, d: number): number;
-        static easeOutCubic(t: number, b: number, c: number, d: number): number;
-        static easeInOutCubic(t: number, b: number, c: number, d: number): number;
-        static easeInQuart(t: number, b: number, c: number, d: number): number;
-        static easeOutQuart(t: number, b: number, c: number, d: number): number;
-        static easeInOutQuart(t: number, b: number, c: number, d: number): number;
-        static easeInQuint(t: number, b: number, c: number, d: number): number;
-        static easeOutQuint(t: number, b: number, c: number, d: number): number;
-        static easeInOutQuint(t: number, b: number, c: number, d: number): number;
-        static easeInSine(t: number, b: number, c: number, d: number): number;
-        static easeOutSine(t: number, b: number, c: number, d: number): number;
-        static easeInOutSine(t: number, b: number, c: number, d: number): number;
-        static easeInExpo(t: number, b: number, c: number, d: number): number;
-        static easeOutExpo(t: number, b: number, c: number, d: number): number;
-        static easeInOutExpo(t: number, b: number, c: number, d: number): number;
-        static easeInCirc(t: number, b: number, c: number, d: number): number;
-        static easeOutCirc(t: number, b: number, c: number, d: number): number;
-        static easeInOutCirc(t: number, b: number, c: number, d: number): number;
+        static linear(t: number): number;
+        static easeInQuad(t: number): number;
+        static easeOutQuad(t: number): number;
+        static easeInOutQuad(t: number): number;
+        static easeInCubic(t: number): number;
+        static easeOutCubic(t: number): number;
+        static easeInOutCubic(t: number): number;
+        static easeInQuart(t: number): number;
+        static easeOutQuart(t: number): number;
+        static easeInOutQuart(t: number): number;
+        static easeInQuint(t: number): number;
+        static easeOutQuint(t: number): number;
+        static easeInOutQuint(t: number): number;
+        static easeInSine(t: number): number;
+        static easeOutSine(t: number): number;
+        static easeInOutSine(t: number): number;
+        static easeInExpo(t: number): number;
+        static easeOutExpo(t: number): number;
+        static easeInOutExpo(t: number): number;
+        static easeInCirc(t: number): number;
+        static easeOutCirc(t: number): number;
+        static easeInOutCirc(t: number): number;
         static createEaseInElastic(s?: number): EasingFunction;
         static createEaseOutElastic(s?: number): EasingFunction;
         static createEaseInOutElastic(s?: number): EasingFunction;
-        static easeInElastic(t: number, b: number, c: number, d: number): number;
-        static easeOutElastic(t: number, b: number, c: number, d: number): number;
-        static easeInOutElastic(t: number, b: number, c: number, d: number): number;
+        static easeInElastic(t: number): number;
+        static easeOutElastic(t: number): number;
+        static easeInOutElastic(t: number): number;
         private static defaultEaseInElastic;
         private static defaultEaseOutElastic;
         private static defaultEaseInOutElastic;
         static createEaseInBack(s?: number): EasingFunction;
         static createEaseOutBack(s?: number): EasingFunction;
         static createEaseInOutBack(s?: number): EasingFunction;
-        static easeInBack(t: number, b: number, c: number, d: number): number;
-        static easeOutBack(t: number, b: number, c: number, d: number): number;
-        static easeInOutBack(t: number, b: number, c: number, d: number): number;
+        static easeInBack(t: number): number;
+        static easeOutBack(t: number): number;
+        static easeInOutBack(t: number): number;
         private static defaultEaseInBack;
         private static defaultEaseOutBack;
         private static defaultEaseInOutBack;
-        static easeInBounce(t: number, b: number, c: number, d: number): number;
-        static easeOutBounce(t: number, b: number, c: number, d: number): number;
-        static easeInOutBounce(t: number, b: number, c: number, d: number): number;
+        static easeInBounce(t: number): number;
+        static easeOutBounce(t: number): number;
+        static easeInOutBounce(t: number): number;
     }
 }
 declare namespace alm.event {
-    class Event {
-        constructor(type: string, target: Object, data?: any);
+    class Event<T = any> {
+        constructor(type: string, target: Object, data?: T);
         getType(): string;
         getTarget(): Object;
-        getData(): any;
-        setData(data: any): void;
+        getData(): T;
+        setData(data: T): void;
         private type;
         private target;
         private data;
@@ -141,7 +143,7 @@ declare namespace alm.event {
         removeAllEventListener(eventType?: string): void;
         hasEventListener(eventType: string): boolean;
         dispatchEvent(event: Event): void;
-        dispatchEventType(eventType: string, target?: Object, data?: any): void;
+        dispatchEventType<T = any>(eventType: string, target?: Object, data?: T): void;
         private target;
         private listeners;
     }
@@ -292,7 +294,7 @@ declare namespace cmd {
     }
 }
 declare namespace cmd {
-    import EasingFunction = alm.util.EasingFunction;
+    import EasingFunction = alm.math.EasingFunction;
     type TweenCallbackFunction = (progressTime: number, progressValue: number) => void;
     class Tween extends Command {
         constructor(target: Object, to: Object, from?: Object, duration?: number, easing?: EasingFunction, onStart?: TweenCallbackFunction, onUpdate?: TweenCallbackFunction, onComplete?: TweenCallbackFunction);
@@ -430,6 +432,29 @@ declare namespace alm.geom {
         height: number;
     }
 }
+declare namespace alm.geom {
+    enum Align {
+        Top_Left = 0,
+        Top_Center = 1,
+        Top_Right = 2,
+        Middle_Left = 3,
+        Middle_Center = 4,
+        Middle_Right = 5,
+        Bottom_Left = 6,
+        Bottom_Center = 7,
+        Bottom_Right = 8
+    }
+    enum ScaleMode {
+        ExactFit = 0,
+        ShowAll = 1,
+        NoBorder = 2,
+        NoScale = 3
+    }
+    class Boxer {
+        static resize(target: geom.Rectangle, bounds: geom.Rectangle, scaleMode?: ScaleMode, align?: Align): geom.Rectangle;
+        private constructor();
+    }
+}
 declare namespace alm.util {
     interface Hash<T> {
         [key: string]: T;
@@ -451,8 +476,10 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
+    import EasingFunction = alm.math.EasingFunction;
     class Num {
-        static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number, clamp?: boolean): number;
+        static map(value: number, srcA: number, srcB: number, dstA: number, dstB: number, clamp?: boolean): number;
+        static ease(value: number, srcA: number, srcB: number, dstA: number, dstB: number, easing: EasingFunction): number;
         static random(min?: number, max?: number): number;
         static randomInt(min?: number, max?: number): number;
         static clamp(value: number, min: number, max: number): number;
@@ -481,73 +508,29 @@ declare namespace alm.util {
     }
 }
 declare namespace alm.util {
-    enum Align {
-        Top_Left = 0,
-        Top_Center = 1,
-        Top_Right = 2,
-        Middle_Left = 3,
-        Middle_Center = 4,
-        Middle_Right = 5,
-        Bottom_Left = 6,
-        Bottom_Center = 7,
-        Bottom_Right = 8
-    }
-    enum ScaleMode {
-        ExactFit = 0,
-        ShowAll = 1,
-        NoBorder = 2,
-        NoScale = 3
-    }
-    class Boxer {
-        static resize(target: geom.Rectangle, bounds: geom.Rectangle, scaleMode?: ScaleMode, align?: Align): geom.Rectangle;
+    class Cmd {
+        static stop(command: cmd.Command): any;
+        static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
+        static single(execute: boolean, command: cmd.Command): cmd.Command;
         private constructor();
     }
 }
-declare namespace alm.util {
-    class Raffle<T = any> {
-        constructor(values?: T[]);
-        set(values: T[]): void;
-        get(): T;
-        add(value: T, reset?: boolean): void;
-        reset(): void;
-        getRestCount(): number;
-        getIsEmply(): boolean;
-        getIsAutoResetEnabled(): boolean;
-        setIsAutoResetEnabled(enabled: boolean): void;
-        static createIndices(count: number): Raffle<number>;
-        onCheck: (value: T) => boolean;
-        private isAutoResetEnabled;
-        private isEmpty;
-        private restCount;
-        private restValues;
-        private initValues;
+declare namespace alm.resource {
+    class ObjectPool<T> {
+        constructor(onRequireItem: () => T, onDestroyItem: (item: T) => void, initCount?: number, growthCount?: number);
+        getItem(): T;
+        returnItem(item: T): void;
+        reduce(): void;
+        destroy(): void;
+        private items;
+        private index;
+        private growthCount;
+        onRequireItem: () => T;
+        onDestroyItem: (item: T) => void;
     }
 }
-declare namespace alm.util {
-    class Rotator {
-        constructor(angle?: number, velocity?: number, radian?: boolean);
-        getAngle(radian?: boolean): number;
-        setAngle(angle: number, radian?: boolean): void;
-        getVelocity(radian?: boolean): number;
-        setVelocity(velocity: number, radian?: boolean): void;
-        update(): void;
-        getSin(length?: number): number;
-        getCos(length?: number): number;
-        getTan(length?: number): number;
-        getMagnitude(length?: number): number;
-        getVector(length?: number, xy?: {
-            x: number;
-            y: number;
-        }): {
-            x: number;
-            y: number;
-        };
-        private angle;
-        private velocity;
-    }
-}
-declare namespace alm.util {
-    class Pager<T = string> extends alm.event.EventDispatcher {
+declare namespace alm.state {
+    class Switcher<T = string> extends alm.event.EventDispatcher {
         constructor();
         setupById(ids: T[]): void;
         setupByCount(itemCount: number): void;
@@ -573,18 +556,18 @@ declare namespace alm.util {
         getItemIds(): T[];
         private itemIds;
         private itemIndexById;
-        onChange: (event: PagerEvent<T>) => void;
-        onPrev: (event: PagerEvent<T>) => void;
-        onNext: (event: PagerEvent<T>) => void;
+        onChange: (event: SwitcherEvent<T>) => void;
+        onPrev: (event: SwitcherEvent<T>) => void;
+        onNext: (event: SwitcherEvent<T>) => void;
     }
 }
-declare namespace alm.util {
-    class PagerEvent<T = string> extends alm.event.Event {
+declare namespace alm.state {
+    class SwitcherEvent<T = string> extends alm.event.Event {
         static CHANGE: string;
         static PREV: string;
         static NEXT: string;
         constructor(eventType: string, eventTarget: any, newItemIndex: number, oldItemIndex: number, newItemId: T, oldItemId: T, useTransition: boolean);
-        clone(): PagerEvent<T>;
+        clone(): SwitcherEvent<T>;
         toString(): string;
         newItemIndex: number;
         oldItemIndex: number;
@@ -593,7 +576,110 @@ declare namespace alm.util {
         useTransition: boolean;
     }
 }
-declare namespace alm.util {
+declare namespace alm.state {
+    class Lottery<T = any> {
+        constructor(values?: T[]);
+        set(values: T[]): void;
+        get(): T;
+        add(value: T, reset?: boolean): void;
+        reset(): void;
+        getRestCount(): number;
+        getIsEmply(): boolean;
+        getIsAutoResetEnabled(): boolean;
+        setIsAutoResetEnabled(enabled: boolean): void;
+        static createIndices(count: number): Lottery<number>;
+        onCheck: (value: T) => boolean;
+        private isAutoResetEnabled;
+        private isEmpty;
+        private restCount;
+        private restValues;
+        private initValues;
+    }
+}
+declare namespace alm.math {
+    class EasingValue {
+        constructor(initValue: number, easing?: number, tolerance?: number);
+        update(useTransition?: boolean): number;
+        clone(): EasingValue;
+        value: number;
+        target: number;
+        easing: number;
+        tolerance: number;
+    }
+}
+declare namespace alm.math {
+    class SpringValue {
+        constructor(initValue: number, spring?: number, friction?: number);
+        update(useTransition?: boolean): number;
+        clone(): SpringValue;
+        value: number;
+        target: number;
+        velocity: number;
+        acceleration: number;
+        spring: number;
+        friction: number;
+    }
+}
+declare namespace alm.math {
+    class SimpleAverage {
+        constructor();
+        add(n: number): number;
+        value: number;
+        count: number;
+        private _value;
+        private _count;
+    }
+}
+declare namespace alm.math {
+    class SimpleMovingAverage {
+        constructor(maxCount: number);
+        add(n: number): number;
+        value: number;
+        maxCount: number;
+        count: number;
+        private _value;
+        private _maxCount;
+        private _count;
+        private values;
+    }
+}
+declare namespace alm.math {
+    class MaxValue {
+        constructor(maxLatestCount?: number);
+        add(n: number): number;
+        value: number;
+        maxLatestCount: number;
+        count: number;
+        private _value;
+        private _maxLatestCount;
+        private _count;
+        private values;
+    }
+}
+declare namespace alm.math {
+    class Circular {
+        constructor(angle?: number, velocity?: number, radian?: boolean);
+        getAngle(radian?: boolean): number;
+        setAngle(angle: number, radian?: boolean): void;
+        getVelocity(radian?: boolean): number;
+        setVelocity(velocity: number, radian?: boolean): void;
+        update(): void;
+        getSin(length?: number): number;
+        getCos(length?: number): number;
+        getTan(length?: number): number;
+        getMagnitude(length?: number): number;
+        getVector(length?: number, xy?: {
+            x: number;
+            y: number;
+        }): {
+            x: number;
+            y: number;
+        };
+        private angle;
+        private velocity;
+    }
+}
+declare namespace alm.time {
     import EventDispatcher = alm.event.EventDispatcher;
     class Timer extends EventDispatcher {
         constructor(interval?: number, repeatCount?: number);
@@ -625,7 +711,7 @@ declare namespace alm.util {
         private tId;
     }
 }
-declare namespace alm.util {
+declare namespace alm.time {
     import Event = alm.event.Event;
     class TimerEvent extends Event {
         static TICK: string;
@@ -638,79 +724,11 @@ declare namespace alm.util {
         restCount: number;
     }
 }
-declare namespace alm.util {
-    class ObjectPool<T> {
-        constructor(onRequireItem: () => T, onDestroyItem: (item: T) => void, initCount?: number, growthCount?: number);
-        getItem(): T;
-        returnItem(item: T): void;
-        reduce(): void;
-        destroy(): void;
-        private items;
-        private index;
-        private growthCount;
-        onRequireItem: () => T;
-        onDestroyItem: (item: T) => void;
-    }
-}
-declare namespace alm.util {
-    class CommandUtil {
-        static stop(command: cmd.Command): any;
-        static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
-        static single(execute: boolean, command: cmd.Command): cmd.Command;
-        private constructor();
-    }
-}
-declare namespace alm.value {
-    class EasingValue {
-        constructor(initValue: number, easing?: number, tolerance?: number);
-        update(useTransition?: boolean): number;
-        clone(): EasingValue;
-        value: number;
-        target: number;
-        easing: number;
-        tolerance: number;
-    }
-}
-declare namespace alm.value {
-    class SpringValue {
-        constructor(initValue: number, spring?: number, friction?: number);
-        update(useTransition?: boolean): number;
-        clone(): SpringValue;
-        value: number;
-        target: number;
-        velocity: number;
-        acceleration: number;
-        spring: number;
-        friction: number;
-    }
-}
-declare namespace alm.value {
-    class SimpleAverage {
-        constructor();
-        add(n: number): number;
-        value: number;
-        count: number;
-        private _value;
-        private _count;
-    }
-}
-declare namespace alm.value {
-    class SimpleMovingAverage {
-        constructor(maxCount: number);
-        add(n: number): number;
-        value: number;
-        maxCount: number;
-        count: number;
-        private _value;
-        private _maxCount;
-        private _count;
-        private values;
-    }
-}
-declare namespace alm.loader {
+declare namespace alm.io {
+    import EventDispatcher = alm.event.EventDispatcher;
     type CompleteFunction = (content: any) => void;
     type ErrorFunction = (message: string) => void;
-    class AssetLoader {
+    class FileLoader extends EventDispatcher {
         constructor();
         require(url: string, type: string, id?: string): string;
         private addQuery;
@@ -719,36 +737,35 @@ declare namespace alm.loader {
         addHandler(handler: IFileHandler): void;
         private fileLoadCompleteHandler;
         private fileLoadErrorHandler;
-        addLoadUpdateListener(listener: (event: AssetLoaderEvent) => void): void;
-        removeLoadUpdateListener(listener: (event: AssetLoaderEvent) => void): void;
-        addLoadCompleteListener(listener: (event: AssetLoaderEvent) => void): void;
-        removeLoadCompleteListener(listener: (event: AssetLoaderEvent) => void): void;
         getQueryByQueryId(queryId: string): FileQuery;
         getQueryByUrl(url: string): FileQuery;
         isLoading(): boolean;
-        private isLoading_;
         getCurrentCount(): number;
-        private currentCount;
         getTotalCount(): number;
-        private totalCount;
         getContentByUrl<T = any>(url: string): T;
         getContentByQueryId<T = any>(textureId: string): T;
+        getCurrentThreadCount(): number;
+        getTotalThreadCount(): number;
+        private isLoading_;
+        private currentCount;
+        private totalCount;
+        private currentThreadCount;
+        private totalThreadCount;
         private loadingQueries;
         private loadingQueryIndex;
         private queriesByQueryId;
         private queriesByUrl;
         private handlersByType;
-        private eventDispatcher;
         private static id;
     }
 }
-declare namespace alm.loader {
-    class AssetLoaderEvent extends alm.event.Event {
+declare namespace alm.io {
+    class FileLoaderEvent extends alm.event.Event {
         static PROGRESS: string;
         static COMPLETE: string;
         static ERROR: string;
         constructor(eventType: string, eventTarget?: any, progress?: number, loadedCount?: number, totalCount?: number, content?: any);
-        clone(): AssetLoaderEvent;
+        clone(): FileLoaderEvent;
         toString(): string;
         progress: number;
         loadedCount: number;
@@ -756,7 +773,7 @@ declare namespace alm.loader {
         content: any;
     }
 }
-declare namespace alm.loader {
+declare namespace alm.io {
     class FileQuery {
         constructor();
         id: string;
@@ -768,7 +785,7 @@ declare namespace alm.loader {
         isLoadComplete: boolean;
     }
 }
-declare namespace alm.loader {
+declare namespace alm.io {
     interface IFileHandler {
         getType(): string;
         load(url: string, onComplete: CompleteFunction, onError: ErrorFunction): void;

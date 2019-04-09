@@ -3,4 +3,4 @@
 /// <reference path='../../lib/alumican.d.ts' />
 
 /* ---------- project ---------- */
-/// <reference path='alm/loader/ThreeTextureFileHandler.ts' />
+/// <reference path='alm/io/ThreeTextureFileHandler.ts' />

@@ -1,25 +1,27 @@
 {
   "compilerOptions": {
+    "target": "ES5",
     "lib": [
       "es6",
       "dom"
     ],
-    "typeRoots": [
-      "build/node_modules/@types/"
-    ],
     "types": [
       "jquery",
-      "three",
+      "paper",
       "pixi.js",
-      "paper"
+      "three",
+      "d3",
+      "modernizr",
+      "dat.gui",
+      "stats.js"
     ],
-    "noEmit": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "strictNullChecks": false,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": [
-    "src/**/*.ts"
-  ]
+    "forceConsistentCasingInFileNames": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "declaration": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "build/node_modules/@types/"
+    ]
+  }
 }

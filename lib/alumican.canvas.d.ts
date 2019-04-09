@@ -1,4 +1,5 @@
 /// <reference path="../lib/alumican.d.ts" />
+/// <reference types="jquery" />
 declare namespace alm.canvas {
     import EventDispatcher = alm.event.EventDispatcher;
     abstract class BaseApp extends EventDispatcher {
@@ -15,6 +16,7 @@ declare namespace alm.canvas {
         onKeyDown(key: string): void;
         onKeyUp(key: string): void;
         onResize(stageWidth: number, stageHeight: number): void;
+        onVisibilityStateChange(visibilityState: VisibilityState): void;
         protected onPlatformSetup(platformSetupOptions: any[]): void;
         protected onPlatformRender(): void;
         protected onPlatformResize(stageWidth: number, stageHeight: number): void;
@@ -32,9 +34,11 @@ declare namespace alm.canvas {
         private keyDownHandler;
         private keyUpHandler;
         private resizeHandler;
+        private visibilityStateChangeHandler;
         private requestAnimationFrame;
         private getMousePointer;
-        private getPointerPosition;
+        private getTouchPointerPosition;
+        private getMousePointerPosition;
         static getPointerId(touchId: number): string;
         getPointerIds(): string[];
         private pointerIds;
@@ -57,8 +61,13 @@ declare namespace alm.canvas {
         getIsAutoResizeEnabled(): boolean;
         setIsAutoResizeEnabled(value: boolean): void;
         private isAutoResizeEnabled;
+        getIsForceTouchEnabled(): boolean;
+        private isForceTouchEnabled;
+        getIsTouchEnabled(): boolean;
+        private isTouchEnabled;
         private startTime;
         private mousePointerId;
+        private window;
     }
 }
 declare namespace alm.canvas {

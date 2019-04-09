@@ -2,8 +2,8 @@
 
 namespace scn {
 
-	import Logger = alm.util.Logger;
-	import LoggerLevel = alm.util.LoggerLevel;
+	import Logger = alm.io.Logger;
+	import LoggerLevel = alm.io.LoggerLevel;
 	import EventDispatcher = alm.event.EventDispatcher;
 
 	export class SceneManager extends EventDispatcher {

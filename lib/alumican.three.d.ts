@@ -1,6 +1,5 @@
-/// <reference types="three" />
-/// <reference path="alumican.d.ts" />
-declare namespace alm.loader {
+/// <reference path="../lib/alumican.d.ts" />
+declare namespace alm.io {
     class ThreeTextureFileHandler implements IFileHandler {
         constructor();
         getType(): string;

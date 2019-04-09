@@ -1,7 +1,7 @@
+/// <reference path="../lib/alumican.d.ts" />
 /// <reference types="jquery" />
-/// <reference path="alumican.d.ts" />
 declare namespace alm.util {
-    import EasingFunction = alm.util.EasingFunction;
+    import EasingFunction = alm.math.EasingFunction;
     class TweenCSS {
         static scale(target: JQuery, from: number, to: number, duration?: number, easing?: EasingFunction, execute?: boolean): cmd.Tween;
         static fade(target: JQuery, from: number, to: number, duration?: number, easing?: EasingFunction, updateDisplayTo?: string, updateVisibility?: boolean, execute?: boolean): cmd.Tween;
@@ -13,7 +13,7 @@ declare namespace alm.util {
         private constructor();
     }
 }
-declare namespace alm.loader {
+declare namespace alm.io {
     class JQueryJsonFileHandler implements IFileHandler {
         constructor();
         getType(): string;

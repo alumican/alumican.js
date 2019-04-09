@@ -3,7 +3,7 @@
 namespace alm.view {
 
 	import EventDispatcher = alm.event.EventDispatcher;
-	import Logger = alm.util.Logger;
+	import Logger = alm.io.Logger;
 
 	export abstract class View<T = any> extends EventDispatcher {
 
@@ -28,7 +28,7 @@ namespace alm.view {
 			this.isHiding = false;
 
 			if (View.viewsById[this.id]) {
-				Logger.warn('View id \'' + this.id + '\' is already exists.')
+				Logger.warn('view id \'' + this.id + '\' is duplicate');
 			}
 			View.viewsById[this.id] = this;
 			++View.viewCount;
@@ -54,8 +54,10 @@ namespace alm.view {
 
 			this.view = this.implInitialize();
 			if (this.isInitializing) {
-				throwError(this.name || this, 'view is null', !this.view);
-				this.hide(false);
+				throwError(this.name || this, 'view is not assigned', !this.view);
+				if (this.autoHideWithInit) {
+					this.hide(false);
+				}
 				this.isInitializing = false;
 				this.isInitialized = true;
 			} else {
@@ -67,7 +69,7 @@ namespace alm.view {
 		public ready():void {
 			if (this.isReadying || this.isReadied) return;
 			this.isReadying = true;
-			throwError(this.name || this, 'ready() was called without being initialized', !this.isInitialized);
+			throwError(this.name || this, 'ready() must be called after initialize()', !this.isInitialized);
 			this.implReady();
 			this.isReadying = false;
 			this.isReadied = true;
@@ -98,8 +100,8 @@ namespace alm.view {
 			command.addCommand(
 				new cmd.Func(():void => {
 					if (this.isShown) return;
-					throwError(this.name || this, 'getShowCommand() was called without being initialized', this.isInitializing || !this.isInitialized);
-					throwWarn(this.name || this, 'getShowCommand() was called without being ready', this.isReadying|| !this.isReadied);
+					throwError(this.name || this, 'getShowCommand() is must be called after initialize()', this.isInitializing || !this.isInitialized);
+					throwWarn(this.name || this, 'getShowCommand() is must be called after ready()', this.isReadying|| !this.isReadied);
 					this.isShown = true;
 					this.isShowing = true;
 					this.isHiding = false;
@@ -132,8 +134,8 @@ namespace alm.view {
 				new cmd.Func(():void => {
 					if (!this.isShown) return;
 					if (!this.isInitializing) {
-						throwError(this.name || this, 'getHideCommand() was called without being initialized', this.isInitializing || !this.isInitialized);
-						throwWarn(this.name || this, 'getHideCommand() was called without being ready', this.isReadying || !this.isReadied);
+						throwError(this.name || this, 'getHideCommand() is must be called after initialize()', this.isInitializing || !this.isInitialized);
+						throwWarn(this.name || this, 'getHideCommand() is must be called after ready()', this.isReadying || !this.isReadied);
 					}
 					this.isShown = false;
 					this.isShowing = false;

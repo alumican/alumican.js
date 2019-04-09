@@ -2,8 +2,8 @@
 
 namespace alm.util {
 
-	import EasingFunction = alm.util.EasingFunction;
-	import Easing = alm.util.Easing;
+	import EasingFunction = alm.math.EasingFunction;
+	import Easing = alm.math.Easing;
 
 	export class TweenCSS {
 

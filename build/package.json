@@ -1,31 +1,37 @@
 {
-  "name": "alumican.js",
+  "name": "minimal-studies",
   "version": "1.0.0",
-  "description": "JavaScript utility libraries",
-  "main": "lib/alumican.js",
+  "description": "This is a project template for quickly starting visual prototyping with JavaScript, including build system.",
   "scripts": {
     "preinstall": "npm install -g gulp-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yukiya Okuda",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alumican/alumican.js.git"
-  },
-  "dependencies": {
-    "typescript": "*",
-    "gulp": "github:gulpjs/gulp",
-    "gulp-plumber": "*",
-    "gulp-tap": "*",
-    "gulp-sourcemaps": "*",
-    "gulp-typescript": "*",
-    "gulp-uglify": "*"
-  },
+  "license": "MIT",
+  "repository": {},
+  "dependencies": {},
   "devDependencies": {
+    "ts-node": "*",
+    "typescript-require": "*",
+    "typescript": "*",
+    "gulp": "^4.0.0",
+    "gulp-plumber": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-connect": "*",
+    "gulp-typescript": "*",
+    "gulp-uglify": "*",
+    "gulp-sass": "*",
+    "gulp-remove-empty-lines": "*",
+    "gulp-strip-comments": "*",
+    "@types/node": "*",
+    "@types/gulp": "*",
     "@types/jquery": "*",
-    "@types/three": "*",
+    "@types/paper": "*",
     "@types/pixi.js": "*",
-    "@types/paper": "*"
+    "@types/three": "*",
+    "@types/d3": "*",
+    "@types/modernizr": "*",
+    "@types/dat.gui": "*",
+    "@types/stats.js": "*"
   }
 }

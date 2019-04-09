@@ -1,6 +1,8 @@
 /// <reference path='../../include.ts' />
 
-namespace alm.util {
+namespace alm.browser {
+
+	import Hash = alm.util.Hash;
 
 	export class QueryString {
 

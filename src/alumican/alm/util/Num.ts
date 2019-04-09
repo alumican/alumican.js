@@ -2,30 +2,55 @@
 
 namespace alm.util {
 
+	import EasingFunction = alm.math.EasingFunction;
+
 	export class Num {
 
 		/**
-		 * 値を特定の範囲内にマッピングする
+		 * 値を特定の範囲から範囲にマッピングする
 		 * @param {number} value 入力値
-		 * @param {number} srcMin マッピング元の最小値
-		 * @param {number} srcMax マッピング元の最大値
-		 * @param {number} dstMin マッピング先の最小値
-		 * @param {number} dstMax マッピング先の最大値
-		 * @param {boolean} clamp trueの場合は入力値をsrcMin, srcMaxの範囲内に丸める
+		 * @param {number} srcA マッピング元範囲の境界値A
+		 * @param {number} srcB マッピング元範囲の境界値B
+		 * @param {number} dstA マッピング元の値Aに対応するマッピング先の値
+		 * @param {number} dstB マッピング元の値Bに対応するマッピング先の値
+		 * @param {boolean} clamp trueの場合は入力値を[srcA, srcB]の範囲内に丸める
 		 * @returns {number} 出力値
 		 */
-		public static map(value:number, srcMin:number, srcMax:number, dstMin:number, dstMax:number, clamp:boolean = true):number {
-			if (srcMin == srcMax) return dstMin;
+		public static map(value:number, srcA:number, srcB:number, dstA:number, dstB:number, clamp:boolean = true):number {
+			if (srcA == srcB) return dstA;
 			if (clamp) {
-				if (srcMin < srcMax) {
-					if (value < srcMin) value = srcMin;
-					else if (value > srcMax) value = srcMax;
+				if (srcA < srcB) {
+					if (value < srcA) value = srcA;
+					else if (value > srcB) value = srcB;
 				} else {
-					if (value < srcMax) value = srcMax;
-					else if (value > srcMin) value = srcMin;
+					if (value < srcB) value = srcB;
+					else if (value > srcA) value = srcA;
 				}
 			}
-			return (value - srcMin) * (dstMax - dstMin) / (srcMax - srcMin) + dstMin;
+			return (value - srcA) * (dstB - dstA) / (srcB - srcA) + dstA;
+		}
+
+		/**
+		 * 値を特定の範囲からイージング関数を経由して特定の範囲にマッピングする
+		 * @param {number} value 入力値
+		 * @param {number} srcA マッピング元範囲の境界値A
+		 * @param {number} srcB マッピング元範囲の境界値B
+		 * @param {number} dstA マッピング元の値Aに対応するマッピング先の値
+		 * @param {number} dstB マッピング元の値Bに対応するマッピング先の値
+		 * @param {EasingFunction} easing イージング関関数
+		 * @returns {number} 出力値
+		 */
+		public static ease(value:number, srcA:number, srcB:number, dstA:number, dstB:number, easing:EasingFunction):number {
+			if (srcA == srcB) return dstA;
+			if (srcA < srcB) {
+				if (value < srcA) value = srcA;
+				else if (value > srcB) value = srcB;
+				return easing((value - srcA) / (srcB - srcA)) * (dstB - dstA) + dstA;
+			} else {
+				if (value < srcB) value = srcB;
+				else if (value > srcA) value = srcA;
+				return easing((value - srcB) / (srcA - srcB)) * (dstB - dstA) + dstA;
+			}
 		}
 
 		/**

@@ -2,8 +2,8 @@
 
 namespace cmd {
 
-	import Easing = alm.util.Easing;
-	import EasingFunction = alm.util.EasingFunction;
+	import Easing = alm.math.Easing;
+	import EasingFunction = alm.math.EasingFunction;
 
 	export type TweenCallbackFunction = (progressTime:number, progressValue:number) => void;
 
@@ -94,7 +94,7 @@ namespace cmd {
 
 		private apply(timeRatio:number):void {
 			this.progressTime = timeRatio;
-			this.progressValue = this.easing(this.progressTime, 0, 1, 1);
+			this.progressValue = this.easing(this.progressTime);
 			let value0:number;
 			for (let key in this.to) {
 				value0 = this.internalFrom[key];

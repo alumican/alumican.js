@@ -1,23 +1,32 @@
 {
 	"path": {
-		"srcRoot": "../src",
-		"deployRoot": "../lib",
-		"testRoot": "../test"
+		"src": "",
+		"dst": ""
 	},
 	"projects": [
-		"alumican",
-		"alumican.jquery",
-		"alumican.three",
-		"alumican.canvas",
-		"alumican.canvas.pixi",
-		"alumican.canvas.paper"
+		{
+			"name": "",
+			"js": [
+				{ "src": "src/alumican/include.ts", "dst": "lib/alumican.js" },
+				{ "src": "src/alumican.jquery/include.ts", "dst": "lib/alumican.jquery.js" },
+				{ "src": "src/alumican.three/include.ts", "dst": "lib/alumican.three.js" },
+				{ "src": "src/alumican.canvas/include.ts", "dst": "lib/alumican.canvas.js" },
+				{ "src": "src/alumican.canvas.pixi/include.ts", "dst": "lib/alumican.canvas.pixi.js" },
+				{ "src": "src/alumican.canvas.paper/include.ts", "dst": "lib/alumican.canvas.paper.js" },
+
+				{ "src": "test/js/test.ts", "dst": "test/js/test.js" }
+			]
+		}
 	],
-	"option": {
-		"createProjectDirectory": false
-	},
 	"typeScript": {
 		"target": "ES5",
 		"lib": ["es6", "dom"],
-		"types": ["jquery", "three"]
+		"types": ["jquery", "three", "pixi.js", "paper"],
+		"forceConsistentCasingInFileNames": true,
+		"alwaysStrict": false,
+		"removeComments": true,
+		"declaration": true,
+		"sourceMap": true,
+		"minify": true
 	}
 }

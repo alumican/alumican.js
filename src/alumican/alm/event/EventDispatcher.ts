@@ -2,7 +2,7 @@
 
 namespace alm.event {
 
-	import Logger = alm.util.Logger;
+	import Logger = alm.io.Logger;
 	export type EventListener = (event:Event) => void;
 
 	export class EventDispatcher {
@@ -87,8 +87,8 @@ namespace alm.event {
 			}
 		}
 
-		public dispatchEventType(eventType:string, target:Object = null, data:any = null):void {
-			this.dispatchEvent(new Event(eventType, target, data));
+		public dispatchEventType<T = any>(eventType:string, target:Object = null, data:T = null):void {
+			this.dispatchEvent(new Event<T>(eventType, target, data));
 		}
 
 

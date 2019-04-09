@@ -16,12 +16,10 @@ namespace alm.canvas {
 		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, platformSetupOptions:any[] = null) {
 			super();
 
+			this.window = jQuery(window);
+
 			this.canvas = <JQuery<HTMLCanvasElement>>jQuery(canvas);
 			this.isAutoResizeEnabled = isAutoResizeEnabled;
-
-			trace("[BaseApp] canvas : ", canvas);
-			trace("[BaseApp] isAutoResizeEnabled : " + this.isAutoResizeEnabled);
-			trace("[BaseApp] platformSetupOptions : ", platformSetupOptions);
 
 			this.pointerIds = [];
 			this.pointersById = {};
@@ -30,13 +28,23 @@ namespace alm.canvas {
 			this.elapsedFrameCount = 0;
 			this.startTime = new Date().getTime();
 			this.mousePointerId = 'mouse';
+			this.isTouchEnabled = DeviceInfo.getIsTouchEnabled();
+			this.isForceTouchEnabled = typeof canvas['ontouchforcechange'] !== 'undefined';
 
-			if (DeviceInfo.getIsTouchEnabled()) {
+			trace("[BaseApp] canvas : ", canvas);
+			trace("[BaseApp] platformSetupOptions : ", platformSetupOptions);
+			trace("[BaseApp] isAutoResizeEnabled : " + this.isAutoResizeEnabled);
+			trace("[BaseApp] isTouchEnabled : " + this.isTouchEnabled);
+			trace("[BaseApp] isForceTouchEnabled : " + this.isForceTouchEnabled);
+
+			if (this.isTouchEnabled) {
 				this.canvas.on('touchstart', this.touchStartHandler);
 				this.canvas.on('touchend', this.touchEndHandler);
 				this.canvas.on('touchcancel', this.touchCancelHandler);
 				this.canvas.on('touchmove', this.touchMoveHandler);
-				this.canvas.on('touchforcechange', this.touchForceChangeHandler);
+				if (this.isForceTouchEnabled) {
+					this.canvas.on('touchforcechange', this.touchForceChangeHandler);
+				}
 			} else {
 				this.canvas.on('mouseover', this.mouseOverHandler);
 				this.canvas.on('mouseout', this.mouseOutHandler);
@@ -45,9 +53,11 @@ namespace alm.canvas {
 				this.canvas.on('mousemove', this.mouseMoveHandler);
 			}
 
-			this.canvas.on('keydown', this.keyDownHandler);
-			this.canvas.on('keyup', this.keyUpHandler);
-			this.canvas.attr('tabindex', 1);
+			this.window.on('keydown', this.keyDownHandler);
+			this.window.on('keyup', this.keyUpHandler);
+			//this.canvas.attr('tabindex', 1);
+
+			jQuery(document).on('visibilitychange', this.visibilityStateChangeHandler);
 
 			requestAnimationFrame(this.requestAnimationFrame);
 
@@ -55,7 +65,7 @@ namespace alm.canvas {
 			this.onSetup();
 
 			if (this.isAutoResizeEnabled) {
-				this.canvas.on('resize', this.resizeHandler);
+				this.window.on('resize', this.resizeHandler);
 				this.resizeHandler(null);
 			}
 		}
@@ -106,6 +116,9 @@ namespace alm.canvas {
 		public onResize(stageWidth:number, stageHeight:number):void {
 		}
 
+		public onVisibilityStateChange(visibilityState:VisibilityState):void {
+		}
+
 		protected onPlatformSetup(platformSetupOptions:any[]):void {
 		}
 
@@ -126,11 +139,11 @@ namespace alm.canvas {
 		// --------------------------------------------------
 		// Mouse Event
 
-		private mouseOverHandler = (event:JQuery.Event):void => {
+		private mouseOverHandler = (event:JQuery.MouseOverEvent):void => {
 			const pointer:Pointer = this.getMousePointer(event);
 		};
 
-		private mouseOutHandler = (event:JQuery.Event):void => {
+		private mouseOutHandler = (event:JQuery.MouseOutEvent):void => {
 			const pointer:Pointer = this.getMousePointer(event);
 			delete this.pointersById[this.mousePointerId];
 			const pointerIndex = this.pointerIds.indexOf(this.mousePointerId);
@@ -142,21 +155,21 @@ namespace alm.canvas {
 			this.onPointerLeave(pointer);
 		};
 
-		private mouseDownHandler = (event:JQuery.Event):void => {
+		private mouseDownHandler = (event:JQuery.MouseDownEvent):void => {
 			const pointer:Pointer = this.getMousePointer(event);
 			pointer.notifyTouch();
 			this.onPointerTouch(pointer);
 		};
 
-		private mouseUpHandler = (event:JQuery.Event):void => {
+		private mouseUpHandler = (event:JQuery.MouseUpEvent):void => {
 			const pointer:Pointer = this.getMousePointer(event);
 			pointer.notifyRelease();
 			this.onPointerRelease(pointer);
 		};
 
-		private mouseMoveHandler = (event:JQuery.Event):void => {
+		private mouseMoveHandler = (event:JQuery.MouseMoveEvent):void => {
 			const pointer:Pointer = this.getMousePointer(event);
-			const position:number[] = this.getPointerPosition(event);
+			const position:number[] = this.getMousePointerPosition(event);
 			pointer.notifyMove(position[0], position[1]);
 			this.onPointerMove(pointer);
 			if (pointer.isDragging) {
@@ -167,7 +180,7 @@ namespace alm.canvas {
 		// --------------------------------------------------
 		// Touch Event
 
-		private touchStartHandler = (event:JQuery.Event):void => {
+		private touchStartHandler = (event:JQuery.TouchEventBase):void => {
 			const touches:TouchList = event.changedTouches;
 			const touchCount:number = event.changedTouches.length;
 			let touch:Touch;
@@ -180,7 +193,7 @@ namespace alm.canvas {
 				this.pointersById[id] = pointer;
 				this.pointerIds.push(id);
 				++this.pointingCount;
-				const position:number[] = this.getPointerPosition(event);
+				const position:number[] = this.getTouchPointerPosition(touch);
 				pointer.notifyEnter(position[0], position[1]);
 				pointer.notifyTouch();
 				this.onPointerEnter(pointer);
@@ -188,7 +201,7 @@ namespace alm.canvas {
 			}
 		};
 
-		private touchEndHandler = (event:JQuery.Event):void => {
+		private touchEndHandler = (event:JQuery.TouchEventBase):void => {
 			const touches:TouchList = event.changedTouches;
 			const touchCount:number = event.changedTouches.length;
 			let touch:Touch;
@@ -211,11 +224,11 @@ namespace alm.canvas {
 			}
 		};
 
-		private touchCancelHandler = (event:JQuery.Event):void => {
+		private touchCancelHandler = (event:JQuery.TouchEventBase):void => {
 			this.touchEndHandler(event);
 		};
 
-		private touchMoveHandler = (event:JQuery.Event):void => {
+		private touchMoveHandler = (event:JQuery.TouchEventBase):void => {
 			event.originalEvent.preventDefault();
 
 			const touches:TouchList = event.changedTouches;
@@ -227,7 +240,7 @@ namespace alm.canvas {
 				touch = touches.item(i);
 				id = BaseApp.getPointerId(touch.identifier);
 				pointer = this.pointersById[id];
-				const position:number[] = this.getPointerPosition(event);
+				const position:number[] = this.getTouchPointerPosition(touch);
 				pointer.notifyMove(position[0], position[1]);
 				if (pointer.isDragging) {
 					this.onPointerDrag(pointer);
@@ -235,7 +248,7 @@ namespace alm.canvas {
 			}
 		};
 
-		private touchForceChangeHandler = (event:JQuery.Event):void => {
+		private touchForceChangeHandler = (event:JQuery.TouchEventBase):void => {
 			const touches:TouchList = event.changedTouches;
 			const touchCount:number = event.changedTouches.length;
 			let touch:Touch;
@@ -255,19 +268,27 @@ namespace alm.canvas {
 		// --------------------------------------------------
 		// Key Event
 
-		private keyDownHandler = (event:JQuery.Event):void => {
+		private keyDownHandler = (event:JQuery.KeyDownEvent):void => {
 			this.onKeyDown(event.key);
 		};
 
-		private keyUpHandler = (event:JQuery.Event):void => {
+		private keyUpHandler = (event:JQuery.KeyUpEvent):void => {
 			this.onKeyUp(event.key);
 		};
 
 		// --------------------------------------------------
 		// Other Event
 
-		private resizeHandler = (event:JQuery.Event):void => {
-			this.resize(this.canvas.width(), this.canvas.height());
+		private resizeHandler = (event:JQuery.ResizeEvent):void => {
+			const newStageWidth:number = this.canvas.width();
+			const newStageHeight:number = this.canvas.height();
+			if (this.stageWidth != newStageWidth || this.stageHeight != newStageHeight) {
+				this.resize(newStageWidth, newStageHeight);
+			}
+		};
+
+		private visibilityStateChangeHandler = (event:JQuery.Event):void => {
+			this.onVisibilityStateChange(document.visibilityState);
 		};
 
 		private requestAnimationFrame = ():void => {
@@ -288,21 +309,22 @@ namespace alm.canvas {
 				this.pointersById[this.mousePointerId] = pointer;
 				this.pointerIds.push(this.mousePointerId);
 				++this.pointingCount;
-				const position:number[] = this.getPointerPosition(event);
+				const position:number[] = this.getMousePointerPosition(event);
 				pointer.notifyEnter(position[0], position[1]);
 				this.onPointerEnter(pointer);
 			}
 			return pointer;
 		}
 
-		private getPointerPosition(event:JQuery.Event):number[] {
-			//return [event.clientX, event.clientY];
-
+		private getTouchPointerPosition(touch:Touch):number[] {
 			const offset:JQuery.Coordinates = this.getCanvas().offset();
-			return [
-				event.pageX - offset.left,
-				event.pageY - offset.top
-			];
+			//trace(touch, touch.clientX, touch.clientY, touch.pageX, touch.pageY, offset.left, offset.top);
+			return [touch.pageX - offset.left, touch.pageY - offset.top];
+		}
+
+		private getMousePointerPosition(event:JQuery.Event):number[] {
+			const offset:JQuery.Coordinates = this.getCanvas().offset();
+			return [event.pageX - offset.left, event.pageY - offset.top];
 		}
 
 		public static getPointerId(touchId:number):string {
@@ -350,7 +372,14 @@ namespace alm.canvas {
 		public setIsAutoResizeEnabled(value:boolean):void { this.isAutoResizeEnabled = value; }
 		private isAutoResizeEnabled:boolean;
 
+		public getIsForceTouchEnabled():boolean { return this.isForceTouchEnabled; }
+		private isForceTouchEnabled:boolean;
+
+		public getIsTouchEnabled():boolean { return this.isTouchEnabled; }
+		private isTouchEnabled:boolean;
+
 		private startTime:number;
 		private mousePointerId:string;
+		private window:JQuery<Window>;
 	}
 }

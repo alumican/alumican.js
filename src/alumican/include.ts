@@ -2,8 +2,8 @@
 
 /* ---------- project ---------- */
 /// <reference path='alm/browser/QueryString.ts' />
-/// <reference path='alm/util/Logger.ts' />
-/// <reference path='alm/util/Easing.ts' />
+/// <reference path='alm/io/Logger.ts' />
+/// <reference path='alm/math/Easing.ts' />
 
 /// <reference path='alm/event/Event.ts' />
 /// <reference path='alm/event/EventDispatcher.ts' />
@@ -25,33 +25,42 @@
 /// <reference path='alm/geom/Vector2.ts' />
 /// <reference path='alm/geom/Vector3.ts' />
 /// <reference path='alm/geom/Rectangle.ts' />
+/// <reference path='alm/geom/Boxer.ts' />
+
 /// <reference path='alm/util/Hash.ts' />
 /// <reference path='alm/util/Obj.ts' />
 /// <reference path='alm/util/Arr.ts' />
 /// <reference path='alm/util/Num.ts' />
 /// <reference path='alm/util/Str.ts' />
-/// <reference path='alm/util/Boxer.ts' />
-/// <reference path='alm/util/Raffle.ts' />
-/// <reference path='alm/util/Rotator.ts' />
-/// <reference path='alm/util/Pager.ts' />
-/// <reference path='alm/util/PagerEvent.ts' />
-/// <reference path='alm/util/Timer.ts' />
-/// <reference path='alm/util/TimerEvent.ts' />
-/// <reference path='alm/util/ObjectPool.ts' />
-/// <reference path='alm/util/CommandUtil.ts' />
-/// <reference path='alm/value/EasingValue.ts' />
-/// <reference path='alm/value/SpringValue.ts' />
-/// <reference path='alm/value/SimpleAverage.ts' />
-/// <reference path='alm/value/SimpleMovingAverage.ts' />
-/// <reference path='alm/loader/AssetLoader.ts' />
-/// <reference path='alm/loader/AssetLoaderEvent.ts' />
-/// <reference path='alm/loader/FileQuery.ts' />
-/// <reference path='alm/loader/IFileHandler.ts' />
+/// <reference path='alm/util/Cmd.ts' />
+
+/// <reference path='alm/resource/ObjectPool.ts' />
+
+/// <reference path='alm/state/Switcher.ts' />
+/// <reference path='alm/state/SwitcherEvent.ts' />
+/// <reference path='alm/state/Lottery.ts' />
+
+/// <reference path='alm/math/EasingValue.ts' />
+/// <reference path='alm/math/SpringValue.ts' />
+/// <reference path='alm/math/SimpleAverage.ts' />
+/// <reference path='alm/math/SimpleMovingAverage.ts' />
+/// <reference path='alm/math/MaxValue.ts' />
+/// <reference path='alm/math/Circular.ts' />
+
+/// <reference path='alm/time/Timer.ts' />
+/// <reference path='alm/time/TimerEvent.ts' />
+
+/// <reference path='alm/io/FileLoader.ts' />
+/// <reference path='alm/io/FileLoaderEvent.ts' />
+/// <reference path='alm/io/FileQuery.ts' />
+/// <reference path='alm/io/IFileHandler.ts' />
+
 /// <reference path='alm/view/View.ts' />
 /// <reference path='alm/view/ButtonBehavior.ts' />
 /// <reference path='alm/view/IButton.ts' />
 /// <reference path='alm/view/SelectionBehavior.ts' />
 /// <reference path='alm/view/ISelection.ts' />
+
 /// <reference path='alm/browser/DeviceInfo.ts' />
 /// <reference path='alm/browser/LocalStorage.ts' />
 /// <reference path='alm/browser/KeyWatcher.ts' />

@@ -4,4 +4,4 @@
 
 /* ---------- project ---------- */
 /// <reference path='alm/util/TweenCSS.ts' />
-/// <reference path='alm/loader/JQueryJsonFileHandler.ts' />
+/// <reference path='alm/io/JQueryJsonFileHandler.ts' />
