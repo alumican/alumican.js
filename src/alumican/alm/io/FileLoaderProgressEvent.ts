@@ -12,7 +12,6 @@ namespace alm.io {
 
 		static PROGRESS:string = 'progress';
 		static COMPLETE:string = 'complete';
-		static ERROR:string = 'error';
 
 
 
@@ -24,12 +23,13 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, progress:number = 0, loadedCount:number = 0, totalCount:number = 0, content:any = null) {
+		constructor(eventType:string, eventTarget:any = null, progress:number = 0, loadedCount:number = 0, totalCount:number = 0, content:any = null, info:any = null) {
 			super(eventType, eventTarget);
 			this.progress = progress;
 			this.loadedCount = loadedCount;
 			this.totalCount = totalCount;
 			this.content = content;
+			this.info = info;
 		}
 
 
@@ -43,7 +43,7 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public clone():FileLoaderEvent {
-			return new FileLoaderEvent(this.getType(), this.getTarget(), this.progress, this.loadedCount, this.totalCount, this.content);
+			return new FileLoaderEvent(this.getType(), this.getTarget(), this.progress, this.loadedCount, this.totalCount, this.content, this.info);
 		}
 
 		public toString():string {
@@ -64,5 +64,6 @@ namespace alm.io {
 		public loadedCount:number;
 		public totalCount:number;
 		public content:any;
+		public info:any;
 	}
 }
