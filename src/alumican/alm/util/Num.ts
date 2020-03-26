@@ -85,6 +85,22 @@ namespace alm.util {
 		}
 
 		/**
+		 * 富豪を保ったまま、値の絶対値を特定範囲内に丸める
+		 * @param {number} value 入力値
+		 * @param {number} minAbs 最小値
+		 * @param {number} maxAbs 最大値
+		 * @returns {number} 出力値
+		 */
+		public static clampAbs(value:number, minAbs:number, maxAbs:number):number {
+			if (value > 0) {
+				return value < minAbs ? minAbs : (value > maxAbs ? maxAbs : value);
+			} else {
+				value = Math.abs(value);
+				return -(value < minAbs ? minAbs : (value > maxAbs ? maxAbs : value));
+			}
+		}
+
+		/**
 		 * 2点間の距離を取得する
 		 * @param {number} x1 点1のx座標
 		 * @param {number} y1 点1のy座標

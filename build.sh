@@ -15,6 +15,12 @@ if [ $# -ge 1 ]; then
     elif [ $1 = "uninstall" ]; then
         # remove node modules, package-lock.json, tmp directory
         (cd build && uninstall);
+    elif [ $1 = "project" ]; then
+        if [ $# -eq 2 ]; then
+            (cd build && gulp project-$2);
+        else
+            echo "Project name is need.\n/build.sh project PROJECT_NAME";
+        fi
     else
         # run gulp task
         (cd build && gulp $1);
@@ -24,7 +30,7 @@ else
         # run gulp default task
         (cd build && gulp);
     else
-        # install 
+        # install
         (cd build && install && gulp);
     fi
 fi

@@ -21,7 +21,7 @@
 	"typeScript": {
 		"target": "ES5",
 		"lib": ["es6", "dom"],
-		"types": ["jquery", "three", "pixi.js", "paper"],
+		"types": ["jquery"],
 		"forceConsistentCasingInFileNames": true,
 		"alwaysStrict": false,
 		"removeComments": true,

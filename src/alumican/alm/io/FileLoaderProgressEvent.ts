@@ -2,7 +2,7 @@
 
 namespace alm.io {
 
-	export class FileLoaderEvent extends alm.event.Event {
+	export class FileLoaderProgressEvent extends alm.event.Event {
 
 		// --------------------------------------------------
 		//
@@ -10,6 +10,7 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
+		static START:string = 'start';
 		static PROGRESS:string = 'progress';
 		static COMPLETE:string = 'complete';
 
@@ -23,13 +24,11 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, progress:number = 0, loadedCount:number = 0, totalCount:number = 0, content:any = null, info:any = null) {
+		constructor(eventType:string, eventTarget:any = null, progress:number = 0, loadedCount:number = 0, totalCount:number = 0) {
 			super(eventType, eventTarget);
 			this.progress = progress;
 			this.loadedCount = loadedCount;
 			this.totalCount = totalCount;
-			this.content = content;
-			this.info = info;
 		}
 
 
@@ -42,12 +41,12 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		public clone():FileLoaderEvent {
-			return new FileLoaderEvent(this.getType(), this.getTarget(), this.progress, this.loadedCount, this.totalCount, this.content, this.info);
+		public clone():FileLoaderProgressEvent {
+			return new FileLoaderProgressEvent(this.getType(), this.getTarget(), this.progress, this.loadedCount, this.totalCount);
 		}
 
 		public toString():string {
-			return '[FileLoaderEvent] type = ' + this.getType() + ', progress = ' + this.progress + ', loadedCount = ' + this.loadedCount + ', totalCount = ' + this.totalCount;
+			return '[FileLoaderProgressEvent] type = ' + this.getType() + ', progress = ' + this.progress + ', loadedCount = ' + this.loadedCount + ', totalCount = ' + this.totalCount;
 		}
 
 
@@ -63,7 +62,5 @@ namespace alm.io {
 		public progress:number;
 		public loadedCount:number;
 		public totalCount:number;
-		public content:any;
-		public info:any;
 	}
 }

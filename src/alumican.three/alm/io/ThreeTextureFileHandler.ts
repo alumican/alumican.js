@@ -37,7 +37,7 @@ namespace alm.io {
 				(event:ProgressEvent):void => {
 				},
 				(event:ErrorEvent):void => {
-					onError(event.type + ' : ' + event.message);
+					onError(event);
 				}
 			);
 		}

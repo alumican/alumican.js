@@ -1,6 +1,6 @@
 /// <reference path='../../include.ts' />
 
-namespace alm.io {
+namespace alm.debug {
 
 	import QueryString = alm.browser.QueryString;
 
@@ -181,28 +181,28 @@ namespace alm.io {
 		public static warn(...messages:any[]):void {
 			if (Logger.level <= LoggerLevel.Warn) {
 				Logger.logger.warn('[' + Logger.namespace + 'Warn   ] ', messages);
-				Logger.stackTrace();
+				//Logger.stackTrace();
 			}
 		}
 
 		public static error(...messages:any[]):void {
 			if (Logger.level <= LoggerLevel.Error) {
 				Logger.logger.error('[' + Logger.namespace + 'Error  ] ', messages);
-				Logger.stackTrace();
+				//Logger.stackTrace();
 			}
 		}
 
 		public static warnIf(target:any, message:string, condition:boolean = true):void {
 			if (Logger.level <= LoggerLevel.Warn && condition) {
 				Logger.logger.warn('[' + Logger.namespace + 'Warn   ] ', [message + ' : ' + target]);
-				Logger.stackTrace();
+				//Logger.stackTrace();
 			}
 		}
 
 		public static errorIf(target:any, message: string, condition:boolean = true):void {
 			if (Logger.level <= LoggerLevel.Error && condition) {
 				Logger.logger.error('[' + Logger.namespace + 'Error  ] ', [message + ' : ' + target]);
-				Logger.stackTrace();
+				//Logger.stackTrace();
 			}
 		}
 
@@ -215,13 +215,13 @@ namespace alm.io {
 }
 
 function trace(...messages:any[]):void {
-	alm.io.Logger.info.apply(trace.caller, arguments);
+	alm.debug.Logger.info.apply(trace.caller, arguments);
 }
 
 function throwWarn(target:any, message:string, condition:boolean = true):void {
-	alm.io.Logger.warnIf.apply(null, arguments);
+	alm.debug.Logger.warnIf.apply(null, arguments);
 }
 
 function throwError(target:any, message:string, condition:boolean = true):void {
-	alm.io.Logger.errorIf.apply(null, arguments);
+	alm.debug.Logger.errorIf.apply(null, arguments);
 }

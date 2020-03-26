@@ -3,7 +3,7 @@
 namespace alm.view {
 
 	import EventDispatcher = alm.event.EventDispatcher;
-	import Logger = alm.io.Logger;
+	import Logger = alm.debug.Logger;
 
 	export abstract class View<T = any> extends EventDispatcher {
 

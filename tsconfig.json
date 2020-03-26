@@ -6,17 +6,10 @@
       "dom"
     ],
     "types": [
-      "jquery",
-      "paper",
-      "pixi.js",
-      "three",
-      "d3",
-      "modernizr",
-      "dat.gui",
-      "stats.js"
+      "jquery"
     ],
     "forceConsistentCasingInFileNames": true,
-    "alwaysStrict": true,
+    "alwaysStrict": false,
     "removeComments": true,
     "declaration": true,
     "sourceMap": true,

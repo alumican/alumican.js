@@ -1,0 +1,69 @@
+{
+  "_from": "@types/dat.gui@*",
+  "_id": "@types/dat.gui@0.7.5",
+  "_inBundle": false,
+  "_integrity": "sha512-5AqLThlTiuDSOZA7XZFogRj/UdGKn/iIfdFPuh37kY4s7TjTt+YUOlUmcCrY6wAYFFyThtt2z8qZlYcdkhJZ5w==",
+  "_location": "/@types/dat.gui",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/dat.gui@*",
+    "name": "@types/dat.gui",
+    "escapedName": "@types%2fdat.gui",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/dat.gui/-/dat.gui-0.7.5.tgz",
+  "_shasum": "8f4f87300ae553a57b246a7bf1b9fe5e13ca8b79",
+  "_spec": "@types/dat.gui@*",
+  "_where": "/Users/yukiya/Dropbox/Private/laboratory/trunk/JS/project/minimal-interaction/build",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Satoru Kimura",
+      "url": "https://github.com/gyohk"
+    },
+    {
+      "name": "ZongJing Lu",
+      "url": "https://github.com/sonic3d"
+    },
+    {
+      "name": "Richard Roylance",
+      "url": "https://github.com/rroylance"
+    },
+    {
+      "name": "Nahuel Scotti",
+      "url": "https://github.com/singuerinc"
+    },
+    {
+      "name": "Teoxoy",
+      "url": "https://github.com/teoxoy"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "TypeScript definitions for dat.GUI",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/dat.gui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "directory": "types/dat.gui"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.0",
+  "types": "index",
+  "typesPublisherContentHash": "4659f0dc07c81cf90893c323a6e7cf92e76f1f12e01bf10c11dbacf185ca4e58",
+  "version": "0.7.5"
+}

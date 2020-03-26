@@ -2,7 +2,7 @@
 
 namespace alm.event {
 
-	import Logger = alm.io.Logger;
+	import Logger = alm.debug.Logger;
 	export type EventListener = (event:Event) => void;
 
 	export class EventDispatcher {

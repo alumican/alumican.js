@@ -11,6 +11,11 @@ namespace alm.util {
 			});
 		}
 
+		public static get(target:any, key:string, defaultValue:any):any {
+			const value:any = target[key];
+			return typeof value !== 'undefined' ? value : defaultValue;
+		}
+
 		private constructor() {}
 	}
 }

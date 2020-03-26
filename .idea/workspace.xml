@@ -2,32 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gulpfile.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/install.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/alumican.jquery.d.ts.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/alumican.three.d.ts.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/alumican/alm/math/Easing.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/alumican/alm/math/MaxValue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/js/test.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/js/test.d.ts.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/js/test.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/js/test.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/gulpfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/install.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/run.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.d.ts.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.paper.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.canvas.pixi.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.d.ts.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery.d.ts.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.jquery.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery.min.js" afterDir="false" />
@@ -37,53 +36,50 @@
       <change beforePath="$PROJECT_DIR$/lib/alumican.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.three.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.three.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.three.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.three.d.ts.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.three.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.three.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.three.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.three.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.three.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.three.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.three.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.three.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.canvas.paper/include.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.paper/include.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.canvas.pixi/include.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas.pixi/include.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican.jquery/alm/loader/JQueryJsonFileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.jquery/alm/io/JQueryJsonFileHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.jquery/alm/io/JQueryJsonFileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.jquery/alm/io/JQueryJsonFileHandler.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican.jquery/include.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.jquery/include.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican.three/alm/loader/ThreeTextureFileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.three/alm/io/ThreeTextureFileHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.three/alm/io/ThreeTextureFileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.three/alm/io/ThreeTextureFileHandler.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.three/include.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.three/include.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/LocalStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/LocalStorage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/QueryString.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/QueryString.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/event/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/event/Event.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoader.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoaderEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/loader/FileQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileQuery.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/loader/IFileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/IFileHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Boxer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/geom/Boxer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/CommandUtil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Cmd.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Easing.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/Logger.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/FileLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderProgressEvent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/FileQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileQuery.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/IFileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/IFileHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/Logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/debug/Logger.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/math/EasingValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/math/EasingValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/time/Timer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/time/Timer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Num.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Num.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/ObjectPool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/resource/ObjectPool.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/state/SwitcherEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Raffle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/state/Lottery.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Rotator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/math/Circular.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Timer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/time/Timer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/TimerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/time/TimerEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/value/EasingValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/math/EasingValue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/value/SimpleAverage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/math/SimpleAverage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/value/SimpleMovingAverage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/math/SimpleMovingAverage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/value/SpringValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/math/SpringValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Obj.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Obj.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/view/View.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/view/View.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/cmd/Tween.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/cmd/Tween.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/include.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/include.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/scn/Scene.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/Scene.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/scn/SceneManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/js/test.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/test/js/test.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/js/test.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/js/test.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/js/test.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/test/js/test.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -99,57 +95,8 @@
     <expand />
     <select />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican.canvas/include.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tsconfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/gulpfile.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="171" column="53" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,36 +108,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
-      <find>client</find>
-      <find>position</find>
-      <find>paper.</find>
-      <find>id</find>
-      <find>Pager</find>
-      <find>touchForceChangeHandler</find>
-      <find>projectDefault</find>
-      <find>getMousePointer</find>
-      <find>onPointerTouch</find>
-      <find>, b:number</find>
-      <find>c:number,</find>
-      <find>, c:number</find>
-      <find>easing</find>
-      <find>-1 *</find>
-      <find>1 / 2</find>
-      <find>dstMin</find>
-      <find>path.src</find>
-      <find>visi</find>
-      <find>any</find>
-      <find>this.next()</find>
-      <find>loadingQueryIndex</find>
-      <find>loadingQueries</find>
-      <find>queriesByQueryId</find>
-      <find>++</find>
-      <find>getPointerPosition</find>
-      <find>getMousePointerPosition</find>
       <find>autoHideWithInit</find>
       <find>AssetLoader</find>
       <find>Page</find>
+      <find>alm.io.Logger</find>
+      <find>(new Date().getTime()</find>
+      <find>new Date()</find>
+      <find>isAutoResizeEnabled</find>
+      <find>preventDefault</find>
+      <find>changedtouches</find>
+      <find>original</find>
+      <find>changedTouches</find>
+      <find>frameRate</find>
+      <find>resize</find>
+      <find>getDe</find>
+      <find>getDevicePixelRatio</find>
+      <find>parseFloat</find>
+      <find>dispa</find>
+      <find>totalThreadCount</find>
+      <find>isDefaultTouchEventEnabled</find>
+      <find>isLoading_</find>
+      <find>COMPLETE</find>
+      <find>currentThreadCount</find>
+      <find>SimpleMovingAverage</find>
+      <find>localStorage</find>
+      <find>load(</find>
+      <find>complete</find>
+      <find>rest</find>
+      <find>FileLoaderEvent</find>
+      <find>param</find>
+      <find>onLoad</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -199,141 +146,19 @@
       <replace>FileQuery</replace>
       <replace>jQuery(this.hitArea).off</replace>
       <replace>dstA</replace>
+      <replace>alm.debug.Logger</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/build/gulpfile.js" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Hash.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Pager.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/PagerEvent.ts" />
-        <option value="$PROJECT_DIR$/build/install.js" />
-        <option value="$PROJECT_DIR$/build/package.json" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Easing.ts" />
-        <option value="$PROJECT_DIR$/build/gulpfile.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/value/MaxValue.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/event/Event.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/loader/AssetLoader.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Logger.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Circular.ts" />
-        <option value="$PROJECT_DIR$/lib/alumican.d.ts.map" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Cmd.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/include.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/geom/Boxer.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/io/FileLoader.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderEvent.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/io/FileQuery.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/io/IFileHandler.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/Circular.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/EasingValue.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/MaxValue.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/SimpleMovingAverage.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/SimpleAverage.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/SpringValue.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/resource/ObjectPool.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/state/Lottery.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/state/SwitcherEvent.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/time/Timer.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/time/TimerEvent.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/scn/Scene.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/scn/SceneManager.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/browser/QueryString.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/io/Logger.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/cmd/Tween.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/state/Switcher.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/view/View.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/math/Easing.ts" />
-        <option value="$PROJECT_DIR$/src/alumican/alm/util/Num.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.jquery/alm/loader/JQueryJsonFileHandler.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.three/alm/loader/ThreeTextureFileHandler.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.three/include.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.jquery/include.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts" />
-        <option value="$PROJECT_DIR$/src/alumican.canvas/include.ts" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/build/config.json" />
-      </list>
-    </option>
-  </component>
-  <component name="PhpServers">
-    <servers />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="1778" />
-  </component>
+  <component name="ProjectId" id="1VegZSzuNCV68vSXrRNoM8YCuqs" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
-              <item name="alm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alumican.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alumican.js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alumican.canvas" type="462c0819:PsiDirectoryNode" />
-              <item name="alm" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -343,10 +168,17 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554797855238" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554866709012" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/@types" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nodebrew/current/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="preferences.keymap" />
@@ -363,42 +195,30 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/alumican/alm/value" />
-      <recent name="$PROJECT_DIR$/src/alumican.canvas.pixijs/alm/canvas" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/alumican.canvas.paperjs/alm/canvas" />
-      <recent name="$PROJECT_DIR$/src/alumican.canvas.paperjs" />
+      <recent name="$PROJECT_DIR$/src/@types" />
+      <recent name="$PROJECT_DIR$/src/alumican/alm/io" />
+      <recent name="$PROJECT_DIR$/src/alumican/alm/browser" />
+      <recent name="$PROJECT_DIR$/src/alumican/alm/state" />
+      <recent name="$PROJECT_DIR$/src/alumican/alm/debug" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/alumican/alm/debug" />
+      <recent name="$PROJECT_DIR$/src/alumican/alm/time" />
       <recent name="$PROJECT_DIR$/src/alumican/alm/resource" />
       <recent name="$PROJECT_DIR$/src/alumican/alm/io" />
       <recent name="$PROJECT_DIR$/src/alumican/alm/geom" />
-      <recent name="$PROJECT_DIR$/src/alumican/alm/math" />
-      <recent name="$PROJECT_DIR$/src/alumican/alm/state" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -407,6 +227,7 @@
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -416,6 +237,7 @@
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -435,6 +257,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration" SSL_PROTOCOLS="sslv3">
     <configuration />
@@ -609,45 +443,72 @@
       <workItem from="1554775042557" duration="7449000" />
       <workItem from="1554793342613" duration="1529000" />
       <workItem from="1554794992066" duration="1635000" />
-      <workItem from="1554799533522" duration="3000000" />
+      <workItem from="1554799533522" duration="3282000" />
+      <workItem from="1554825472158" duration="354000" />
+      <workItem from="1554825834366" duration="9111000" />
+      <workItem from="1554867483469" duration="7367000" />
+      <workItem from="1554911023010" duration="899000" />
+      <workItem from="1554997994365" duration="209000" />
+      <workItem from="1554998208008" duration="1658000" />
+      <workItem from="1555047131939" duration="1000" />
+      <workItem from="1555053958918" duration="2028000" />
+      <workItem from="1555066491872" duration="1841000" />
+      <workItem from="1555577835396" duration="1121000" />
+      <workItem from="1555601404514" duration="599000" />
+      <workItem from="1555639585359" duration="599000" />
+      <workItem from="1555654329474" duration="609000" />
+      <workItem from="1555740532740" duration="172000" />
+      <workItem from="1556261770775" duration="124000" />
+      <workItem from="1556262374849" duration="2186000" />
+      <workItem from="1556269975562" duration="599000" />
+      <workItem from="1556363708420" duration="136000" />
+      <workItem from="1556392102300" duration="485000" />
+      <workItem from="1558418711237" duration="895000" />
+      <workItem from="1560935236157" duration="594000" />
+      <workItem from="1560937465363" duration="599000" />
+      <workItem from="1561089062512" duration="598000" />
+      <workItem from="1561197514729" duration="97000" />
+      <workItem from="1561198802753" duration="998000" />
+      <workItem from="1561279063794" duration="599000" />
+      <workItem from="1561457441304" duration="26000" />
+      <workItem from="1563860618948" duration="783000" />
+      <workItem from="1564320515458" duration="44000" />
+      <workItem from="1564323498092" duration="603000" />
+      <workItem from="1564361984339" duration="36000" />
+      <workItem from="1568112335558" duration="806000" />
+      <workItem from="1568176993492" duration="600000" />
+      <workItem from="1570604361017" duration="129000" />
+      <workItem from="1570604642580" duration="3073000" />
+      <workItem from="1570858564130" duration="42000" />
+      <workItem from="1571132730346" duration="26000" />
+      <workItem from="1571202491718" duration="1054000" />
+      <workItem from="1571478075034" duration="791000" />
+      <workItem from="1571503661684" duration="40000" />
+      <workItem from="1572574791040" duration="867000" />
+      <workItem from="1572851763002" duration="82000" />
+      <workItem from="1572851858987" duration="14000" />
+      <workItem from="1573280708224" duration="2000" />
+      <workItem from="1573473540149" duration="331000" />
+      <workItem from="1573474287303" duration="598000" />
+      <workItem from="1573491017186" duration="32000" />
+      <workItem from="1574150260918" duration="54000" />
+      <workItem from="1574325551298" duration="180000" />
+      <workItem from="1574694622289" duration="519000" />
+      <workItem from="1574697735236" duration="770000" />
+      <workItem from="1574756961980" duration="28000" />
+      <workItem from="1574757382075" duration="9000" />
+      <workItem from="1575706290067" duration="157000" />
+      <workItem from="1575975459378" duration="83000" />
+      <workItem from="1575975872303" duration="398000" />
+      <workItem from="1576308803603" duration="5849000" />
+      <workItem from="1577619031510" duration="1216000" />
+      <workItem from="1579882440955" duration="729000" />
+      <workItem from="1581053626308" duration="607000" />
+      <workItem from="1581082568640" duration="9000" />
+      <workItem from="1581578915338" duration="617000" />
+      <workItem from="1581753108185" duration="137000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272278000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1440" y="22" width="1440" height="1778" extended-state="0" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23748212" />
-      <window_info id="Structure" order="1" side_tool="true" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="TODO" order="1" />
-      <window_info anchor="bottom" id="TypeScript" order="2" sideWeight="0.55150217" weight="0.3351127" />
-      <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.537196" visible="true" weight="0.43001187" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.44849786" side_tool="true" weight="0.33531865" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32977462" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.3291815" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Ant Build" order="2" />
-      <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.3297568" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Maven" order="8" />
-      <window_info anchor="right" id="Hierarchy" order="9" weight="0.3297568" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -663,335 +524,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/math/SpringValue.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/math/MaxValue.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/resource/ObjectPool.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/state/Lottery.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/state/SwitcherEvent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/time/TimerEvent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Arr.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Cmd.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Obj.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/io/FileLoader.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/geom/Boxer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/SelectionBehavior.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ISelection.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/IButton.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/ButtonBehavior.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Str.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/scn/Scene.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="n#Logger#0;n#scn#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/event/Event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/scn/SceneTransferInfo.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/scn/SceneManagerEvent.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/scn/SceneState.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/scn/SceneManager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/scn/SceneEvent.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/LocalStorage.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/cmd/Tween.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/io/Logger.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1271">
-          <caret line="226" column="1" selection-start-line="226" selection-start-column="1" selection-end-line="226" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/state/Switcher.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2964">
-          <caret line="156" column="34" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/view/View.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="n#EventDispatcher#0;n#view#0;n#alm#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/browser/QueryString.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1387">
-          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/include.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/math/Easing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/time/Timer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="15" selection-start-line="4" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="n#EasingFunction#0;n#util#0;n#alm#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.jquery/include.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.jquery/alm/io/JQueryJsonFileHandler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.three/include.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas.pixi/alm/canvas/PixiApp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas.paper/alm/canvas/PaperApp.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/Pointer.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican/alm/util/Num.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="42" column="100" selection-start-line="42" selection-start-column="100" selection-end-line="42" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.three/alm/io/ThreeTextureFileHandler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.canvas.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts.map">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/alumican.jquery.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/include.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alumican.canvas/alm/canvas/BaseApp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/gulpfile.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="171" column="53" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

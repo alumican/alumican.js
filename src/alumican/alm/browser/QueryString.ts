@@ -75,6 +75,22 @@ namespace alm.browser {
 			return this.hash;
 		}
 
+		public setHash(hash:Hash<string>):void {
+			this.hash = hash;
+		}
+
+		public setParam(key:string, value:any):void {
+			this.hash[key] = value;
+		}
+
+		public removeParam(key:string):void {
+			delete this.hash[key];
+		}
+
+		public hasParam(key:string):boolean {
+			return this.hash[key] !== undefined;
+		}
+
 
 
 

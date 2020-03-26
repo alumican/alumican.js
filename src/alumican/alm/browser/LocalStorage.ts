@@ -2,6 +2,8 @@
 
 namespace alm.browser {
 
+	import Time = alm.util.Time;
+
 	export class LocalStorage {
 
 		// --------------------------------------------------
@@ -11,7 +13,7 @@ namespace alm.browser {
 		// --------------------------------------------------
 
 		/**
-		 * データをLocalStorageに保存する
+		 * データをCookieに保存する
 		 * @param key 保存するキー
 		 * @param value 保存するデータ
 		 * @param expiredAt 有効期限（UNIXミリ秒）
@@ -31,7 +33,7 @@ namespace alm.browser {
 		 * @returns {boolean} 保存に成功した場合trueが返る
 		 */
 		public static saveWithTerm(key:string, value:any, milliseconds:number = -1):boolean {
-			const expiredAt:number = milliseconds > 0 ? new Date().getTime() + milliseconds :-1;
+			const expiredAt:number = milliseconds > 0 ? Time.now() + milliseconds : -1;
 			return LocalStorage.save(key, value, expiredAt);
 		}
 
@@ -47,7 +49,7 @@ namespace alm.browser {
 				// データが見つかった
 				if (record.expiredAt > 0) {
 					// 期限付きデータ
-					if (new Date().getTime() < record.expiredAt) {
+					if (Time.now() < record.expiredAt) {
 						// 有効期限内
 						return JSON.parse(record.value);
 					} else {

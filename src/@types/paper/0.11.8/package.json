@@ -1,0 +1,64 @@
+{
+  "_from": "@types/paper@*",
+  "_id": "@types/paper@0.11.9",
+  "_inBundle": false,
+  "_integrity": "sha512-RrNyWBb/4IBYYtMW8IVCGmSeEYjBQXRPdqkp5EN6RiwaYZBDdLJqSPfQRKNFMWSVd+PkTnU0MgUQsxh5rw+vgg==",
+  "_location": "/@types/paper",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/paper@*",
+    "name": "@types/paper",
+    "escapedName": "@types%2fpaper",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/paper/-/paper-0.11.9.tgz",
+  "_shasum": "3769365f7cffff3eb73d8182c2c8033f7c20ba9a",
+  "_spec": "@types/paper@*",
+  "_where": "/Users/yukiya/Dropbox/Private/laboratory/trunk/JS/project/minimal-interaction/build",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Clark Stevenson",
+      "url": "https://github.com/clark-stevenson"
+    },
+    {
+      "name": "Jon Lucas",
+      "url": "https://github.com/Xakaloz"
+    },
+    {
+      "name": "Sebastian Lopez",
+      "url": "https://github.com/sebaswebdev"
+    },
+    {
+      "name": "Ryan Friedman",
+      "url": "https://github.com/rfried"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "TypeScript definitions for Paper.js",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/paper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.0",
+  "types": "index",
+  "typesPublisherContentHash": "c2c9389b3c4b9c12829601fdf2e76601113221a8b293c9952b74ef867f745ed0",
+  "version": "0.11.9"
+}

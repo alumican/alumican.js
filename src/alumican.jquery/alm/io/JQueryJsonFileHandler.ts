@@ -29,11 +29,12 @@ namespace alm.io {
 
 		public load(url:string, onComplete:CompleteFunction, onError:ErrorFunction):void {
 			jQuery.getJSON(
-				url,
-				(data:any):void => {
-					onComplete(data);
-				}
-			);
+				url
+			).done((data:any, textStatus:string, jqXHR:object):void => {
+				onComplete(data, { textStatus: textStatus, jqXHR: jqXHR});
+			}).fail((jqXHR:object, textStatus:string, errorThrown:string):void => {
+				onError({ jqXHR: jqXHR, textStatus: textStatus, errorThrown: errorThrown });
+			});
 		}
 
 

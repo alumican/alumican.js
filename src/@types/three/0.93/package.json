@@ -1,0 +1,133 @@
+{
+  "_from": "@types/three@*",
+  "_id": "@types/three@0.93.27",
+  "_inBundle": false,
+  "_integrity": "sha512-HncnT9RhhB9zflW3t/hUzaqWPL1vIXuyXaEhoMLJAHisfm8Xl6TscJPHR8U0XlUM1HcUnRxOpla9AJCLgK93lA==",
+  "_location": "/@types/three",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/three@*",
+    "name": "@types/three",
+    "escapedName": "@types%2fthree",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/three/-/three-0.93.27.tgz",
+  "_shasum": "2b110e6eb1e2dc3ac13ed0e0d4e65937ea228685",
+  "_spec": "@types/three@*",
+  "_where": "/Users/yukiya/Dropbox/Private/laboratory/trunk/JS/project/minimal-interaction/build",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Kon",
+      "url": "http://phyzkit.net/"
+    },
+    {
+      "name": "Satoru Kimura",
+      "url": "https://github.com/gyohk"
+    },
+    {
+      "name": "Florent Poujol",
+      "url": "https://github.com/florentpoujol"
+    },
+    {
+      "name": "HouChunlei",
+      "url": "https://github.com/omni360"
+    },
+    {
+      "name": "Ivo",
+      "url": "https://github.com/ivoisbelongtous"
+    },
+    {
+      "name": "David Asmuth",
+      "url": "https://github.com/piranha771"
+    },
+    {
+      "name": "Brandon Roberge,\n//                 Qinsi ZHU",
+      "url": "https://github.com/qszhusightp"
+    },
+    {
+      "name": "Toshiya Nakakura",
+      "url": "https://github.com/nakakura"
+    },
+    {
+      "name": "Stefan Profanter",
+      "url": "https://github.com/Pro"
+    },
+    {
+      "name": "Edmund Fokschaner",
+      "url": "https://github.com/efokschaner"
+    },
+    {
+      "name": "Roelof Jooste",
+      "url": "https://github.com/PsychoSTS"
+    },
+    {
+      "name": "Apurva Ojas",
+      "url": "https://github.com/apurvaojas"
+    },
+    {
+      "name": "Tiger Oakes",
+      "url": "https://github.com/NotWoods"
+    },
+    {
+      "name": "Methuselah96",
+      "url": "https://github.com/Methuselah96"
+    },
+    {
+      "name": "Dilip Ramirez",
+      "url": "https://github.com/Dukuo"
+    },
+    {
+      "name": "Julian Strecker",
+      "url": "https://github.com/JulianSSS"
+    },
+    {
+      "name": "Zhang Hao",
+      "url": "https://github.com/devilsparta"
+    },
+    {
+      "name": "Konstantin Lukaschenko",
+      "url": "https://github.com/KonstantinLukaschenko"
+    },
+    {
+      "name": "Daniel Yim",
+      "url": "https://github.com/danyim"
+    },
+    {
+      "name": "Saransh Kataria",
+      "url": "https://github.com/saranshkataria"
+    },
+    {
+      "name": "Philippe Suter",
+      "url": "https://github.com/psuter"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "TypeScript definitions for three.js",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/three",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "directory": "types/three"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.8",
+  "types": "index",
+  "typesPublisherContentHash": "b88ace0521f54864be4bf082b64cdb138e0b70ad001916653c664938edbe8a2f",
+  "version": "0.93.27"
+}

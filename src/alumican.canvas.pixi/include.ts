@@ -1,6 +1,6 @@
 /* ---------- dependency ---------- */
 /// <reference types='jquery' />
-/// <reference types="pixi.js" />
+/// <reference path='../@types/pixi.js/4.8/index.d.ts' />
 /// <reference path='../../lib/alumican.d.ts' />
 /// <reference path='../../lib/alumican.canvas.d.ts' />
 

@@ -4,6 +4,8 @@ namespace alm.canvas {
 
 	import EventDispatcher = alm.event.EventDispatcher;
 	import DeviceInfo = alm.browser.DeviceInfo;
+	import AnimationFrameTicker = alm.time.AnimationFrameTicker;
+	import Time = alm.util.Time;
 
 	export abstract class BaseApp extends EventDispatcher {
 
@@ -13,27 +15,31 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, platformSetupOptions:any[] = null) {
+		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, isAutoUpdateEnabled:boolean = true, platformSetupOptions:any[] = null) {
 			super();
 
 			this.window = jQuery(window);
 
 			this.canvas = <JQuery<HTMLCanvasElement>>jQuery(canvas);
 			this.isAutoResizeEnabled = isAutoResizeEnabled;
+			this.isAutoUpdateEnabled = isAutoUpdateEnabled;
+			this.isDefaultTouchEventEnabled = false;
 
 			this.pointerIds = [];
 			this.pointersById = {};
 			this.pointingCount = 0;
 
 			this.elapsedFrameCount = 0;
-			this.startTime = new Date().getTime();
+			this.startTime = Time.now();
 			this.mousePointerId = 'mouse';
 			this.isTouchEnabled = DeviceInfo.getIsTouchEnabled();
 			this.isForceTouchEnabled = typeof canvas['ontouchforcechange'] !== 'undefined';
+			this.visibilityState = document.visibilityState;
 
 			trace("[BaseApp] canvas : ", canvas);
 			trace("[BaseApp] platformSetupOptions : ", platformSetupOptions);
 			trace("[BaseApp] isAutoResizeEnabled : " + this.isAutoResizeEnabled);
+			trace("[BaseApp] isAutoUpdateEnabled : " + this.isAutoUpdateEnabled);
 			trace("[BaseApp] isTouchEnabled : " + this.isTouchEnabled);
 			trace("[BaseApp] isForceTouchEnabled : " + this.isForceTouchEnabled);
 
@@ -59,7 +65,12 @@ namespace alm.canvas {
 
 			jQuery(document).on('visibilitychange', this.visibilityStateChangeHandler);
 
-			requestAnimationFrame(this.requestAnimationFrame);
+			if (this.isAutoUpdateEnabled) {
+				//this.animationFrameTicker = new AnimationFrameTicker();
+				//this.animationFrameTicker.addEventListener(AnimationFrameTickerEvent.TICK, this.animationFrameTickerTickHandler);
+				//this.animationFrameTicker.start();
+				window.requestAnimationFrame(this.requestAnimationFrameHandler);
+			}
 
 			this.onPlatformSetup(platformSetupOptions || []);
 			this.onSetup();
@@ -128,6 +139,13 @@ namespace alm.canvas {
 		protected onPlatformResize(stageWidth:number, stageHeight:number):void {
 		}
 
+		public update():void {
+			++this.elapsedFrameCount;
+			this.elapsedTime = (Time.now() - this.startTime) / 1000;
+			this.onUpdate();
+			this.onPlatformRender();
+		}
+
 		public resize(width:number, height:number):void {
 			this.stageWidth = width;
 			this.stageHeight = height;
@@ -181,8 +199,9 @@ namespace alm.canvas {
 		// Touch Event
 
 		private touchStartHandler = (event:JQuery.TouchEventBase):void => {
-			const touches:TouchList = event.changedTouches;
-			const touchCount:number = event.changedTouches.length;
+			const originalEvent:TouchEvent = event.originalEvent;
+			const touches:TouchList = originalEvent.changedTouches;
+			const touchCount:number = originalEvent.changedTouches.length;
 			let touch:Touch;
 			let id:string;
 			let pointer:Pointer;
@@ -202,8 +221,9 @@ namespace alm.canvas {
 		};
 
 		private touchEndHandler = (event:JQuery.TouchEventBase):void => {
-			const touches:TouchList = event.changedTouches;
-			const touchCount:number = event.changedTouches.length;
+			const originalEvent:TouchEvent = event.originalEvent;
+			const touches:TouchList = originalEvent.changedTouches;
+			const touchCount:number = originalEvent.changedTouches.length;
 			let touch:Touch;
 			let id:string;
 			let pointer:Pointer;
@@ -229,10 +249,13 @@ namespace alm.canvas {
 		};
 
 		private touchMoveHandler = (event:JQuery.TouchEventBase):void => {
-			event.originalEvent.preventDefault();
+			if (!this.isDefaultTouchEventEnabled) {
+				event.originalEvent.preventDefault();
+			}
 
-			const touches:TouchList = event.changedTouches;
-			const touchCount:number = event.changedTouches.length;
+			const originalEvent:TouchEvent = event.originalEvent;
+			const touches:TouchList = originalEvent.changedTouches;
+			const touchCount:number = originalEvent.changedTouches.length;
 			let touch:Touch;
 			let id:string;
 			let pointer:Pointer;
@@ -249,8 +272,9 @@ namespace alm.canvas {
 		};
 
 		private touchForceChangeHandler = (event:JQuery.TouchEventBase):void => {
-			const touches:TouchList = event.changedTouches;
-			const touchCount:number = event.changedTouches.length;
+			const originalEvent:TouchEvent = event.originalEvent;
+			const touches:TouchList = originalEvent.changedTouches;
+			const touchCount:number = originalEvent.changedTouches.length;
 			let touch:Touch;
 			let id:string;
 			let pointer:Pointer;
@@ -279,6 +303,15 @@ namespace alm.canvas {
 		// --------------------------------------------------
 		// Other Event
 
+		//private animationFrameTickerTickHandler = (event:AnimationFrameTickerEvent):void => {
+		//	this.update();
+		//};
+
+		private requestAnimationFrameHandler = ():void => {
+			this.update();
+			window.requestAnimationFrame(this.requestAnimationFrameHandler);
+		};
+
 		private resizeHandler = (event:JQuery.ResizeEvent):void => {
 			const newStageWidth:number = this.canvas.width();
 			const newStageHeight:number = this.canvas.height();
@@ -288,15 +321,8 @@ namespace alm.canvas {
 		};
 
 		private visibilityStateChangeHandler = (event:JQuery.Event):void => {
-			this.onVisibilityStateChange(document.visibilityState);
-		};
-
-		private requestAnimationFrame = ():void => {
-			++this.elapsedFrameCount;
-			this.elapsedTime = (new Date().getTime() - this.startTime) / 1000;
-			this.onUpdate();
-			this.onPlatformRender();
-			requestAnimationFrame(this.requestAnimationFrame);
+			this.visibilityState = document.visibilityState;
+			this.onVisibilityStateChange(this.visibilityState);
 		};
 
 		// --------------------------------------------------
@@ -368,9 +394,14 @@ namespace alm.canvas {
 		public getCanvas():JQuery<HTMLCanvasElement> { return this.canvas; }
 		private canvas:JQuery<HTMLCanvasElement>;
 
+		public getVisibilityState():VisibilityState { return this.visibilityState; }
+		private visibilityState:VisibilityState;
+
 		public getIsAutoResizeEnabled():boolean { return this.isAutoResizeEnabled; }
-		public setIsAutoResizeEnabled(value:boolean):void { this.isAutoResizeEnabled = value; }
 		private isAutoResizeEnabled:boolean;
+
+		public getIsAutoUpdateEnabled():boolean { return this.isAutoUpdateEnabled; }
+		private isAutoUpdateEnabled:boolean;
 
 		public getIsForceTouchEnabled():boolean { return this.isForceTouchEnabled; }
 		private isForceTouchEnabled:boolean;
@@ -378,8 +409,13 @@ namespace alm.canvas {
 		public getIsTouchEnabled():boolean { return this.isTouchEnabled; }
 		private isTouchEnabled:boolean;
 
+		public getIsDefaultTouchEventEnabled():boolean { return this.isDefaultTouchEventEnabled; }
+		public setIsDefaultTouchEventEnabled(value:boolean):void { this.isDefaultTouchEventEnabled = value; }
+		private isDefaultTouchEventEnabled:boolean;
+
 		private startTime:number;
 		private mousePointerId:string;
 		private window:JQuery<Window>;
+		private animationFrameTicker:AnimationFrameTicker;
 	}
 }

@@ -1,9 +1,12 @@
 /* ---------- dependency ---------- */
 
 /* ---------- project ---------- */
-/// <reference path='alm/browser/QueryString.ts' />
-/// <reference path='alm/io/Logger.ts' />
+/// <reference path='alm/util/Time.ts' />
 /// <reference path='alm/math/Easing.ts' />
+/// <reference path='alm/browser/QueryString.ts' />
+
+/// <reference path='alm/debug/Logger.ts' />
+/// <reference path='alm/debug/FpsMonitor.ts' />
 
 /// <reference path='alm/event/Event.ts' />
 /// <reference path='alm/event/EventDispatcher.ts' />
@@ -36,9 +39,11 @@
 
 /// <reference path='alm/resource/ObjectPool.ts' />
 
+/// <reference path='alm/state/Lottery.ts' />
 /// <reference path='alm/state/Switcher.ts' />
 /// <reference path='alm/state/SwitcherEvent.ts' />
-/// <reference path='alm/state/Lottery.ts' />
+/// <reference path='alm/state/LoHi.ts' />
+/// <reference path='alm/state/LoHiEvent.ts' />
 
 /// <reference path='alm/math/EasingValue.ts' />
 /// <reference path='alm/math/SpringValue.ts' />
@@ -47,11 +52,15 @@
 /// <reference path='alm/math/MaxValue.ts' />
 /// <reference path='alm/math/Circular.ts' />
 
+/// <reference path='alm/time/AnimationFrameTicker.ts' />
+/// <reference path='alm/time/AnimationFrameTickerEvent.ts' />
 /// <reference path='alm/time/Timer.ts' />
 /// <reference path='alm/time/TimerEvent.ts' />
 
 /// <reference path='alm/io/FileLoader.ts' />
-/// <reference path='alm/io/FileLoaderEvent.ts' />
+/// <reference path='alm/io/FileLoaderProgressEvent.ts' />
+/// <reference path='alm/io/FileLoaderSuccessEvent.ts' />
+/// <reference path='alm/io/FileLoaderErrorEvent.ts' />
 /// <reference path='alm/io/FileQuery.ts' />
 /// <reference path='alm/io/IFileHandler.ts' />
 

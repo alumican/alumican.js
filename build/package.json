@@ -1,7 +1,7 @@
 {
-  "name": "minimal-studies",
+  "name": "alumican.js",
   "version": "1.0.0",
-  "description": "This is a project template for quickly starting visual prototyping with JavaScript, including build system.",
+  "description": "",
   "scripts": {
     "preinstall": "npm install -g gulp-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,17 +21,12 @@
     "gulp-typescript": "*",
     "gulp-uglify": "*",
     "gulp-sass": "*",
+    "gulp-clean-css": "*",
+    "gulp-rename": "*",
     "gulp-remove-empty-lines": "*",
     "gulp-strip-comments": "*",
     "@types/node": "*",
     "@types/gulp": "*",
-    "@types/jquery": "*",
-    "@types/paper": "*",
-    "@types/pixi.js": "*",
-    "@types/three": "*",
-    "@types/d3": "*",
-    "@types/modernizr": "*",
-    "@types/dat.gui": "*",
-    "@types/stats.js": "*"
+    "@types/jquery": "*"
   }
 }

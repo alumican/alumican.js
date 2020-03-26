@@ -3,8 +3,8 @@
 namespace alm.io {
 
 	import EventDispatcher = alm.event.EventDispatcher;
-	export type CompleteFunction = (content:any) => void;
-	export type ErrorFunction = (message:string) => void;
+	export type CompleteFunction = (content:any, info?:any) => void;
+	export type ErrorFunction = (info?:any) => void;
 
 	export class FileLoader extends EventDispatcher {
 
@@ -14,7 +14,7 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		constructor() {
+		constructor(totalThreadCount:number = 3) {
 			super();
 
 			this.isLoading_ = false;
@@ -23,7 +23,7 @@ namespace alm.io {
 			this.totalCount = 0;
 
 			this.currentThreadCount = 0;
-			this.totalThreadCount = 3;
+			this.totalThreadCount = totalThreadCount;
 
 			this.loadingQueries = [];
 			this.loadingQueryIndex = -1;
@@ -32,6 +32,8 @@ namespace alm.io {
 			this.queriesByUrl = {};
 
 			this.handlersByType = {};
+
+			trace('[FileLoader] totalThreadCount : ' + this.totalThreadCount);
 		}
 
 
@@ -80,8 +82,11 @@ namespace alm.io {
 			this.currentCount = this.loadingQueryIndex + 1;
 			this.totalCount = this.loadingQueries.length;
 
-			if (this.currentCount > 0) {
-				this.dispatchEvent(new FileLoaderEvent(FileLoaderEvent.PROGRESS, this, this.currentCount / this.totalCount, this.currentCount, this.totalCount));
+			const progress = this.currentCount / this.totalCount;
+			if (this.currentCount == 0) {
+				this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.START, this, progress, this.currentCount, this.totalCount));
+			} else {
+				this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.PROGRESS, this, progress, this.currentCount, this.totalCount));
 			}
 
 			while (this.currentThreadCount < this.totalThreadCount) {
@@ -97,10 +102,10 @@ namespace alm.io {
 
 					const handler:IFileHandler = this.handlersByType[query.type];
 					if (handler) {
-						handler.load(query.url, (content:any):void => {
-							this.fileLoadCompleteHandler(query, content);
-						},(message:string = ''):void => {
-							this.fileLoadErrorHandler(query, message);
+						handler.load(query.url, (content:any, info:any = null):void => {
+							this.fileLoadCompleteHandler(query, content, info);
+						},(info:any = null):void => {
+							this.fileLoadErrorHandler(query, info);
 						});
 					} else {
 						trace('[FileLoader] handler is not found \'' + query.type + '\'');
@@ -113,7 +118,7 @@ namespace alm.io {
 					this.isLoading_ = false;
 					this.loadingQueries = [];
 					this.loadingQueryIndex = -1;
-					this.dispatchEvent(new FileLoaderEvent(FileLoaderEvent.COMPLETE, this, this.currentCount / this.totalCount, this.currentCount, this.totalCount));
+					this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.COMPLETE, this, progress, this.currentCount, this.totalCount));
 					break;
 				}
 			}
@@ -154,24 +159,28 @@ namespace alm.io {
 			this.handlersByType[handler.getType()] = handler;
 		}
 
-		private fileLoadCompleteHandler = (query:FileQuery, content:any):void => {
+		private fileLoadCompleteHandler = (query:FileQuery, content:any, info:object = null):void => {
 			--this.currentThreadCount;
 			query.isLoading = false;
 			query.isLoadComplete = true;
 			query.content = content;
 			if (query.param.onLoad) {
-				query.param.onLoad(content);
+				query.param.onLoad(content, info);
 			}
+
+			this.dispatchEvent(new FileLoaderSuccessEvent(FileLoaderSuccessEvent.SUCCESS, this, content, info));
 			this.next();
 		};
 
-		private fileLoadErrorHandler = (query:FileQuery, message:string):void => {
+		private fileLoadErrorHandler = (query:FileQuery, info:any = null):void => {
 			--this.currentThreadCount;
 			query.isLoading = false;
 			query.isLoadComplete = true;
 			if (query.param.onError) {
-				query.param.onError(message);
+				query.param.onError(info);
 			}
+
+			this.dispatchEvent(new FileLoaderErrorEvent(FileLoaderErrorEvent.ERROR, this, info));
 			this.next();
 		};
 

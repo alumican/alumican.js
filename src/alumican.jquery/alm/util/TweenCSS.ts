@@ -49,7 +49,7 @@ namespace alm.util {
 		}
 
 		public static fadeTo(target:JQuery, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
-			return TweenCSS.fade(target, parseInt(target.css('opacity')), to, duration, easing, updateDisplayTo, updateVisibility, execute);
+			return TweenCSS.fade(target, parseFloat(target.css('opacity')), to, duration, easing, updateDisplayTo, updateVisibility, execute);
 		}
 
 		public static fadeIn(target:JQuery, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {

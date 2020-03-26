@@ -4,6 +4,7 @@ namespace cmd {
 
 	import Easing = alm.math.Easing;
 	import EasingFunction = alm.math.EasingFunction;
+	import Time = alm.util.Time;
 
 	export type TweenCallbackFunction = (progressTime:number, progressValue:number) => void;
 
@@ -55,7 +56,7 @@ namespace cmd {
 			}
 			if (this.duration > 0) {
 				this.timerId = window.setInterval(this.intervalHandler, Tween.updateInterval);
-				this.startTime = new Date().getTime();
+				this.startTime = Time.now();
 				this.apply(0);
 				if (this.onStart) this.onStart(this.progressTime, this.progressValue);
 			} else {
@@ -103,7 +104,7 @@ namespace cmd {
 		}
 
 		private intervalHandler = ():void => {
-			const elapsedTime:number = new Date().getTime() - this.startTime;
+			const elapsedTime:number = Time.now() - this.startTime;
 			if (elapsedTime < this.duration) {
 				this.apply(elapsedTime / this.duration);
 				if (this.onUpdate) this.onUpdate(this.progressTime, this.progressValue);

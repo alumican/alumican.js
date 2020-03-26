@@ -3,6 +3,7 @@
 namespace alm.time {
 
 	import EventDispatcher = alm.event.EventDispatcher;
+	import Time = alm.util.Time;
 
 	export class Timer extends EventDispatcher {
 
@@ -34,14 +35,14 @@ namespace alm.time {
 		public start():void {
 			if (this.isRunning) return;
 			this.isRunning = true;
-			this.tStartTime = this.getCurrentTime();
+			this.tStartTime = Time.now();
 			this.startInterval(this.tRestTime != -1 ? this.tRestTime : this.interval);
 		}
 
 		public stop():void {
 			if (!this.isRunning) return;
 			this.isRunning = false;
-			this.tRestTime = this.getCurrentTime() - this.tStartTime;
+			this.tRestTime = Time.now() - this.tStartTime;
 			this.stopInterval();
 		}
 
@@ -59,10 +60,6 @@ namespace alm.time {
 
 
 
-
-		private getCurrentTime():number {
-			return new Date().valueOf();
-		}
 
 		private startInterval(interval:number):void {
 			this.stopInterval();
@@ -82,7 +79,7 @@ namespace alm.time {
 		}
 
 		private timerHandler = ():void => {
-			this.tStartTime = this.getCurrentTime();
+			this.tStartTime = Time.now();
 			++this.elapsedCount;
 			let isCompleted:boolean = false;
 			if (this.repeatCount > 0 && this.elapsedCount >= this.repeatCount) {
@@ -114,7 +111,7 @@ namespace alm.time {
 		public setInterval(interval:number):void { this.interval = interval; }
 		private interval:number;
 
-		public getElapsedTime():number { return this.getCurrentTime() - this.tStartTime; }
+		public getElapsedTime():number { return Time.now() - this.tStartTime; }
 
 		public getRestTime():number { return this.interval - this.getElapsedTime(); }
 

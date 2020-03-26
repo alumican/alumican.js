@@ -12,8 +12,8 @@ namespace alm.canvas {
 		//
 		// --------------------------------------------------
 
-		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true) {
-			super(canvas, isAutoResizeEnabled);
+		constructor(canvas:HTMLElement, isAutoResizeEnabled:boolean = true, isAutoUpdateEnabled:boolean = true) {
+			super(canvas, isAutoResizeEnabled, isAutoUpdateEnabled);
 		}
 
 
@@ -40,11 +40,11 @@ namespace alm.canvas {
 
 			const devicePixelRatio:number = DeviceInfo.getDevicePixelRatio();
 			const viewSize:paper.Size = this.paper.view.viewSize;
-			viewSize.width = stageWidth * devicePixelRatio;
-			viewSize.height = stageHeight * devicePixelRatio;
+			viewSize.width = stageWidth; // * devicePixelRatio;
+			viewSize.height = stageHeight; // * devicePixelRatio;
 
-			this.paper.view.size.width = stageWidth * devicePixelRatio;
-			this.paper.view.size.height = stageHeight * devicePixelRatio;
+			this.paper.view.size.width = stageWidth; // * devicePixelRatio;
+			this.paper.view.size.height = stageHeight; // * devicePixelRatio;
 		}
 
 

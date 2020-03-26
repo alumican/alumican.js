@@ -3,7 +3,7 @@
 declare namespace alm.canvas {
     import EventDispatcher = alm.event.EventDispatcher;
     abstract class BaseApp extends EventDispatcher {
-        constructor(canvas: HTMLElement, isAutoResizeEnabled?: boolean, platformSetupOptions?: any[]);
+        constructor(canvas: HTMLElement, isAutoResizeEnabled?: boolean, isAutoUpdateEnabled?: boolean, platformSetupOptions?: any[]);
         onSetup(): void;
         onUpdate(): void;
         onPointerEnter(pointer: Pointer): void;
@@ -20,6 +20,7 @@ declare namespace alm.canvas {
         protected onPlatformSetup(platformSetupOptions: any[]): void;
         protected onPlatformRender(): void;
         protected onPlatformResize(stageWidth: number, stageHeight: number): void;
+        update(): void;
         resize(width: number, height: number): void;
         private mouseOverHandler;
         private mouseOutHandler;
@@ -33,9 +34,9 @@ declare namespace alm.canvas {
         private touchForceChangeHandler;
         private keyDownHandler;
         private keyUpHandler;
+        private requestAnimationFrameHandler;
         private resizeHandler;
         private visibilityStateChangeHandler;
-        private requestAnimationFrame;
         private getMousePointer;
         private getTouchPointerPosition;
         private getMousePointerPosition;
@@ -58,16 +59,23 @@ declare namespace alm.canvas {
         private elapsedTime;
         getCanvas(): JQuery<HTMLCanvasElement>;
         private canvas;
+        getVisibilityState(): VisibilityState;
+        private visibilityState;
         getIsAutoResizeEnabled(): boolean;
-        setIsAutoResizeEnabled(value: boolean): void;
         private isAutoResizeEnabled;
+        getIsAutoUpdateEnabled(): boolean;
+        private isAutoUpdateEnabled;
         getIsForceTouchEnabled(): boolean;
         private isForceTouchEnabled;
         getIsTouchEnabled(): boolean;
         private isTouchEnabled;
+        getIsDefaultTouchEventEnabled(): boolean;
+        setIsDefaultTouchEventEnabled(value: boolean): void;
+        private isDefaultTouchEventEnabled;
         private startTime;
         private mousePointerId;
         private window;
+        private animationFrameTicker;
     }
 }
 declare namespace alm.canvas {
