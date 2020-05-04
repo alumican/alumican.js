@@ -2,7 +2,7 @@
 
 ## install
 
-`<script src='path/to/alumican.min.js'></script>`
+`<script src='path/to/alumican/index.min.js'></script>`
 
 ## packages
 
