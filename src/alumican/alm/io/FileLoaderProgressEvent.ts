@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.io {
 
@@ -59,8 +59,8 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		public progress:number;
-		public loadedCount:number;
-		public totalCount:number;
+		public readonly progress:number;
+		public readonly loadedCount:number;
+		public readonly totalCount:number;
 	}
 }

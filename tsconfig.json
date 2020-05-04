@@ -8,13 +8,16 @@
     "types": [
       "jquery"
     ],
+    "typeRoots": [
+      "build/node_modules/@types",
+      "src/@types",
+      "lib"
+    ],
     "forceConsistentCasingInFileNames": true,
     "alwaysStrict": false,
     "removeComments": true,
-    "declaration": true,
     "sourceMap": true,
-    "typeRoots": [
-      "build/node_modules/@types/"
-    ]
+    "declaration": true,
+    "declarationMap": true
   }
 }

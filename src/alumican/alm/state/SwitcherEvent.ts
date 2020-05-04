@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.state {
 
@@ -24,12 +24,12 @@ namespace alm.state {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any, newItemIndex:number, oldItemIndex:number, newItemId:T, oldItemId:T, useTransition:boolean) {
+		constructor(eventType:string, eventTarget:any, currentItemIndex:number, prevItemIndex:number, currentItemId:T, prevItemId:T, useTransition:boolean) {
 			super(eventType, eventTarget);
-			this.newItemIndex = newItemIndex;
-			this.oldItemIndex = oldItemIndex;
-			this.newItemId = newItemId;
-			this.oldItemId = oldItemId;
+			this.currentItemIndex = currentItemIndex;
+			this.prevItemIndex = prevItemIndex;
+			this.currentItemId = currentItemId;
+			this.prevItemId = prevItemId;
 			this.useTransition = useTransition;
 		}
 
@@ -44,11 +44,11 @@ namespace alm.state {
 		// --------------------------------------------------
 
 		public clone():SwitcherEvent<T> {
-			return new SwitcherEvent<T>(this.getType(), this.getTarget(), this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, this.useTransition);
+			return new SwitcherEvent<T>(this.getType(), this.getTarget(), this.currentItemIndex, this.prevItemIndex, this.currentItemId, this.prevItemId, this.useTransition);
 		}
 
 		public toString():string {
-			return '[SwitcherEvent] type = ' + this.getType() + ', ' + this.oldItemIndex + ' -> ' + this.newItemIndex + ', transition = ' + this.useTransition;
+			return '[SwitcherEvent] type = ' + this.getType() + ', ' + this.prevItemIndex + ' -> ' + this.currentItemIndex + ', transition = ' + this.useTransition;
 		}
 
 
@@ -61,10 +61,10 @@ namespace alm.state {
 		//
 		// --------------------------------------------------
 
-		public newItemIndex:number;
-		public oldItemIndex:number;
-		public newItemId:T;
-		public oldItemId:T;
-		public useTransition:boolean;
+		public readonly currentItemIndex:number;
+		public readonly prevItemIndex:number;
+		public readonly currentItemId:T;
+		public readonly prevItemId:T;
+		public readonly useTransition:boolean;
 	}
 }

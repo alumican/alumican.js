@@ -1,7 +1,7 @@
 {
-  "name": "alumican.js",
+  "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "project",
   "scripts": {
     "preinstall": "npm install -g gulp-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,11 +22,19 @@
     "gulp-uglify": "*",
     "gulp-sass": "*",
     "gulp-clean-css": "*",
+    "gulp-autoprefixer": "*",
     "gulp-rename": "*",
     "gulp-remove-empty-lines": "*",
     "gulp-strip-comments": "*",
+    "gulp-ejs": "*",
+    "gulp-changed": "*",
     "@types/node": "*",
     "@types/gulp": "*",
     "@types/jquery": "*"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11",
+    "Android >= 4"
+  ]
 }

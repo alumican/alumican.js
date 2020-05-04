@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.browser {
 
@@ -61,11 +61,11 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		public originalEvent:KeyboardEvent;
-		public key:string;
-		public keyCode:number;
-		public altKey:boolean;
-		public ctrlKey:boolean;
-		public shiftKey:boolean;
+		public readonly originalEvent:KeyboardEvent;
+		public readonly key:string;
+		public readonly keyCode:number;
+		public readonly altKey:boolean;
+		public readonly ctrlKey:boolean;
+		public readonly shiftKey:boolean;
 	}
 }

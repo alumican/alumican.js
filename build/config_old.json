@@ -1,0 +1,62 @@
+{
+	"path": {
+		"src": "",
+		"dst": ""
+	},
+
+	"projects": [
+		{
+			"name": "",
+			"ts": [
+				{ "src": "src/alumican/index", "dst": "lib/alumican/index" },
+				{ "src": "src/alumican.jquery/index", "dst": "lib/alumican.jquery/index" },
+				{ "src": "src/alumican.drawer/index", "dst": "lib/alumican.drawer/index" },
+				{ "src": "src/alumican.canvas/index", "dst": "lib/alumican.canvas/index" },
+				{ "src": "src/alumican.canvas.pixi/index", "dst": "lib/alumican.canvas.pixi/index" },
+				{ "src": "src/alumican.canvas.paper/index", "dst": "lib/alumican.canvas.paper/index" },
+				{ "src": "src/alumican.three/index", "dst": "lib/alumican.three/index" },
+
+				{ "src": "test/js/test", "dst": "test/js/test" }
+			],
+
+			"scss": [
+				{ "src": "src/alumican.drawer/style", "dst": "lib/alumican.drawer" }
+			]
+		}
+	],
+
+	"typeScriptOptions": {
+		"target": "ES5",
+		"lib": ["es6", "dom"],
+		"types": ["jquery"],
+		"typeRoots": [
+			"src/@types",
+			"lib"
+		],
+		"forceConsistentCasingInFileNames": true,
+		"alwaysStrict": false,
+		"removeComments": true,
+		"sourceMap": true,
+		"minify": true,
+		"minifyOnly": false,
+		"declaration": true,
+		"declarationMap": false
+	},
+
+	"sassOptions": {
+		"sourceMap": true,
+		"minify": true,
+		"minifyOnly": false
+	},
+
+	"autoprefixerOptions": {
+		"env": "production",
+		"browsers": [
+			"last 2 versions",
+			"ie >= 11",
+			"Android >= 4"
+		],
+		"cascade": false,
+		"grid": true
+	}
+}

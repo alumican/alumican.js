@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.time {
 
@@ -60,8 +60,8 @@ namespace alm.time {
 		//
 		// --------------------------------------------------
 
-		public elapsedCount:number;
-		public repeatCount:number;
-		public restCount:number;
+		public readonly elapsedCount:number;
+		public readonly repeatCount:number;
+		public readonly restCount:number;
 	}
 }

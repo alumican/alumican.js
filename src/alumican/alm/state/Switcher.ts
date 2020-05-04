@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.state {
 
@@ -58,23 +58,23 @@ namespace alm.state {
 		}
 
 		private setup():void {
-			this.newItemIndex = -1;
+			this.currentItemIndex = -1;
 			this.oldItemIndex = -1;
 
-			this.newItemId = null;
-			this.oldItemId = null;
+			this.currentItemId = null;
+			this.prevItemId = null;
 		}
 
 		public gotoByIndex(itemIndex:number, useTransition:boolean = true):boolean {
 			if (itemIndex < 0 || itemIndex >= this.itemCount) itemIndex = -1;
-			if (itemIndex == this.newItemIndex) return false;
+			if (itemIndex == this.currentItemIndex) return false;
 
-			this.oldItemIndex = this.newItemIndex;
-			this.newItemIndex = itemIndex;
+			this.oldItemIndex = this.currentItemIndex;
+			this.currentItemIndex = itemIndex;
 
 			if (this.itemIds) {
-				this.oldItemId = this.oldItemIndex != -1 ? this.itemIds[this.oldItemIndex] : null;
-				this.newItemId = this.newItemIndex != -1 ? this.itemIds[this.newItemIndex] : null;
+				this.prevItemId = this.oldItemIndex != -1 ? this.itemIds[this.oldItemIndex] : null;
+				this.currentItemId = this.currentItemIndex != -1 ? this.itemIds[this.currentItemIndex] : null;
 			}
 
 			this.dispatchPagerEvent(SwitcherEvent.CHANGE, this.onChange, useTransition);
@@ -88,7 +88,7 @@ namespace alm.state {
 		}
 
 		public prev(useTransition:boolean = true):boolean {
-			let itemIndex = this.newItemIndex - 1;
+			let itemIndex = this.currentItemIndex - 1;
 			if (this.isLoopEnabled && itemIndex < 0) itemIndex = this.itemCount - 1;
 
 			const result:boolean = this.gotoByIndex(itemIndex, useTransition);
@@ -100,7 +100,7 @@ namespace alm.state {
 		}
 
 		public next(useTransition:boolean = true):boolean {
-			let itemIndex = this.newItemIndex + 1;
+			let itemIndex = this.currentItemIndex + 1;
 			if (this.isLoopEnabled && itemIndex >= this.itemCount) itemIndex = 0;
 
 			const result:boolean = this.gotoByIndex(itemIndex, useTransition);
@@ -112,10 +112,7 @@ namespace alm.state {
 		}
 
 		private dispatchPagerEvent(eventType:string, callback:(event:SwitcherEvent<T>) => void, useTransition:boolean):void {
-			const oldItemId:T = (this.itemIds && this.oldItemIndex != -1) ? this.itemIds[this.oldItemIndex] : null;
-			const newItemId:T = (this.itemIds && this.newItemIndex != -1) ? this.itemIds[this.newItemIndex] : null;
-
-			const event:SwitcherEvent<T> = new SwitcherEvent<T>(eventType, this, this.newItemIndex, this.oldItemIndex, this.newItemId, this.oldItemId, useTransition);
+			const event:SwitcherEvent<T> = new SwitcherEvent<T>(eventType, this, this.currentItemIndex, this.oldItemIndex, this.currentItemId, this.prevItemId, useTransition);
 			if (callback) {
 				callback(event);
 			}
@@ -136,20 +133,20 @@ namespace alm.state {
 		public setIsLoopEnabled(value:boolean):void { this.isLoopEnabled = value; }
 		private isLoopEnabled:boolean;
 
-		public getNewItemIndex():number { return this.newItemIndex; }
-		private newItemIndex:number;
+		public getCurrentItemIndex():number { return this.currentItemIndex; }
+		private currentItemIndex:number;
 
-		public getOldItemIndex():number { return this.oldItemIndex; }
+		public getPrevItemIndex():number { return this.oldItemIndex; }
 		private oldItemIndex:number;
 
 		public getItemCount():number { return this.itemCount; }
 		private itemCount:number;
 
-		public getNewItemId():T { return this.newItemId; }
-		private newItemId:T;
+		public getCurrentItemId():T { return this.currentItemId; }
+		private currentItemId:T;
 
-		public getOldItemId():T { return this.oldItemId; }
-		private oldItemId:T;
+		public getPrevItemId():T { return this.prevItemId; }
+		private prevItemId:T;
 
 		public getItemIds():T[] { return this.itemIds; }
 		private itemIds:T[];

@@ -1,32 +1,72 @@
 {
 	"path": {
-		"src": "",
-		"dst": ""
+		"src": "src",
+		"dst": "lib"
 	},
+
 	"projects": [
 		{
-			"name": "",
-			"js": [
-				{ "src": "src/alumican/include.ts", "dst": "lib/alumican.js" },
-				{ "src": "src/alumican.jquery/include.ts", "dst": "lib/alumican.jquery.js" },
-				{ "src": "src/alumican.three/include.ts", "dst": "lib/alumican.three.js" },
-				{ "src": "src/alumican.canvas/include.ts", "dst": "lib/alumican.canvas.js" },
-				{ "src": "src/alumican.canvas.pixi/include.ts", "dst": "lib/alumican.canvas.pixi.js" },
-				{ "src": "src/alumican.canvas.paper/include.ts", "dst": "lib/alumican.canvas.paper.js" },
-
-				{ "src": "test/js/test.ts", "dst": "test/js/test.js" }
-			]
+			"name": "alumican",
+			"ts": [{ "src": "index", "dst": "index" }]
+		},
+		{
+			"name": "alumican.jquery",
+			"ts": [{ "src": "index", "dst": "index" }]
+		},
+		{
+			"name": "alumican.drawer",
+			"ts": [{ "src": "index", "dst": "index" }],
+			"scss": [{ "src": "index", "dst": "index" }]
+		},
+		{
+			"name": "alumican.canvas",
+			"ts": [{ "src": "index", "dst": "index" }]
+		},
+		{
+			"name": "alumican.canvas.pixi",
+			"ts": [{ "src": "index", "dst": "index" }]
+		},
+		{
+			"name": "alumican.canvas.paper",
+			"ts": [{ "src": "index", "dst": "index" }]
+		},
+		{
+			"name": "alumican.three",
+			"ts": [{ "src": "index", "dst": "index" }]
 		}
 	],
-	"typeScript": {
+
+	"typeScriptOptions": {
 		"target": "ES5",
 		"lib": ["es6", "dom"],
 		"types": ["jquery"],
+		"typeRoots": [
+			"src/@types",
+			"lib"
+		],
 		"forceConsistentCasingInFileNames": true,
 		"alwaysStrict": false,
 		"removeComments": true,
-		"declaration": true,
 		"sourceMap": true,
-		"minify": true
+		"minify": true,
+		"minifyOnly": false,
+		"declaration": true
+	},
+
+	"sassOptions": {
+		"sourceMap": true,
+		"minify": true,
+		"minifyOnly": false
+	},
+
+	"autoprefixerOptions": {
+		"env": "production",
+		"browsers": [
+			"last 2 versions",
+			"ie >= 11",
+			"Android >= 4"
+		],
+		"cascade": false,
+		"grid": true
 	}
 }

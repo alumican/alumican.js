@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.io {
 
@@ -55,6 +55,6 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		public info:any;
+		public readonly info:any;
 	}
 }

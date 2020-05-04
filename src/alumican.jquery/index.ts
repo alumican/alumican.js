@@ -1,0 +1,10 @@
+/* ---------- project dependencies ---------- */
+
+/// <reference types='jquery' />
+/// <reference types='alumican' />
+
+
+/* ---------- project scripts ---------- */
+
+/// <reference path='alm/io/JQueryJsonFileHandler.ts' />
+/// <reference path='alm/util/TweenCSS.ts' />

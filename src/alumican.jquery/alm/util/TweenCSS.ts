@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.util {
 
@@ -7,7 +7,7 @@ namespace alm.util {
 
 	export class TweenCSS {
 
-		public static scale(target:JQuery, from:number, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+		public static scale(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
 			let o:Object = { value: from };
 			const tween:cmd.Tween = new cmd.Tween(o, { value: to }, null, duration, easing, null, ():void => {
 				const value:number = o['value'];
@@ -21,7 +21,7 @@ namespace alm.util {
 
 
 
-		public static fade(target:JQuery, from:number, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fade(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			let o:Object = { value: from };
 			const tween:cmd.Tween = new cmd.Tween(o, { value: to }, null, duration, easing, ():void => {
 				if (to > 0) {
@@ -48,16 +48,45 @@ namespace alm.util {
 			return tween;
 		}
 
-		public static fadeTo(target:JQuery, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fadeTo(target:JQuery, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			return TweenCSS.fade(target, parseFloat(target.css('opacity')), to, duration, easing, updateDisplayTo, updateVisibility, execute);
 		}
 
-		public static fadeIn(target:JQuery, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fadeIn(target:JQuery, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			return TweenCSS.fadeTo(target, 1, duration, easing, updateDisplayTo, updateVisibility, execute);
 		}
 
-		public static fadeOut(target:JQuery, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, updateDisplay:boolean = false, updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fadeOut(target:JQuery, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplay:boolean = false, updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			return TweenCSS.fadeTo(target, 0, duration, easing, updateDisplay ? 'none' : '', updateVisibility, execute);
+		}
+
+
+
+
+
+		private static movePosition(target:JQuery, property:string, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+			let o:Object = { value: from };
+			const tween:cmd.Tween = new cmd.Tween(o, { value: to }, null, duration, easing, null, ():void => {
+				target.css(property, o['value']);
+			});
+			if (execute) tween.execute();
+			return tween;
+		}
+
+		public static moveLeft(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+			return TweenCSS.movePosition(target, 'left', from, to, duration, easing, execute);
+		}
+
+		public static moveRight(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+			return TweenCSS.movePosition(target, 'right', from, to, duration, easing, execute);
+		}
+
+		public static moveTop(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+			return TweenCSS.movePosition(target, 'top', from, to, duration, easing, execute);
+		}
+
+		public static moveBottom(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+			return TweenCSS.movePosition(target, 'bottom', from, to, duration, easing, execute);
 		}
 
 

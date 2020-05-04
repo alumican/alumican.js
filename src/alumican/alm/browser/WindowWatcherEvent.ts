@@ -1,4 +1,4 @@
-/// <reference path='../../include.ts' />
+/// <reference path='../../index.ts' />
 
 namespace alm.browser {
 
@@ -60,10 +60,10 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		public originalEvent:Event;
-		public scrollTop:number;
-		public scrollBottom:number;
-		public windowWidth:number;
-		public windowHeight:number;
+		public readonly originalEvent:Event;
+		public readonly scrollTop:number;
+		public readonly scrollBottom:number;
+		public readonly windowWidth:number;
+		public readonly windowHeight:number;
 	}
 }
