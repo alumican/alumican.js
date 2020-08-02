@@ -17,7 +17,7 @@ namespace alm.util {
 		 * @returns {number} 出力値
 		 */
 		public static map(value:number, srcA:number, srcB:number, dstA:number, dstB:number, clamp:boolean = true):number {
-			if (srcA == srcB) return dstA;
+			if (srcA === srcB) return dstA;
 			if (clamp) {
 				if (srcA < srcB) {
 					if (value < srcA) value = srcA;
@@ -41,7 +41,7 @@ namespace alm.util {
 		 * @returns {number} 出力値
 		 */
 		public static ease(value:number, srcA:number, srcB:number, dstA:number, dstB:number, easing:EasingFunction):number {
-			if (srcA == srcB) return dstA;
+			if (srcA === srcB) return dstA;
 			if (srcA < srcB) {
 				if (value < srcA) value = srcA;
 				else if (value > srcB) value = srcB;

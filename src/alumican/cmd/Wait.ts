@@ -45,7 +45,7 @@ namespace cmd {
 			}
 		}
 
-		private completeHandler = (event:Event):void => {
+		private completeHandler = ():void => {
 			this.notifyComplete();
 		};
 

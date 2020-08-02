@@ -2,7 +2,7 @@
 
 namespace alm.browser {
 
-	export class KeyWatcherEvent extends alm.event.Event {
+	export class KeyWatcherEvent extends alm.event.Event<KeyWatcher> {
 
 		// --------------------------------------------------
 		//
@@ -23,7 +23,7 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, originalEvent:KeyboardEvent = null) {
+		constructor(eventType:string, eventTarget:KeyWatcher, originalEvent:KeyboardEvent = null) {
 			super(eventType, eventTarget);
 			this.originalEvent = originalEvent;
 			this.key = this.originalEvent.key;
@@ -44,11 +44,11 @@ namespace alm.browser {
 		// --------------------------------------------------
 
 		public clone():KeyWatcherEvent {
-			return new KeyWatcherEvent(this.getType(), this.getTarget(), this.originalEvent);
+			return new KeyWatcherEvent(this.type, this.target, this.originalEvent);
 		}
 
 		public toString():string {
-			return '[KeyWatcherEvent] type = ' + this.getType() + ', key = ' + this.key + ', keyCode = ' + this.keyCode + ', altKey = ' + this.altKey + ', ctrlKey = ' + this.ctrlKey + ', shiftKey = ' + this.shiftKey;
+			return '[KeyWatcherEvent] type = ' + this.type + ', key = ' + this.key + ', keyCode = ' + this.keyCode + ', altKey = ' + this.altKey + ', ctrlKey = ' + this.ctrlKey + ', shiftKey = ' + this.shiftKey;
 		}
 
 

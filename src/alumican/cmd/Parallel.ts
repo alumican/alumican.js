@@ -43,7 +43,7 @@ namespace cmd {
 			this.addCommand(...commands);
 		}
 
-		private completeHandler = (event:Event):void => {
+		private completeHandler = (event:Event<Command>):void => {
 			if (++this.completeCount >= this.getLength()) {
 				this.notifyComplete();
 			}

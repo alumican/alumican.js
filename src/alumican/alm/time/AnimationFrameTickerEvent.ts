@@ -4,7 +4,7 @@ namespace alm.time {
 
 	import Event = alm.event.Event;
 
-	export class AnimationFrameTickerEvent extends Event {
+	export class AnimationFrameTickerEvent extends Event<AnimationFrameTicker> {
 
 		// --------------------------------------------------
 		//
@@ -24,7 +24,7 @@ namespace alm.time {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null) {
+		constructor(eventType:string, eventTarget:AnimationFrameTicker) {
 			super(eventType, eventTarget);
 		}
 
@@ -39,11 +39,11 @@ namespace alm.time {
 		// --------------------------------------------------
 
 		public clone():AnimationFrameTickerEvent {
-			return new AnimationFrameTickerEvent(this.getType(), this.getTarget());
+			return new AnimationFrameTickerEvent(this.type, this.target);
 		}
 
 		public toString():string {
-			return '[AnimationFrameTickerEvent] type = ' + this.getType();
+			return '[AnimationFrameTickerEvent] type = ' + this.type;
 		}
 
 

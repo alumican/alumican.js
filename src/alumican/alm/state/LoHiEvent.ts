@@ -2,7 +2,7 @@
 
 namespace alm.state {
 
-	export class LoHiEvent extends alm.event.Event {
+	export class LoHiEvent extends alm.event.Event<LoHi> {
 
 		// --------------------------------------------------
 		//
@@ -24,7 +24,7 @@ namespace alm.state {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any, isHigh:boolean) {
+		constructor(eventType:string, eventTarget:LoHi, isHigh:boolean) {
 			super(eventType, eventTarget);
 			this.isHigh = isHigh;
 		}
@@ -40,11 +40,11 @@ namespace alm.state {
 		// --------------------------------------------------
 
 		public clone():LoHiEvent {
-			return new LoHiEvent(this.getType(), this.getTarget(), this.isHigh);
+			return new LoHiEvent(this.type, this.target, this.isHigh);
 		}
 
 		public toString():string {
-			return '[LoHiEvent] type = ' + this.getType() + ', isHigh = ' + this.isHigh;
+			return '[LoHiEvent] type = ' + this.type + ', isHigh = ' + this.isHigh;
 		}
 
 

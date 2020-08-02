@@ -14,10 +14,11 @@ namespace alm.drawer.view {
 		//
 		// --------------------------------------------------
 
-		constructor(content:JQuery) {
+		constructor(content:JQuery, position:DrawerPosition) {
 			super(content);
 
 			this.content = content;
+			this.position = position;
 
 			this.initialize();
 		}
@@ -39,6 +40,21 @@ namespace alm.drawer.view {
 
 			this.content.css('display', 'block');
 
+			switch (this.position) {
+				case DrawerPosition.left:
+					view.css({ top: 0, left: 0 });
+					break;
+				case DrawerPosition.right:
+					view.css({ top: 0, right: 0 });
+					break;
+				case DrawerPosition.top:
+					view.css({ top: 0, left: 0 });
+					break;
+				case DrawerPosition.bottom:
+					view.css({ bottom: 0, left: 0 });
+					break;
+			}
+
 			return view;
 		}
 
@@ -46,29 +62,78 @@ namespace alm.drawer.view {
 		}
 
 		protected implFinalize():void {
-			if (this.content) {
-				this.content.remove();
-				this.content = null;
-			}
 		}
 
 		protected implShow(view:JQuery, useTransition:boolean):cmd.Command {
-			return this.moveLeft(view,  -this.getWidth(), 0, useTransition ? 500 : 0, Easing.easeOutQuart, false);
+			const command = new cmd.Serial(new cmd.Func(():void => {
+				view.css('visibility', 'visible');
+			}));
+
+			let prop = '';
+			let from = 0;
+			switch (this.position) {
+				case DrawerPosition.left:
+					prop = 'left';
+					from = -this.getWidth();
+					break;
+				case DrawerPosition.right:
+					prop = 'right';
+					from = -this.getWidth();
+					break;
+				case DrawerPosition.top:
+					prop = 'top';
+					from = -this.getHeight();
+					break;
+				case DrawerPosition.bottom:
+					prop = 'bottom';
+					from = -this.getHeight();
+					break;
+			}
+
+			if (prop !== '') {
+				view.css(prop, from);
+				command.addCommand(this.move(view, prop, from, 0, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+			}
+
+			return command;
 		}
 
 		protected implHide(view:JQuery, useTransition:boolean):cmd.Command {
-			return this.moveLeft(view, 0, -this.getWidth(), useTransition ? 500 : 0, Easing.easeOutQuart, false);
+			const command = new cmd.Serial();
+
+			let prop = '';
+			let to = 0;
+			switch (this.position) {
+				case DrawerPosition.left:
+					prop = 'left';
+					to = -this.getWidth();
+					break;
+				case DrawerPosition.right:
+					prop = 'right';
+					to = -this.getWidth();
+					break;
+				case DrawerPosition.top:
+					prop = 'top';
+					to = -this.getHeight();
+					break;
+				case DrawerPosition.bottom:
+					prop = 'bottom';
+					to = -this.getHeight();
+					break;
+			}
+
+			if (prop !== '') {
+				command.addCommand(this.move(view, prop, 0, to, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+			}
+
+			command.addCommand(new cmd.Func(():void => {
+				view.css('visibility', 'hidden');
+			}));
+
+			return command;
 		}
 
-		private moveLeft(target:JQuery, from:number, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
-			return this.move(target, 'left', from, to,  duration, easing, execute);
-		}
-
-		private moveRight(target:JQuery, from:number, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
-			return this.move(target, 'right', from, to,  duration, easing, execute);
-		}
-
-		private move(target:JQuery, prop:string, from:number, to:number, duration:number = 0.5, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+		private move(target:JQuery, prop:string, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
 			let o:Object = { value: from };
 			const tween:cmd.Tween = new cmd.Tween(o, { value: to }, null, duration, easing, null, ():void => {
 				const value:number = o['value'];
@@ -82,6 +147,10 @@ namespace alm.drawer.view {
 			return parseInt(this.getView().css('width'));
 		}
 
+		private getHeight():number {
+			return parseInt(this.getView().css('height'));
+		}
+
 
 
 
@@ -93,5 +162,6 @@ namespace alm.drawer.view {
 		// --------------------------------------------------
 
 		private content:JQuery;
+		private position:DrawerPosition;
 	}
 }

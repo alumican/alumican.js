@@ -4,7 +4,7 @@ namespace cmd {
 
 	import Event = alm.event.Event;
 
-	export class CommandEvent extends Event {
+	export class CommandEvent extends Event<Command> {
 
 		// --------------------------------------------------
 		//
@@ -24,7 +24,7 @@ namespace cmd {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null) {
+		constructor(eventType:string, eventTarget:Command) {
 			super(eventType, eventTarget);
 		}
 
@@ -39,11 +39,11 @@ namespace cmd {
 		// --------------------------------------------------
 
 		public clone():CommandEvent {
-			return new CommandEvent(this.getType(), this.getTarget());
+			return new CommandEvent(this.type, this.target);
 		}
 
 		public toString():string {
-			return '[CommandEvent] type = ' + this.getType();
+			return '[CommandEvent] type = ' + this.type;
 		}
 
 

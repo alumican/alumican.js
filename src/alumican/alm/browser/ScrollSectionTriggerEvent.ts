@@ -2,7 +2,7 @@
 
 namespace alm.browser {
 
-	export class ScrollSectionTriggerEvent extends alm.event.Event {
+	export class ScrollSectionTriggerEvent extends alm.event.Event<ScrollSectionTrigger> {
 
 		public static CHANGE:string = 'ScrollSectionTriggerEvent.CHANGE';
 
@@ -16,7 +16,7 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, target:object, currentSectionIndex:number, prevSectionIndex:number) {
+		constructor(eventType:string, target:ScrollSectionTrigger, currentSectionIndex:number, prevSectionIndex:number) {
 			super(eventType, target);
 
 			this.currentSectionIndex = currentSectionIndex;

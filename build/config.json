@@ -19,6 +19,11 @@
 			"scss": [{ "src": "index", "dst": "index" }]
 		},
 		{
+			"name": "alumican.slideshow",
+			"ts": [{ "src": "index", "dst": "index" }],
+			"scss": [{ "src": "index", "dst": "index" }]
+		},
+		{
 			"name": "alumican.canvas",
 			"ts": [{ "src": "index", "dst": "index" }]
 		},

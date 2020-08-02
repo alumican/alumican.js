@@ -11,7 +11,9 @@
 /// <reference path='alm/debug/FpsMonitor.ts' />
 
 /// <reference path='alm/event/Event.ts' />
+/// <reference path='alm/event/EventListener.ts' />
 /// <reference path='alm/event/EventDispatcher.ts' />
+/// <reference path='alm/event/IEventDispatcher.ts' />
 
 /// <reference path='cmd/CommandState.ts' />
 /// <reference path='cmd/CommandEvent.ts' />
@@ -38,6 +40,7 @@
 /// <reference path='alm/util/Num.ts' />
 /// <reference path='alm/util/Str.ts' />
 /// <reference path='alm/util/Cmd.ts' />
+/// <reference path='alm/util/Dom.ts' />
 
 /// <reference path='alm/resource/ObjectPool.ts' />
 
@@ -71,6 +74,8 @@
 /// <reference path='alm/audio/CrossOverLoopAudio.ts' />
 /// <reference path='alm/audio/FootstepAudio.ts' />
 
+/// <reference path='alm/view/IView.ts' />
+/// <reference path='alm/view/ViewEvent.ts' />
 /// <reference path='alm/view/View.ts' />
 /// <reference path='alm/view/ButtonBehavior.ts' />
 /// <reference path='alm/view/IButton.ts' />

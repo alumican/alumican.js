@@ -2,7 +2,7 @@
 
 namespace alm.browser {
 
-	export class ResponsiveObserverEvent extends alm.event.Event {
+	export class ResponsiveObserverEvent extends alm.event.Event<ResponsiveObserver> {
 
 		public static CHANGE:string = 'ResponsiveObserverEvent.CHANGE';
 
@@ -16,7 +16,7 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, target:object, currentIndex:number, prevIndex:number) {
+		constructor(eventType:string, target:ResponsiveObserver, currentIndex:number, prevIndex:number) {
 			super(eventType, target);
 
 			this.currentIndex = currentIndex;

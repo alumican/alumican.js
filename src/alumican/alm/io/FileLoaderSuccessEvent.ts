@@ -2,7 +2,7 @@
 
 namespace alm.io {
 
-	export class FileLoaderSuccessEvent extends alm.event.Event {
+	export class FileLoaderSuccessEvent extends alm.event.Event<FileLoader> {
 
 		// --------------------------------------------------
 		//
@@ -22,7 +22,7 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, content:any, info:any = null) {
+		constructor(eventType:string, eventTarget:FileLoader, content:any, info:any = null) {
 			super(eventType, eventTarget);
 			this.content = content;
 			this.info = info;
@@ -39,11 +39,11 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public clone():FileLoaderSuccessEvent {
-			return new FileLoaderSuccessEvent(this.getType(), this.getTarget(), this.content, this.info);
+			return new FileLoaderSuccessEvent(this.type, this.target, this.content, this.info);
 		}
 
 		public toString():string {
-			return '[FileLoaderSuccessEvent] type = ' + this.getType() + ', info = ' + this.info;
+			return '[FileLoaderSuccessEvent] type = ' + this.type + ', info = ' + this.info;
 		}
 
 

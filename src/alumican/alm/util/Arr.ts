@@ -73,6 +73,39 @@ namespace alm.util {
 			}
 		}
 
+		/**
+		 * リスト内の要素を入れ替える
+		 * @param list 入出力配列
+		 * @param index1 インデックス1
+		 * @param index2 インデックス2
+		 */
+		public static swap<T>(list:T[], index1:number, index2:number):void {
+			const tmp = list[index1];
+			list[index1] = list[index2];
+			list[index2] = tmp;
+		}
+
+		/**
+		 * リストをシャッフルする
+		 * by Fisher–Yatesアルゴリズム
+		 * @param list 入出力配列
+		 */
+		public static shuffle<T>(list:T[]):void {
+			for(let i = list.length - 1; i > 0; --i) {
+				Arr.swap(list, i, Math.floor(Math.random() * (i + 1)));
+			}
+		}
+
+		/**
+		 * リストを数値としてソートする
+		 * @param list 入出力配列
+		 * @param asc trueで昇順, falseで降順
+		 */
+		public static sort(list:number[], asc:boolean = true):void {
+			list.sort(asc ? function(a, b) { return a - b; } : function(a, b) { return b - a; });
+		}
+
+
 		private constructor() {}
 	}
 }

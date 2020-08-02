@@ -2,7 +2,7 @@
 
 namespace alm.io {
 
-	export class FileLoaderProgressEvent extends alm.event.Event {
+	export class FileLoaderProgressEvent extends alm.event.Event<FileLoader> {
 
 		// --------------------------------------------------
 		//
@@ -24,7 +24,7 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, progress:number = 0, loadedCount:number = 0, totalCount:number = 0) {
+		constructor(eventType:string, eventTarget:FileLoader, progress:number = 0, loadedCount:number = 0, totalCount:number = 0) {
 			super(eventType, eventTarget);
 			this.progress = progress;
 			this.loadedCount = loadedCount;
@@ -42,11 +42,11 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public clone():FileLoaderProgressEvent {
-			return new FileLoaderProgressEvent(this.getType(), this.getTarget(), this.progress, this.loadedCount, this.totalCount);
+			return new FileLoaderProgressEvent(this.type, this.target, this.progress, this.loadedCount, this.totalCount);
 		}
 
 		public toString():string {
-			return '[FileLoaderProgressEvent] type = ' + this.getType() + ', progress = ' + this.progress + ', loadedCount = ' + this.loadedCount + ', totalCount = ' + this.totalCount;
+			return '[FileLoaderProgressEvent] type = ' + this.type + ', progress = ' + this.progress + ', loadedCount = ' + this.loadedCount + ', totalCount = ' + this.totalCount;
 		}
 
 

@@ -3,9 +3,8 @@
 namespace alm.event {
 
 	import Logger = alm.debug.Logger;
-	export type EventListener = (event:Event) => void;
 
-	export class EventDispatcher {
+	export class EventDispatcher implements IEventDispatcher {
 
 		// --------------------------------------------------
 		//
@@ -13,7 +12,7 @@ namespace alm.event {
 		//
 		// --------------------------------------------------
 
-		constructor(target:any = null) {
+		constructor(target:EventDispatcher = null) {
 			this.target = target || this;
 			this.listeners = {};
 		}
@@ -78,7 +77,7 @@ namespace alm.event {
 		}
 
 		public dispatchEvent(event:Event):void {
-			let listeners:EventListener[] = this.listeners[event.getType()];
+			let listeners:EventListener[] = this.listeners[event.type];
 			if (listeners) {
 				const numListeners:number = listeners.length;
 				for (let i:number = 0; i < numListeners; ++i) {
@@ -87,8 +86,8 @@ namespace alm.event {
 			}
 		}
 
-		public dispatchEventType<T = any>(eventType:string, target:Object = null, data:T = null):void {
-			this.dispatchEvent(new Event<T>(eventType, target, data));
+		public dispatchEventType<T = any>(eventType:string, eventTarget:object = null, data:T = null):void {
+			this.dispatchEvent(new Event<object, T>(eventType, eventTarget, data));
 		}
 
 

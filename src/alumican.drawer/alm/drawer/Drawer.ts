@@ -12,8 +12,8 @@ namespace alm.drawer {
 		//
 		// --------------------------------------------------
 
-		constructor(content:JQuery, drawerId:string = 'drawer') {
-			this.container = new DrawerContainer(content, drawerId);
+		constructor(content:JQuery, position:DrawerPosition, drawerId:string = 'drawer') {
+			this.container = new DrawerContainer(content, position, drawerId);
 			this.container.ready();
 
 			(<any>window).openDrawer = this.container.show.bind(this.container);

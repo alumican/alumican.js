@@ -4,7 +4,7 @@ namespace alm.time {
 
 	import Event = alm.event.Event;
 
-	export class TimerEvent extends Event {
+	export class TimerEvent extends Event<Timer> {
 
 		// --------------------------------------------------
 		//
@@ -25,7 +25,7 @@ namespace alm.time {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null, elapsedCount:number = 0, repeatCount:number = 0, restCount:number = 0) {
+		constructor(eventType:string, eventTarget:Timer, elapsedCount:number = 0, repeatCount:number = 0, restCount:number = 0) {
 			super(eventType, eventTarget);
 			this.elapsedCount = elapsedCount;
 			this.repeatCount = repeatCount;
@@ -43,11 +43,11 @@ namespace alm.time {
 		// --------------------------------------------------
 
 		public clone():TimerEvent {
-			return new TimerEvent(this.getType(), this.getTarget(), this.elapsedCount, this.repeatCount, this.restCount);
+			return new TimerEvent(this.type, this.target, this.elapsedCount, this.repeatCount, this.restCount);
 		}
 
 		public toString():string {
-			return '[TimerEvent] type = ' + this.getType() + ', elapsedCount = ' + this.elapsedCount + ', repeatCount=' + this.repeatCount + ', restCount=' + this.restCount;
+			return '[TimerEvent] type = ' + this.type + ', elapsedCount = ' + this.elapsedCount + ', repeatCount=' + this.repeatCount + ', restCount=' + this.restCount;
 		}
 
 

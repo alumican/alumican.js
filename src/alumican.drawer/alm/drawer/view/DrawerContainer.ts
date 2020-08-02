@@ -12,10 +12,11 @@ namespace alm.drawer.view {
 		//
 		// --------------------------------------------------
 
-		constructor(content:JQuery, drawerId:string = 'drawer') {
+		constructor(content:JQuery, position:DrawerPosition, drawerId:string = 'drawer') {
 			super(content);
 
 			this.content = content;
+			this.position = position;
 			this.drawerId = drawerId;
 
 			this.initialize();
@@ -37,7 +38,7 @@ namespace alm.drawer.view {
 			view.addClass('drawer');
 
 			this.background = new DrawerBackground();
-			this.foreground = new DrawerForeground(this.content);
+			this.foreground = new DrawerForeground(this.content, this.position);
 
 			return view;
 		}
@@ -110,6 +111,7 @@ namespace alm.drawer.view {
 		private foreground:DrawerForeground;
 
 		private content:JQuery;
+		private position:DrawerPosition;
 		private drawerId:string;
 	}
 }

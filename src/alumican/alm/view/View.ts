@@ -5,7 +5,7 @@ namespace alm.view {
 	import EventDispatcher = alm.event.EventDispatcher;
 	import Logger = alm.debug.Logger;
 
-	export abstract class View<T = any> extends EventDispatcher {
+	export abstract class View<T = any> extends EventDispatcher implements IView {
 
 		// --------------------------------------------------
 		//
@@ -21,6 +21,8 @@ namespace alm.view {
 			this.autoHideWithInit = true;
 			this.isInitializing = false;
 			this.isInitialized = false;
+			this.isFinalizing = false;
+			this.isFinalized = false;
 			this.isReadying = false;
 			this.isReadied = false;
 			this.isShowing = false;
@@ -47,6 +49,7 @@ namespace alm.view {
 		public initialize():void {
 			if (this.isInitializing || this.isInitialized) return;
 			this.isInitializing = true;
+			this.dispatchEvent(new ViewEvent(ViewEvent.INITIALIZE_BEGIN, this));
 
 			//if (View.viewsById[this.id] == null) {
 			//	View.viewsById[this.id] = this;
@@ -60,6 +63,7 @@ namespace alm.view {
 				}
 				this.isInitializing = false;
 				this.isInitialized = true;
+				this.dispatchEvent(new ViewEvent(ViewEvent.INITIALIZE_END, this));
 			} else {
 				// finalized while initializing
 				this.view = null;
@@ -70,16 +74,24 @@ namespace alm.view {
 			if (this.isReadying || this.isReadied) return;
 			this.isReadying = true;
 			throwError(this.name || this, 'ready() must be called after initialize()', !this.isInitialized);
+			this.dispatchEvent(new ViewEvent(ViewEvent.READY_BEGIN, this));
 			this.implReady();
 			this.isReadying = false;
 			this.isReadied = true;
+			this.dispatchEvent(new ViewEvent(ViewEvent.READY_END, this));
 		}
 
 		public finalize():void {
 			if (!this.isInitializing && !this.isInitialized) return;
+			if (this.isFinalizing && this.isFinalized) return;
+			this.isFinalizing = true;
+			this.dispatchEvent(new ViewEvent(ViewEvent.FINALIZE_BEGIN, this));
 			this.implFinalize();
+			this.isFinalizing = false;
+			this.isFinalized = true;
 			this.isInitializing = false;
 			this.isInitialized = false;
+			this.dispatchEvent(new ViewEvent(ViewEvent.FINALIZE_END, this));
 
 			delete View.viewsById[this.id];
 			View.viewsById[this.id] = null;
@@ -116,11 +128,14 @@ namespace alm.view {
 					}
 
 					this.showCommand = command;
+					this.dispatchEvent(new ViewEvent(ViewEvent.SHOW_BEGIN, this));
+
 					command.insertCommand(
 						this.implShow(this.view, useTransition),
 						new cmd.Func(():void => {
 							this.showCommand = null;
 							this.isShowing = false;
+							this.dispatchEvent(new ViewEvent(ViewEvent.SHOW_END, this));
 						})
 					);
 				})
@@ -151,11 +166,14 @@ namespace alm.view {
 					}
 
 					this.hideCommand = command;
+					this.dispatchEvent(new ViewEvent(ViewEvent.HIDE_BEGIN, this));
+
 					command.insertCommand(
 						this.implHide(this.view, useTransition),
 						new cmd.Func(():void => {
 							this.hideCommand = null;
 							this.isHiding = false;
+							this.dispatchEvent(new ViewEvent(ViewEvent.HIDE_END, this));
 						})
 					);
 				})
@@ -193,6 +211,14 @@ namespace alm.view {
 
 		public getIsHidden():boolean {
 			return !this.isShown;
+		}
+
+		public getIsFinalizing():boolean {
+			return this.isFinalizing;
+		}
+
+		public getIsFinalized():boolean {
+			return this.isFinalized;
 		}
 
 		public getId():string {
@@ -255,6 +281,8 @@ namespace alm.view {
 		private hideCommand:cmd.Command;
 		private isInitializing:boolean;
 		private isInitialized:boolean;
+		private isFinalizing:boolean;
+		private isFinalized:boolean;
 		private isReadying:boolean;
 		private isReadied:boolean;
 		private isShowing:boolean;

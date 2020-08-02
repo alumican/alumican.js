@@ -2,7 +2,7 @@
 
 namespace alm.event {
 
-	export class Event<T = any> {
+	export class Event<Target = object, Data = any> {
 
 		// --------------------------------------------------
 		//
@@ -10,25 +10,9 @@ namespace alm.event {
 		//
 		// --------------------------------------------------
 
-		constructor(type:string, target:Object, data:T = null) {
+		constructor(type:string, target:Target, data:Data = null) {
 			this.type = type;
 			this.target = target;
-			this.data = data;
-		}
-
-		public getType():string {
-			return this.type;
-		}
-
-		public getTarget():Object {
-			return this.target;
-		}
-
-		public getData():T {
-			return this.data;
-		}
-
-		public setData(data:T):void {
 			this.data = data;
 		}
 
@@ -42,8 +26,8 @@ namespace alm.event {
 		//
 		// --------------------------------------------------
 
-		private type:string;
-		private target:Object;
-		private data:T;
+		public readonly type:string;
+		public readonly target:Target;
+		public readonly data:Data;
 	}
 }

@@ -17,7 +17,6 @@
     "alwaysStrict": false,
     "removeComments": true,
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true
+    "declaration": true
   }
 }

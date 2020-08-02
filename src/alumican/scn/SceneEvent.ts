@@ -4,7 +4,7 @@ namespace scn {
 
 	import Event = alm.event.Event;
 
-	export class SceneEvent extends Event {
+	export class SceneEvent extends Event<Scene> {
 
 		// --------------------------------------------------
 		//
@@ -36,7 +36,7 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:any = null) {
+		constructor(eventType:string, eventTarget:Scene) {
 			super(eventType, eventTarget);
 		}
 
@@ -51,11 +51,11 @@ namespace scn {
 		// --------------------------------------------------
 
 		public clone():SceneEvent {
-			return new SceneEvent(this.getType(), this.getTarget());
+			return new SceneEvent(this.type, this.target);
 		}
 
 		public toString():string {
-			return '[SceneEvent] type = ' + this.getType();
+			return '[SceneEvent] type = ' + this.type;
 		}
 
 

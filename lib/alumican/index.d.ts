@@ -148,29 +148,37 @@ declare namespace alm.debug {
     }
 }
 declare namespace alm.event {
-    class Event<T = any> {
-        constructor(type: string, target: Object, data?: T);
-        getType(): string;
-        getTarget(): Object;
-        getData(): T;
-        setData(data: T): void;
-        private type;
-        private target;
-        private data;
+    class Event<Target = object, Data = any> {
+        constructor(type: string, target: Target, data?: Data);
+        readonly type: string;
+        readonly target: Target;
+        readonly data: Data;
     }
 }
 declare namespace alm.event {
     type EventListener = (event: Event) => void;
-    class EventDispatcher {
-        constructor(target?: any);
+}
+declare namespace alm.event {
+    class EventDispatcher implements IEventDispatcher {
+        constructor(target?: EventDispatcher);
         addEventListener(eventType: string, listener: EventListener): void;
         removeEventListener(eventType: string, listener: EventListener): void;
         removeAllEventListener(eventType?: string): void;
         hasEventListener(eventType: string): boolean;
         dispatchEvent(event: Event): void;
-        dispatchEventType<T = any>(eventType: string, target?: Object, data?: T): void;
+        dispatchEventType<T = any>(eventType: string, eventTarget?: object, data?: T): void;
         private target;
         private listeners;
+    }
+}
+declare namespace alm.event {
+    interface IEventDispatcher {
+        addEventListener(eventType: string, listener: EventListener): void;
+        removeEventListener(eventType: string, listener: EventListener): void;
+        removeAllEventListener(eventType: string): void;
+        hasEventListener(eventType: string): boolean;
+        dispatchEvent(event: Event): void;
+        dispatchEventType<T = any>(eventType: string, target: Object, data: T): void;
     }
 }
 declare namespace cmd {
@@ -182,9 +190,9 @@ declare namespace cmd {
 }
 declare namespace cmd {
     import Event = alm.event.Event;
-    class CommandEvent extends Event {
+    class CommandEvent extends Event<Command> {
         static COMPLETE: string;
-        constructor(eventType: string, eventTarget?: any);
+        constructor(eventType: string, eventTarget: Command);
         clone(): CommandEvent;
         toString(): string;
     }
@@ -498,6 +506,9 @@ declare namespace alm.util {
         static unique<T>(list: T[]): T[];
         static duplicated<T>(list: T[], unique?: boolean): T[];
         static roundRobin<T>(list1: T[], list2: T[], callback: (count: number, index1: number, index2: number, element1: T, element2: T) => void): void;
+        static swap<T>(list: T[], index1: number, index2: number): void;
+        static shuffle<T>(list: T[]): void;
+        static sort(list: number[], asc?: boolean): void;
         private constructor();
     }
 }
@@ -539,6 +550,16 @@ declare namespace alm.util {
         static stop(command: cmd.Command): any;
         static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
         static single(execute: boolean, command: cmd.Command): cmd.Command;
+        private constructor();
+    }
+}
+declare namespace alm.util {
+    class Dom {
+        static instantiate(templateId: string): HTMLElement;
+        static addPointerDownListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
+        static addPointerUpListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
+        static removePointerEventListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
+        static removePointerUpListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
         private constructor();
     }
 }
@@ -586,20 +607,24 @@ declare namespace alm.state {
         gotoById(itemId: string, useTransition?: boolean): boolean;
         prev(useTransition?: boolean): boolean;
         next(useTransition?: boolean): boolean;
+        getPrevItemIndex(): number;
+        getPrevItemId(): T;
+        getNextItemIndex(): number;
+        getNextItemId(): T;
         private dispatchPagerEvent;
         getIsLoopEnabled(): boolean;
         setIsLoopEnabled(value: boolean): void;
         private isLoopEnabled;
-        getCurrentItemIndex(): number;
-        private currentItemIndex;
-        getPrevItemIndex(): number;
-        private oldItemIndex;
         getItemCount(): number;
         private itemCount;
+        getCurrentItemIndex(): number;
+        private currentItemIndex;
+        getOldItemIndex(): number;
+        private oldItemIndex;
         getCurrentItemId(): T;
         private currentItemId;
-        getPrevItemId(): T;
-        private prevItemId;
+        getOldItemId(): T;
+        private oldItemId;
         getItemIds(): T[];
         private itemIds;
         private itemIndexById;
@@ -609,17 +634,17 @@ declare namespace alm.state {
     }
 }
 declare namespace alm.state {
-    class SwitcherEvent<T = string> extends alm.event.Event {
+    class SwitcherEvent<T = string> extends alm.event.Event<Switcher<T>> {
         static CHANGE: string;
         static PREV: string;
         static NEXT: string;
-        constructor(eventType: string, eventTarget: any, currentItemIndex: number, prevItemIndex: number, currentItemId: T, prevItemId: T, useTransition: boolean);
+        constructor(eventType: string, eventTarget: Switcher<T>, currentItemIndex: number, oldItemIndex: number, currentItemId: T, oldItemId: T, useTransition: boolean);
         clone(): SwitcherEvent<T>;
         toString(): string;
         readonly currentItemIndex: number;
-        readonly prevItemIndex: number;
+        readonly oldItemIndex: number;
         readonly currentItemId: T;
-        readonly prevItemId: T;
+        readonly oldItemId: T;
         readonly useTransition: boolean;
     }
 }
@@ -642,11 +667,11 @@ declare namespace alm.state {
     }
 }
 declare namespace alm.state {
-    class LoHiEvent extends alm.event.Event {
+    class LoHiEvent extends alm.event.Event<LoHi> {
         static CHANGE: string;
         static LOW: string;
         static HIGH: string;
-        constructor(eventType: string, eventTarget: any, isHigh: boolean);
+        constructor(eventType: string, eventTarget: LoHi, isHigh: boolean);
         clone(): LoHiEvent;
         toString(): string;
         readonly isHigh: boolean;
@@ -757,9 +782,9 @@ declare namespace alm.time {
 }
 declare namespace alm.time {
     import Event = alm.event.Event;
-    class AnimationFrameTickerEvent extends Event {
+    class AnimationFrameTickerEvent extends Event<AnimationFrameTicker> {
         static TICK: string;
-        constructor(eventType: string, eventTarget?: any);
+        constructor(eventType: string, eventTarget: AnimationFrameTicker);
         clone(): AnimationFrameTickerEvent;
         toString(): string;
     }
@@ -797,10 +822,10 @@ declare namespace alm.time {
 }
 declare namespace alm.time {
     import Event = alm.event.Event;
-    class TimerEvent extends Event {
+    class TimerEvent extends Event<Timer> {
         static TICK: string;
         static COMPLETE: string;
-        constructor(eventType: string, eventTarget?: any, elapsedCount?: number, repeatCount?: number, restCount?: number);
+        constructor(eventType: string, eventTarget: Timer, elapsedCount?: number, repeatCount?: number, restCount?: number);
         clone(): TimerEvent;
         toString(): string;
         readonly elapsedCount: number;
@@ -844,11 +869,11 @@ declare namespace alm.io {
     }
 }
 declare namespace alm.io {
-    class FileLoaderProgressEvent extends alm.event.Event {
+    class FileLoaderProgressEvent extends alm.event.Event<FileLoader> {
         static START: string;
         static PROGRESS: string;
         static COMPLETE: string;
-        constructor(eventType: string, eventTarget?: any, progress?: number, loadedCount?: number, totalCount?: number);
+        constructor(eventType: string, eventTarget: FileLoader, progress?: number, loadedCount?: number, totalCount?: number);
         clone(): FileLoaderProgressEvent;
         toString(): string;
         readonly progress: number;
@@ -857,9 +882,9 @@ declare namespace alm.io {
     }
 }
 declare namespace alm.io {
-    class FileLoaderSuccessEvent extends alm.event.Event {
+    class FileLoaderSuccessEvent extends alm.event.Event<FileLoader> {
         static SUCCESS: string;
-        constructor(eventType: string, eventTarget: any, content: any, info?: any);
+        constructor(eventType: string, eventTarget: FileLoader, content: any, info?: any);
         clone(): FileLoaderSuccessEvent;
         toString(): string;
         readonly content: any;
@@ -867,9 +892,9 @@ declare namespace alm.io {
     }
 }
 declare namespace alm.io {
-    class FileLoaderErrorEvent extends alm.event.Event {
+    class FileLoaderErrorEvent extends alm.event.Event<FileLoader> {
         static ERROR: string;
-        constructor(eventType: string, eventTarget?: any, info?: any);
+        constructor(eventType: string, eventTarget: FileLoader, info?: any);
         clone(): FileLoaderErrorEvent;
         toString(): string;
         readonly info: any;
@@ -981,8 +1006,54 @@ declare namespace alm.audio {
     }
 }
 declare namespace alm.view {
+    import IEventDispatcher = alm.event.IEventDispatcher;
+    interface IView<T = any> extends IEventDispatcher {
+        initialize(): void;
+        ready(): void;
+        finalize(): void;
+        show(useTransition: boolean): void;
+        hide(useTransition: boolean): void;
+        getShowCommand(useTransition: boolean): cmd.Command;
+        getHideCommand(useTransition: boolean): cmd.Command;
+        getIsInitializing(): boolean;
+        getIsInitialized(): boolean;
+        getIsReadying(): boolean;
+        getIsReadied(): boolean;
+        getIsShowing(): boolean;
+        getIsShown(): boolean;
+        getIsHiding(): boolean;
+        getIsHidden(): boolean;
+        getIsFinalizing(): boolean;
+        getIsFinalized(): boolean;
+        getId(): string;
+        getView(): T;
+        getName(): string;
+        setName(value: string): void;
+        getAutoHideWithInit(): boolean;
+        setAutoHideWithInit(value: boolean): void;
+    }
+}
+declare namespace alm.view {
+    import Event = alm.event.Event;
+    class ViewEvent extends Event<View> {
+        static INITIALIZE_BEGIN: string;
+        static INITIALIZE_END: string;
+        static FINALIZE_BEGIN: string;
+        static FINALIZE_END: string;
+        static READY_BEGIN: string;
+        static READY_END: string;
+        static SHOW_BEGIN: string;
+        static SHOW_END: string;
+        static HIDE_BEGIN: string;
+        static HIDE_END: string;
+        constructor(eventType: string, eventTarget: View);
+        clone(): ViewEvent;
+        toString(): string;
+    }
+}
+declare namespace alm.view {
     import EventDispatcher = alm.event.EventDispatcher;
-    abstract class View<T = any> extends EventDispatcher {
+    abstract class View<T = any> extends EventDispatcher implements IView {
         constructor(view?: T, id?: string);
         initialize(): void;
         ready(): void;
@@ -999,6 +1070,8 @@ declare namespace alm.view {
         getIsShown(): boolean;
         getIsHiding(): boolean;
         getIsHidden(): boolean;
+        getIsFinalizing(): boolean;
+        getIsFinalized(): boolean;
         getId(): string;
         getView(): T;
         getName(): string;
@@ -1019,6 +1092,8 @@ declare namespace alm.view {
         private hideCommand;
         private isInitializing;
         private isInitialized;
+        private isFinalizing;
+        private isFinalized;
         private isReadying;
         private isReadied;
         private isShowing;
@@ -1294,10 +1369,10 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    class KeyWatcherEvent extends alm.event.Event {
+    class KeyWatcherEvent extends alm.event.Event<KeyWatcher> {
         static KEY_UP: string;
         static KEY_DOWN: string;
-        constructor(eventType: string, eventTarget?: any, originalEvent?: KeyboardEvent);
+        constructor(eventType: string, eventTarget: KeyWatcher, originalEvent?: KeyboardEvent);
         clone(): KeyWatcherEvent;
         toString(): string;
         readonly originalEvent: KeyboardEvent;
@@ -1343,10 +1418,10 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    class WindowWatcherEvent extends alm.event.Event {
+    class WindowWatcherEvent extends alm.event.Event<WindowWatcher> {
         static SCROLL: string;
         static RESIZE: string;
-        constructor(eventType: string, eventTarget?: any, originalEvent?: Event, scrollTop?: number, scrollBottom?: number, windowWidth?: number, windowHeight?: number);
+        constructor(eventType: string, eventTarget: WindowWatcher, originalEvent?: Event, scrollTop?: number, scrollBottom?: number, windowWidth?: number, windowHeight?: number);
         clone(): WindowWatcherEvent;
         toString(): string;
         readonly originalEvent: Event;
@@ -1357,9 +1432,9 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    class ScrollSectionTriggerEvent extends alm.event.Event {
+    class ScrollSectionTriggerEvent extends alm.event.Event<ScrollSectionTrigger> {
         static CHANGE: string;
-        constructor(eventType: string, target: object, currentSectionIndex: number, prevSectionIndex: number);
+        constructor(eventType: string, target: ScrollSectionTrigger, currentSectionIndex: number, prevSectionIndex: number);
         readonly currentSectionIndex: number;
         readonly prevSectionIndex: number;
     }
@@ -1413,9 +1488,9 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    class ResponsiveObserverEvent extends alm.event.Event {
+    class ResponsiveObserverEvent extends alm.event.Event<ResponsiveObserver> {
         static CHANGE: string;
-        constructor(eventType: string, target: object, currentIndex: number, prevIndex: number);
+        constructor(eventType: string, target: ResponsiveObserver, currentIndex: number, prevIndex: number);
         readonly currentIndex: number;
         readonly prevIndex: number;
     }
@@ -1469,7 +1544,7 @@ declare namespace scn {
 }
 declare namespace scn {
     import Event = alm.event.Event;
-    class SceneEvent extends Event {
+    class SceneEvent extends Event<Scene> {
         static LOAD: string;
         static UNLOAD: string;
         static ARRIVE: string;
@@ -1482,7 +1557,7 @@ declare namespace scn {
         static LEAVE_COMPLETE: string;
         static ASCEND_COMPLETE: string;
         static DESCEND_COMPLETE: string;
-        constructor(eventType: string, eventTarget?: any);
+        constructor(eventType: string, eventTarget: Scene);
         clone(): SceneEvent;
         toString(): string;
     }
@@ -1524,10 +1599,10 @@ declare namespace scn {
 }
 declare namespace scn {
     import Event = alm.event.Event;
-    class SceneManagerEvent extends Event {
+    class SceneManagerEvent extends Event<SceneManager> {
         static TRANSFER_START: string;
         static TRANSFER_COMPLETE: string;
-        constructor(eventType: string, eventTarget?: any);
+        constructor(eventType: string, eventTarget: SceneManager);
         clone(): SceneManagerEvent;
         toString(): string;
     }
