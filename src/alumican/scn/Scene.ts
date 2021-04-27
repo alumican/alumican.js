@@ -4,6 +4,7 @@ namespace scn {
 
 	import Logger = alm.debug.Logger;
 	import EventDispatcher = alm.event.EventDispatcher;
+	import Hash = alm.util.Hash;
 
 	export class Scene extends EventDispatcher {
 
@@ -20,7 +21,7 @@ namespace scn {
 			this.parent = null;
 			this.childrenByName = {};
 			this.numChildren = 0;
-			this.isEntered = false;
+			this.transferInfo = null;
 			this.onLoad = null;
 			this.onUnload = null;
 			this.onArrive = null;
@@ -137,7 +138,11 @@ namespace scn {
 		}
 
 		public getChildByName(name:string):Scene {
-			return this.childrenByName[name];
+			return this.childrenByName[name] || null;
+		}
+
+		public getChildrenByName():Hash<Scene> {
+			return this.childrenByName;
 		}
 
 		public getNumChildren():number {
@@ -168,8 +173,12 @@ namespace scn {
 			return null;
 		}
 
-		public gotoScene(path:string):void {
-			this.getManager().goto(path);
+		public getTransferInfo():SceneTransferInfo {
+			return this.transferInfo || null;
+		}
+
+		public gotoScene(path:string, message:any = null):void {
+			this.getManager().goto(path, message);
 		}
 
 
@@ -179,7 +188,6 @@ namespace scn {
 		public _load(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
 			this.state = SceneState.Loading;
-			this.isEntered = true;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.LOAD, this));
@@ -189,6 +197,7 @@ namespace scn {
 				():void => {
 					this.lastState = this.state;
 					this.state = SceneState.Idling;
+					this.transferInfo = null;
 					this.dispatchEvent(new SceneEvent(SceneEvent.LOAD_COMPLETE, this));
 				}
 			);
@@ -198,7 +207,6 @@ namespace scn {
 		public _unload(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
 			this.state = SceneState.Unloading;
-			this.isEntered = false;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.UNLOAD, this));
@@ -208,6 +216,7 @@ namespace scn {
 				():void => {
 					this.lastState = this.state;
 					this.state = SceneState.Idling;
+					this.transferInfo = null;
 					this.dispatchEvent(new SceneEvent(SceneEvent.UNLOAD_COMPLETE, this));
 				}
 			);
@@ -217,7 +226,6 @@ namespace scn {
 		public _arrive(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
 			this.state = SceneState.Arriving;
-			this.isEntered = true;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.ARRIVE, this));
@@ -227,6 +235,7 @@ namespace scn {
 				():void => {
 					this.lastState = this.state;
 					this.state = SceneState.Idling;
+					this.transferInfo = null;
 					this.dispatchEvent(new SceneEvent(SceneEvent.ARRIVE_COMPLETE, this));
 				}
 			);
@@ -236,7 +245,6 @@ namespace scn {
 		public _leave(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
 			this.state = SceneState.Leaving;
-			this.isEntered = false;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.LEAVE, this));
@@ -246,6 +254,7 @@ namespace scn {
 				():void => {
 					this.lastState = this.state;
 					this.state = SceneState.Idling;
+					this.transferInfo = null;
 					this.dispatchEvent(new SceneEvent(SceneEvent.LEAVE_COMPLETE, this));
 				}
 			);
@@ -255,7 +264,6 @@ namespace scn {
 		public _ascend(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
 			this.state = SceneState.Ascending;
-			this.isEntered = true;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.ASCEND, this));
@@ -265,6 +273,7 @@ namespace scn {
 				():void => {
 					this.lastState = this.state;
 					this.state = SceneState.Idling;
+					this.transferInfo = null;
 					this.dispatchEvent(new SceneEvent(SceneEvent.ASCEND_COMPLETE, this));
 				}
 			);
@@ -274,7 +283,6 @@ namespace scn {
 		public _descend(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
 			this.state = SceneState.Descending;
-			this.isEntered = false;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
 					this.dispatchEvent(new SceneEvent(SceneEvent.DESCEND, this));
@@ -284,6 +292,7 @@ namespace scn {
 				():void => {
 					this.lastState = this.state;
 					this.state = SceneState.Idling;
+					this.transferInfo = null;
 					this.dispatchEvent(new SceneEvent(SceneEvent.DESCEND_COMPLETE, this));
 				}
 			);
@@ -336,7 +345,6 @@ namespace scn {
 		public onAscend:() => cmd.Command;
 		public onDescend:() => cmd.Command;
 
-		private isEntered:boolean;
 		private name:string;
 		private state:SceneState;
 		private lastState:SceneState;

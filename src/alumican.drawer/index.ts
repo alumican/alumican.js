@@ -10,5 +10,5 @@
 /// <reference path='alm/drawer/view/DrawerBackground.ts' />
 /// <reference path='alm/drawer/view/DrawerForeground.ts' />
 /// <reference path='alm/drawer/view/DrawerContainer.ts' />
-/// <reference path='alm/drawer/DrawerPosition.ts' />
+/// <reference path='alm/drawer/DrawerTransition.ts' />
 /// <reference path='alm/drawer/Drawer.ts' />

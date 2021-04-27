@@ -12,8 +12,8 @@ namespace alm.drawer {
 		//
 		// --------------------------------------------------
 
-		constructor(content:JQuery, position:DrawerPosition, drawerId:string = 'drawer') {
-			this.container = new DrawerContainer(content, position, drawerId);
+		constructor(content:JQuery, transition:DrawerTransition, drawerId:string = 'drawer') {
+			this.container = new DrawerContainer(content, transition, drawerId);
 			this.container.ready();
 
 			(<any>window).openDrawer = this.container.show.bind(this.container);
@@ -30,11 +30,11 @@ namespace alm.drawer {
 		//
 		// --------------------------------------------------
 
-		public open(useTransition:boolean):void {
+		public open(useTransition:boolean = true):void {
 			this.container.show(useTransition);
 		}
 
-		public close(useTransition:boolean):void {
+		public close(useTransition:boolean = true):void {
 			this.container.hide(useTransition);
 		}
 
@@ -56,6 +56,14 @@ namespace alm.drawer {
 
 		public getDrawerId():string {
 			return this.getDrawerId();
+		}
+
+		public setBackgroundCustomTransition(showCommand:cmd.Serial, hideCommand:cmd.Serial):void {
+			this.container.setBackgroundCustomTransition(showCommand, hideCommand);
+		}
+
+		public setForegroundCustomTransition(showCommand:cmd.Serial, hideCommand:cmd.Serial):void {
+			this.container.setForegroundCustomTransition(showCommand, hideCommand);
 		}
 
 

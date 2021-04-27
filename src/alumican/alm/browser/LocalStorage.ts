@@ -13,7 +13,7 @@ namespace alm.browser {
 		// --------------------------------------------------
 
 		/**
-		 * データをCookieに保存する
+		 * データを有効期限までLocalStorageに保存する
 		 * @param key 保存するキー
 		 * @param value 保存するデータ
 		 * @param expiredAt 有効期限（UNIXミリ秒）
@@ -25,11 +25,12 @@ namespace alm.browser {
 			localStorage.setItem(key, JSON.stringify(record));
 			return true;
 		}
+
 		/**
-		 * データをLocalStorageに保存する
+		 * データを期間でLocalStorageに保存する
 		 * @param key 保存するキー
 		 * @param value 保存するデータ
-		 * @param minutes 保存期間（分）
+		 * @param milliseconds 保存期間（ミリ秒）
 		 * @returns {boolean} 保存に成功した場合trueが返る
 		 */
 		public static saveWithTerm(key:string, value:any, milliseconds:number = -1):boolean {

@@ -54,26 +54,6 @@ namespace alm.util {
 		}
 
 		/**
-		 * 乱数（小数）を取得する
-		 * @param {number} min 最小値
-		 * @param {number} max 最大値
-		 * @returns {number} 出力値
-		 */
-		public static random(min:number = 0, max:number = 1):number {
-			return min + (max - min) * Math.random();
-		}
-
-		/**
-		 * 乱数（整数）を取得する
-		 * @param {number} min 最小値
-		 * @param {number} max 最大値
-		 * @returns {number} 出力値
-		 */
-		public static randomInt(min:number = 0, max:number = 1):number {
-			return Math.floor(Num.random(min, max));
-		}
-
-		/**
 		 * 値を特定範囲内に丸める
 		 * @param {number} value 入力値
 		 * @param {number} min 最小値
@@ -98,6 +78,42 @@ namespace alm.util {
 				value = Math.abs(value);
 				return -(value < minAbs ? minAbs : (value > maxAbs ? maxAbs : value));
 			}
+		}
+
+		/**
+		 * 2点間を線形補間する
+		 * @param {number} t 補間値
+		 * @param {number} a 開始値
+		 * @param {number} b 終了値
+		 * @param {boolean} clamp trueの場合は補間値を[a, b]の範囲内に丸める
+		 * @returns {number} 出力値 (t=0のときa, t=1のときb)
+		 */
+		public static lerp(t:number, a:number, b:number, clamp:boolean = true):number {
+			if (clamp) {
+				if (t < 0) t = 0;
+				else if (t > 1) t = 1;
+			}
+			return a * (1 - t) + b * t;
+		}
+
+		/**
+		 * 乱数（小数）を取得する
+		 * @param {number} min 最小値
+		 * @param {number} max 最大値
+		 * @returns {number} 出力値
+		 */
+		public static random(min:number = 0, max:number = 1):number {
+			return min + (max - min) * Math.random();
+		}
+
+		/**
+		 * 乱数（整数）を取得する
+		 * @param {number} min 最小値
+		 * @param {number} max 最大値
+		 * @returns {number} 出力値
+		 */
+		public static randomInt(min:number = 0, max:number = 1):number {
+			return Math.floor(Num.random(min, max + 1));
 		}
 
 		/**

@@ -2,7 +2,9 @@
 
 namespace alm.drawer {
 
-	export enum DrawerPosition {
+	export enum DrawerTransition {
+		none = 'none',
+		fade = 'fade',
 		left = 'left',
 		right = 'right',
 		top = 'top',

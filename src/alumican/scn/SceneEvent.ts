@@ -12,19 +12,19 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static LOAD:string = 'load';
-		public static UNLOAD:string = 'unload';
-		public static ARRIVE:string = 'arrive';
-		public static LEAVE:string = 'leave';
-		public static ASCEND:string = 'ascend';
-		public static DESCEND:string = 'descend';
+		public static LOAD:string = 'SceneEvent.load';
+		public static UNLOAD:string = 'SceneEvent.unload';
+		public static ARRIVE:string = 'SceneEvent.arrive';
+		public static LEAVE:string = 'SceneEvent.leave';
+		public static ASCEND:string = 'SceneEvent.ascend';
+		public static DESCEND:string = 'SceneEvent.descend';
 
-		public static LOAD_COMPLETE:string = 'loadComplete';
-		public static UNLOAD_COMPLETE:string = 'unloadComplete';
-		public static ARRIVE_COMPLETE:string = 'arriveComplete';
-		public static LEAVE_COMPLETE:string = 'leaveComplete';
-		public static ASCEND_COMPLETE:string = 'ascendComplete';
-		public static DESCEND_COMPLETE:string = 'descendComplete';
+		public static LOAD_COMPLETE:string = 'SceneEvent.loadComplete';
+		public static UNLOAD_COMPLETE:string = 'SceneEvent.unloadComplete';
+		public static ARRIVE_COMPLETE:string = 'SceneEvent.arriveComplete';
+		public static LEAVE_COMPLETE:string = 'SceneEvent.leaveComplete';
+		public static ASCEND_COMPLETE:string = 'SceneEvent.ascendComplete';
+		public static DESCEND_COMPLETE:string = 'SceneEvent.descendComplete';
 
 
 

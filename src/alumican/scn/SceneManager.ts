@@ -5,6 +5,8 @@ namespace scn {
 	import Logger = alm.debug.Logger;
 	import LoggerLevel = alm.debug.LoggerLevel;
 	import EventDispatcher = alm.event.EventDispatcher;
+	import Obj = alm.util.Obj;
+	import RootScene = scn.core.RootScene;
 
 	export class SceneManager extends EventDispatcher {
 
@@ -14,10 +16,10 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		constructor(name:string = '') {
+		constructor(name:string = '', rootSceneClass:(new (sceneManager:SceneManager) => RootScene) = RootScene) {
 			super();
 			this.name = name;
-			this.root = new core.RootScene(this);
+			this.root = new rootSceneClass(this);
 			this.currentScene = null;
 
 			this.waypoints = [];
@@ -38,12 +40,12 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public start():void {
+		public start(message:any = null):void {
 			Logger.verbose('----- scene manager start -----');
-			this.goto('/');
+			this.goto('/', message);
 		}
 
-		public goto(path:string):void {
+		public goto(path:string, message:any = null):void {
 			path = this.resolvePath(path);
 
 			// Return if current destination and new destination is same.
@@ -74,13 +76,13 @@ namespace scn {
 					Logger.verbose('waypoint index : ' + this.waypointIndex);
 					this.waypoints = this.waypoints.slice(0, this.waypointIndex + 1).concat(newWaypoints.slice(1));
 					this.setDirection(this.waypoints);
-					this.printWaypoint(this.waypoints);
+					this.dumpWaypoint(this.waypoints);
 				}
 
-				this.transferInfo = new SceneTransferInfo(this.transferId, this.waypoints[this.waypointIndex].getPath(), this.waypoints[this.waypoints.length - 1].getPath());
+				this.transferInfo = new SceneTransferInfo(this.transferId, this.waypoints[this.waypointIndex].getPath(), this.waypoints[this.waypoints.length - 1].getPath(), message);
 
 				if (!isDestinationChanged) {
-					this.dispatchEvent(new SceneManagerEvent(SceneManagerEvent.TRANSFER_START, this));
+					this.dispatchEvent(new SceneManagerTransferEvent(SceneManagerTransferEvent.TRANSFER_START, this, this.transferInfo));
 				}
 
 				this.checkState();
@@ -114,7 +116,7 @@ namespace scn {
 			return '/' + normalized.join('/');
 		}
 
-		public addSceneAt(path:string, createScene:boolean = false):Scene {
+		public addSceneAt(path:string):Scene {
 			let success:boolean = false;
 			const names:string[] = this.getSceneNamesByPath(path);
 			const n:number = names.length;
@@ -148,7 +150,16 @@ namespace scn {
 		}
 
 		public getSceneByPath(path:string):Scene {
+			return this.getSceneBySceneNames(this.getSceneNamesByPath(path));
+		}
+
+		public getParentSceneByPath(path:string):Scene {
 			const names:string[] = this.getSceneNamesByPath(path);
+			names.pop();
+			return this.getSceneBySceneNames(names);
+		}
+
+		private getSceneBySceneNames(names:string[]):Scene {
 			const n:number = names.length;
 			let scene:Scene = this.root;
 			for (let i:number = 1; i < n; ++i) {
@@ -168,6 +179,7 @@ namespace scn {
 		public getScenePathByNames(names:string[]):string {
 			return names.length == 0 ? '/' : names.length == 1 ? ('/' + names[0]) : names.join('/');
 		}
+
 
 		private createWaypoints(departurePath:string, destinationPath:string):core.Waypoint[] {
 			if (departurePath == destinationPath) {
@@ -261,7 +273,7 @@ namespace scn {
 			this.setDirection(waypoints);
 
 			if (Logger.level <= LoggerLevel.Verbose) {
-				this.printWaypoint(waypoints);
+				this.dumpWaypoint(waypoints);
 			}
 
 			return waypoints;
@@ -282,7 +294,7 @@ namespace scn {
 			}
 		}
 
-		private printWaypoint(waypoints:core.Waypoint[]):void {
+		private dumpWaypoint(waypoints:core.Waypoint[]):void {
 			Logger.verbose('    waypoints');
 			const n:number = waypoints.length;
 			for (let i:number = 0; i < n; ++i) {
@@ -291,12 +303,25 @@ namespace scn {
 			Logger.verbose('');
 		}
 
+		public dumpAllPath():void {
+			Logger.info('----- scene all path -----');
+			this._dumpAllPath(this.root);
+		}
+
+		private _dumpAllPath(parent:Scene):void {
+			const children = parent.getChildrenByName();
+			Obj.each(children, (name:string, child:Scene):void => {
+				Logger.info(child.getPath());
+				this._dumpAllPath(child);
+			});
+		}
+
 
 
 
 
 		private checkState():void {
-			trace('lastState : ' + scn.getSceneStateString(this.lastState));
+			//trace('lastState : ' + scn.getSceneStateString(this.lastState));
 
 			//trace(this.waypointIndex + ' / ' + this.waypoints.length);
 
@@ -304,7 +329,7 @@ namespace scn {
 				Logger.verbose('----- scene transfer complete -----');
 				const tmpTransferId:number = this.transferInfo.getTransferId();
 				this.waypointIndex = this.waypoints.length - 1;
-				this.dispatchEvent(new SceneManagerEvent(SceneManagerEvent.TRANSFER_COMPLETE, this));
+				this.dispatchEvent(new SceneManagerTransferEvent(SceneManagerTransferEvent.TRANSFER_COMPLETE, this, this.transferInfo));
 				if (tmpTransferId == this.transferInfo.getTransferId()) {
 					this.lastState = SceneState.Idling;
 					this.transferInfo = null;
@@ -314,11 +339,20 @@ namespace scn {
 
 			if (this.currentScene) {
 				const currentWaypoint:core.Waypoint = this.waypoints[this.waypointIndex];
-				this.currentScene = this.getSceneByPath(currentWaypoint.getPath());
+				const currentWaypointPath = currentWaypoint.getPath();
+				this.currentScene = this.getSceneByPath(currentWaypointPath);
+
+				if (!this.currentScene) {
+					this.dispatchEvent(new SceneManagerRequireSceneEvent(SceneManagerRequireSceneEvent.REQUIRE_SCENE, this, currentWaypointPath));
+					this.currentScene = this.getSceneByPath(currentWaypointPath);
+				}
+				if (!this.currentScene) {
+					Logger.warn('[SceneManager] scene is null : scene path =', currentWaypointPath);
+				}
 
 				// Departure scene
 				if (this.waypoints.length > 1 && this.waypointIndex == 0) {
-					trace('Departure scene');
+					//trace('Departure scene');
 
 					// Leave
 					if (this.lastState != SceneState.Leaving && this.currentScene.getLastState() == SceneState.Arriving) {
@@ -346,7 +380,7 @@ namespace scn {
 
 				// Through scene
 				if (this.waypointIndex > 0 && this.waypointIndex < this.waypoints.length - 1) {
-					trace('Through scene');
+					//trace('Through scene');
 
 					// Load
 					if (this.lastState != SceneState.Loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
@@ -385,7 +419,7 @@ namespace scn {
 
 				// Destination scene
 				if (this.waypointIndex == this.waypoints.length - 1) {
-					trace('Destination scene');
+					//trace('Destination scene');
 
 					// Load
 					if (this.lastState != SceneState.Loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
@@ -406,7 +440,7 @@ namespace scn {
 				}
 
 			} else {
-				trace('Init scene');
+				//trace('Init scene');
 
 				// Init
 				this.lastState = SceneState.Idling;

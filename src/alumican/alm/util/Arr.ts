@@ -105,6 +105,15 @@ namespace alm.util {
 			list.sort(asc ? function(a, b) { return a - b; } : function(a, b) { return b - a; });
 		}
 
+		/**
+		 * リストから1要素を選択して返す、元の配列は変更しない
+		 * @param list 配列
+		 * @returns {T} 選択された要素
+		 */
+		public static choose<T>(list:T[]):T {
+			return list[Math.floor(Math.random() * (list.length - 1))];
+		}
+
 
 		private constructor() {}
 	}

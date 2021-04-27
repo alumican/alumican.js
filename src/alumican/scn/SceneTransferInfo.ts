@@ -10,11 +10,11 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		constructor(transferId:number, departurePath:string, destinationPath:string) {
+		constructor(transferId:number, departurePath:string, destinationPath:string, message:any = null) {
 			this.transferId = transferId;
 			this.departurePath = departurePath;
 			this.destinationPath = destinationPath;
-			this.relay = null;
+			this.message = message;
 		}
 
 
@@ -49,7 +49,7 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public relay:any;
+		public message:any;
 
 		private transferId:number;
 		private departurePath:string;

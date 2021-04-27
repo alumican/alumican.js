@@ -3,17 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="0b56b75d-334c-4719-bbd4-d3648e3823ec" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.d.ts.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.min.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican.drawer/index.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.drawer/index.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery/index.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery/index.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery/index.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery/index.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/alumican.jquery/index.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican.jquery/index.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican/index.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican/index.d.ts.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican/index.js" afterDir="false" />
@@ -21,35 +21,23 @@
       <change beforePath="$PROJECT_DIR$/lib/alumican/index.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican/index.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/alumican/index.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/alumican/index.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/Drawer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/Drawer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/DrawerPosition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/DrawerTransition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/view/DrawerBackground.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/view/DrawerBackground.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/view/DrawerContainer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/view/DrawerContainer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/view/DrawerForeground.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/view/DrawerForeground.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican.drawer/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican.drawer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.drawer/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/KeyWatcherEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/KeyWatcherEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/ResponsiveObserverEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/ResponsiveObserverEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/ScrollSectionTriggerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/ScrollSectionTriggerEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcherEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/WindowWatcherEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/event/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/event/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/event/EventDispatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderErrorEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderErrorEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderProgressEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderProgressEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderSuccessEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/io/FileLoaderSuccessEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/state/LoHiEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/state/LoHiEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/state/Switcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/state/Switcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/state/SwitcherEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/state/SwitcherEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/time/AnimationFrameTickerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/time/AnimationFrameTickerEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/time/TimerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/time/TimerEvent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican.jquery/alm/util/TweenCSS.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/DeviceInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/browser/LocalStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/browser/LocalStorage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Arr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Arr.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Dom.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Dom.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/alm/util/Num.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/util/Num.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/alm/view/View.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/alm/view/View.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/cmd/CommandEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/cmd/CommandEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/cmd/Parallel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/cmd/Parallel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/cmd/Serial.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/cmd/Serial.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/cmd/Wait.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/cmd/Wait.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/scn/Scene.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/Scene.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alumican/scn/SceneEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/alumican/scn/SceneManagerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneManagerEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/scn/SceneManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/scn/SceneManagerEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneManagerTransferEvent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alumican/scn/SceneTransferInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/alumican/scn/SceneTransferInfo.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +106,7 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554866709012" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/alumican/alm/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/alumican/alm/browser" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -141,11 +129,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/alumican/alm/browser" />
+      <recent name="$PROJECT_DIR$/src/alumican/scn" />
+      <recent name="$PROJECT_DIR$/src/alumican/scn/core" />
       <recent name="$PROJECT_DIR$/src/alumican/alm/view" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/alumican/alm/event" />
-      <recent name="$PROJECT_DIR$/src/alumican.drawer/alm/drawer/var" />
-      <recent name="$PROJECT_DIR$/src/alumican/alm/util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/alumican.drawer/alm/drawer" />
@@ -503,7 +491,46 @@
       <workItem from="1594798886110" duration="36000" />
       <workItem from="1595995822289" duration="30000" />
       <workItem from="1596334183678" duration="574000" />
-      <workItem from="1596360649255" duration="1877000" />
+      <workItem from="1596360649255" duration="3694000" />
+      <workItem from="1596364648417" duration="3925000" />
+      <workItem from="1596436683421" duration="1219000" />
+      <workItem from="1596438237613" duration="983000" />
+      <workItem from="1596465900304" duration="568000" />
+      <workItem from="1596466897112" duration="1757000" />
+      <workItem from="1596520889052" duration="742000" />
+      <workItem from="1596558363765" duration="634000" />
+      <workItem from="1596612629275" duration="4000" />
+      <workItem from="1596630470867" duration="123000" />
+      <workItem from="1596645509836" duration="1957000" />
+      <workItem from="1596698464541" duration="78000" />
+      <workItem from="1596723064307" duration="275000" />
+      <workItem from="1596970772486" duration="3111000" />
+      <workItem from="1596973980214" duration="172000" />
+      <workItem from="1596986540410" duration="3052000" />
+      <workItem from="1597057209496" duration="1222000" />
+      <workItem from="1597120714421" duration="25000" />
+      <workItem from="1597898642070" duration="155000" />
+      <workItem from="1597898807129" duration="890000" />
+      <workItem from="1597977885692" duration="433000" />
+      <workItem from="1598163840169" duration="18000" />
+      <workItem from="1598172778457" duration="8000" />
+      <workItem from="1598293881382" duration="57000" />
+      <workItem from="1599202024237" duration="672000" />
+      <workItem from="1599290507278" duration="53000" />
+      <workItem from="1599470438578" duration="97000" />
+      <workItem from="1599473006137" duration="52000" />
+      <workItem from="1599669123245" duration="612000" />
+      <workItem from="1599713698630" duration="1811000" />
+      <workItem from="1601114299575" duration="186000" />
+      <workItem from="1601117928273" duration="16000" />
+      <workItem from="1603717718051" duration="675000" />
+      <workItem from="1603934714139" duration="6000" />
+      <workItem from="1611211109999" duration="486000" />
+      <workItem from="1612330153892" duration="33000" />
+      <workItem from="1613278120808" duration="688000" />
+      <workItem from="1615529345756" duration="349000" />
+      <workItem from="1615686871277" duration="2441000" />
+      <workItem from="1616312292787" duration="1195000" />
     </task>
     <servers />
   </component>
@@ -523,24 +550,11 @@
     <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="269" y="610" key="SettingsEditor" timestamp="1587623825788">
-      <screen x="0" y="23" width="3072" height="1897" />
+    <state x="1038" y="653" width="803" height="486" key="find.popup" timestamp="1616312301142">
+      <screen x="0" y="23" width="2880" height="1735" />
     </state>
-    <state x="269" y="610" key="SettingsEditor/0.23.3072.1897@0.23.3072.1897" timestamp="1587623825788" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1588585205509">
-      <screen x="0" y="23" width="3072" height="1897" />
-    </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.3072.1897@0.23.3072.1897" timestamp="1588585205509" />
-    <state x="-3" y="154" width="1338" height="1548" key="find.popup" timestamp="1594460899729">
-      <screen x="0" y="23" width="2880" height="1777" />
-    </state>
-    <state x="-3" y="154" width="1338" height="1548" key="find.popup/0.23.2880.1777@0.23.2880.1777" timestamp="1594460899729" />
-    <state x="1206" y="728" width="1709" height="1162" key="find.popup/0.23.3072.1897/-2560.23.2560.1417@0.23.3072.1897" timestamp="1591085312776" />
-    <state x="1363" y="740" width="1709" height="1162" key="find.popup/0.23.3072.1897@0.23.3072.1897" timestamp="1592383728653" />
-    <state x="433" y="468" width="670" height="676" key="search.everywhere.popup" timestamp="1589524922077">
-      <screen x="0" y="23" width="3072" height="1897" />
-    </state>
-    <state x="433" y="468" width="670" height="676" key="search.everywhere.popup/0.23.3072.1897@0.23.3072.1897" timestamp="1589524922077" />
+    <state x="1038" y="653" width="803" height="486" key="find.popup/0.23.2880.1735@0.23.2880.1735" timestamp="1616312301142" />
+    <state x="1038" y="668" width="803" height="486" key="find.popup/0.23.2880.1777@0.23.2880.1777" timestamp="1611211481399" />
   </component>
   <component name="masterDetails">
     <states>

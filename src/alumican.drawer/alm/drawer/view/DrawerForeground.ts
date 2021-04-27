@@ -5,6 +5,7 @@ namespace alm.drawer.view {
 	import View = alm.view.View;
 	import Easing = alm.math.Easing;
 	import EasingFunction = alm.math.EasingFunction;
+	import TweenCSS = alm.util.TweenCSS;
 
 	export class DrawerForeground extends View<JQuery> {
 
@@ -14,11 +15,11 @@ namespace alm.drawer.view {
 		//
 		// --------------------------------------------------
 
-		constructor(content:JQuery, position:DrawerPosition) {
+		constructor(content:JQuery, transition:DrawerTransition) {
 			super(content);
 
 			this.content = content;
-			this.position = position;
+			this.transition = transition;
 
 			this.initialize();
 		}
@@ -40,20 +41,23 @@ namespace alm.drawer.view {
 
 			this.content.css('display', 'block');
 
-			switch (this.position) {
-				case DrawerPosition.left:
+			switch (this.transition) {
+				case DrawerTransition.left:
 					view.css({ top: 0, left: 0 });
 					break;
-				case DrawerPosition.right:
+				case DrawerTransition.right:
 					view.css({ top: 0, right: 0 });
 					break;
-				case DrawerPosition.top:
+				case DrawerTransition.top:
 					view.css({ top: 0, left: 0 });
 					break;
-				case DrawerPosition.bottom:
+				case DrawerTransition.bottom:
 					view.css({ bottom: 0, left: 0 });
 					break;
 			}
+
+			this.customShowTransition = null;
+			this.customHideTransition = null;
 
 			return view;
 		}
@@ -65,34 +69,46 @@ namespace alm.drawer.view {
 		}
 
 		protected implShow(view:JQuery, useTransition:boolean):cmd.Command {
-			const command = new cmd.Serial(new cmd.Func(():void => {
-				view.css('visibility', 'visible');
-			}));
+			const command = new cmd.Serial(
+				new cmd.Func(():void => {
+					view.css('visibility', 'visible');
+				})
+			);
 
-			let prop = '';
-			let from = 0;
-			switch (this.position) {
-				case DrawerPosition.left:
-					prop = 'left';
-					from = -this.getWidth();
-					break;
-				case DrawerPosition.right:
-					prop = 'right';
-					from = -this.getWidth();
-					break;
-				case DrawerPosition.top:
-					prop = 'top';
-					from = -this.getHeight();
-					break;
-				case DrawerPosition.bottom:
-					prop = 'bottom';
-					from = -this.getHeight();
-					break;
-			}
-
-			if (prop !== '') {
-				view.css(prop, from);
-				command.addCommand(this.move(view, prop, from, 0, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+			if (this.customShowTransition) {
+				// custom effect
+				command.addCommand(this.customShowTransition);
+			} else if (this.transition === DrawerTransition.none) {
+				// no effect
+			} else if (this.transition === DrawerTransition.fade) {
+				// fade effect
+				command.addCommand(TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutCubic, null, false, false));
+			} else {
+				// move effect
+				let prop = '';
+				let from = 0;
+				switch (this.transition) {
+					case DrawerTransition.left:
+						prop = 'left';
+						from = -this.getWidth();
+						break;
+					case DrawerTransition.right:
+						prop = 'right';
+						from = -this.getWidth();
+						break;
+					case DrawerTransition.top:
+						prop = 'top';
+						from = -this.getHeight();
+						break;
+					case DrawerTransition.bottom:
+						prop = 'bottom';
+						from = -this.getHeight();
+						break;
+				}
+				if (prop !== '') {
+					view.css(prop, from);
+					command.addCommand(this.move(view, prop, from, 0, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+				}
 			}
 
 			return command;
@@ -101,29 +117,39 @@ namespace alm.drawer.view {
 		protected implHide(view:JQuery, useTransition:boolean):cmd.Command {
 			const command = new cmd.Serial();
 
-			let prop = '';
-			let to = 0;
-			switch (this.position) {
-				case DrawerPosition.left:
-					prop = 'left';
-					to = -this.getWidth();
-					break;
-				case DrawerPosition.right:
-					prop = 'right';
-					to = -this.getWidth();
-					break;
-				case DrawerPosition.top:
-					prop = 'top';
-					to = -this.getHeight();
-					break;
-				case DrawerPosition.bottom:
-					prop = 'bottom';
-					to = -this.getHeight();
-					break;
-			}
-
-			if (prop !== '') {
-				command.addCommand(this.move(view, prop, 0, to, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+			if (this.customHideTransition) {
+				// custom effect
+				command.addCommand(this.customHideTransition);
+			} else if (this.transition === DrawerTransition.none) {
+				// no effect
+			} else if (this.transition === DrawerTransition.fade) {
+				// fade effect
+				command.addCommand(TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutCubic, false, false, false));
+			} else {
+				// move effect
+				let prop = '';
+				let to = 0;
+				switch (this.transition) {
+					case DrawerTransition.left:
+						prop = 'left';
+						to = -this.getWidth();
+						break;
+					case DrawerTransition.right:
+						prop = 'right';
+						to = -this.getWidth();
+						break;
+					case DrawerTransition.top:
+						prop = 'top';
+						to = -this.getHeight();
+						break;
+					case DrawerTransition.bottom:
+						prop = 'bottom';
+						to = -this.getHeight();
+						break;
+				}
+				if (prop !== '') {
+					command.addCommand(this.move(view, prop, 0, to, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+				}
 			}
 
 			command.addCommand(new cmd.Func(():void => {
@@ -144,11 +170,16 @@ namespace alm.drawer.view {
 		}
 
 		private getWidth():number {
-			return parseInt(this.getView().css('width'));
+			return Math.round(this.getView().width());
 		}
 
 		private getHeight():number {
-			return parseInt(this.getView().css('height'));
+			return Math.round(this.getView().height());
+		}
+
+		public setCustomTransition(customShowTransition:cmd.Serial, customHideTransition:cmd.Serial):void {
+			this.customShowTransition = customShowTransition;
+			this.customHideTransition = customHideTransition;
 		}
 
 
@@ -162,6 +193,8 @@ namespace alm.drawer.view {
 		// --------------------------------------------------
 
 		private content:JQuery;
-		private position:DrawerPosition;
+		private transition:DrawerTransition;
+		private customShowTransition:cmd.Serial;
+		private customHideTransition:cmd.Serial;
 	}
 }

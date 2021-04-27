@@ -84,6 +84,7 @@
 
 /// <reference path='alm/browser/DeviceInfo.ts' />
 /// <reference path='alm/browser/LocalStorage.ts' />
+/// <reference path='alm/browser/SessionStorage.ts' />
 /// <reference path='alm/browser/KeyWatcher.ts' />
 /// <reference path='alm/browser/KeyWatcherEvent.ts' />
 /// <reference path='alm/browser/WindowWatcher.ts' />
@@ -95,13 +96,15 @@
 
 /// <reference path='scn/Scene.ts' />
 /// <reference path='scn/SceneEvent.ts' />
-/// <reference path='scn/SceneManager.ts' />
-/// <reference path='scn/SceneManagerEvent.ts' />
 /// <reference path='scn/SceneTransferInfo.ts' />
 /// <reference path='scn/SceneState.ts' />
 /// <reference path='scn/core/Direction.ts' />
-/// <reference path='scn/core/RootScene.ts' />
 /// <reference path='scn/core/Waypoint.ts' />
+/// <reference path='scn/core/IRootScene.ts' />
+/// <reference path='scn/core/RootScene.ts' />
+/// <reference path='scn/SceneManager.ts' />
+/// <reference path='scn/SceneManagerTransferEvent.ts' />
+/// <reference path='scn/SceneManagerRequireSceneEvent.ts' />
 
 
 /* ---------- init ---------- */

@@ -14,8 +14,11 @@ namespace alm.drawer.view {
 		//
 		// --------------------------------------------------
 
-		constructor() {
+		constructor(transition:DrawerTransition) {
 			super();
+
+			this.transition = transition;
+
 			this.initialize();
 		}
 
@@ -33,6 +36,9 @@ namespace alm.drawer.view {
 			const view = jQuery('<div>');
 			view.addClass('drawer-background');
 
+			this.customShowTransition = null;
+			this.customHideTransition = null;
+
 			return view;
 		}
 
@@ -43,21 +49,54 @@ namespace alm.drawer.view {
 		}
 
 		protected implShow(view:JQuery, useTransition:boolean):cmd.Command {
-			return new cmd.Serial(
+			const command = new cmd.Serial(
 				new cmd.Func(():void => {
 					view.on('click', this.clickHandler);
-				}),
-				TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutQuart, 'block', false, false)
+				})
 			);
+
+			if (this.customShowTransition) {
+				// custom effect
+				command.addCommand(this.customShowTransition);
+			} else if (this.transition == DrawerTransition.none) {
+				// no effect
+				command.addCommand(new cmd.Func(():void => {
+					view.css('display', 'block');
+				}));
+			} else {
+				// fade effect
+				command.addCommand(TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutQuart, 'block', false, false));
+			}
+
+			return command;
 		}
 
 		protected implHide(view:JQuery, useTransition:boolean):cmd.Command {
-			return new cmd.Serial(
-				TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutQuart, true, false, false),
-				new cmd.Func(():void => {
-					view.off('click', this.clickHandler);
-				})
-			);
+			const command = new cmd.Serial();
+
+			if (this.customHideTransition) {
+				// custom effect
+				command.addCommand(this.customHideTransition);
+			} else if (this.transition == DrawerTransition.none) {
+				// no effect
+				command.addCommand(new cmd.Func(():void => {
+					view.css('display', 'none');
+				}));
+			} else {
+				// fade effect
+				command.addCommand(TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutQuart, true, false, false));
+			}
+
+			command.addCommand(new cmd.Func(():void => {
+				view.off('click', this.clickHandler);
+			}));
+
+			return command;
+		}
+
+		public setCustomTransition(customShowTransition:cmd.Serial, customHideTransition:cmd.Serial):void {
+			this.customShowTransition = customShowTransition;
+			this.customHideTransition = customHideTransition;
 		}
 
 		private clickHandler = ():void => {
@@ -73,5 +112,9 @@ namespace alm.drawer.view {
 		// VARIABLE
 		//
 		// --------------------------------------------------
+
+		private transition:DrawerTransition;
+		private customShowTransition:cmd.Serial;
+		private customHideTransition:cmd.Serial;
 	}
 }

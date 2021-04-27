@@ -21,11 +21,11 @@ namespace alm.util {
 
 
 
-		public static fade(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fade(target:JQuery, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = null, updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			let o:Object = { value: from };
 			const tween:cmd.Tween = new cmd.Tween(o, { value: to }, null, duration, easing, ():void => {
 				if (to > 0) {
-					if (updateDisplayTo != '') {
+					if (updateDisplayTo) {
 						target.css('display', updateDisplayTo);
 					}
 					if (updateVisibility) {
@@ -36,7 +36,7 @@ namespace alm.util {
 				target.css('opacity', o['value']);
 			}, ():void => {
 				if (to <= 0) {
-					if (updateDisplayTo != '') {
+					if (updateDisplayTo) {
 						target.css('display', 'none');
 					}
 					if (updateVisibility) {
@@ -48,11 +48,11 @@ namespace alm.util {
 			return tween;
 		}
 
-		public static fadeTo(target:JQuery, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fadeTo(target:JQuery, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = null, updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			return TweenCSS.fade(target, parseFloat(target.css('opacity')), to, duration, easing, updateDisplayTo, updateVisibility, execute);
 		}
 
-		public static fadeIn(target:JQuery, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = '', updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
+		public static fadeIn(target:JQuery, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, updateDisplayTo:string = null, updateVisibility:boolean = false, execute:boolean = true):cmd.Tween {
 			return TweenCSS.fadeTo(target, 1, duration, easing, updateDisplayTo, updateVisibility, execute);
 		}
 

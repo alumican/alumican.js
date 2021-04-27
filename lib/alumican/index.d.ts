@@ -509,6 +509,7 @@ declare namespace alm.util {
         static swap<T>(list: T[], index1: number, index2: number): void;
         static shuffle<T>(list: T[]): void;
         static sort(list: number[], asc?: boolean): void;
+        static choose<T>(list: T[]): T;
         private constructor();
     }
 }
@@ -517,10 +518,11 @@ declare namespace alm.util {
     class Num {
         static map(value: number, srcA: number, srcB: number, dstA: number, dstB: number, clamp?: boolean): number;
         static ease(value: number, srcA: number, srcB: number, dstA: number, dstB: number, easing: EasingFunction): number;
-        static random(min?: number, max?: number): number;
-        static randomInt(min?: number, max?: number): number;
         static clamp(value: number, min: number, max: number): number;
         static clampAbs(value: number, minAbs: number, maxAbs: number): number;
+        static lerp(t: number, a: number, b: number, clamp?: boolean): number;
+        static random(min?: number, max?: number): number;
+        static randomInt(min?: number, max?: number): number;
         static dist(x1: number, y1: number, x2: number, y2: number, squared?: boolean): number;
         static radToDeg(radian: number): number;
         static degToRad(degree: number): number;
@@ -555,11 +557,25 @@ declare namespace alm.util {
 }
 declare namespace alm.util {
     class Dom {
-        static instantiate(templateId: string): HTMLElement;
-        static addPointerDownListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
-        static addPointerUpListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
-        static removePointerEventListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
-        static removePointerUpListener(target: HTMLElement, listener: (event: PointerEvent) => void): void;
+        static instantiate(templateId: string, removeId?: boolean): HTMLElement;
+        static addPointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addPointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addPointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addRootClass(value: string): void;
+        static removeRootClass(value: string): void;
+        static addRootAttribute(key: string, value: string): void;
+        static removeRootAttribute(key: string, value: string): void;
+        static scrollTo(scrollTop: number, useTransition?: boolean): void;
+        private static applyScrollPosition;
+        static setupSmoothAnchorLink(): void;
+        private static setAnchorLinkAction;
+        private static anchorLinkClickHandler;
+        private static htmlElement;
+        private static scrollTween;
+        private static scrollPosition;
         private constructor();
     }
 }
@@ -1190,6 +1206,8 @@ declare namespace alm.browser {
         static getIsFireFox(): boolean;
         static getIsOpera(): boolean;
         static getIsUnknownBrowser(): boolean;
+        static getLang(): string;
+        static getLangFull(): string;
         static getIsTouchEnabled(): boolean;
         static getIsDownloadEnabled(): boolean;
         static getIsRetina(): boolean;
@@ -1212,6 +1230,8 @@ declare namespace alm.browser {
         private static isRetina;
         private static devicePixelRatio;
         private static dpi;
+        private static lang;
+        private static langFull;
         private static isInitialized;
         private constructor();
     }
@@ -1224,6 +1244,16 @@ declare namespace alm.browser {
         static remove(key: string): void;
         static isAvailable(): boolean;
         static toMilliseconds(dates?: number, hours?: number, minutes?: number, seconds?: number, milliseconds?: number): number;
+        private static isAvailable_;
+        private constructor();
+    }
+}
+declare namespace alm.browser {
+    class SessionStorage {
+        static save(key: string, value: any): boolean;
+        static load(key: string, defaultValue?: any): any;
+        static remove(key: string): void;
+        static isAvailable(): boolean;
         private static isAvailable_;
         private constructor();
     }
@@ -1497,6 +1527,7 @@ declare namespace alm.browser {
 }
 declare namespace scn {
     import EventDispatcher = alm.event.EventDispatcher;
+    import Hash = alm.util.Hash;
     class Scene extends EventDispatcher {
         constructor(name: string);
         addChild(child: Scene): Scene;
@@ -1510,10 +1541,12 @@ declare namespace scn {
         getLastState(): SceneState;
         getParent(): Scene;
         getChildByName(name: string): Scene;
+        getChildrenByName(): Hash<Scene>;
         getNumChildren(): number;
         getManager(): SceneManager;
         getPath(): string;
-        gotoScene(path: string): void;
+        getTransferInfo(): SceneTransferInfo;
+        gotoScene(path: string, message?: any): void;
         _load(transferInfo: SceneTransferInfo): void;
         _unload(transferInfo: SceneTransferInfo): void;
         _arrive(transferInfo: SceneTransferInfo): void;
@@ -1532,7 +1565,6 @@ declare namespace scn {
         onLeave: () => cmd.Command;
         onAscend: () => cmd.Command;
         onDescend: () => cmd.Command;
-        private isEntered;
         private name;
         private state;
         private lastState;
@@ -1563,57 +1595,12 @@ declare namespace scn {
     }
 }
 declare namespace scn {
-    import EventDispatcher = alm.event.EventDispatcher;
-    class SceneManager extends EventDispatcher {
-        constructor(name?: string);
-        start(): void;
-        goto(path: string): void;
-        resolvePath(path: string): string;
-        addSceneAt(path: string, createScene?: boolean): Scene;
-        getName(): string;
-        getRoot(): Scene;
-        getSceneByPath(path: string): Scene;
-        getSceneNamesByPath(path: string): string[];
-        getSceneLevelByNames(names: string[]): number;
-        getScenePathByNames(names: string[]): string;
-        private createWaypoints;
-        private setDirection;
-        private printWaypoint;
-        private checkState;
-        private sceneLoadCompleteHandler;
-        private sceneUnloadCompleteHandler;
-        private sceneArriveCompleteHandler;
-        private sceneLeaveCompleteHandler;
-        private sceneAscendCompleteHandler;
-        private sceneDescendCompleteHandler;
-        private name;
-        private root;
-        private currentScene;
-        private waypoints;
-        private waypointIndex;
-        private lastState;
-        private eventIndex;
-        private transferInfo;
-        private transferId;
-    }
-}
-declare namespace scn {
-    import Event = alm.event.Event;
-    class SceneManagerEvent extends Event<SceneManager> {
-        static TRANSFER_START: string;
-        static TRANSFER_COMPLETE: string;
-        constructor(eventType: string, eventTarget: SceneManager);
-        clone(): SceneManagerEvent;
-        toString(): string;
-    }
-}
-declare namespace scn {
     class SceneTransferInfo {
-        constructor(transferId: number, departurePath: string, destinationPath: string);
+        constructor(transferId: number, departurePath: string, destinationPath: string, message?: any);
         getTransferId(): number;
         getDeparturePath(): string;
         getDestinationPath(): string;
-        relay: any;
+        message: any;
         private transferId;
         private departurePath;
         private destinationPath;
@@ -1641,13 +1628,6 @@ declare namespace scn.core {
     function getDirectionString(direction: Direction): string;
 }
 declare namespace scn.core {
-    class RootScene extends Scene {
-        constructor(manager: SceneManager);
-        getManager(): SceneManager;
-        private manager;
-    }
-}
-declare namespace scn.core {
     class Waypoint {
         constructor(path: string, level: number);
         getPath(): string;
@@ -1661,6 +1641,80 @@ declare namespace scn.core {
         private level;
         private from;
         private to;
+    }
+}
+declare namespace scn.core {
+    interface IRootScene {
+        new (manager: SceneManager): RootScene;
+        getManager(): SceneManager;
+    }
+}
+declare namespace scn.core {
+    class RootScene extends Scene {
+        constructor(manager: SceneManager);
+        getManager(): SceneManager;
+        private manager;
+    }
+}
+declare namespace scn {
+    import EventDispatcher = alm.event.EventDispatcher;
+    import RootScene = scn.core.RootScene;
+    class SceneManager extends EventDispatcher {
+        constructor(name?: string, rootSceneClass?: (new (sceneManager: SceneManager) => RootScene));
+        start(message?: any): void;
+        goto(path: string, message?: any): void;
+        resolvePath(path: string): string;
+        addSceneAt(path: string): Scene;
+        getName(): string;
+        getRoot(): Scene;
+        getSceneByPath(path: string): Scene;
+        getParentSceneByPath(path: string): Scene;
+        private getSceneBySceneNames;
+        getSceneNamesByPath(path: string): string[];
+        getSceneLevelByNames(names: string[]): number;
+        getScenePathByNames(names: string[]): string;
+        private createWaypoints;
+        private setDirection;
+        private dumpWaypoint;
+        dumpAllPath(): void;
+        private _dumpAllPath;
+        private checkState;
+        private sceneLoadCompleteHandler;
+        private sceneUnloadCompleteHandler;
+        private sceneArriveCompleteHandler;
+        private sceneLeaveCompleteHandler;
+        private sceneAscendCompleteHandler;
+        private sceneDescendCompleteHandler;
+        private name;
+        private root;
+        private currentScene;
+        private waypoints;
+        private waypointIndex;
+        private lastState;
+        private eventIndex;
+        private transferInfo;
+        private transferId;
+    }
+}
+declare namespace scn {
+    import Event = alm.event.Event;
+    class SceneManagerTransferEvent extends Event<SceneManager> {
+        static TRANSFER_START: string;
+        static TRANSFER_COMPLETE: string;
+        constructor(eventType: string, eventTarget: SceneManager, transferInfo: SceneTransferInfo);
+        clone(): SceneManagerTransferEvent;
+        toString(): string;
+        readonly transferInfo: SceneTransferInfo;
+    }
+}
+declare namespace scn {
+    import Event = alm.event.Event;
+    class SceneManagerRequireSceneEvent extends Event<SceneManager> {
+        static REQUIRE_SCENE: string;
+        constructor(eventType: string, eventTarget: SceneManager, scenePath: string);
+        clone(): SceneManagerRequireSceneEvent;
+        toString(): string;
+        readonly scenePath: string;
     }
 }
 declare namespace alm {

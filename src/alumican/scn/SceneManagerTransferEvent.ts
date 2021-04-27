@@ -4,7 +4,7 @@ namespace scn {
 
 	import Event = alm.event.Event;
 
-	export class SceneManagerEvent extends Event<SceneManager> {
+	export class SceneManagerTransferEvent extends Event<SceneManager> {
 
 		// --------------------------------------------------
 		//
@@ -12,8 +12,8 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static TRANSFER_START:string = 'transferStart';
-		public static TRANSFER_COMPLETE:string = 'transferComplete';
+		public static TRANSFER_START:string = 'SceneManagerTransferEvent.transferStart';
+		public static TRANSFER_COMPLETE:string = 'SceneManagerTransferEvent.transferComplete';
 
 
 
@@ -25,8 +25,9 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:SceneManager) {
+		constructor(eventType:string, eventTarget:SceneManager, transferInfo:SceneTransferInfo) {
 			super(eventType, eventTarget);
+			this.transferInfo = transferInfo;
 		}
 
 
@@ -39,12 +40,12 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public clone():SceneManagerEvent {
-			return new SceneManagerEvent(this.type, this.target);
+		public clone():SceneManagerTransferEvent {
+			return new SceneManagerTransferEvent(this.type, this.target, this.transferInfo);
 		}
 
 		public toString():string {
-			return '[SceneManagerEvent] type = ' + this.type;
+			return '[SceneManagerTransferEvent] type = ' + this.type;
 		}
 
 
@@ -56,5 +57,7 @@ namespace scn {
 		// VARIABLE
 		//
 		// --------------------------------------------------
+
+		public readonly transferInfo:SceneTransferInfo;
 	}
 }

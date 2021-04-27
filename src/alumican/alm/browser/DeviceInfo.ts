@@ -55,6 +55,20 @@ namespace alm.browser {
 				this.isUnknownBrowser = true;
 			}
 
+			// Language
+			try {
+				const navigator = window.navigator;
+				if (this.isChrome) {
+					this.langFull = (navigator.languages[0] || navigator['browserLanguage'] || navigator.language || navigator['userLanguage']);
+				} else {
+					this.langFull = (navigator['browserLanguage'] || navigator.language || navigator['userLanguage']);
+				}
+				this.lang = this.langFull.substr(0, 2);
+			} catch (exception) {
+				this.lang =  undefined;
+				this.langFull =  undefined;
+			}
+
 			// Function
 			this.isTouchEnabled = (typeof window.ontouchstart) !== 'undefined';
 			this.isDownloadEnabled = !this.isIOS;
@@ -134,6 +148,19 @@ namespace alm.browser {
 		}
 
 		// --------------------
+		// Language
+
+		public static getLang():string {
+			this.initialize();
+			return this.lang;
+		}
+
+		public static getLangFull():string {
+			this.initialize();
+			return this.langFull;
+		}
+
+		// --------------------
 		// Function
 
 		public static getIsTouchEnabled():boolean {
@@ -201,6 +228,9 @@ namespace alm.browser {
 		private static isRetina:boolean = false;
 		private static devicePixelRatio:number = 1;
 		private static dpi:number = -1;
+
+		private static lang:string;
+		private static langFull:string;
 
 		private static isInitialized:boolean = false;
 
