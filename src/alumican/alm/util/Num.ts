@@ -65,7 +65,7 @@ namespace alm.util {
 		}
 
 		/**
-		 * 富豪を保ったまま、値の絶対値を特定範囲内に丸める
+		 * 符号を保ったまま、値の絶対値を特定範囲内に丸める
 		 * @param {number} value 入力値
 		 * @param {number} minAbs 最小値
 		 * @param {number} maxAbs 最大値
@@ -114,6 +114,24 @@ namespace alm.util {
 		 */
 		public static randomInt(min:number = 0, max:number = 1):number {
 			return Math.floor(Num.random(min, max + 1));
+		}
+
+		/**
+		 * 正負方向の同じ範囲で乱数を取得する
+		 * @param {number} min 最小値（正の数）
+		 * @param {number} max 最大値（正の数）
+		 * @returns {number} 出力値
+		 */
+		public static randomAbs(min:number = 0, max:number = 1):number {
+			return Num.random(min, max) * Num.randomSign();
+		}
+
+		/**
+		 * +1もしくは-1を返す
+		 * @returns {number} 出力値
+		 */
+		public static randomSign():number {
+			return Math.random() < 0.5 ? 1 : -1;
 		}
 
 		/**
@@ -170,15 +188,15 @@ namespace alm.util {
 		//
 		// --------------------------------------------------
 
-		public static PI2:number = Math.PI * 2;
-		public static PI3:number = Math.PI * 3;
-		public static PI4:number = Math.PI * 4;
-		public static PI5:number = Math.PI * 5;
-		public static PI6:number = Math.PI * 6;
-		public static PI_2:number = Math.PI / 2;
-		public static PI_3:number = Math.PI / 3;
-		public static PI_4:number = Math.PI / 4;
-		public static PI_6:number = Math.PI / 6;
+		public static readonly PI2:number = Math.PI * 2;
+		public static readonly PI3:number = Math.PI * 3;
+		public static readonly PI4:number = Math.PI * 4;
+		public static readonly PI5:number = Math.PI * 5;
+		public static readonly PI6:number = Math.PI * 6;
+		public static readonly PI_2:number = Math.PI / 2;
+		public static readonly PI_3:number = Math.PI / 3;
+		public static readonly PI_4:number = Math.PI / 4;
+		public static readonly PI_6:number = Math.PI / 6;
 
 		private static RAD2DEG:number = 180 / Math.PI;
 		private static DEG2RAD:number = Math.PI / 180;

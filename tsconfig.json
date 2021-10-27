@@ -6,7 +6,8 @@
       "dom"
     ],
     "types": [
-      "jquery"
+      "jquery",
+      "webvr-api"
     ],
     "typeRoots": [
       "build/node_modules/@types",

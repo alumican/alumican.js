@@ -6,5 +6,6 @@
 
 /* ---------- project scripts ---------- */
 
+/// <reference path='alm/io/JQueryTextFileHandler.ts' />
 /// <reference path='alm/io/JQueryJsonFileHandler.ts' />
 /// <reference path='alm/util/TweenCSS.ts' />

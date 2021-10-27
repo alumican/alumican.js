@@ -41,6 +41,7 @@
 /// <reference path='alm/util/Str.ts' />
 /// <reference path='alm/util/Cmd.ts' />
 /// <reference path='alm/util/Dom.ts' />
+/// <reference path='alm/util/CssVar.ts' />
 
 /// <reference path='alm/resource/ObjectPool.ts' />
 
@@ -56,6 +57,8 @@
 /// <reference path='alm/math/SimpleMovingAverage.ts' />
 /// <reference path='alm/math/MaxValue.ts' />
 /// <reference path='alm/math/Circular.ts' />
+/// <reference path='alm/math/BinarySearch.ts' />
+/// <reference path='alm/math/MersenneTwister.ts' />
 
 /// <reference path='alm/time/AnimationFrameTicker.ts' />
 /// <reference path='alm/time/AnimationFrameTickerEvent.ts' />
@@ -68,6 +71,7 @@
 /// <reference path='alm/io/FileLoaderErrorEvent.ts' />
 /// <reference path='alm/io/FileQuery.ts' />
 /// <reference path='alm/io/IFileHandler.ts' />
+/// <reference path='alm/io/ImageFileHandler.ts' />
 
 /// <reference path='alm/audio/core/AudioClip.ts' />
 /// <reference path='alm/audio/AudioPlayer.ts' />

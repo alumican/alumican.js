@@ -65,7 +65,7 @@ namespace alm.drawer.view {
 				}));
 			} else {
 				// fade effect
-				command.addCommand(TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutQuart, 'block', false, false));
+				command.addCommand(TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutQuart, 'block', false));
 			}
 
 			return command;
@@ -84,7 +84,7 @@ namespace alm.drawer.view {
 				}));
 			} else {
 				// fade effect
-				command.addCommand(TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutQuart, true, false, false));
+				command.addCommand(TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutQuart, true, false));
 			}
 
 			command.addCommand(new cmd.Func(():void => {

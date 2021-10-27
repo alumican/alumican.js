@@ -29,6 +29,7 @@ namespace alm.io {
 
 		public load(url:string, onComplete:CompleteFunction, onError:ErrorFunction):void {
 			const loader:THREE.TextureLoader = new THREE.TextureLoader();
+			loader.crossOrigin = 'anonymous';
 			const texture:THREE.Texture = loader.load(
 				url,
 				(texture:THREE.Texture):void => {

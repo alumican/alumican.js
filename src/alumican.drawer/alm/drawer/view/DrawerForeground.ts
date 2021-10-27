@@ -82,7 +82,7 @@ namespace alm.drawer.view {
 				// no effect
 			} else if (this.transition === DrawerTransition.fade) {
 				// fade effect
-				command.addCommand(TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutCubic, null, false, false));
+				command.addCommand(TweenCSS.fadeIn(view, useTransition ? 500 : 0, Easing.easeOutCubic, null, false));
 			} else {
 				// move effect
 				let prop = '';
@@ -107,7 +107,7 @@ namespace alm.drawer.view {
 				}
 				if (prop !== '') {
 					view.css(prop, from);
-					command.addCommand(this.move(view, prop, from, 0, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+					command.addCommand(this.move(view, prop, from, 0, useTransition ? 500 : 0, Easing.easeOutQuart));
 				}
 			}
 
@@ -124,7 +124,7 @@ namespace alm.drawer.view {
 				// no effect
 			} else if (this.transition === DrawerTransition.fade) {
 				// fade effect
-				command.addCommand(TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutCubic, false, false, false));
+				command.addCommand(TweenCSS.fadeOut(view, useTransition ? 500 : 0, Easing.easeOutCubic, false, false));
 			} else {
 				// move effect
 				let prop = '';
@@ -148,7 +148,7 @@ namespace alm.drawer.view {
 						break;
 				}
 				if (prop !== '') {
-					command.addCommand(this.move(view, prop, 0, to, useTransition ? 500 : 0, Easing.easeOutQuart, false));
+					command.addCommand(this.move(view, prop, 0, to, useTransition ? 500 : 0, Easing.easeOutQuart));
 				}
 			}
 
@@ -159,14 +159,12 @@ namespace alm.drawer.view {
 			return command;
 		}
 
-		private move(target:JQuery, prop:string, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart, execute:boolean = true):cmd.Tween {
+		private move(target:JQuery, prop:string, from:number, to:number, duration:number = 500, easing:EasingFunction = Easing.easeOutQuart):cmd.Tween {
 			let o:Object = { value: from };
-			const tween:cmd.Tween = new cmd.Tween(o, { value: to }, null, duration, easing, null, ():void => {
+			return new cmd.Tween(o, { value: to }, null, duration, easing, null, ():void => {
 				const value:number = o['value'];
 				target.css(prop, value);
 			}, null);
-			if (execute) tween.execute();
-			return tween;
 		}
 
 		private getWidth():number {

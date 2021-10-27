@@ -69,9 +69,17 @@ namespace alm.browser {
 				this.langFull =  undefined;
 			}
 
-			// Function
+			// Capability
 			this.isTouchEnabled = (typeof window.ontouchstart) !== 'undefined';
 			this.isDownloadEnabled = !this.isIOS;
+
+			try {
+				const canvas:HTMLCanvasElement = document.createElement('canvas');
+				const webGlContext:WebGLRenderingContext = <WebGLRenderingContext>(canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+				this.isWebGlEnabled = !!(window.WebGLRenderingContext && webGlContext && webGlContext.getShaderPrecisionFormat);
+			} catch (e) {
+				this.isWebGlEnabled = false;
+			}
 
 			// Resolution
 			this.devicePixelRatio = window.devicePixelRatio;
@@ -161,7 +169,7 @@ namespace alm.browser {
 		}
 
 		// --------------------
-		// Function
+		// Capability
 
 		public static getIsTouchEnabled():boolean {
 			this.initialize();
@@ -171,6 +179,12 @@ namespace alm.browser {
 		public static getIsDownloadEnabled():boolean {
 			this.initialize();
 			return this.isDownloadEnabled;
+		}
+
+		// see: https://qiita.com/tonkotsuboy_com/items/cdffcdd7bdccac371292
+		public static getIsWebGlEnabled():boolean {
+			this.initialize();
+			return this.isWebGlEnabled;
 		}
 
 		// --------------------
@@ -224,6 +238,7 @@ namespace alm.browser {
 
 		private static isTouchEnabled:boolean = false;
 		private static isDownloadEnabled:boolean = false;
+		private static isWebGlEnabled:boolean = false;
 
 		private static isRetina:boolean = false;
 		private static devicePixelRatio:number = 1;

@@ -46,11 +46,11 @@ namespace alm.drawer.view {
 		}
 
 		protected implShow(view:JQuery, useTransition:boolean):cmd.Command {
-			return TweenCSS.fadeIn(view, useTransition ? 1000 : 0, Easing.linear, 'block', true, false);
+			return TweenCSS.fadeIn(view, useTransition ? 1000 : 0, Easing.linear, 'block', true);
 		}
 
 		protected implHide(view:JQuery, useTransition:boolean):cmd.Command {
-			return TweenCSS.fadeOut(view, useTransition ? 1000 : 0, Easing.linear, false, true, false);
+			return TweenCSS.fadeOut(view, useTransition ? 1000 : 0, Easing.linear, false, true);
 		}
 
 

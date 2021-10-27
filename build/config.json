@@ -7,44 +7,48 @@
 	"projects": [
 		{
 			"name": "alumican",
-			"ts": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		},
 		{
 			"name": "alumican.jquery",
-			"ts": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		},
 		{
 			"name": "alumican.drawer",
-			"ts": [{ "src": "index", "dst": "index" }],
-			"scss": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }],
+			"scss": [{ "src": "index", "dst": "index", "watch": "**/*.scss" }]
 		},
 		{
 			"name": "alumican.slideshow",
-			"ts": [{ "src": "index", "dst": "index" }],
-			"scss": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }],
+			"scss": [{ "src": "index", "dst": "index", "watch": "**/*.scss" }]
 		},
 		{
 			"name": "alumican.canvas",
-			"ts": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		},
 		{
 			"name": "alumican.canvas.pixi",
-			"ts": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		},
 		{
 			"name": "alumican.canvas.paper",
-			"ts": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		},
 		{
 			"name": "alumican.three",
-			"ts": [{ "src": "index", "dst": "index" }]
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
+		},
+		{
+			"name": "alumican.googlemaps",
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		}
 	],
 
 	"typeScriptOptions": {
 		"target": "ES5",
 		"lib": ["es6", "dom"],
-		"types": ["jquery"],
+		"types": ["jquery", "webvr-api"],
 		"typeRoots": [
 			"src/@types",
 			"lib"

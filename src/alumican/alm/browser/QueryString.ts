@@ -95,6 +95,27 @@ namespace alm.browser {
 
 
 
+		public static getReplacedQueryStringUrl(url:string, key:string, value:string):string {
+			const regExp = new RegExp('([?&])' + key + '=.*?(&|$)', 'i');
+			const separator = url.indexOf('?') !== -1 ? '&' : '?';
+			if (url.match(regExp)) {
+				return url.replace(regExp, '$1' + key + '=' + value + '$2');
+			}
+			else {
+				return url + separator + key + '=' + value;
+			}
+		}
+
+		public static replaceQueryString(key:string, value:string):void {
+			const url = QueryString.getReplacedQueryStringUrl(window.location.href, key, value);
+			const state = url.match(/^https?:\/{2,}.*?(\/.*)/)[1];
+			window.history.replaceState(null, null, state);
+		}
+
+
+
+
+
 		// --------------------------------------------------
 		//
 		// VARIABLE

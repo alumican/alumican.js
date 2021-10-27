@@ -66,6 +66,8 @@ declare namespace alm.browser {
         setParam(key: string, value: any): void;
         removeParam(key: string): void;
         hasParam(key: string): boolean;
+        static getReplacedQueryStringUrl(url: string, key: string, value: string): string;
+        static replaceQueryString(key: string, value: string): void;
         private hash;
     }
 }
@@ -523,19 +525,21 @@ declare namespace alm.util {
         static lerp(t: number, a: number, b: number, clamp?: boolean): number;
         static random(min?: number, max?: number): number;
         static randomInt(min?: number, max?: number): number;
+        static randomAbs(min?: number, max?: number): number;
+        static randomSign(): number;
         static dist(x1: number, y1: number, x2: number, y2: number, squared?: boolean): number;
         static radToDeg(radian: number): number;
         static degToRad(degree: number): number;
         static turn(from: number, to: number, radian?: boolean): number;
-        static PI2: number;
-        static PI3: number;
-        static PI4: number;
-        static PI5: number;
-        static PI6: number;
-        static PI_2: number;
-        static PI_3: number;
-        static PI_4: number;
-        static PI_6: number;
+        static readonly PI2: number;
+        static readonly PI3: number;
+        static readonly PI4: number;
+        static readonly PI5: number;
+        static readonly PI6: number;
+        static readonly PI_2: number;
+        static readonly PI_3: number;
+        static readonly PI_4: number;
+        static readonly PI_6: number;
         private static RAD2DEG;
         private static DEG2RAD;
         private constructor();
@@ -561,22 +565,54 @@ declare namespace alm.util {
         static addPointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
         static addPointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
         static addPointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addPointerEnterListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addPointerLeaveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addPointerOverListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static addPointerOutListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
         static removePointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
         static removePointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
         static removePointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerEnterListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerLeaveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerOverListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static removePointerOutListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
         static addRootClass(value: string): void;
         static removeRootClass(value: string): void;
         static addRootAttribute(key: string, value: string): void;
         static removeRootAttribute(key: string, value: string): void;
+        static getRootCss(property: string): string;
+        static setRootCss(property: string, value: string): void;
         static scrollTo(scrollTop: number, useTransition?: boolean): void;
         private static applyScrollPosition;
         static setupSmoothAnchorLink(): void;
         private static setAnchorLinkAction;
         private static anchorLinkClickHandler;
-        private static htmlElement;
+        private static root;
         private static scrollTween;
         private static scrollPosition;
         private constructor();
+    }
+}
+declare namespace alm.util {
+    import EasingFunction = alm.math.EasingFunction;
+    class CssVar {
+        static readonly numberPattern: RegExp;
+        constructor(property: string, defaultValue?: number, suffix?: string);
+        reset(property: string, value?: number, suffix?: string): void;
+        getProperty(): string;
+        setProperty(property: string): void;
+        getValue(): number;
+        setValue(value: number): void;
+        getSuffix(): string;
+        setSuffix(suffix: string): void;
+        animate(to: number, from: number, duration?: number, easing?: EasingFunction, execute?: boolean): cmd.Tween;
+        cancelAnimation(): void;
+        animateTo(to: number, duration?: number, easing?: EasingFunction, execute?: boolean): cmd.Tween;
+        apply(): void;
+        private property;
+        private value;
+        private suffix;
+        private tween;
     }
 }
 declare namespace alm.resource {
@@ -776,6 +812,32 @@ declare namespace alm.math {
         private velocity;
     }
 }
+declare namespace alm.math {
+    class BinarySearch {
+        constructor(list?: number[]);
+        setList(list: number[]): void;
+        searchNearest(value: number): number;
+        leapNearest(value: number): {
+            index0: number;
+            index1: number;
+            ratio: number;
+        };
+        private list;
+    }
+}
+declare namespace alm.math {
+    class MersenneTwister {
+        constructor(seed: number);
+        private static _mulUint32;
+        private static _toNumber;
+        setSeed(seed: number | number[]): void;
+        private _nextInt;
+        getInt(): number;
+        getFloat(): number;
+        private _mt;
+        private _index;
+    }
+}
 declare namespace alm.time {
     import EventDispatcher = alm.event.EventDispatcher;
     class AnimationFrameTicker extends EventDispatcher {
@@ -932,6 +994,18 @@ declare namespace alm.io {
     interface IFileHandler {
         getType(): string;
         load(url: string, onComplete: CompleteFunction, onError: ErrorFunction): void;
+    }
+}
+declare namespace alm.io {
+    import IFileHandler = alm.io.IFileHandler;
+    import CompleteFunction = alm.io.CompleteFunction;
+    import ErrorFunction = alm.io.ErrorFunction;
+    class ImageFileHandler implements IFileHandler {
+        constructor(crossOrigin?: string);
+        getType(): string;
+        load(url: string, onComplete: CompleteFunction, onError: ErrorFunction): void;
+        private crossOrigin;
+        static TYPE: string;
     }
 }
 declare namespace alm.audio {
@@ -1210,6 +1284,7 @@ declare namespace alm.browser {
         static getLangFull(): string;
         static getIsTouchEnabled(): boolean;
         static getIsDownloadEnabled(): boolean;
+        static getIsWebGlEnabled(): boolean;
         static getIsRetina(): boolean;
         static getDevicePixelRatio(): number;
         static getDpi(): number;
@@ -1227,6 +1302,7 @@ declare namespace alm.browser {
         private static isUnknownBrowser;
         private static isTouchEnabled;
         private static isDownloadEnabled;
+        private static isWebGlEnabled;
         private static isRetina;
         private static devicePixelRatio;
         private static dpi;

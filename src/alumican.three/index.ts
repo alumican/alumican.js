@@ -6,4 +6,6 @@
 
 /* ---------- project scripts ---------- */
 
+/// <reference path='alm/util/ThreeUtil.ts' />
+/// <reference path='alm/util/EasingThreeVector3.ts' />
 /// <reference path='alm/io/ThreeTextureFileHandler.ts' />

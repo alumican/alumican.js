@@ -5,12 +5,18 @@ import {Gulp} from "gulp";
 type GulpModule = any;
 type GetCommandsFunction = (srcFileName:string, dstFileName:string) => any[];
 
-type Mapping = { src:string, dst:string };
-type Project = { name:string, ts?:Mapping[], scss?:Mapping[], ejs?:Mapping[], html?:Mapping[], php?:Mapping[], static?:Mapping[] };
+type Mapping = { src:string, dst:string, watch?:string|string[] };
+
+type Path = { src:string, dst:string };
+type OptionalPath = { src?:string, dst?:string };
+
+type Project = { name?:string, path?:OptionalPath, ts?:Mapping[], scss?:Mapping[], ejs?:Mapping[], html?:Mapping[], php?:Mapping[], static?:Mapping[] };
 type ProjectDefault = { ts?:Mapping[], scss?:Mapping[], ejs?:Mapping[], html?:Mapping[], php?:Mapping[], static?:Mapping[] };
 type Projects = Project[];
-type Path = { src:string, dst:string };
-type Config = { projects:Projects, default:ProjectDefault, path:Path, typeScriptOptions?:any, sassOptions?:any, autoprefixerOptions?:any, server?:any };
+
+type Config = { projects:Projects, default:ProjectDefault, path:Path, typeScriptOptions?:any, sassOptions?:any, autoprefixerOptions?:any, htmlOptions?:any, phpOptions?:any, ejsOptions?:any, server?:any };
+
+type TaskRegisterInfo = { name:string, globs:string[] };
 
 
 
@@ -29,7 +35,7 @@ const typescript:GulpModule = require('gulp-typescript');
 const uglify:GulpModule = require('gulp-uglify');
 
 // Sass
-const sass:GulpModule = require('gulp-sass');
+const sass:GulpModule = require('gulp-sass')(require('sass'));
 const cleanCss:GulpModule = require('gulp-clean-css');
 const rename:GulpModule = require('gulp-rename');
 const autoprefixer = require("gulp-autoprefixer");
@@ -104,14 +110,24 @@ if (autoprefixerOptions) {
 	delete autoprefixerOptions.browsers;
 }
 
+// check HTML option
+const htmlOptions:any = config.htmlOptions || {};
+
+// check php option
+const phpOptions:any = config.phpOptions || {};
+
+// check ejs option
+const ejsOptions:any = config.ejsOptions || {};
+
+
 
 
 
 //----------------------------------------
 // define functions
 
-const defaultTaskNames:string[] = [];
 const watchTaskNames:string[] = [];
+let allTaskNames:string[] = [];
 let allTypeScriptTaskNames:string[] = [];
 let allSassTaskNames:string[] = [];
 let allEjsTaskNames:string[] = [];
@@ -119,12 +135,12 @@ let allHtmlTaskNames:string[] = [];
 let allPhpTaskNames:string[] = [];
 let allStaticTaskNames:string[] = [];
 
-const indent:string = '           ';
+const indent:string = '		   ';
 const color:any = {
 	default: '\u001b[39m',
 
 	black  : '\u001b[30m',
-	red    : '\u001b[31m',
+	red	: '\u001b[31m',
 	green  : '\u001b[32m',
 	yellow : '\u001b[33m',
 	blue   : '\u001b[34m',
@@ -133,7 +149,7 @@ const color:any = {
 	white  : '\u001b[37m',
 
 	lightGray   : '\u001b[90m',
-	lightRed    : '\u001b[91m',
+	lightRed	: '\u001b[91m',
 	lightGreen  : '\u001b[92m',
 	lightYellow : '\u001b[93m',
 	lightBlue   : '\u001b[94m',
@@ -168,9 +184,9 @@ function getBaseName(fileName:string):string {
 	return s.join('.');
 }
 
-function registerTask(taskName:string, projectName:string, srcExt:string, dstExt:string, map:Mapping, getExecutionCommands:GetCommandsFunction) {
-	const srcPath:string = createPath('..', path.src, projectName, map.src) + (srcExt != '' ? ('.' + srcExt) : '');
-	const dstPath:string = createPath('..', path.dst, projectName, map.dst) + (dstExt != '' ? ('.' + dstExt) : '');
+function registerTask(taskName:string, map:Mapping, srcExt:string, dstExt:string, getExecutionCommands:GetCommandsFunction):TaskRegisterInfo {
+	const srcPath:string = map.src + (srcExt != '' ? ('.' + srcExt) : '');
+	const dstPath:string = map.dst + (dstExt != '' ? ('.' + dstExt) : '');
 
 	const srcFileName:string = srcPath.split('/').pop();
 
@@ -188,7 +204,7 @@ function registerTask(taskName:string, projectName:string, srcExt:string, dstExt
 			.src(srcPath, { allowEmpty: true })
 			.pipe(plumber());
 
-		console.log(indent + 'Compiling \'' + color.blue + srcPath + color.reset + '\'' + color.lightGray + ' -> ' + color.reset + '\'' + color.blue + dstPath + color.reset + '\'');
+		console.log(indent + '🤖 Compiling \'' + color.blue + srcPath.slice(3) + color.reset + '\'' + color.lightGray + ' -> ' + color.reset + '\'' + color.blue + dstPath.slice(3) + color.reset + '\'');
 
 		// execution
 		const commands:any[] = getExecutionCommands(srcFileName, dstFileName);
@@ -207,12 +223,20 @@ function registerTask(taskName:string, projectName:string, srcExt:string, dstExt
 		return pipeline;
 	});
 
-	defaultTaskNames.push(taskName);
+	// create watch target
+	let watchPath:string[];
+	if (Array.isArray(map.watch)) {
+		watchPath = map.watch;
+	} else {
+		watchPath = [map.watch || srcPath];
+	}
+
+	return { name: taskName, globs: watchPath };
 }
 
-function registerTypeScript(projectName:string, map:Mapping, index:number, minify:boolean):string {
+function registerTypeScript(projectName:string, map:Mapping, index:number, minify:boolean):TaskRegisterInfo {
 	const taskName:string = projectName + '-typescript-' + index + (minify ? '-min' : '');
-	registerTask(taskName, projectName, 'ts', 'js', map, function(srcFileName:string, dstFileName:string):any[] {
+	return registerTask(taskName, map, 'ts', 'js', function(srcFileName:string, dstFileName:string):any[] {
 		const commands:any[] = [];
 
 		if (typeScriptOptionSourceMap) {
@@ -231,12 +255,11 @@ function registerTypeScript(projectName:string, map:Mapping, index:number, minif
 
 		return commands;
 	});
-	return taskName;
 }
 
-function registerSass(projectName:string, map:Mapping, index:number, minify:boolean):string {
+function registerSass(projectName:string, map:Mapping, index:number, minify:boolean):TaskRegisterInfo {
 	const taskName:string = projectName + '-sass-' + index + (minify ? '-min' : '');
-	registerTask(taskName, projectName, 'scss', 'css', map, function(srcFileName:string, dstFileName:string):any[] {
+	return registerTask(taskName, map, 'scss', 'css', function(srcFileName:string, dstFileName:string):any[] {
 		const commands:any[] = [];
 
 		if (sassOptionSourceMap) {
@@ -261,186 +284,248 @@ function registerSass(projectName:string, map:Mapping, index:number, minify:bool
 		if (sassOptionSourceMap) {
 			commands.push(sourcemaps.write('./'));
 		}
+
 		return commands;
 	});
-	return taskName;
 }
 
-function registerEjs(projectName:string, map:Mapping, index:number):string {
+function registerEjs(projectName:string, map:Mapping, index:number):TaskRegisterInfo {
 	const taskName:string = projectName + '-ejs-' + index;
 	const dstExt = getOption(map, 'ext', 'html');
-	registerTask(taskName, projectName, 'ejs', dstExt, map, function(srcFileName:string, dstFileName:string):any[] {
-		return [
-			ejs(),
-			removeEmptyLines({ removeComments: false, removeSpaces: false }),
-			stripComments({ safe: true }),
-			rename(function (path) {
-				path.basename = getBaseName(dstFileName);
-				path.extname = '.' + dstExt;
-			})
-		];
+	return registerTask(taskName, map, 'ejs', dstExt, function(srcFileName:string, dstFileName:string):any[] {
+		const commands:any[] = [];
+		commands.push(ejs());
+
+		const useRemoveEmptyLines = ejsOptions.removeEmptyLines || true;
+		const useRemoveComments = ejsOptions.removeComments || true;
+		const useRemoveCommentsSafe = ejsOptions.removeCommentsSafe || true;
+		const useRemoveSpaces = ejsOptions.removeSpaces || false;
+
+		if (useRemoveEmptyLines) {
+			commands.push(removeEmptyLines({ removeComments: false, removeSpaces: useRemoveSpaces }));
+		}
+
+		if (useRemoveComments || useRemoveCommentsSafe) {
+			commands.push(stripComments({ safe: useRemoveCommentsSafe }));
+		}
+
+		commands.push(rename(function (path) {
+			path.basename = getBaseName(dstFileName);
+			path.extname = '.' + dstExt;
+		}));
+
+		return commands;
 	});
-	return taskName;
 }
 
-function registerHtml(projectName:string, map:Mapping, index:number):string {
+function registerHtml(projectName:string, map:Mapping, index:number):TaskRegisterInfo {
 	const taskName:string = projectName + '-html-' + index;
-	registerTask(taskName, projectName, 'html', 'html', map, function(srcFileName:string, dstFileName:string):any[] {
-		return [
-			removeEmptyLines({ removeComments: false, removeSpaces: false }),
-			stripComments({ safe: true }),
-			rename(function (path) {
-				path.basename = getBaseName(dstFileName);
-			})
-		];
+	return registerTask(taskName, map, 'html', 'html', function(srcFileName:string, dstFileName:string):any[] {
+		const commands:any[] = [];
+
+		const useRemoveEmptyLines = htmlOptions.removeEmptyLines || true;
+		const useRemoveSpaces = htmlOptions.removeSpaces || false;
+		if (useRemoveEmptyLines) {
+			commands.push(removeEmptyLines({ removeComments: false, removeSpaces: useRemoveSpaces }));
+		}
+
+		const useRemoveComments = htmlOptions.removeComments || true;
+		const useRemoveCommentsSafe = htmlOptions.removeCommentsSafe || true;
+		if (useRemoveComments || useRemoveCommentsSafe) {
+			commands.push(stripComments({ safe: useRemoveCommentsSafe }));
+		}
+
+		commands.push(rename(function (path) {
+			path.basename = getBaseName(dstFileName);
+		}));
+
+		return commands;
 	});
-	return taskName;
 }
 
-function registerPhp(projectName:string, map:Mapping, index:number):string {
+function registerPhp(projectName:string, map:Mapping, index:number):TaskRegisterInfo {
 	const taskName:string = projectName + '-php-' + index;
-	registerTask(taskName, projectName, 'php', 'php', map, function(srcFileName:string, dstFileName:string):any[] {
-		return [
-			removeEmptyLines({ removeComments: false, removeSpaces: false }),
-			stripComments({ safe: true }),
-			rename(function (path) {
-				path.basename = getBaseName(dstFileName);
-			})
-		];
+	return registerTask(taskName, map, 'php', 'php', function(srcFileName:string, dstFileName:string):any[] {
+		const commands:any[] = [];
+
+		const useRemoveEmptyLines = phpOptions.removeEmptyLines || false;
+		if (useRemoveEmptyLines) {
+			commands.push(removeEmptyLines({ removeComments: false, removeSpaces: false }));
+		}
+
+		commands.push(rename(function (path) {
+			path.basename = getBaseName(dstFileName);
+		}));
+
+		return commands;
 	});
-	return taskName;
 }
 
-function registerStatic(projectName:string, map:Mapping, index:number):string {
+function registerStatic(projectName:string, map:Mapping, index:number):TaskRegisterInfo {
 	const taskName:string = projectName + '-static-' + index;
-	registerTask(taskName, projectName, '', '', map, function(srcFileName:string, dstFileName:string):any[] {
+	return registerTask(taskName, map, '', '', function(srcFileName:string, dstFileName:string):any[] {
 		return [
 			changed(dstFileName)
 		];
 	});
-	return taskName;
 }
 
 function registerProject(project:Project):void {
-	const projectName:string = project.name;
-	console.log(indent + '    + \'' + color.blue + projectName + color.reset + '\'');
+	const projectName:string = project.name || '';
+	console.log(indent + '	+ \'' + color.blue + projectName + color.reset + '\'');
+
+	const projectPath = project.path;
+	const projectPathSrc = projectPath ? ((typeof projectPath.src !== 'undefined') ? projectPath.src : projectName) : projectName;
+	const projectPathDst = projectPath ? ((typeof projectPath.dst !== 'undefined') ? projectPath.dst : projectName) : projectName;
+
+	const srcDir = createPath('..', path.src, projectPathSrc);
+	const dstDir = createPath('..', path.dst, projectPathDst);
+
+	function resolvePath(map:Mapping):Mapping {
+		return {
+			src: createPath(srcDir, map.src),
+			dst: createPath(dstDir, map.dst),
+			watch: Array.isArray(map.watch) ? map.watch.map((value:string):string => { return createPath(srcDir, value); }) : ((typeof map.watch === 'string') ? createPath(srcDir, map.watch) : null),
+		}
+	}
 
 	// ts
+	const typeScriptTaskSources:string[][] = [];
 	const typeScriptTaskNames:string[] = [];
 	{
 		const maps:Mapping[] = project.ts || projectDefault.ts;
 		if (maps) {
 			for (let i:number = 0; i < maps.length; ++i) {
-				let taskName:string;
+				let taskRegisterInfo:TaskRegisterInfo;
 
 				if (!typeScriptOptionMinify || !typeScriptOptionMinifyOnly) {
-					taskName = registerTypeScript(projectName, maps[i], i, false);
-					typeScriptTaskNames.push(taskName);
+					taskRegisterInfo = registerTypeScript(projectName, resolvePath(maps[i]), i, false);
+					typeScriptTaskSources.push(taskRegisterInfo.globs);
+					typeScriptTaskNames.push(taskRegisterInfo.name);
 				}
 
 				if (typeScriptOptionMinify) {
-					taskName = registerTypeScript(projectName, maps[i], i, true);
-					typeScriptTaskNames.push(taskName);
+					taskRegisterInfo = registerTypeScript(projectName, resolvePath(maps[i]), i, true);
+					typeScriptTaskSources.push(taskRegisterInfo.globs);
+					typeScriptTaskNames.push(taskRegisterInfo.name);
 				}
 			}
 		}
 	}
 
 	// scss
+	const sassTaskSources:string[][] = [];
 	const sassTaskNames:string[] = [];
 	{
 		const maps:Mapping[] = project.scss || projectDefault.scss;
 		if (maps) {
 			for (let i:number = 0; i < maps.length; ++i) {
-				let taskName:string;
+				let taskRegisterInfo:TaskRegisterInfo;
 
 				if (!sassOptionMinify || !sassOptionMinifyOnly) {
-					taskName = registerSass(projectName, maps[i], i, false);
-					sassTaskNames.push(taskName);
+					taskRegisterInfo = registerSass(projectName, resolvePath(maps[i]), i, false);
+					sassTaskSources.push(taskRegisterInfo.globs);
+					sassTaskNames.push(taskRegisterInfo.name);
 				}
 
 				if (sassOptionMinify) {
-					taskName = registerSass(projectName, maps[i], i, true);
-					sassTaskNames.push(taskName);
+					taskRegisterInfo = registerSass(projectName, resolvePath(maps[i]), i, true);
+					sassTaskSources.push(taskRegisterInfo.globs);
+					sassTaskNames.push(taskRegisterInfo.name);
 				}
 			}
 		}
 	}
 
 	// ejs
+	const ejsTaskSources:string[][] = [];
 	const ejsTaskNames:string[] = [];
 	{
 		const maps:Mapping[] = project.ejs || projectDefault.ejs;
 		if (maps) {
 			for (let i:number = 0; i < maps.length; ++i) {
-				const taskName:string = registerEjs(projectName, maps[i], i);
-				ejsTaskNames.push(taskName);
+				const taskRegisterInfo = registerEjs(projectName, resolvePath(maps[i]), i);
+				ejsTaskSources.push(taskRegisterInfo.globs);
+				ejsTaskNames.push(taskRegisterInfo.name);
 			}
 		}
 	}
 
 	// html
+	const htmlTaskSources:string[][] = [];
 	const htmlTaskNames:string[] = [];
 	{
 		const maps:Mapping[] = project.html || projectDefault.html;
 		if (maps) {
 			for (let i:number = 0; i < maps.length; ++i) {
-				const taskName:string = registerHtml(projectName, maps[i], i);
-				htmlTaskNames.push(taskName);
+				const taskRegisterInfo = registerHtml(projectName, resolvePath(maps[i]), i);
+				htmlTaskSources.push(taskRegisterInfo.globs);
+				htmlTaskNames.push(taskRegisterInfo.name);
 			}
 		}
 	}
 
 	// php
+	const phpTaskSources:string[][] = [];
 	const phpTaskNames:string[] = [];
 	{
 		const maps:Mapping[] = project.php || projectDefault.php;
 		if (maps) {
 			for (let i:number = 0; i < maps.length; ++i) {
-				const taskName:string = registerPhp(projectName, maps[i], i);
-				phpTaskNames.push(taskName);
+				const taskRegisterInfo = registerPhp(projectName, resolvePath(maps[i]), i);
+				phpTaskSources.push(taskRegisterInfo.globs);
+				phpTaskNames.push(taskRegisterInfo.name);
 			}
 		}
 	}
 
 	// static
+	const staticTaskSources:string[][] = [];
 	const staticTaskNames:string[] = [];
-	const staticTaskSources:string[] = [];
 	{
 		const maps:Mapping[] = project.static || projectDefault.static;
 		if (maps) {
 			for (let i:number = 0; i < maps.length; ++i) {
-				const taskName:string = registerStatic(projectName, maps[i], i);
-				staticTaskSources.push(maps[i].src);
-				staticTaskNames.push(taskName);
+				const taskRegisterInfo = registerStatic(projectName, resolvePath(maps[i]), i);
+				staticTaskSources.push(taskRegisterInfo.globs);
+				staticTaskNames.push(taskRegisterInfo.name);
 			}
 		}
 	}
 
-	const projectTaskNames:string[] = [].concat(typeScriptTaskNames, sassTaskNames, htmlTaskNames, phpTaskNames);
+	const projectTaskNames:string[] = [].concat(typeScriptTaskNames, sassTaskNames, ejsTaskNames, htmlTaskNames, phpTaskNames, staticTaskNames);
 	gulp.task('project-' + projectName, gulp.parallel(projectTaskNames));
 
 	const taskName:string = projectName + '-watch';
-	const projectSrc:string = createPath('..', path.src, projectName);
 	gulp.task(taskName, function():void {
 		if (typeScriptTaskNames.length > 0) {
-			gulp.watch(projectSrc + '/**/*.ts', gulp.series(typeScriptTaskNames));
+			for (let i = 0; i < typeScriptTaskNames.length; ++i) {
+				gulp.watch(typeScriptTaskSources[i], gulp.series(typeScriptTaskNames[i]));
+			}
 		}
 		if (sassTaskNames.length > 0) {
-			gulp.watch(projectSrc + '/**/*.scss', gulp.series(sassTaskNames));
+			for (let i = 0; i < sassTaskNames.length; ++i) {
+				gulp.watch(sassTaskSources[i], gulp.series(sassTaskNames[i]));
+			}
 		}
 		if (ejsTaskNames.length > 0) {
-			gulp.watch(projectSrc + '/**/*.ejs', gulp.series(ejsTaskNames));
+			for (let i = 0; i < ejsTaskNames.length; ++i) {
+				gulp.watch(ejsTaskSources[i], gulp.series(ejsTaskNames[i]));
+			}
 		}
 		if (htmlTaskNames.length > 0) {
-			gulp.watch(projectSrc + '/**/*.html', gulp.series(htmlTaskNames));
+			for (let i = 0; i < htmlTaskNames.length; ++i) {
+				gulp.watch(htmlTaskSources[i], gulp.series(htmlTaskNames[i]));
+			}
 		}
 		if (phpTaskNames.length > 0) {
-			gulp.watch(projectSrc + '/**/*.php', gulp.series(phpTaskNames));
+			for (let i = 0; i < phpTaskNames.length; ++i) {
+				gulp.watch(phpTaskSources[i], gulp.series(phpTaskNames[i]));
+			}
 		}
 		if (staticTaskNames.length > 0) {
 			for (let i = 0; i < staticTaskNames.length; ++i) {
-				gulp.watch(projectSrc + staticTaskSources[i], gulp.series(staticTaskNames[i]));
+				gulp.watch(staticTaskSources[i], gulp.series(staticTaskNames[i]));
 			}
 		}
 	});
@@ -452,6 +537,8 @@ function registerProject(project:Project):void {
 	allHtmlTaskNames = allHtmlTaskNames.concat(htmlTaskNames);
 	allPhpTaskNames = allPhpTaskNames.concat(phpTaskNames);
 	allStaticTaskNames = allStaticTaskNames.concat(staticTaskNames);
+
+	allTaskNames = allTaskNames.concat(typeScriptTaskNames, sassTaskNames, ejsTaskNames, htmlTaskNames, phpTaskNames, staticTaskNames);
 }
 
 function registerServer():void {
@@ -462,7 +549,7 @@ function registerServer():void {
 		option.port = getOption(option, 'port', 8000);
 		option.livereload = getOption(option, 'livereload', true);
 
-		console.log(indent + 'Starting server');
+		console.log(indent + '🖥 Starting server');
 		gulp.task('server', function():void {
 			connect.server(option);
 		});
@@ -473,13 +560,13 @@ function registerServer():void {
 function run():void {
 	registerServer();
 
-	console.log(indent + 'Registering projects');
+	console.log(indent + '📦 Registering projects');
 	for (let i:number = 0; i < projects.length; ++i) {
 		registerProject(projects[i]);
 	}
 
 	gulp.task('watch', gulp.parallel(watchTaskNames));
-	gulp.task('default', gulp.parallel(defaultTaskNames));
+	gulp.task('default', gulp.parallel(allTaskNames));
 
 	if (allTypeScriptTaskNames.length > 0) {
 		gulp.task('ts', gulp.parallel(allTypeScriptTaskNames));

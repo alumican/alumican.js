@@ -10,7 +10,8 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		constructor() {
+		constructor(headers:any = null) {
+			this.headers = headers;
 		}
 
 
@@ -28,13 +29,19 @@ namespace alm.io {
 		}
 
 		public load(url:string, onComplete:CompleteFunction, onError:ErrorFunction):void {
-			jQuery.getJSON(
-				url
-			).done((data:any, textStatus:string, jqXHR:object):void => {
-				onComplete(data, { textStatus: textStatus, jqXHR: jqXHR});
-			}).fail((jqXHR:object, textStatus:string, errorThrown:string):void => {
-				onError({ jqXHR: jqXHR, textStatus: textStatus, errorThrown: errorThrown });
-			});
+			jQuery.ajax({
+				url: url,
+				type: 'GET',
+				dataType:'json',
+				headers: this.headers
+			}).then(
+				(data:any, textStatus:string, jqXHR:object):void => {
+					onComplete(data, { textStatus: textStatus, jqXHR: jqXHR });
+				},
+				(jqXHR:object, textStatus:string, errorThrown:string):void => {
+					onError({ jqXHR: jqXHR, textStatus: textStatus, errorThrown: errorThrown });
+				}
+			);
 		}
 
 
@@ -48,5 +55,7 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public static TYPE:string = 'jQuery.JSON';
+
+		private headers:any;
 	}
 }

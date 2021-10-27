@@ -111,7 +111,7 @@ namespace alm.util {
 		 * @returns {T} 選択された要素
 		 */
 		public static choose<T>(list:T[]):T {
-			return list[Math.floor(Math.random() * (list.length - 1))];
+			return list[Math.floor(Math.random() * list.length)];
 		}
 
 
