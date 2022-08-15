@@ -12,9 +12,7 @@ namespace alm.math {
 
 		constructor(maxCount:number) {
 			this.maxCount = this._maxCount = maxCount;
-			this.value = this._value = 0;
-			this.count = this._count = 0;
-			this.values = [];
+			this.reset();
 		}
 
 
@@ -68,13 +66,19 @@ namespace alm.math {
 			return this._value;
 		}
 
+		public reset():void {
+			this.value = this._value = 0;
+			this.count = this._count = 0;
+			this.values = [];
+		}
+
 
 
 
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

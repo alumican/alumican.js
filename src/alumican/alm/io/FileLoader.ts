@@ -84,9 +84,9 @@ namespace alm.io {
 
 			const progress = this.currentCount / this.totalCount;
 			if (this.currentCount == 0) {
-				this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.START, this, progress, this.currentCount, this.totalCount));
+				this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.start, this, progress, this.currentCount, this.totalCount));
 			} else {
-				this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.PROGRESS, this, progress, this.currentCount, this.totalCount));
+				this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.progress, this, progress, this.currentCount, this.totalCount));
 			}
 
 			while (this.currentThreadCount < this.totalThreadCount) {
@@ -118,7 +118,7 @@ namespace alm.io {
 					this.isLoading_ = false;
 					this.loadingQueries = [];
 					this.loadingQueryIndex = -1;
-					this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.COMPLETE, this, progress, this.currentCount, this.totalCount));
+					this.dispatchEvent(new FileLoaderProgressEvent(FileLoaderProgressEvent.complete, this, progress, this.currentCount, this.totalCount));
 					break;
 				}
 			}
@@ -168,7 +168,7 @@ namespace alm.io {
 				query.param.onLoad(content, info);
 			}
 
-			this.dispatchEvent(new FileLoaderSuccessEvent(FileLoaderSuccessEvent.SUCCESS, this, content, info));
+			this.dispatchEvent(new FileLoaderSuccessEvent(FileLoaderSuccessEvent.success, this, content, info));
 			this.next();
 		};
 
@@ -180,7 +180,7 @@ namespace alm.io {
 				query.param.onError(info);
 			}
 
-			this.dispatchEvent(new FileLoaderErrorEvent(FileLoaderErrorEvent.ERROR, this, info));
+			this.dispatchEvent(new FileLoaderErrorEvent(FileLoaderErrorEvent.error, this, info));
 			this.next();
 		};
 
@@ -226,7 +226,7 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

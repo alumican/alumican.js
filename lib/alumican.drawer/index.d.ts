@@ -1,5 +1,6 @@
 /// <reference types="alumican" />
 /// <reference types="jquery" />
+/// <reference types="jquery" />
 declare namespace alm.drawer.view {
     import View = alm.view.View;
     class DrawerBackground extends View<JQuery> {

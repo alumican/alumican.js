@@ -1,5 +1,6 @@
 /// <reference types="alumican" />
 /// <reference types="jquery" />
+/// <reference types="jquery" />
 declare namespace alm.canvas {
     import EventDispatcher = alm.event.EventDispatcher;
     abstract class BaseApp extends EventDispatcher {
@@ -16,7 +17,7 @@ declare namespace alm.canvas {
         onKeyDown(key: string): void;
         onKeyUp(key: string): void;
         onResize(stageWidth: number, stageHeight: number): void;
-        onVisibilityStateChange(visibilityState: VisibilityState): void;
+        onVisibilityStateChange(visibilityState: DocumentVisibilityState): void;
         protected onPlatformSetup(platformSetupOptions: any[]): void;
         protected onPlatformRender(): void;
         protected onPlatformResize(stageWidth: number, stageHeight: number): void;
@@ -59,7 +60,7 @@ declare namespace alm.canvas {
         private elapsedTime;
         getCanvas(): JQuery<HTMLCanvasElement>;
         private canvas;
-        getVisibilityState(): VisibilityState;
+        getVisibilityState(): DocumentVisibilityState;
         private visibilityState;
         getIsAutoResizeEnabled(): boolean;
         private isAutoResizeEnabled;

@@ -25,7 +25,7 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public getType():string {
-			return JQueryTextFileHandler.TYPE;
+			return JQueryTextFileHandler.type;
 		}
 
 		public load(url:string, onComplete:CompleteFunction, onError:ErrorFunction):void {
@@ -50,11 +50,11 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
-		public static TYPE:string = 'jQuery.TEXT';
+		public static type:string = 'jQuery.TEXT';
 
 		private headers:any;
 	}

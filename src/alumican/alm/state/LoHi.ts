@@ -71,15 +71,15 @@ namespace alm.state {
 			if (this.isHigh && this.value < this.lowThreshold) {
 				this.isHigh = false;
 				if (dispatchEvent) {
-					this.dispatchEvent(new LoHiEvent(LoHiEvent.LOW, this, this.isHigh));
-					this.dispatchEvent(new LoHiEvent(LoHiEvent.CHANGE, this, this.isHigh));
+					this.dispatchEvent(new LoHiEvent(LoHiEvent.low, this, this.isHigh));
+					this.dispatchEvent(new LoHiEvent(LoHiEvent.change, this, this.isHigh));
 				}
 				return true;
 			} else if (!this.isHigh && this.value > this.highThreshold) {
 				this.isHigh = true;
 				if (dispatchEvent) {
-					this.dispatchEvent(new LoHiEvent(LoHiEvent.HIGH, this, this.isHigh));
-					this.dispatchEvent(new LoHiEvent(LoHiEvent.CHANGE, this, this.isHigh));
+					this.dispatchEvent(new LoHiEvent(LoHiEvent.high, this, this.isHigh));
+					this.dispatchEvent(new LoHiEvent(LoHiEvent.change, this, this.isHigh));
 				}
 				return true;
 			}
@@ -92,7 +92,7 @@ namespace alm.state {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

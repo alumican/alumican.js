@@ -10,7 +10,7 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		static SUCCESS:string = 'success';
+		public static readonly success:string = 'FileLoaderSuccessEvent.success';
 
 
 
@@ -52,7 +52,7 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

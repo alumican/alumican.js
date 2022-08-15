@@ -24,7 +24,7 @@ namespace scn {
 
 			this.waypoints = [];
 			this.waypointIndex = -1;
-			this.lastState = SceneState.Idling;
+			this.lastState = SceneState.idling;
 			this.eventIndex = -1;
 			this.transferId = -1;
 			this.transferInfo = null;
@@ -82,7 +82,7 @@ namespace scn {
 				this.transferInfo = new SceneTransferInfo(this.transferId, this.waypoints[this.waypointIndex].getPath(), this.waypoints[this.waypoints.length - 1].getPath(), message);
 
 				if (!isDestinationChanged) {
-					this.dispatchEvent(new SceneManagerTransferEvent(SceneManagerTransferEvent.TRANSFER_START, this, this.transferInfo));
+					this.dispatchEvent(new SceneManagerTransferEvent(SceneManagerTransferEvent.transferStart, this, this.transferInfo));
 				}
 
 				this.checkState();
@@ -272,7 +272,7 @@ namespace scn {
 			// 進行方向
 			this.setDirection(waypoints);
 
-			if (Logger.level <= LoggerLevel.Verbose) {
+			if (Logger.level <= LoggerLevel.verbose) {
 				this.dumpWaypoint(waypoints);
 			}
 
@@ -329,9 +329,9 @@ namespace scn {
 				Logger.verbose('----- scene transfer complete -----');
 				const tmpTransferId:number = this.transferInfo.getTransferId();
 				this.waypointIndex = this.waypoints.length - 1;
-				this.dispatchEvent(new SceneManagerTransferEvent(SceneManagerTransferEvent.TRANSFER_COMPLETE, this, this.transferInfo));
+				this.dispatchEvent(new SceneManagerTransferEvent(SceneManagerTransferEvent.transferComplete, this, this.transferInfo));
 				if (tmpTransferId == this.transferInfo.getTransferId()) {
-					this.lastState = SceneState.Idling;
+					this.lastState = SceneState.idling;
 					this.transferInfo = null;
 				}
 				return;
@@ -343,7 +343,7 @@ namespace scn {
 				this.currentScene = this.getSceneByPath(currentWaypointPath);
 
 				if (!this.currentScene) {
-					this.dispatchEvent(new SceneManagerRequireSceneEvent(SceneManagerRequireSceneEvent.REQUIRE_SCENE, this, currentWaypointPath));
+					this.dispatchEvent(new SceneManagerRequireSceneEvent(SceneManagerRequireSceneEvent.requireScene, this, currentWaypointPath));
 					this.currentScene = this.getSceneByPath(currentWaypointPath);
 				}
 				if (!this.currentScene) {
@@ -355,18 +355,18 @@ namespace scn {
 					//trace('Departure scene');
 
 					// Leave
-					if (this.lastState != SceneState.Leaving && this.currentScene.getLastState() == SceneState.Arriving) {
+					if (this.lastState != SceneState.leaving && this.currentScene.getLastState() == SceneState.arriving) {
 						Logger.verbose(this.eventIndex + ' Leave   : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.LEAVE_COMPLETE, this.sceneLeaveCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.leaveComplete, this.sceneLeaveCompleteHandler);
 						this.currentScene._leave(this.transferInfo);
 						return;
 					}
 
 					// Unload
-					if (this.lastState != SceneState.Unloading && (currentWaypoint.getTo() == core.Direction.Sibling || currentWaypoint.getTo() == core.Direction.Ascend)) {
+					if (this.lastState != SceneState.unloading && (currentWaypoint.getTo() == core.Direction.Sibling || currentWaypoint.getTo() == core.Direction.Ascend)) {
 						++this.waypointIndex;
 						Logger.verbose(this.eventIndex + ' Unload  : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.UNLOAD_COMPLETE, this.sceneUnloadCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.unloadComplete, this.sceneUnloadCompleteHandler);
 						this.currentScene._unload(this.transferInfo);
 						return;
 
@@ -383,35 +383,35 @@ namespace scn {
 					//trace('Through scene');
 
 					// Load
-					if (this.lastState != SceneState.Loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
+					if (this.lastState != SceneState.loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
 						Logger.verbose(this.eventIndex + ' Load    : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.loadComplete, this.sceneLoadCompleteHandler);
 						this.currentScene._load(this.transferInfo);
 						return;
 					}
 
 					// Ascend
-					if (this.lastState != SceneState.Ascending && currentWaypoint.getFrom() == core.Direction.Ascend) {
+					if (this.lastState != SceneState.ascending && currentWaypoint.getFrom() == core.Direction.Ascend) {
 						Logger.verbose(this.eventIndex + ' Ascend  : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.ASCEND_COMPLETE, this.sceneAscendCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.ascendComplete, this.sceneAscendCompleteHandler);
 						this.currentScene._ascend(this.transferInfo);
 						return;
 					}
 
 					// Unload
-					if (this.lastState != SceneState.Unloading && (currentWaypoint.getTo() == core.Direction.Sibling || currentWaypoint.getTo() == core.Direction.Ascend)) {
+					if (this.lastState != SceneState.unloading && (currentWaypoint.getTo() == core.Direction.Sibling || currentWaypoint.getTo() == core.Direction.Ascend)) {
 						++this.waypointIndex;
 						Logger.verbose(this.eventIndex + ' Unload  : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.UNLOAD_COMPLETE, this.sceneUnloadCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.unloadComplete, this.sceneUnloadCompleteHandler);
 						this.currentScene._unload(this.transferInfo);
 						return;
 					}
 
 					// Descend
-					if (this.lastState != SceneState.Descending && currentWaypoint.getTo() == core.Direction.Descend) {
+					if (this.lastState != SceneState.descending && currentWaypoint.getTo() == core.Direction.Descend) {
 						++this.waypointIndex;
 						Logger.verbose(this.eventIndex + ' Descend : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.DESCEND_COMPLETE, this.sceneDescendCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.descendComplete, this.sceneDescendCompleteHandler);
 						this.currentScene._descend(this.transferInfo);
 						return;
 					}
@@ -422,18 +422,18 @@ namespace scn {
 					//trace('Destination scene');
 
 					// Load
-					if (this.lastState != SceneState.Loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
+					if (this.lastState != SceneState.loading && (currentWaypoint.getFrom() == core.Direction.Sibling || currentWaypoint.getFrom() == core.Direction.Descend)) {
 						Logger.verbose(this.eventIndex + ' Load    : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.loadComplete, this.sceneLoadCompleteHandler);
 						this.currentScene._load(this.transferInfo);
 						return;
 					}
 
 					// Arrive
-					if (this.lastState != SceneState.Arriving) {
+					if (this.lastState != SceneState.arriving) {
 						++this.waypointIndex;
 						Logger.verbose(this.eventIndex + ' Arrive  : \'' + this.currentScene.getPath() + '\'');
-						this.currentScene.addEventListener(SceneEvent.ARRIVE_COMPLETE, this.sceneArriveCompleteHandler);
+						this.currentScene.addEventListener(SceneEvent.arriveComplete, this.sceneArriveCompleteHandler);
 						this.currentScene._arrive(this.transferInfo);
 						return;
 					}
@@ -443,52 +443,52 @@ namespace scn {
 				//trace('Init scene');
 
 				// Init
-				this.lastState = SceneState.Idling;
+				this.lastState = SceneState.idling;
 				this.currentScene = this.root;
 				Logger.verbose(this.eventIndex + ' Load    : \'' + this.currentScene.getPath() + '\'');
-				this.currentScene.addEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
+				this.currentScene.addEventListener(SceneEvent.loadComplete, this.sceneLoadCompleteHandler);
 				this.currentScene._load(this.transferInfo);
 			}
 		}
 
 		private sceneLoadCompleteHandler = (event:SceneEvent):void => {
-			this.currentScene.removeEventListener(SceneEvent.LOAD_COMPLETE, this.sceneLoadCompleteHandler);
-			this.lastState = SceneState.Loading;
+			this.currentScene.removeEventListener(SceneEvent.loadComplete, this.sceneLoadCompleteHandler);
+			this.lastState = SceneState.loading;
 			++this.eventIndex;
 			this.checkState();
 		};
 
 		private sceneUnloadCompleteHandler = (event:SceneEvent):void => {
-			this.currentScene.removeEventListener(SceneEvent.UNLOAD_COMPLETE, this.sceneUnloadCompleteHandler);
-			this.lastState = SceneState.Unloading;
+			this.currentScene.removeEventListener(SceneEvent.unloadComplete, this.sceneUnloadCompleteHandler);
+			this.lastState = SceneState.unloading;
 			++this.eventIndex;
 			this.checkState();
 		};
 
 		private sceneArriveCompleteHandler = (event:SceneEvent):void => {
-			this.currentScene.removeEventListener(SceneEvent.ARRIVE_COMPLETE, this.sceneArriveCompleteHandler);
-			this.lastState = SceneState.Arriving;
+			this.currentScene.removeEventListener(SceneEvent.arriveComplete, this.sceneArriveCompleteHandler);
+			this.lastState = SceneState.arriving;
 			++this.eventIndex;
 			this.checkState();
 		};
 
 		private sceneLeaveCompleteHandler = (event:SceneEvent):void => {
-			this.currentScene.removeEventListener(SceneEvent.LEAVE_COMPLETE, this.sceneLeaveCompleteHandler);
-			this.lastState = SceneState.Leaving;
+			this.currentScene.removeEventListener(SceneEvent.leaveComplete, this.sceneLeaveCompleteHandler);
+			this.lastState = SceneState.leaving;
 			++this.eventIndex;
 			this.checkState();
 		};
 
 		private sceneAscendCompleteHandler = (event:SceneEvent):void => {
-			this.currentScene.removeEventListener(SceneEvent.ASCEND_COMPLETE, this.sceneAscendCompleteHandler);
-			this.lastState = SceneState.Ascending;
+			this.currentScene.removeEventListener(SceneEvent.ascendComplete, this.sceneAscendCompleteHandler);
+			this.lastState = SceneState.ascending;
 			++this.eventIndex;
 			this.checkState();
 		};
 
 		private sceneDescendCompleteHandler = (event:SceneEvent):void => {
-			this.currentScene.removeEventListener(SceneEvent.DESCEND_COMPLETE, this.sceneDescendCompleteHandler);
-			this.lastState = SceneState.Descending;
+			this.currentScene.removeEventListener(SceneEvent.descendComplete, this.sceneDescendCompleteHandler);
+			this.lastState = SceneState.descending;
 			++this.eventIndex;
 			this.checkState();
 		};
@@ -499,7 +499,7 @@ namespace scn {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

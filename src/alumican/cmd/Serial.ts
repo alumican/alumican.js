@@ -48,12 +48,12 @@ namespace cmd {
 
 		private next():void {
 			this.currentCommand = this.getCommandByIndex(this.position);
-			this.currentCommand.addEventListener(CommandEvent.COMPLETE, this.completeHandler);
+			this.currentCommand.addEventListener(CommandEvent.complete, this.completeHandler);
 			this.currentCommand.execute();
 		}
 
 		private completeHandler = (event:Event<Command>):void => {
-			this.currentCommand.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+			this.currentCommand.removeEventListener(CommandEvent.complete, this.completeHandler);
 			this.currentCommand = null;
 			if (++this.position >= this.getLength()) {
 				this.notifyComplete();
@@ -73,7 +73,7 @@ namespace cmd {
 
 		protected implInterruptFunction(command:Command):void {
 			if (this.currentCommand) {
-				this.currentCommand.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+				this.currentCommand.removeEventListener(CommandEvent.complete, this.completeHandler);
 				this.currentCommand.interrupt();
 				this.currentCommand = null;
 			}
@@ -83,7 +83,7 @@ namespace cmd {
 
 		protected implDestroyFunction(command:Command):void {
 			if (this.currentCommand) {
-				this.currentCommand.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+				this.currentCommand.removeEventListener(CommandEvent.complete, this.completeHandler);
 				this.currentCommand.destroy();
 				this.currentCommand = null;
 			}
@@ -94,16 +94,16 @@ namespace cmd {
 		}
 
 		protected implNotifyBreak():void {
-			if (this.currentCommand.getState() == CommandState.Executing) {
-				this.currentCommand.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+			if (this.currentCommand.getState() == CommandState.executing) {
+				this.currentCommand.removeEventListener(CommandEvent.complete, this.completeHandler);
 				this.currentCommand.interrupt();
 			}
 			this.notifyComplete();
 		}
 
 		protected implNotifyReturn():void {
-			if (this.currentCommand.getState() == CommandState.Executing) {
-				this.currentCommand.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+			if (this.currentCommand.getState() == CommandState.executing) {
+				this.currentCommand.removeEventListener(CommandEvent.complete, this.completeHandler);
 				this.currentCommand.interrupt();
 			}
 			const func:Function = this.getParent()['notifyReturn'];
@@ -117,7 +117,7 @@ namespace cmd {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

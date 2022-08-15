@@ -10,8 +10,8 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		static KEY_UP:string = 'keyUp';
-		static KEY_DOWN:string = 'keyDown';
+		public static readonly keyUp:string = 'KeyWatcherEvent.keyUp';
+		public static readonly keyDown:string = 'KeyWatcherEvent.keyDown';
 
 
 
@@ -57,7 +57,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -37,11 +37,11 @@ namespace alm.drawer {
 			});
 
 			this.autoPlayTimer = new Timer(this.autoPlayInterval);
-			this.autoPlayTimer.addEventListener(TimerEvent.TICK, this.autoPlayTimerTickHandler);
+			this.autoPlayTimer.addEventListener(TimerEvent.tick, this.autoPlayTimerTickHandler);
 
 			this.switcher = new Switcher();
 			this.switcher.setupByCount(this.items.length);
-			this.switcher.addEventListener(SwitcherEvent.CHANGE, this.switcherChangeHandler);
+			this.switcher.addEventListener(SwitcherEvent.change, this.switcherChangeHandler);
 
 			this.reset(false);
 		}
@@ -169,7 +169,7 @@ namespace alm.drawer {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

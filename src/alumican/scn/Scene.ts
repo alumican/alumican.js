@@ -17,7 +17,7 @@ namespace scn {
 		constructor(name:string) {
 			super();
 			this.name = name;
-			this.state = SceneState.Idling;
+			this.state = SceneState.idling;
 			this.parent = null;
 			this.childrenByName = {};
 			this.numChildren = 0;
@@ -187,18 +187,18 @@ namespace scn {
 
 		public _load(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
-			this.state = SceneState.Loading;
+			this.state = SceneState.loading;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
-					this.dispatchEvent(new SceneEvent(SceneEvent.LOAD, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.load, this));
 					const c:cmd.Command = typeof(this.onLoad) == 'function' ? this.onLoad() : this.implOnLoad();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
 					this.lastState = this.state;
-					this.state = SceneState.Idling;
+					this.state = SceneState.idling;
 					this.transferInfo = null;
-					this.dispatchEvent(new SceneEvent(SceneEvent.LOAD_COMPLETE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.loadComplete, this));
 				}
 			);
 			command.execute();
@@ -206,18 +206,18 @@ namespace scn {
 
 		public _unload(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
-			this.state = SceneState.Unloading;
+			this.state = SceneState.unloading;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
-					this.dispatchEvent(new SceneEvent(SceneEvent.UNLOAD, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.unload, this));
 					const c:cmd.Command = typeof(this.onUnload) == 'function' ? this.onUnload() : this.implOnUnload();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
 					this.lastState = this.state;
-					this.state = SceneState.Idling;
+					this.state = SceneState.idling;
 					this.transferInfo = null;
-					this.dispatchEvent(new SceneEvent(SceneEvent.UNLOAD_COMPLETE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.unloadComplete, this));
 				}
 			);
 			command.execute();
@@ -225,18 +225,18 @@ namespace scn {
 
 		public _arrive(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
-			this.state = SceneState.Arriving;
+			this.state = SceneState.arriving;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
-					this.dispatchEvent(new SceneEvent(SceneEvent.ARRIVE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.arrive, this));
 					const c:cmd.Command = typeof(this.onArrive) == 'function' ? this.onArrive() : this.implOnArrive();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
 					this.lastState = this.state;
-					this.state = SceneState.Idling;
+					this.state = SceneState.idling;
 					this.transferInfo = null;
-					this.dispatchEvent(new SceneEvent(SceneEvent.ARRIVE_COMPLETE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.arriveComplete, this));
 				}
 			);
 			command.execute();
@@ -244,18 +244,18 @@ namespace scn {
 
 		public _leave(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
-			this.state = SceneState.Leaving;
+			this.state = SceneState.leaving;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
-					this.dispatchEvent(new SceneEvent(SceneEvent.LEAVE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.leave, this));
 					const c:cmd.Command = typeof(this.onLeave) == 'function' ? this.onLeave() : this.implOnLeave();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
 					this.lastState = this.state;
-					this.state = SceneState.Idling;
+					this.state = SceneState.idling;
 					this.transferInfo = null;
-					this.dispatchEvent(new SceneEvent(SceneEvent.LEAVE_COMPLETE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.leaveComplete, this));
 				}
 			);
 			command.execute();
@@ -263,18 +263,18 @@ namespace scn {
 
 		public _ascend(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
-			this.state = SceneState.Ascending;
+			this.state = SceneState.ascending;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
-					this.dispatchEvent(new SceneEvent(SceneEvent.ASCEND, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.ascend, this));
 					const c:cmd.Command = typeof(this.onAscend) == 'function' ? this.onAscend() : this.implOnAscend();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
 					this.lastState = this.state;
-					this.state = SceneState.Idling;
+					this.state = SceneState.idling;
 					this.transferInfo = null;
-					this.dispatchEvent(new SceneEvent(SceneEvent.ASCEND_COMPLETE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.ascendComplete, this));
 				}
 			);
 			command.execute();
@@ -282,18 +282,18 @@ namespace scn {
 
 		public _descend(transferInfo:SceneTransferInfo):void {
 			this.transferInfo = transferInfo;
-			this.state = SceneState.Descending;
+			this.state = SceneState.descending;
 			const command:cmd.Serial = new cmd.Serial(
 				():void => {
-					this.dispatchEvent(new SceneEvent(SceneEvent.DESCEND, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.descend, this));
 					const c:cmd.Command = typeof(this.onDescend) == 'function' ? this.onDescend() : this.implOnDescend();
 					if (c) command.insertCommand(c);
 				},
 				():void => {
 					this.lastState = this.state;
-					this.state = SceneState.Idling;
+					this.state = SceneState.idling;
 					this.transferInfo = null;
-					this.dispatchEvent(new SceneEvent(SceneEvent.DESCEND_COMPLETE, this));
+					this.dispatchEvent(new SceneEvent(SceneEvent.descendComplete, this));
 				}
 			);
 			command.execute();
@@ -333,7 +333,7 @@ namespace scn {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -127,7 +127,7 @@ namespace alm.canvas {
 		public onResize(stageWidth:number, stageHeight:number):void {
 		}
 
-		public onVisibilityStateChange(visibilityState:VisibilityState):void {
+		public onVisibilityStateChange(visibilityState:DocumentVisibilityState):void {
 		}
 
 		protected onPlatformSetup(platformSetupOptions:any[]):void {
@@ -363,7 +363,7 @@ namespace alm.canvas {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
@@ -394,8 +394,8 @@ namespace alm.canvas {
 		public getCanvas():JQuery<HTMLCanvasElement> { return this.canvas; }
 		private canvas:JQuery<HTMLCanvasElement>;
 
-		public getVisibilityState():VisibilityState { return this.visibilityState; }
-		private visibilityState:VisibilityState;
+		public getVisibilityState():DocumentVisibilityState { return this.visibilityState; }
+		private visibilityState:DocumentVisibilityState;
 
 		public getIsAutoResizeEnabled():boolean { return this.isAutoResizeEnabled; }
 		private isAutoResizeEnabled:boolean;

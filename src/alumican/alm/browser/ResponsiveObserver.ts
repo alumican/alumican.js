@@ -2,8 +2,8 @@
 
 namespace alm.browser {
 
-	import WindowWatcher = alm.browser.WindowWatcher;
-	import WindowWatcherEvent = alm.browser.WindowWatcherEvent;
+	import WinWatcher = alm.browser.WinWatcher;
+	import WinWatcherEvent = alm.browser.WinWatcherEvent;
 	import EventDispatcher = alm.event.EventDispatcher;
 
 	export class ResponsiveObserver extends EventDispatcher {
@@ -38,8 +38,8 @@ namespace alm.browser {
 			if (this.isRunning) return;
 			this.isRunning = true;
 
-			WindowWatcher.addEventListener(WindowWatcherEvent.RESIZE, this.windowResizeHandler);
-			WindowWatcher.start();
+			WinWatcher.addEventListener(WinWatcherEvent.resize, this.windowResizeHandler);
+			WinWatcher.start();
 
 			this.check();
 		}
@@ -48,8 +48,8 @@ namespace alm.browser {
 			if (!this.isRunning) return;
 			this.isRunning = false;
 
-			WindowWatcher.removeEventListener(WindowWatcherEvent.RESIZE, this.windowResizeHandler);
-			WindowWatcher.stop();
+			WinWatcher.removeEventListener(WinWatcherEvent.resize, this.windowResizeHandler);
+			WinWatcher.stop();
 		}
 
 		public setBreakpoints(breakPoints:number[]):void {
@@ -82,7 +82,7 @@ namespace alm.browser {
 		}
 
 		private check():void {
-			const windowWidth = WindowWatcher.getWindowWidth();
+			const windowWidth = WinWatcher.getWidth();
 			let index;
 			for (index = 0; index < this.breakPointCount; ++index) {
 				if (windowWidth <= this.breakPoints[index]) {
@@ -95,10 +95,10 @@ namespace alm.browser {
 			this.currentIndex = index;
 			trace('[ResponsiveObserver] switch index :', this.prevIndex, '->', this.currentIndex, ', window width =', windowWidth);
 
-			this.dispatchEvent(new ResponsiveObserverEvent(ResponsiveObserverEvent.CHANGE, this, this.currentIndex, this.prevIndex));
+			this.dispatchEvent(new ResponsiveObserverEvent(ResponsiveObserverEvent.change, this, this.currentIndex, this.prevIndex));
 		}
 
-		private windowResizeHandler = (event:WindowWatcherEvent):void => {
+		private windowResizeHandler = (event:WinWatcherEvent):void => {
 			this.check();
 		};
 
@@ -108,7 +108,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

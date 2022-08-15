@@ -12,8 +12,8 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static TRANSFER_START:string = 'SceneManagerTransferEvent.transferStart';
-		public static TRANSFER_COMPLETE:string = 'SceneManagerTransferEvent.transferComplete';
+		public static readonly transferStart:string = 'SceneManagerTransferEvent.transferStart';
+		public static readonly transferComplete:string = 'SceneManagerTransferEvent.transferComplete';
 
 
 
@@ -54,7 +54,7 @@ namespace scn {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

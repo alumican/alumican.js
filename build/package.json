@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "project",
   "scripts": {
-    "preinstall": "npm install -g gulp-cli",
+    "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yukiya Okuda",

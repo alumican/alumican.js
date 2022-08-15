@@ -88,9 +88,9 @@ namespace alm.time {
 			} else if (this.tInterval != this.interval) {
 				this.startInterval(this.interval);
 			}
-			this.dispatch(TimerEvent.TICK);
+			this.dispatch(TimerEvent.tick);
 			if (isCompleted) {
-				this.dispatch(TimerEvent.COMPLETE);
+				this.dispatch(TimerEvent.complete);
 			}
 		};
 
@@ -100,7 +100,7 @@ namespace alm.time {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

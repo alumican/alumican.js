@@ -4,7 +4,7 @@ namespace alm.browser {
 
 	export class ScrollSectionTriggerEvent extends alm.event.Event<ScrollSectionTrigger> {
 
-		public static CHANGE:string = 'ScrollSectionTriggerEvent.CHANGE';
+		public static readonly change:string = 'ScrollSectionTriggerEvent.change';
 
 
 
@@ -39,7 +39,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

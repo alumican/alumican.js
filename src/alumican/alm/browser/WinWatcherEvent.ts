@@ -2,7 +2,7 @@
 
 namespace alm.browser {
 
-	export class WindowWatcherEvent extends alm.event.Event<WindowWatcher> {
+	export class WinWatcherEvent extends alm.event.Event<WinWatcher> {
 
 		// --------------------------------------------------
 		//
@@ -10,8 +10,8 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		static SCROLL:string = 'scroll';
-		static RESIZE:string = 'resize';
+		public static readonly scroll:string = 'WinWatcherEvent.scroll';
+		public static readonly resize:string = 'WinWatcherEvent.resize';
 
 
 
@@ -23,13 +23,13 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, eventTarget:WindowWatcher, originalEvent:Event = null, scrollTop:number = 0, scrollBottom:number = 0, windowWidth:number = 0, windowHeight:number = 0) {
+		constructor(eventType:string, eventTarget:WinWatcher, originalEvent:Event = null, scrollTop:number = 0, scrollBottom:number = 0, width:number = 0, height:number = 0) {
 			super(eventType, eventTarget);
 			this.originalEvent = originalEvent;
 			this.scrollTop = scrollTop;
 			this.scrollBottom = scrollBottom;
-			this.windowWidth = windowWidth;
-			this.windowHeight = windowHeight;
+			this.width = width;
+			this.height = height;
 		}
 
 
@@ -42,12 +42,12 @@ namespace alm.browser {
 		//
 		// --------------------------------------------------
 
-		public clone():WindowWatcherEvent {
-			return new WindowWatcherEvent(this.type, this.target, this.originalEvent, this.scrollTop, this.scrollBottom, this.windowWidth, this.windowHeight);
+		public clone():WinWatcherEvent {
+			return new WinWatcherEvent(this.type, this.target, this.originalEvent, this.scrollTop, this.scrollBottom, this.width, this.height);
 		}
 
 		public toString():string {
-			return '[WindowWatcherEvent] type = ' + this.type + ', scrollTop = ' + this.scrollTop + ', scrollBottom = ' + this.scrollBottom + ', windowWidth = ' + this.windowWidth + ', windowHeight = ' + this.windowHeight;
+			return '[WinWatcherEvent] type = ' + this.type + ', scrollTop = ' + this.scrollTop + ', scrollBottom = ' + this.scrollBottom + ', width = ' + this.width + ', height = ' + this.height;
 		}
 
 
@@ -56,14 +56,14 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
 		public readonly originalEvent:Event;
 		public readonly scrollTop:number;
 		public readonly scrollBottom:number;
-		public readonly windowWidth:number;
-		public readonly windowHeight:number;
+		public readonly width:number;
+		public readonly height:number;
 	}
 }

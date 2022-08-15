@@ -5,11 +5,11 @@ namespace alm.debug {
 	import QueryString = alm.browser.QueryString;
 
 	export enum LoggerLevel {
-		Verbose = 0,
-		Info = 1,
-		Warn = 2,
-		Error = 3,
-		Silent = 4,
+		verbose = 0,
+		info = 1,
+		warn = 2,
+		error = 3,
+		silent = 4,
 	}
 
 
@@ -153,55 +153,55 @@ namespace alm.debug {
 
 	export class Logger {
 
-		public static level:number = LoggerLevel.Verbose;
+		public static level:number = LoggerLevel.verbose;
 		public static logger:ILogging = new ConsoleLogging();
 		private static namespace:string = '';
 
 		public static setLevelByQuery(key:string):void {
-			const level:number = new QueryString().getInt(key, LoggerLevel.Silent);
-			Logger.level = isNaN(level) ? LoggerLevel.Silent : level;
+			const level:number = new QueryString().getInt(key, LoggerLevel.silent);
+			Logger.level = isNaN(level) ? LoggerLevel.silent : level;
 		}
 
 		public static setNamespace(namespace:string):void {
-			Logger.namespace = namespace != '' ? (namespace + '#') : '';
+			Logger.namespace = namespace != '' ? (namespace + ' ') : '';
 		}
 
 		public static verbose(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Verbose) {
+			if (Logger.level <= LoggerLevel.verbose) {
 				Logger.logger.verbose('[' + Logger.namespace + 'Verbose] ', messages);
 			}
 		}
 
 		public static info(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Info) {
-				Logger.logger.info('[' + Logger.namespace + 'Info   ] ', messages);
+			if (Logger.level <= LoggerLevel.info) {
+				Logger.logger.info('[' + Logger.namespace + 'Info] ', messages);
 			}
 		}
 
 		public static warn(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Warn) {
-				Logger.logger.warn('[' + Logger.namespace + 'Warn   ] ', messages);
+			if (Logger.level <= LoggerLevel.warn) {
+				Logger.logger.warn('[' + Logger.namespace + 'Warn] ', messages);
 				//Logger.stackTrace();
 			}
 		}
 
 		public static error(...messages:any[]):void {
-			if (Logger.level <= LoggerLevel.Error) {
-				Logger.logger.error('[' + Logger.namespace + 'Error  ] ', messages);
+			if (Logger.level <= LoggerLevel.error) {
+				Logger.logger.error('[' + Logger.namespace + 'Error] ', messages);
 				//Logger.stackTrace();
 			}
 		}
 
 		public static warnIf(target:any, message:string, condition:boolean = true):void {
-			if (Logger.level <= LoggerLevel.Warn && condition) {
-				Logger.logger.warn('[' + Logger.namespace + 'Warn   ] ', [message + ' : ' + target]);
+			if (Logger.level <= LoggerLevel.warn && condition) {
+				Logger.logger.warn('[' + Logger.namespace + 'Warn] ', [message + ' : ' + target]);
 				//Logger.stackTrace();
 			}
 		}
 
 		public static errorIf(target:any, message: string, condition:boolean = true):void {
-			if (Logger.level <= LoggerLevel.Error && condition) {
-				Logger.logger.error('[' + Logger.namespace + 'Error  ] ', [message + ' : ' + target]);
+			if (Logger.level <= LoggerLevel.error && condition) {
+				Logger.logger.error('[' + Logger.namespace + 'Error] ', [message + ' : ' + target]);
 				//Logger.stackTrace();
 			}
 		}

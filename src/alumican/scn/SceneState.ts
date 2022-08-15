@@ -3,30 +3,30 @@
 namespace scn {
 
 	export enum SceneState {
-		Idling,
-		Loading,
-		Unloading,
-		Arriving,
-		Leaving,
-		Ascending,
-		Descending,
+		idling,
+		loading,
+		unloading,
+		arriving,
+		leaving,
+		ascending,
+		descending,
 	}
 
 	export function getSceneStateString(state:SceneState):string {
 		switch (state) {
-			case SceneState.Idling:
+			case SceneState.idling:
 				return 'idling';
-			case SceneState.Loading:
+			case SceneState.loading:
 				return 'loading';
-			case SceneState.Unloading:
+			case SceneState.unloading:
 				return 'unloading';
-			case SceneState.Arriving:
+			case SceneState.arriving:
 				return 'arriving';
-			case SceneState.Leaving:
+			case SceneState.leaving:
 				return 'leaving';
-			case SceneState.Ascending:
+			case SceneState.ascending:
 				return 'ascending';
-			case SceneState.Descending:
+			case SceneState.descending:
 				return 'descending';
 		}
 		return '';

@@ -24,7 +24,7 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public getType():string {
-			return ThreeTextureFileHandler.TYPE;
+			return ThreeTextureFileHandler.type;
 		}
 
 		public load(url:string, onComplete:CompleteFunction, onError:ErrorFunction):void {
@@ -49,10 +49,10 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
-		public static TYPE:string = 'THREE.Texture';
+		public static readonly type:string = 'THREE.Texture';
 	}
 }

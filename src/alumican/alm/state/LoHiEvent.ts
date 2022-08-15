@@ -10,9 +10,9 @@ namespace alm.state {
 		//
 		// --------------------------------------------------
 
-		public static CHANGE:string = 'change';
-		public static LOW:string = 'low';
-		public static HIGH:string = 'high';
+		public static readonly change:string = 'LoHiEvent.change';
+		public static readonly low:string = 'LoHiEvent.low';
+		public static readonly high:string = 'LoHiEvent.high';
 
 
 
@@ -53,7 +53,7 @@ namespace alm.state {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -3,8 +3,8 @@
 namespace alm.browser {
 
 	import Logger = alm.debug.Logger;
-	import WindowWatcher = alm.browser.WindowWatcher;
-	import WindowWatcherEvent = alm.browser.WindowWatcherEvent;
+	import WinWatcher = alm.browser.WinWatcher;
+	import WinWatcherEvent = alm.browser.WinWatcherEvent;
 	import EventDispatcher = alm.event.EventDispatcher;
 
 	export class ScrollSectionTrigger extends EventDispatcher {
@@ -43,9 +43,9 @@ namespace alm.browser {
 			if (this.isRunning) return;
 			this.isRunning = true;
 
-			WindowWatcher.addEventListener(WindowWatcherEvent.SCROLL, this.windowScrollHandler);
-			WindowWatcher.addEventListener(WindowWatcherEvent.RESIZE, this.windowResizeHandler);
-			WindowWatcher.start();
+			WinWatcher.addEventListener(WinWatcherEvent.scroll, this.windowScrollHandler);
+			WinWatcher.addEventListener(WinWatcherEvent.resize, this.windowResizeHandler);
+			WinWatcher.start();
 
 			this.updateThresholdPosition();
 			this.updateScrollPosition();
@@ -56,9 +56,9 @@ namespace alm.browser {
 			if (!this.isRunning) return;
 			this.isRunning = false;
 
-			WindowWatcher.removeEventListener(WindowWatcherEvent.SCROLL, this.windowScrollHandler);
-			WindowWatcher.removeEventListener(WindowWatcherEvent.RESIZE, this.windowResizeHandler);
-			WindowWatcher.stop();
+			WinWatcher.removeEventListener(WinWatcherEvent.scroll, this.windowScrollHandler);
+			WinWatcher.removeEventListener(WinWatcherEvent.resize, this.windowResizeHandler);
+			WinWatcher.stop();
 		}
 
 		public getIsRunning():boolean {
@@ -128,25 +128,25 @@ namespace alm.browser {
 				if (this.currentSectionIndex != sectionIndex) {
 					this.prevSectionIndex = this.currentSectionIndex;
 					this.currentSectionIndex = sectionIndex;
-					this.dispatchEvent(new ScrollSectionTriggerEvent(ScrollSectionTriggerEvent.CHANGE, this, this.currentSectionIndex, this.prevSectionIndex));
+					this.dispatchEvent(new ScrollSectionTriggerEvent(ScrollSectionTriggerEvent.change, this, this.currentSectionIndex, this.prevSectionIndex));
 				}
 			}
 		}
 
 		private updateThresholdPosition():void {
-			this.thresholdPosition = WindowWatcher.getWindowHeight() * this.thresholdRatio;
+			this.thresholdPosition = WinWatcher.getHeight() * this.thresholdRatio;
 		}
 
 		private updateScrollPosition():void {
-			this.scrollPosition = WindowWatcher.getScrollTop();
+			this.scrollPosition = WinWatcher.getScrollTop();
 		}
 
-		private windowScrollHandler = (event:WindowWatcherEvent):void => {
+		private windowScrollHandler = (event:WinWatcherEvent):void => {
 			this.updateScrollPosition();
 			this.check();
 		};
 
-		private windowResizeHandler = (event:WindowWatcherEvent):void => {
+		private windowResizeHandler = (event:WinWatcherEvent):void => {
 			this.updateThresholdPosition();
 			this.updateScrollPosition();
 			this.check();
@@ -158,7 +158,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -10,7 +10,7 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		static ERROR:string = 'error';
+		public static readonly error:string = 'FileLoaderErrorEvent.error';
 
 
 
@@ -51,7 +51,7 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -4,101 +4,101 @@ namespace alm.browser {
 
 	// https://github.com/nfriend/ts-keycode-enum
 	export enum KeyCode {
-		Backspace = 8,
-		Tab = 9,
-		Enter = 13,
-		Shift = 16,
-		Ctrl = 17,
-		Alt = 18,
-		PauseBreak = 19,
-		CapsLock = 20,
-		Escape = 27,
-		Space = 32,
-		PageUp = 33,
-		PageDown = 34,
-		End = 35,
-		Home = 36,
+		backspace = 8,
+		tab = 9,
+		enter = 13,
+		shift = 16,
+		ctrl = 17,
+		alt = 18,
+		pauseBreak = 19,
+		capsLock = 20,
+		escape = 27,
+		space = 32,
+		pageUp = 33,
+		pageDown = 34,
+		end = 35,
+		home = 36,
 
-		LeftArrow = 37,
-		UpArrow = 38,
-		RightArrow = 39,
-		DownArrow = 40,
+		leftArrow = 37,
+		upArrow = 38,
+		rightArrow = 39,
+		downArrow = 40,
 
-		Insert = 45,
-		Delete = 46,
+		insert = 45,
+		delete = 46,
 
-		Key0 = 48,
-		Key1 = 49,
-		Key2 = 50,
-		Key3 = 51,
-		Key4 = 52,
-		Key5 = 53,
-		Key6 = 54,
-		Key7 = 55,
-		Key8 = 56,
-		Key9 = 57,
+		key0 = 48,
+		key1 = 49,
+		key2 = 50,
+		key3 = 51,
+		key4 = 52,
+		key5 = 53,
+		key6 = 54,
+		key7 = 55,
+		key8 = 56,
+		key9 = 57,
 
-		ClosedParen = Key0,
-		ExclamationMark = Key1,
-		AtSign = Key2,
-		PoundSign = Key3,
-		Hash = PoundSign,
-		DollarSign = Key4,
-		PercentSign = Key5,
-		Caret = Key6,
-		Hat = Caret,
-		Ampersand = Key7,
-		Star = Key8,
-		Asterik = Star,
-		OpenParen = Key9,
+		closedParen = key0,
+		exclamationMark = key1,
+		atSign = key2,
+		poundSign = key3,
+		hash = poundSign,
+		dollarSign = key4,
+		percentSign = key5,
+		caret = key6,
+		hat = caret,
+		ampersand = key7,
+		star = key8,
+		asterik = star,
+		openParen = key9,
 
-		A = 65,
-		B = 66,
-		C = 67,
-		D = 68,
-		E = 69,
-		F = 70,
-		G = 71,
-		H = 72,
-		I = 73,
-		J = 74,
-		K = 75,
-		L = 76,
-		M = 77,
-		N = 78,
-		O = 79,
-		P = 80,
-		Q = 81,
-		R = 82,
-		S = 83,
-		T = 84,
-		U = 85,
-		V = 86,
-		W = 87,
-		X = 88,
-		Y = 89,
-		Z = 90,
+		a = 65,
+		b = 66,
+		c = 67,
+		d = 68,
+		e = 69,
+		f = 70,
+		g = 71,
+		h = 72,
+		i = 73,
+		j = 74,
+		k = 75,
+		l = 76,
+		m = 77,
+		n = 78,
+		o = 79,
+		p = 80,
+		q = 81,
+		r = 82,
+		s = 83,
+		t = 84,
+		u = 85,
+		v = 86,
+		w = 87,
+		x = 88,
+		y = 89,
+		z = 90,
 
-		LeftWindowKey = 91,
-		RightWindowKey = 92,
-		SelectKey = 93,
+		leftWindowKey = 91,
+		rightWindowKey = 92,
+		selectKey = 93,
 
-		Numpad0 = 96,
-		Numpad1 = 97,
-		Numpad2 = 98,
-		Numpad3 = 99,
-		Numpad4 = 100,
-		Numpad5 = 101,
-		Numpad6 = 102,
-		Numpad7 = 103,
-		Numpad8 = 104,
-		Numpad9 = 105,
+		numpad0 = 96,
+		numpad1 = 97,
+		numpad2 = 98,
+		numpad3 = 99,
+		numpad4 = 100,
+		numpad5 = 101,
+		numpad6 = 102,
+		numpad7 = 103,
+		numpad8 = 104,
+		numpad9 = 105,
 
-		Multiply = 106,
-		Add = 107,
-		Subtract = 109,
-		DecimalPoint = 110,
-		Divide = 111,
+		multiply = 106,
+		add = 107,
+		subtract = 109,
+		decimalPoint = 110,
+		divide = 111,
 
 		F1 = 112,
 		F2 = 113,
@@ -113,23 +113,23 @@ namespace alm.browser {
 		F11 = 122,
 		F12 = 123,
 
-		NumLock = 144,
-		ScrollLock = 145,
+		numLock = 144,
+		scrollLock = 145,
 
-		SemiColon = 186,
-		Equals = 187,
-		Comma = 188,
-		Dash = 189,
-		Period = 190,
-		UnderScore = Dash,
-		PlusSign = Equals,
-		ForwardSlash = 191,
-		Tilde = 192,
-		GraveAccent = Tilde,
+		semiColon = 186,
+		equals = 187,
+		comma = 188,
+		dash = 189,
+		period = 190,
+		underScore = dash,
+		plusSign = equals,
+		forwardSlash = 191,
+		tilde = 192,
+		graveAccent = tilde,
 
-		OpenBracket = 219,
-		ClosedBracket = 221,
-		Quote = 222
+		openBracket = 219,
+		closedBracket = 221,
+		quote = 222
 	}
 
 
@@ -193,9 +193,9 @@ namespace alm.browser {
 			if (KeyWatcher.isKeyPressedByKeyCode[keyCode] == null) {
 				KeyWatcher.isKeyPressedByKeyCode[keyCode] = true;
 				++KeyWatcher.pressedKeyCount;
-				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.KEY_DOWN, KeyWatcher, event));
+				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.keyDown, KeyWatcher, event));
 			} else if (KeyWatcher.isContinuousPressEnabled) {
-				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.KEY_DOWN, KeyWatcher, event));
+				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.keyDown, KeyWatcher, event));
 			}
 		};
 
@@ -204,7 +204,7 @@ namespace alm.browser {
 			if (KeyWatcher.isKeyPressedByKeyCode[keyCode] != null) {
 				delete KeyWatcher.isKeyPressedByKeyCode[keyCode];
 				--KeyWatcher.pressedKeyCount;
-				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.KEY_UP, KeyWatcher, event));
+				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.keyUp, KeyWatcher, event));
 			}
 		};
 
@@ -214,7 +214,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

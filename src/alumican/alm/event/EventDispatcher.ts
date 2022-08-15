@@ -27,34 +27,37 @@ namespace alm.event {
 		//
 		// --------------------------------------------------
 
-		public addEventListener(eventType:string, listener:EventListener):void {
+		public addEventListener(eventType:string, listener:EventListener):boolean {
 			if (typeof(listener) != 'function') {
 				Logger.warn('[EventDispatcher] addEventListener : listener is not function, eventType = \'' + eventType + '\', listener = ' + listener);
-				return;
+				return false;
 			}
 			let listeners:EventListener[] = this.listeners[eventType];
 			if (listeners) {
 				const numListeners:number = listeners.length;
 				for (let i:number = 0; i < numListeners; ++i) {
-					if (listener == listeners[i]) return;
+					if (listener == listeners[i]) return false;
 				}
 			} else {
 				this.listeners[eventType] = listeners = [];
 			}
 			listeners.push(listener);
+			return true;
 		}
 
-		public removeEventListener(eventType:string, listener:EventListener):void {
+		public removeEventListener(eventType:string, listener:EventListener):boolean {
 			if (typeof(listener) != 'function') {
 				Logger.warn('[EventDispatcher] removeEventListener : listener is not function, eventType = \'' + eventType + '\', listener = ' + listener);
-				return;
+				return false;
 			}
+			let result = false;
 			let listeners:EventListener[] = this.listeners[eventType];
 			if (listeners) {
 				const numListeners:number = listeners.length;
 				for (let i:number = 0; i < numListeners; ++i) {
 					if (listener == listeners[i]) {
 						listeners.splice(i,  1);
+						result = true;
 						break;
 					}
 				}
@@ -62,6 +65,7 @@ namespace alm.event {
 					delete this.listeners[eventType];
 				}
 			}
+			return result;
 		}
 
 		public removeAllEventListener(eventType:string = null):void {
@@ -79,6 +83,7 @@ namespace alm.event {
 		public dispatchEvent(event:Event):void {
 			let listeners:EventListener[] = this.listeners[event.type];
 			if (listeners) {
+				listeners = listeners.concat();
 				const numListeners:number = listeners.length;
 				for (let i:number = 0; i < numListeners; ++i) {
 					listeners[i].call(this.target, event);
@@ -96,7 +101,7 @@ namespace alm.event {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

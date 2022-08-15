@@ -228,7 +228,7 @@ namespace alm.math {
 		}
 
 		public static easeInBack(t:number):number {
-			return Easing.defaultEaseInElastic(t);
+			return Easing.defaultEaseInBack(t);
 		}
 
 		public static easeOutBack(t:number):number {

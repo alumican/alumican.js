@@ -73,11 +73,11 @@ declare namespace alm.browser {
 }
 declare namespace alm.debug {
     enum LoggerLevel {
-        Verbose = 0,
-        Info = 1,
-        Warn = 2,
-        Error = 3,
-        Silent = 4
+        verbose = 0,
+        info = 1,
+        warn = 2,
+        error = 3,
+        silent = 4
     }
     interface ILogging {
         verbose(prefix: string, messages: any[]): void;
@@ -163,8 +163,8 @@ declare namespace alm.event {
 declare namespace alm.event {
     class EventDispatcher implements IEventDispatcher {
         constructor(target?: EventDispatcher);
-        addEventListener(eventType: string, listener: EventListener): void;
-        removeEventListener(eventType: string, listener: EventListener): void;
+        addEventListener(eventType: string, listener: EventListener): boolean;
+        removeEventListener(eventType: string, listener: EventListener): boolean;
         removeAllEventListener(eventType?: string): void;
         hasEventListener(eventType: string): boolean;
         dispatchEvent(event: Event): void;
@@ -175,8 +175,8 @@ declare namespace alm.event {
 }
 declare namespace alm.event {
     interface IEventDispatcher {
-        addEventListener(eventType: string, listener: EventListener): void;
-        removeEventListener(eventType: string, listener: EventListener): void;
+        addEventListener(eventType: string, listener: EventListener): boolean;
+        removeEventListener(eventType: string, listener: EventListener): boolean;
         removeAllEventListener(eventType: string): void;
         hasEventListener(eventType: string): boolean;
         dispatchEvent(event: Event): void;
@@ -185,15 +185,15 @@ declare namespace alm.event {
 }
 declare namespace cmd {
     enum CommandState {
-        Sleeping = 0,
-        Executing = 1,
-        Interrupting = 2
+        sleeping = 0,
+        executing = 1,
+        interrupting = 2
     }
 }
 declare namespace cmd {
     import Event = alm.event.Event;
     class CommandEvent extends Event<Command> {
-        static COMPLETE: string;
+        static readonly complete: string;
         constructor(eventType: string, eventTarget: Command);
         clone(): CommandEvent;
         toString(): string;
@@ -376,6 +376,26 @@ declare namespace cmd {
     }
 }
 declare namespace cmd {
+    type Condition = boolean | Function;
+    class If extends Command {
+        constructor(condition?: Condition, then?: Command, reject?: Command);
+        protected implExecuteFunction(command: Command): void;
+        protected implInterruptFunction(command: Command): void;
+        protected implDestroyFunction(command: Command): void;
+        private completeHandler;
+        getCondition(): Condition;
+        setCondition(condition: Condition): void;
+        private condition;
+        getThen(): Command;
+        setThen(then: Command): void;
+        private then;
+        getReject(): Command;
+        setReject(reject: Command): void;
+        private reject;
+        private selectedCommand;
+    }
+}
+declare namespace cmd {
     class Serial extends CommandList {
         constructor(...commands: (Command | Function)[]);
         addCommand(...commands: (Command | Function)[]): void;
@@ -469,21 +489,21 @@ declare namespace alm.geom {
 }
 declare namespace alm.geom {
     enum Align {
-        Top_Left = 0,
-        Top_Center = 1,
-        Top_Right = 2,
-        Middle_Left = 3,
-        Middle_Center = 4,
-        Middle_Right = 5,
-        Bottom_Left = 6,
-        Bottom_Center = 7,
-        Bottom_Right = 8
+        topLeft = 0,
+        topCenter = 1,
+        topRight = 2,
+        middleLeft = 3,
+        middleCenter = 4,
+        middleRight = 5,
+        bottomLeft = 6,
+        bottomCenter = 7,
+        bottomRight = 8
     }
     enum ScaleMode {
-        ExactFit = 0,
-        ShowAll = 1,
-        NoBorder = 2,
-        NoScale = 3
+        exactFit = 0,
+        showAll = 1,
+        noBorder = 2,
+        noScale = 3
     }
     class Boxer {
         static resize(target: geom.Rectangle, bounds: geom.Rectangle, scaleMode?: ScaleMode, align?: Align): geom.Rectangle;
@@ -512,6 +532,8 @@ declare namespace alm.util {
         static shuffle<T>(list: T[]): void;
         static sort(list: number[], asc?: boolean): void;
         static choose<T>(list: T[]): T;
+        static clean<T>(list: T[]): T[];
+        static update<T>(list: T[], f: (item: T) => (void | boolean)): void;
         private constructor();
     }
 }
@@ -561,21 +583,21 @@ declare namespace alm.util {
 }
 declare namespace alm.util {
     class Dom {
-        static instantiate(templateId: string, removeId?: boolean): HTMLElement;
-        static addPointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static addPointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static addPointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static addPointerEnterListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static addPointerLeaveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static addPointerOverListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static addPointerOutListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerEnterListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerLeaveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerOverListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
-        static removePointerOutListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void): void;
+        static instantiate(templateId: string, removeId?: boolean, verbose?: boolean): HTMLElement;
+        static addPointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static addPointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static addPointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static addPointerEnterListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static addPointerLeaveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static addPointerOverListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static addPointerOutListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: AddEventListenerOptions): void;
+        static removePointerDownListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
+        static removePointerMoveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
+        static removePointerUpListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
+        static removePointerEnterListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
+        static removePointerLeaveListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
+        static removePointerOverListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
+        static removePointerOutListener(target: HTMLElement | Window, listener: (event: PointerEvent) => void, options?: EventListenerOptions): void;
         static addRootClass(value: string): void;
         static removeRootClass(value: string): void;
         static addRootAttribute(key: string, value: string): void;
@@ -587,9 +609,27 @@ declare namespace alm.util {
         static setupSmoothAnchorLink(): void;
         private static setAnchorLinkAction;
         private static anchorLinkClickHandler;
+        static getViewportRect(element: Element): {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        };
+        static geDocumentRect(element: Element): {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        };
         private static root;
         private static scrollTween;
         private static scrollPosition;
+        private constructor();
+    }
+}
+declare namespace alm.util {
+    class Cvs {
+        static getHighDpiContext2d(canvas: HTMLCanvasElement): CanvasRenderingContext2D;
         private constructor();
     }
 }
@@ -613,6 +653,13 @@ declare namespace alm.util {
         private value;
         private suffix;
         private tween;
+    }
+}
+declare namespace alm.util {
+    class Sensor {
+        static wakeUpDeviceMotion(): Promise<void>;
+        static wakeUpDeviceOrientation(): Promise<void>;
+        private constructor();
     }
 }
 declare namespace alm.resource {
@@ -687,9 +734,9 @@ declare namespace alm.state {
 }
 declare namespace alm.state {
     class SwitcherEvent<T = string> extends alm.event.Event<Switcher<T>> {
-        static CHANGE: string;
-        static PREV: string;
-        static NEXT: string;
+        static readonly change: string;
+        static readonly prev: string;
+        static readonly next: string;
         constructor(eventType: string, eventTarget: Switcher<T>, currentItemIndex: number, oldItemIndex: number, currentItemId: T, oldItemId: T, useTransition: boolean);
         clone(): SwitcherEvent<T>;
         toString(): string;
@@ -720,9 +767,9 @@ declare namespace alm.state {
 }
 declare namespace alm.state {
     class LoHiEvent extends alm.event.Event<LoHi> {
-        static CHANGE: string;
-        static LOW: string;
-        static HIGH: string;
+        static readonly change: string;
+        static readonly low: string;
+        static readonly high: string;
         constructor(eventType: string, eventTarget: LoHi, isHigh: boolean);
         clone(): LoHiEvent;
         toString(): string;
@@ -754,9 +801,20 @@ declare namespace alm.math {
     }
 }
 declare namespace alm.math {
+    class MinMax {
+        constructor();
+        add(n: number): void;
+        min: number;
+        max: number;
+        private _min;
+        private _max;
+    }
+}
+declare namespace alm.math {
     class SimpleAverage {
         constructor();
         add(n: number): number;
+        reset(): void;
         value: number;
         count: number;
         private _value;
@@ -767,6 +825,7 @@ declare namespace alm.math {
     class SimpleMovingAverage {
         constructor(maxCount: number);
         add(n: number): number;
+        reset(): void;
         value: number;
         maxCount: number;
         count: number;
@@ -840,28 +899,34 @@ declare namespace alm.math {
 }
 declare namespace alm.time {
     import EventDispatcher = alm.event.EventDispatcher;
+    import EventListener = alm.event.EventListener;
     class AnimationFrameTicker extends EventDispatcher {
         constructor(frameRate?: number, tolerance?: number);
         start(): void;
         stop(): void;
         getIsRunning(): boolean;
-        getTargetFrameRate(): boolean;
-        private setInterval;
-        private clearInterval;
+        getTargetFrameRate(): number;
+        getInterval(): number;
+        getTolerance(): number;
+        getToleranceDuration(): number;
         private updateHandler;
+        static addEventListener(listener: alm.event.EventListener): void;
+        static removeEventListener(listener: EventListener): void;
         private isRunning;
         private requestId;
         private targetFrameRate;
+        private interval;
         private tolerance;
         private toleranceDuration;
-        private interval;
         private frameStartTime;
+        private static ticker;
+        private static listenerCount;
     }
 }
 declare namespace alm.time {
     import Event = alm.event.Event;
     class AnimationFrameTickerEvent extends Event<AnimationFrameTicker> {
-        static TICK: string;
+        static readonly tick: string;
         constructor(eventType: string, eventTarget: AnimationFrameTicker);
         clone(): AnimationFrameTickerEvent;
         toString(): string;
@@ -901,8 +966,8 @@ declare namespace alm.time {
 declare namespace alm.time {
     import Event = alm.event.Event;
     class TimerEvent extends Event<Timer> {
-        static TICK: string;
-        static COMPLETE: string;
+        static readonly tick: string;
+        static readonly complete: string;
         constructor(eventType: string, eventTarget: Timer, elapsedCount?: number, repeatCount?: number, restCount?: number);
         clone(): TimerEvent;
         toString(): string;
@@ -948,9 +1013,9 @@ declare namespace alm.io {
 }
 declare namespace alm.io {
     class FileLoaderProgressEvent extends alm.event.Event<FileLoader> {
-        static START: string;
-        static PROGRESS: string;
-        static COMPLETE: string;
+        static readonly start: string;
+        static readonly progress: string;
+        static readonly complete: string;
         constructor(eventType: string, eventTarget: FileLoader, progress?: number, loadedCount?: number, totalCount?: number);
         clone(): FileLoaderProgressEvent;
         toString(): string;
@@ -961,7 +1026,7 @@ declare namespace alm.io {
 }
 declare namespace alm.io {
     class FileLoaderSuccessEvent extends alm.event.Event<FileLoader> {
-        static SUCCESS: string;
+        static readonly success: string;
         constructor(eventType: string, eventTarget: FileLoader, content: any, info?: any);
         clone(): FileLoaderSuccessEvent;
         toString(): string;
@@ -971,7 +1036,7 @@ declare namespace alm.io {
 }
 declare namespace alm.io {
     class FileLoaderErrorEvent extends alm.event.Event<FileLoader> {
-        static ERROR: string;
+        static readonly error: string;
         constructor(eventType: string, eventTarget: FileLoader, info?: any);
         clone(): FileLoaderErrorEvent;
         toString(): string;
@@ -1005,94 +1070,7 @@ declare namespace alm.io {
         getType(): string;
         load(url: string, onComplete: CompleteFunction, onError: ErrorFunction): void;
         private crossOrigin;
-        static TYPE: string;
-    }
-}
-declare namespace alm.audio {
-    class AudioClip {
-        constructor(context: AudioContext, destination: AudioNode, fileName?: string, masterVolume?: number);
-        load(url: string): void;
-        play(loop?: boolean, overwrite?: boolean): void;
-        stop(): void;
-        getVolume(): number;
-        setVolume(volume: number): void;
-        fadeTo(to: number, duration?: number, onComplete?: Function): void;
-        fadeIn(duration?: number): void;
-        fadeOut(duration?: number, stopOnComplete?: boolean): void;
-        private applyVolume;
-        getIsAvailable(): boolean;
-        getDuration(): number;
-        getCurrentTime(): number;
-        private isAvailable;
-        private context;
-        private volume;
-        private masterVolume;
-        private buffer;
-        private duration;
-        private sourceNode;
-        private gainNode;
-        private volumeTween;
-    }
-}
-declare namespace alm.audio {
-    import EventDispatcher = alm.event.EventDispatcher;
-    class AudioPlayer extends EventDispatcher {
-        private constructor();
-        add(url: string, masterVolute?: number, id?: string): boolean;
-        getClip(id: string): AudioClip;
-        getMasterVolume(): number;
-        setMasterVolume(volume: number): void;
-        static getInstance(): AudioPlayer;
-        private static instance;
-        private isAvailable;
-        private context;
-        private clipsById;
-        private masterGainNode;
-        private masterVolume;
-    }
-}
-declare namespace alm.audio {
-    class CrossOverLoopAudio {
-        constructor(crossOverDuration?: number);
-        add(url: string, masterVolume?: number): void;
-        play(): void;
-        stop(): void;
-        setVolume(volume: number): void;
-        private playCurrent;
-        private stopCurrent;
-        private timerHandler;
-        private audioPlayer;
-        private volume;
-        private clipIds;
-        private clip;
-        private clipIndex;
-        private clipCount;
-        private isPlaying;
-        private crossOverDuration;
-        private timeoutId;
-    }
-}
-declare namespace alm.audio {
-    class FootstepAudio {
-        constructor(intervalMin?: number, intervalMax?: number);
-        add(url: string, masterVolume?: number): void;
-        play(immediately?: boolean): void;
-        stop(): void;
-        setSpeed(speedRatio: number): void;
-        setVolume(volume: number): void;
-        private timerHandler;
-        private audioPlayer;
-        private volume;
-        private clipIds;
-        private clipIndex;
-        private clipCount;
-        private startTime;
-        private isWaitingForFirstStep;
-        private intervalMin;
-        private intervalMax;
-        private interval;
-        private intervalId;
-        private isPlaying;
+        static readonly type: string;
     }
 }
 declare namespace alm.view {
@@ -1126,16 +1104,16 @@ declare namespace alm.view {
 declare namespace alm.view {
     import Event = alm.event.Event;
     class ViewEvent extends Event<View> {
-        static INITIALIZE_BEGIN: string;
-        static INITIALIZE_END: string;
-        static FINALIZE_BEGIN: string;
-        static FINALIZE_END: string;
-        static READY_BEGIN: string;
-        static READY_END: string;
-        static SHOW_BEGIN: string;
-        static SHOW_END: string;
-        static HIDE_BEGIN: string;
-        static HIDE_END: string;
+        static readonly initializeBegin: string;
+        static readonly initializeEnd: string;
+        static readonly finalizeBegin: string;
+        static readonly finalizeEnd: string;
+        static readonly readyBegin: string;
+        static readonly readyEnd: string;
+        static readonly showBegin: string;
+        static readonly showEnd: string;
+        static readonly hideBegin: string;
+        static readonly hideEnd: string;
         constructor(eventType: string, eventTarget: View);
         clone(): ViewEvent;
         toString(): string;
@@ -1336,93 +1314,93 @@ declare namespace alm.browser {
 }
 declare namespace alm.browser {
     enum KeyCode {
-        Backspace = 8,
-        Tab = 9,
-        Enter = 13,
-        Shift = 16,
-        Ctrl = 17,
-        Alt = 18,
-        PauseBreak = 19,
-        CapsLock = 20,
-        Escape = 27,
-        Space = 32,
-        PageUp = 33,
-        PageDown = 34,
-        End = 35,
-        Home = 36,
-        LeftArrow = 37,
-        UpArrow = 38,
-        RightArrow = 39,
-        DownArrow = 40,
-        Insert = 45,
-        Delete = 46,
-        Key0 = 48,
-        Key1 = 49,
-        Key2 = 50,
-        Key3 = 51,
-        Key4 = 52,
-        Key5 = 53,
-        Key6 = 54,
-        Key7 = 55,
-        Key8 = 56,
-        Key9 = 57,
-        ClosedParen = 48,
-        ExclamationMark = 49,
-        AtSign = 50,
-        PoundSign = 51,
-        Hash = 51,
-        DollarSign = 52,
-        PercentSign = 53,
-        Caret = 54,
-        Hat = 54,
-        Ampersand = 55,
-        Star = 56,
-        Asterik = 56,
-        OpenParen = 57,
-        A = 65,
-        B = 66,
-        C = 67,
-        D = 68,
-        E = 69,
-        F = 70,
-        G = 71,
-        H = 72,
-        I = 73,
-        J = 74,
-        K = 75,
-        L = 76,
-        M = 77,
-        N = 78,
-        O = 79,
-        P = 80,
-        Q = 81,
-        R = 82,
-        S = 83,
-        T = 84,
-        U = 85,
-        V = 86,
-        W = 87,
-        X = 88,
-        Y = 89,
-        Z = 90,
-        LeftWindowKey = 91,
-        RightWindowKey = 92,
-        SelectKey = 93,
-        Numpad0 = 96,
-        Numpad1 = 97,
-        Numpad2 = 98,
-        Numpad3 = 99,
-        Numpad4 = 100,
-        Numpad5 = 101,
-        Numpad6 = 102,
-        Numpad7 = 103,
-        Numpad8 = 104,
-        Numpad9 = 105,
-        Multiply = 106,
-        Add = 107,
-        Subtract = 109,
-        DecimalPoint = 110,
-        Divide = 111,
+        backspace = 8,
+        tab = 9,
+        enter = 13,
+        shift = 16,
+        ctrl = 17,
+        alt = 18,
+        pauseBreak = 19,
+        capsLock = 20,
+        escape = 27,
+        space = 32,
+        pageUp = 33,
+        pageDown = 34,
+        end = 35,
+        home = 36,
+        leftArrow = 37,
+        upArrow = 38,
+        rightArrow = 39,
+        downArrow = 40,
+        insert = 45,
+        delete = 46,
+        key0 = 48,
+        key1 = 49,
+        key2 = 50,
+        key3 = 51,
+        key4 = 52,
+        key5 = 53,
+        key6 = 54,
+        key7 = 55,
+        key8 = 56,
+        key9 = 57,
+        closedParen = 48,
+        exclamationMark = 49,
+        atSign = 50,
+        poundSign = 51,
+        hash = 51,
+        dollarSign = 52,
+        percentSign = 53,
+        caret = 54,
+        hat = 54,
+        ampersand = 55,
+        star = 56,
+        asterik = 56,
+        openParen = 57,
+        a = 65,
+        b = 66,
+        c = 67,
+        d = 68,
+        e = 69,
+        f = 70,
+        g = 71,
+        h = 72,
+        i = 73,
+        j = 74,
+        k = 75,
+        l = 76,
+        m = 77,
+        n = 78,
+        o = 79,
+        p = 80,
+        q = 81,
+        r = 82,
+        s = 83,
+        t = 84,
+        u = 85,
+        v = 86,
+        w = 87,
+        x = 88,
+        y = 89,
+        z = 90,
+        leftWindowKey = 91,
+        rightWindowKey = 92,
+        selectKey = 93,
+        numpad0 = 96,
+        numpad1 = 97,
+        numpad2 = 98,
+        numpad3 = 99,
+        numpad4 = 100,
+        numpad5 = 101,
+        numpad6 = 102,
+        numpad7 = 103,
+        numpad8 = 104,
+        numpad9 = 105,
+        multiply = 106,
+        add = 107,
+        subtract = 109,
+        decimalPoint = 110,
+        divide = 111,
         F1 = 112,
         F2 = 113,
         F3 = 114,
@@ -1435,21 +1413,21 @@ declare namespace alm.browser {
         F10 = 121,
         F11 = 122,
         F12 = 123,
-        NumLock = 144,
-        ScrollLock = 145,
-        SemiColon = 186,
-        Equals = 187,
-        Comma = 188,
-        Dash = 189,
-        Period = 190,
-        UnderScore = 189,
-        PlusSign = 187,
-        ForwardSlash = 191,
-        Tilde = 192,
-        GraveAccent = 192,
-        OpenBracket = 219,
-        ClosedBracket = 221,
-        Quote = 222
+        numLock = 144,
+        scrollLock = 145,
+        semiColon = 186,
+        equals = 187,
+        comma = 188,
+        dash = 189,
+        period = 190,
+        underScore = 189,
+        plusSign = 187,
+        forwardSlash = 191,
+        tilde = 192,
+        graveAccent = 192,
+        openBracket = 219,
+        closedBracket = 221,
+        quote = 222
     }
     class KeyWatcher {
         private static initialize;
@@ -1476,8 +1454,8 @@ declare namespace alm.browser {
 }
 declare namespace alm.browser {
     class KeyWatcherEvent extends alm.event.Event<KeyWatcher> {
-        static KEY_UP: string;
-        static KEY_DOWN: string;
+        static readonly keyUp: string;
+        static readonly keyDown: string;
         constructor(eventType: string, eventTarget: KeyWatcher, originalEvent?: KeyboardEvent);
         clone(): KeyWatcherEvent;
         toString(): string;
@@ -1490,13 +1468,13 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    class WindowWatcher {
+    class WinWatcher {
         private static initialize;
         static start(target?: Window): void;
         static stop(): void;
         static apply(): void;
-        static addEventListener(eventType: string, listener: (event: WindowWatcherEvent) => void): void;
-        static removeEventListener(eventType: string, listener: (event: WindowWatcherEvent) => void): void;
+        static addEventListener(eventType: string, listener: (event: WinWatcherEvent) => void): void;
+        static removeEventListener(eventType: string, listener: (event: WinWatcherEvent) => void): void;
         static calcScrolledPosition(y: number): number;
         static calcScrolledPositionRatio(y: number): number;
         private static resize;
@@ -1511,10 +1489,10 @@ declare namespace alm.browser {
         private static scrollTop;
         static getScrollBottom(): number;
         private static scrollBottom;
-        static getWindowWidth(): number;
-        private static windowWidth;
-        static getWindowHeight(): number;
-        private static windowHeight;
+        static getWidth(): number;
+        private static width;
+        static getHeight(): number;
+        private static height;
         static getIsMobileOrientationResize(): boolean;
         static setIsMobileOrientationResize(value: boolean): void;
         private static isMobileOrientationResize;
@@ -1524,22 +1502,22 @@ declare namespace alm.browser {
     }
 }
 declare namespace alm.browser {
-    class WindowWatcherEvent extends alm.event.Event<WindowWatcher> {
-        static SCROLL: string;
-        static RESIZE: string;
-        constructor(eventType: string, eventTarget: WindowWatcher, originalEvent?: Event, scrollTop?: number, scrollBottom?: number, windowWidth?: number, windowHeight?: number);
-        clone(): WindowWatcherEvent;
+    class WinWatcherEvent extends alm.event.Event<WinWatcher> {
+        static readonly scroll: string;
+        static readonly resize: string;
+        constructor(eventType: string, eventTarget: WinWatcher, originalEvent?: Event, scrollTop?: number, scrollBottom?: number, width?: number, height?: number);
+        clone(): WinWatcherEvent;
         toString(): string;
         readonly originalEvent: Event;
         readonly scrollTop: number;
         readonly scrollBottom: number;
-        readonly windowWidth: number;
-        readonly windowHeight: number;
+        readonly width: number;
+        readonly height: number;
     }
 }
 declare namespace alm.browser {
     class ScrollSectionTriggerEvent extends alm.event.Event<ScrollSectionTrigger> {
-        static CHANGE: string;
+        static readonly change: string;
         constructor(eventType: string, target: ScrollSectionTrigger, currentSectionIndex: number, prevSectionIndex: number);
         readonly currentSectionIndex: number;
         readonly prevSectionIndex: number;
@@ -1595,10 +1573,40 @@ declare namespace alm.browser {
 }
 declare namespace alm.browser {
     class ResponsiveObserverEvent extends alm.event.Event<ResponsiveObserver> {
-        static CHANGE: string;
+        static readonly change: string;
         constructor(eventType: string, target: ResponsiveObserver, currentIndex: number, prevIndex: number);
         readonly currentIndex: number;
         readonly prevIndex: number;
+    }
+}
+declare namespace alm.browser {
+    class Kiosk {
+        private constructor();
+        static disableInteraction(): void;
+        private static doubleClickHandler;
+        private static contextMenuHandler;
+        static setStageSize(width: number, height: number): void;
+        static ratioX(xPixel: number, clamp?: boolean): number;
+        static ratioY(yPixel: number, clamp?: boolean): number;
+        static coverRatioX(xPixel: number, clamp?: boolean): number;
+        static coverRatioY(yPixel: number, clamp?: boolean): number;
+        static containRatioX(xPixel: number, clamp?: boolean): number;
+        static containRatioY(yPixel: number, clamp?: boolean): number;
+        private static isInteractionDisabled;
+        static getWidth(): number;
+        private static width;
+        static getHeight(): number;
+        private static height;
+        static getAspectRatio(): number;
+        private static aspectRatio;
+        static getNormalizedByCoverWidth(): number;
+        private static normalizedByCoverWidth;
+        static getNormalizedByCoverHeight(): number;
+        private static normalizedByCoverHeight;
+        static getNormalizedByContainWidth(): number;
+        private static normalizedByContainWidth;
+        static getNormalizedByContainHeight(): number;
+        private static normalizedByContainHeight;
     }
 }
 declare namespace scn {
@@ -1653,18 +1661,18 @@ declare namespace scn {
 declare namespace scn {
     import Event = alm.event.Event;
     class SceneEvent extends Event<Scene> {
-        static LOAD: string;
-        static UNLOAD: string;
-        static ARRIVE: string;
-        static LEAVE: string;
-        static ASCEND: string;
-        static DESCEND: string;
-        static LOAD_COMPLETE: string;
-        static UNLOAD_COMPLETE: string;
-        static ARRIVE_COMPLETE: string;
-        static LEAVE_COMPLETE: string;
-        static ASCEND_COMPLETE: string;
-        static DESCEND_COMPLETE: string;
+        static readonly load: string;
+        static readonly unload: string;
+        static readonly arrive: string;
+        static readonly leave: string;
+        static readonly ascend: string;
+        static readonly descend: string;
+        static readonly loadComplete: string;
+        static readonly unloadComplete: string;
+        static readonly arriveComplete: string;
+        static readonly leaveComplete: string;
+        static readonly ascendComplete: string;
+        static readonly descendComplete: string;
         constructor(eventType: string, eventTarget: Scene);
         clone(): SceneEvent;
         toString(): string;
@@ -1684,13 +1692,13 @@ declare namespace scn {
 }
 declare namespace scn {
     enum SceneState {
-        Idling = 0,
-        Loading = 1,
-        Unloading = 2,
-        Arriving = 3,
-        Leaving = 4,
-        Ascending = 5,
-        Descending = 6
+        idling = 0,
+        loading = 1,
+        unloading = 2,
+        arriving = 3,
+        leaving = 4,
+        ascending = 5,
+        descending = 6
     }
     function getSceneStateString(state: SceneState): string;
 }
@@ -1775,8 +1783,8 @@ declare namespace scn {
 declare namespace scn {
     import Event = alm.event.Event;
     class SceneManagerTransferEvent extends Event<SceneManager> {
-        static TRANSFER_START: string;
-        static TRANSFER_COMPLETE: string;
+        static readonly transferStart: string;
+        static readonly transferComplete: string;
         constructor(eventType: string, eventTarget: SceneManager, transferInfo: SceneTransferInfo);
         clone(): SceneManagerTransferEvent;
         toString(): string;
@@ -1786,7 +1794,7 @@ declare namespace scn {
 declare namespace scn {
     import Event = alm.event.Event;
     class SceneManagerRequireSceneEvent extends Event<SceneManager> {
-        static REQUIRE_SCENE: string;
+        static readonly requireScene: string;
         constructor(eventType: string, eventTarget: SceneManager, scenePath: string);
         clone(): SceneManagerRequireSceneEvent;
         toString(): string;

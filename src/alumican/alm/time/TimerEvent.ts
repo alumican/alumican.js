@@ -12,8 +12,8 @@ namespace alm.time {
 		//
 		// --------------------------------------------------
 
-		public static TICK:string = 'tick';
-		public static COMPLETE:string = 'complete';
+		public static readonly tick:string = 'TimerEvent.tick';
+		public static readonly complete:string = 'TimerEvent.complete';
 
 
 
@@ -56,7 +56,7 @@ namespace alm.time {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

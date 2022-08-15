@@ -10,9 +10,9 @@ namespace alm.io {
 		//
 		// --------------------------------------------------
 
-		static START:string = 'start';
-		static PROGRESS:string = 'progress';
-		static COMPLETE:string = 'complete';
+		public static readonly start:string = 'FileLoaderProgressEvent.start';
+		public static readonly progress:string = 'FileLoaderProgressEvent.progress';
+		public static readonly complete:string = 'FileLoaderProgressEvent.complete';
 
 
 
@@ -55,7 +55,7 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -24,6 +24,10 @@
 			"scss": [{ "src": "index", "dst": "index", "watch": "**/*.scss" }]
 		},
 		{
+			"name": "alumican.unlock_gesture",
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
+		},
+		{
 			"name": "alumican.canvas",
 			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		},
@@ -42,12 +46,25 @@
 		{
 			"name": "alumican.googlemaps",
 			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
+		},
+		{
+			"name": "alumican.audioplayer",
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
+		},
+		{
+			"name": "alumican.videoplayer",
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }],
+			"scss": [{ "src": "index", "dst": "index", "watch": "**/*.scss" }]
+		},
+		{
+			"name": "alumican.multitouch",
+			"ts": [{ "src": "index", "dst": "index", "watch": "**/*.ts" }]
 		}
 	],
 
 	"typeScriptOptions": {
-		"target": "ES5",
-		"lib": ["es6", "dom"],
+		"target": "es6",
+		"lib": ["es2015", "dom"],
 		"types": ["jquery", "webvr-api"],
 		"typeRoots": [
 			"src/@types",

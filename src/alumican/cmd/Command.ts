@@ -19,7 +19,7 @@ namespace cmd {
 			this.setInterruptFunction(interruptFunction);
 			this.setDestroyFunction(destroyFunction);
 
-			this.state = CommandState.Sleeping;
+			this.state = CommandState.sleeping;
 			this.self = this;
 			this.parent = null;
 		}
@@ -35,22 +35,22 @@ namespace cmd {
 		// --------------------------------------------------
 
 		public execute():void {
-			if (this.state > CommandState.Sleeping) {
+			if (this.state > CommandState.sleeping) {
 				throw new Error('[Command.execute] + Command is already executing.');
 			}
-			this.state = CommandState.Executing;
+			this.state = CommandState.executing;
 			this.getExecuteFunction().call(this, this);
 		}
 
 		public interrupt():void {
-			if (this.state == CommandState.Executing) {
-				this.state = CommandState.Interrupting;
+			if (this.state == CommandState.executing) {
+				this.state = CommandState.interrupting;
 				this.getInterruptFunction().call(this, this);
 			}
 		}
 
 		public destroy():void {
-			this.state = CommandState.Sleeping;
+			this.state = CommandState.sleeping;
 			this.getDestroyFunction().call(this, this);
 			this.parent = null;
 			this.executeFunction = null;
@@ -60,14 +60,14 @@ namespace cmd {
 
 		protected notifyComplete():void {
 			switch (this.state) {
-				case CommandState.Sleeping:
+				case CommandState.sleeping:
 					break;
-				case CommandState.Executing:
-					this.dispatchEvent(new CommandEvent(CommandEvent.COMPLETE, this));
+				case CommandState.executing:
+					this.dispatchEvent(new CommandEvent(CommandEvent.complete, this));
 					this.destroy();
 					break;
-				case CommandState.Interrupting:
-					this.dispatchEvent(new CommandEvent(CommandEvent.COMPLETE, this));
+				case CommandState.interrupting:
+					this.dispatchEvent(new CommandEvent(CommandEvent.complete, this));
 					this.destroy();
 					break;
 			}
@@ -88,7 +88,7 @@ namespace cmd {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

@@ -29,7 +29,7 @@ namespace alm.io {
 		// --------------------------------------------------
 
 		public getType():string {
-			return ImageFileHandler.TYPE;
+			return ImageFileHandler.type;
 		}
 
 		public load(url:string, onComplete:CompleteFunction, onError:ErrorFunction):void {
@@ -53,12 +53,12 @@ namespace alm.io {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
 		private crossOrigin:string;
 
-		public static TYPE:string = 'image';
+		public static readonly type:string = 'image';
 	}
 }

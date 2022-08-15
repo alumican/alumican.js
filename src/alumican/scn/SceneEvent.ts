@@ -12,19 +12,19 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static LOAD:string = 'SceneEvent.load';
-		public static UNLOAD:string = 'SceneEvent.unload';
-		public static ARRIVE:string = 'SceneEvent.arrive';
-		public static LEAVE:string = 'SceneEvent.leave';
-		public static ASCEND:string = 'SceneEvent.ascend';
-		public static DESCEND:string = 'SceneEvent.descend';
+		public static readonly load:string = 'SceneEvent.load';
+		public static readonly unload:string = 'SceneEvent.unload';
+		public static readonly arrive:string = 'SceneEvent.arrive';
+		public static readonly leave:string = 'SceneEvent.leave';
+		public static readonly ascend:string = 'SceneEvent.ascend';
+		public static readonly descend:string = 'SceneEvent.descend';
 
-		public static LOAD_COMPLETE:string = 'SceneEvent.loadComplete';
-		public static UNLOAD_COMPLETE:string = 'SceneEvent.unloadComplete';
-		public static ARRIVE_COMPLETE:string = 'SceneEvent.arriveComplete';
-		public static LEAVE_COMPLETE:string = 'SceneEvent.leaveComplete';
-		public static ASCEND_COMPLETE:string = 'SceneEvent.ascendComplete';
-		public static DESCEND_COMPLETE:string = 'SceneEvent.descendComplete';
+		public static readonly loadComplete:string = 'SceneEvent.loadComplete';
+		public static readonly unloadComplete:string = 'SceneEvent.unloadComplete';
+		public static readonly arriveComplete:string = 'SceneEvent.arriveComplete';
+		public static readonly leaveComplete:string = 'SceneEvent.leaveComplete';
+		public static readonly ascendComplete:string = 'SceneEvent.ascendComplete';
+		public static readonly descendComplete:string = 'SceneEvent.descendComplete';
 
 
 
@@ -64,7 +64,7 @@ namespace scn {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 	}

@@ -3,27 +3,27 @@
 namespace alm.geom {
 
 	export enum Align {
-		Top_Left,
-		Top_Center,
-		Top_Right,
-		Middle_Left,
-		Middle_Center,
-		Middle_Right,
-		Bottom_Left,
-		Bottom_Center,
-		Bottom_Right
+		topLeft,
+		topCenter,
+		topRight,
+		middleLeft,
+		middleCenter,
+		middleRight,
+		bottomLeft,
+		bottomCenter,
+		bottomRight
 	}
 
 	export enum ScaleMode {
-		ExactFit,
-		ShowAll,
-		NoBorder,
-		NoScale,
+		exactFit,
+		showAll,
+		noBorder,
+		noScale,
 	}
 
 	export class Boxer {
 
-		public static resize(target:geom.Rectangle, bounds:geom.Rectangle, scaleMode:ScaleMode = ScaleMode.ShowAll, align:Align = Align.Middle_Center):geom.Rectangle {
+		public static resize(target:geom.Rectangle, bounds:geom.Rectangle, scaleMode:ScaleMode = ScaleMode.showAll, align:Align = Align.middleCenter):geom.Rectangle {
 			let tx:number = target.x;
 			let ty:number = target.y;
 			let tw:number = target.width;
@@ -35,23 +35,23 @@ namespace alm.geom {
 			const bh:number = bounds.height;
 
 			switch (scaleMode) {
-				case ScaleMode.ShowAll:
-				case ScaleMode.NoBorder:
+				case ScaleMode.showAll:
+				case ScaleMode.noBorder:
 					const ratioW:number = bw / tw;
 					const ratioH:number = bh / th;
-					const ratio:number = scaleMode == ScaleMode.ShowAll ? (ratioW < ratioH ? ratioW : ratioH) : (ratioW > ratioH ? ratioW : ratioH);
+					const ratio:number = scaleMode == ScaleMode.showAll ? (ratioW < ratioH ? ratioW : ratioH) : (ratioW > ratioH ? ratioW : ratioH);
 					tw *= ratio;
 					th *= ratio;
 					break;
 
-				case ScaleMode.ExactFit:
+				case ScaleMode.exactFit:
 					return new geom.Rectangle(bx, by, bw, bh);
 			}
 
-			tx = bx + ((align == Align.Top_Left || align == Align.Middle_Left || align == Align.Bottom_Left) ? 0 :
-				(align == Align.Top_Right || align == Align.Middle_Right || align == Align.Bottom_Right) ? (bw - tw) : (bw - tw) / 2);
-			ty = by + ((align == Align.Top_Left || align == Align.Top_Center || align == Align.Top_Right) ? 0 :
-				(align == Align.Bottom_Left || align == Align.Bottom_Center || align == Align.Bottom_Right) ? (bh - th) : (bh - th) / 2);
+			tx = bx + ((align == Align.topLeft || align == Align.middleLeft || align == Align.bottomLeft) ? 0 :
+				(align == Align.topRight || align == Align.middleRight || align == Align.bottomRight) ? (bw - tw) : (bw - tw) / 2);
+			ty = by + ((align == Align.topLeft || align == Align.topCenter || align == Align.topRight) ? 0 :
+				(align == Align.bottomLeft || align == Align.bottomCenter || align == Align.bottomRight) ? (bh - th) : (bh - th) / 2);
 
 			return new geom.Rectangle(tx, ty, tw, th);
 		}

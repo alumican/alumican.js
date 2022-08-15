@@ -26,6 +26,6 @@ declare namespace alm.io {
         constructor();
         getType(): string;
         load(url: string, onComplete: CompleteFunction, onError: ErrorFunction): void;
-        static TYPE: string;
+        static readonly type: string;
     }
 }

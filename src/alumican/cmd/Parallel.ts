@@ -57,7 +57,7 @@ namespace cmd {
 				let command:Command;
 				for (let i:number = 0; i < length; ++i) {
 					command = commands[i];
-					command.addEventListener(CommandEvent.COMPLETE, this.completeHandler);
+					command.addEventListener(CommandEvent.complete, this.completeHandler);
 					command.execute();
 				}
 			} else {
@@ -72,7 +72,7 @@ namespace cmd {
 				let command:Command;
 				for (let i:number = 0; i < length; ++i) {
 					command = commands[i];
-					command.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+					command.removeEventListener(CommandEvent.complete, this.completeHandler);
 					command.interrupt();
 				}
 			}
@@ -86,7 +86,7 @@ namespace cmd {
 				let command:Command;
 				for (let i:number = 0; i < length; ++i) {
 					command = commands[i];
-					command.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+					command.removeEventListener(CommandEvent.complete, this.completeHandler);
 					command.destroy();
 				}
 			}
@@ -100,8 +100,8 @@ namespace cmd {
 				let command:Command;
 				for (let i:number = 0; i < length; ++i) {
 					command = commands[i];
-					if (command.getState() == CommandState.Executing) {
-						command.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+					if (command.getState() == CommandState.executing) {
+						command.removeEventListener(CommandEvent.complete, this.completeHandler);
 						command.interrupt();
 					}
 				}
@@ -116,8 +116,8 @@ namespace cmd {
 				let command:Command;
 				for (let i:number = 0; i < length; ++i) {
 					command = commands[i];
-					if (command.getState() == CommandState.Executing) {
-						command.removeEventListener(CommandEvent.COMPLETE, this.completeHandler);
+					if (command.getState() == CommandState.executing) {
+						command.removeEventListener(CommandEvent.complete, this.completeHandler);
 						command.interrupt();
 					}
 				}
@@ -133,7 +133,7 @@ namespace cmd {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

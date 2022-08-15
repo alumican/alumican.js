@@ -26,6 +26,7 @@
 /// <reference path='cmd/Func.ts' />
 /// <reference path='cmd/Listen.ts' />
 /// <reference path='cmd/Tween.ts' />
+/// <reference path='cmd/If.ts' />
 /// <reference path='cmd/Serial.ts' />
 /// <reference path='cmd/Parallel.ts' />
 
@@ -41,7 +42,10 @@
 /// <reference path='alm/util/Str.ts' />
 /// <reference path='alm/util/Cmd.ts' />
 /// <reference path='alm/util/Dom.ts' />
+/// <reference path='alm/util/Cvs.ts' />
 /// <reference path='alm/util/CssVar.ts' />
+/// <reference path='alm/util/Sensor.ts' />
+/// <reference path='alm/util/Time.ts' />
 
 /// <reference path='alm/resource/ObjectPool.ts' />
 
@@ -53,6 +57,7 @@
 
 /// <reference path='alm/math/EasingValue.ts' />
 /// <reference path='alm/math/SpringValue.ts' />
+/// <reference path='alm/math/MinMax.ts' />
 /// <reference path='alm/math/SimpleAverage.ts' />
 /// <reference path='alm/math/SimpleMovingAverage.ts' />
 /// <reference path='alm/math/MaxValue.ts' />
@@ -73,11 +78,6 @@
 /// <reference path='alm/io/IFileHandler.ts' />
 /// <reference path='alm/io/ImageFileHandler.ts' />
 
-/// <reference path='alm/audio/core/AudioClip.ts' />
-/// <reference path='alm/audio/AudioPlayer.ts' />
-/// <reference path='alm/audio/CrossOverLoopAudio.ts' />
-/// <reference path='alm/audio/FootstepAudio.ts' />
-
 /// <reference path='alm/view/IView.ts' />
 /// <reference path='alm/view/ViewEvent.ts' />
 /// <reference path='alm/view/View.ts' />
@@ -91,12 +91,13 @@
 /// <reference path='alm/browser/SessionStorage.ts' />
 /// <reference path='alm/browser/KeyWatcher.ts' />
 /// <reference path='alm/browser/KeyWatcherEvent.ts' />
-/// <reference path='alm/browser/WindowWatcher.ts' />
-/// <reference path='alm/browser/WindowWatcherEvent.ts' />
+/// <reference path='alm/browser/WinWatcher.ts' />
+/// <reference path='alm/browser/WinWatcherEvent.ts' />
 /// <reference path="alm/browser/ScrollSectionTriggerEvent.ts" />
 /// <reference path="alm/browser/ScrollSectionTrigger.ts" />
 /// <reference path="alm/browser/ResponsiveObserver.ts" />
 /// <reference path="alm/browser/ResponsiveObserverEvent.ts" />
+/// <reference path="alm/browser/Kiosk.ts" />
 
 /// <reference path='scn/Scene.ts' />
 /// <reference path='scn/SceneEvent.ts' />

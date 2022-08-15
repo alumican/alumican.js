@@ -4,7 +4,7 @@ namespace alm.browser {
 
 	export class ResponsiveObserverEvent extends alm.event.Event<ResponsiveObserver> {
 
-		public static CHANGE:string = 'ResponsiveObserverEvent.CHANGE';
+		public static readonly change:string = 'ResponsiveObserverEvent.change';
 
 
 
@@ -39,7 +39,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

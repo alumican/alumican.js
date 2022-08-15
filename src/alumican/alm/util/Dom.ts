@@ -3,76 +3,83 @@
 namespace alm.util {
 
 	import Easing = alm.math.Easing;
-	import EasingFunction = alm.math.EasingFunction;
 
 	export class Dom {
 
-		public static instantiate(templateId:string, removeId:boolean = true):HTMLElement {
-			const element = <HTMLElement>document.getElementById(templateId).cloneNode(true);
-			if (removeId) {
-				element.removeAttribute('id');
+		public static instantiate(templateId:string, removeId:boolean = true, verbose:boolean = true):HTMLElement {
+			const template = document.getElementById(templateId);
+			if (template) {
+				const element = <HTMLElement>template.cloneNode(true);
+				if (removeId) {
+					element.removeAttribute('id');
+				}
+				return element;
+			} else {
+				if (verbose) {
+					console.warn('[Dom.instantiate] template (id = ' + templateId + ' ) is not found.');
+				}
 			}
-			return element;
+			return null;
 		}
 
 
 
 
 
-		public static addPointerDownListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointerdown', listener);
+		public static addPointerDownListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointerdown', listener, options);
 		}
 
-		public static addPointerMoveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointermove', listener);
+		public static addPointerMoveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointermove', listener, options);
 		}
 
-		public static addPointerUpListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointerup', listener);
+		public static addPointerUpListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointerup', listener, options);
 		}
 
-		public static addPointerEnterListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointerenter', listener);
+		public static addPointerEnterListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointerenter', listener, options);
 		}
 
-		public static addPointerLeaveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointerleave', listener);
+		public static addPointerLeaveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointerleave', listener, options);
 		}
 
-		public static addPointerOverListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointerover', listener);
+		public static addPointerOverListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointerover', listener, options);
 		}
 
-		public static addPointerOutListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.addEventListener('pointerout', listener);
+		public static addPointerOutListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:AddEventListenerOptions = null):void {
+			target.addEventListener('pointerout', listener, options);
 		}
 
-		public static removePointerDownListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointerdown', listener);
+		public static removePointerDownListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointerdown', listener, options);
 		}
 
-		public static removePointerMoveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointermove', listener);
+		public static removePointerMoveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointermove', listener, options);
 		}
 
-		public static removePointerUpListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointerup', listener);
+		public static removePointerUpListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointerup', listener, options);
 		}
 
-		public static removePointerEnterListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointerenter', listener);
+		public static removePointerEnterListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointerenter', listener, options);
 		}
 
-		public static removePointerLeaveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointerleave', listener);
+		public static removePointerLeaveListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointerleave', listener, options);
 		}
 
-		public static removePointerOverListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointerover', listener);
+		public static removePointerOverListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointerover', listener, options);
 		}
 
-		public static removePointerOutListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void):void {
-			target.removeEventListener('pointerout', listener);
+		public static removePointerOutListener(target:HTMLElement | Window, listener:(event:PointerEvent) => void, options:EventListenerOptions = null):void {
+			target.removeEventListener('pointerout', listener, options);
 		}
 
 
@@ -185,9 +192,23 @@ namespace alm.util {
 
 
 
+		public static getViewportRect(element:Element):{ x:number, y:number, width:number, height:number } {
+			const rect = element.getBoundingClientRect();
+			return { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
+		}
+
+		public static geDocumentRect(element:Element):{ x:number, y:number, width:number, height:number } {
+			const rect = Dom.getViewportRect(element);
+			return { x: rect.x + window.scrollX, y: rect.y + window.scrollY, width: rect.width, height: rect.height };
+		}
+
+
+
+
+
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

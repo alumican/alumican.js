@@ -77,7 +77,7 @@ namespace alm.state {
 				this.currentItemId = this.currentItemIndex != -1 ? this.itemIds[this.currentItemIndex] : null;
 			}
 
-			this.dispatchPagerEvent(SwitcherEvent.CHANGE, this.onChange, useTransition);
+			this.dispatchPagerEvent(SwitcherEvent.change, this.onChange, useTransition);
 
 			return true;
 		}
@@ -92,7 +92,7 @@ namespace alm.state {
 
 			const result:boolean = this.gotoByIndex(itemIndex, useTransition);
 			if (result) {
-				this.dispatchPagerEvent(SwitcherEvent.PREV, this.onPrev, useTransition);
+				this.dispatchPagerEvent(SwitcherEvent.prev, this.onPrev, useTransition);
 			}
 
 			return result;
@@ -103,7 +103,7 @@ namespace alm.state {
 
 			const result:boolean = this.gotoByIndex(itemIndex, useTransition);
 			if (result) {
-				this.dispatchPagerEvent(SwitcherEvent.NEXT, this.onNext, useTransition);
+				this.dispatchPagerEvent(SwitcherEvent.next, this.onNext, useTransition);
 			}
 
 			return result;
@@ -143,7 +143,7 @@ namespace alm.state {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

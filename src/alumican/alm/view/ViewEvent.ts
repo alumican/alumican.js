@@ -12,20 +12,20 @@ namespace alm.view {
 		//
 		// --------------------------------------------------
 
-		public static INITIALIZE_BEGIN:string = 'initializeBegin';
-		public static INITIALIZE_END:string = 'initializeEnd';
+		public static readonly initializeBegin:string = 'ViewEvent.initializeBegin';
+		public static readonly initializeEnd:string = 'ViewEvent.initializeEnd';
 
-		public static FINALIZE_BEGIN:string = 'finalizeBegin';
-		public static FINALIZE_END:string = 'finalizeEnd';
+		public static readonly finalizeBegin:string = 'ViewEvent.finalizeBegin';
+		public static readonly finalizeEnd:string = 'ViewEvent.finalizeEnd';
 
-		public static READY_BEGIN:string = 'readyBegin';
-		public static READY_END:string = 'readyEnd';
+		public static readonly readyBegin:string = 'ViewEvent.readyBegin';
+		public static readonly readyEnd:string = 'ViewEvent.readyEnd';
 
-		public static SHOW_BEGIN:string = 'showBegin';
-		public static SHOW_END:string = 'showEnd';
+		public static readonly showBegin:string = 'ViewEvent.showBegin';
+		public static readonly showEnd:string = 'ViewEvent.showEnd';
 
-		public static HIDE_BEGIN:string = 'hideBegin';
-		public static HIDE_END:string = 'hideEnd';
+		public static readonly hideBegin:string = 'ViewEvent.hideBegin';
+		public static readonly hideEnd:string = 'ViewEvent.hideEnd';
 
 
 
@@ -65,7 +65,7 @@ namespace alm.view {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 	}

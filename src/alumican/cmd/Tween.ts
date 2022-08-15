@@ -104,7 +104,7 @@ namespace cmd {
 		}
 
 		private intervalHandler = ():void => {
-			const elapsedTime:number = Time.now() - this.startTime;
+			const elapsedTime = Time.now() - this.startTime;
 			if (elapsedTime < this.duration) {
 				this.apply(elapsedTime / this.duration);
 				if (this.onUpdate) this.onUpdate(this.progressTime, this.progressValue);
@@ -123,7 +123,7 @@ namespace cmd {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

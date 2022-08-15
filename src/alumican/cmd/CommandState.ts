@@ -3,8 +3,8 @@
 namespace cmd {
 
 	export enum CommandState {
-		Sleeping     = 0,
-		Executing    = 1,
-		Interrupting = 2,
+		sleeping     = 0,
+		executing    = 1,
+		interrupting = 2,
 	}
 }

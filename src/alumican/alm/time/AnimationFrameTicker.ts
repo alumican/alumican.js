@@ -4,6 +4,7 @@ namespace alm.time {
 
 	import EventDispatcher = alm.event.EventDispatcher;
 	import Time = alm.util.Time;
+	import EventListener = alm.event.EventListener;
 
 	export class AnimationFrameTicker extends EventDispatcher {
 
@@ -59,16 +60,20 @@ namespace alm.time {
 			return this.isRunning;
 		}
 
-		public getTargetFrameRate():boolean {
-			return this.isRunning;
+		public getTargetFrameRate():number {
+			return this.targetFrameRate;
 		}
 
-		private setInterval(callback:Function):number {
-			return window.setTimeout(callback, 1000 / 60);
+		public getInterval():number {
+			return this.interval;
 		}
 
-		private clearInterval(requestId:number):void {
-			window.clearInterval(requestId);
+		public getTolerance():number {
+			return this.tolerance;
+		}
+
+		public getToleranceDuration():number {
+			return this.toleranceDuration;
 		}
 
 		private updateHandler = ():void => {
@@ -79,10 +84,10 @@ namespace alm.time {
 				if (elapsedTime >= this.interval - this.toleranceDuration) {
 					//trace('[AnimationFrameTicker] frameRate : ' + (1000 / elapsedTime));
 					this.frameStartTime = currentTime;
-					this.dispatchEvent(new AnimationFrameTickerEvent(AnimationFrameTickerEvent.TICK, this));
+					this.dispatchEvent(new AnimationFrameTickerEvent(AnimationFrameTickerEvent.tick, this));
 				}
 			} else {
-				this.dispatchEvent(new AnimationFrameTickerEvent(AnimationFrameTickerEvent.TICK, this));
+				this.dispatchEvent(new AnimationFrameTickerEvent(AnimationFrameTickerEvent.tick, this));
 			}
 		};
 
@@ -90,20 +95,45 @@ namespace alm.time {
 
 
 
+		public static addEventListener(listener:alm.event.EventListener):void {
+			const result = AnimationFrameTicker.ticker.addEventListener(AnimationFrameTickerEvent.tick, listener);
+			if (result) {
+				++AnimationFrameTicker.listenerCount;
+				if (AnimationFrameTicker.listenerCount === 1) {
+					AnimationFrameTicker.ticker.start();
+				}
+			}
+		}
+
+		public static removeEventListener(listener:EventListener):void {
+			const result = AnimationFrameTicker.ticker.removeEventListener(AnimationFrameTickerEvent.tick, listener);
+			if (result) {
+				--AnimationFrameTicker.listenerCount;
+				if (AnimationFrameTicker.listenerCount === 0) {
+					AnimationFrameTicker.ticker.stop();
+				}
+			}
+		}
+
+
+
+
+
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
 		private isRunning:boolean;
-
 		private requestId:number;
-
 		private targetFrameRate:number;
+		private interval:number;
 		private tolerance:number;
 		private toleranceDuration:number;
-		private interval:number;
 		private frameStartTime:number;
+
+		private static ticker = new AnimationFrameTicker();
+		private static listenerCount = 0;
 	}
 }

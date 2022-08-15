@@ -2,7 +2,7 @@
 
 namespace alm.browser {
 
-	export class WindowWatcher {
+	export class WinWatcher {
 
 		// --------------------------------------------------
 		//
@@ -22,7 +22,7 @@ namespace alm.browser {
 			this.isRunning = true;
 
 			this.initialize();
-			trace('[WindowWatcher] start');
+			trace('[WinWatcher] start');
 
 			this.window = target || window;
 
@@ -37,7 +37,7 @@ namespace alm.browser {
 			this.isRunning = false;
 
 			this.initialize();
-			trace('[WindowWatcher] stop');
+			trace('[WinWatcher] stop');
 
 			this.window.removeEventListener('resize', this.windowResizeHandler);
 			this.window.removeEventListener('orientationchange', this.windowResizeHandler);
@@ -45,19 +45,19 @@ namespace alm.browser {
 		}
 
 		public static apply():void {
-			this.windowWidth = this.window.innerWidth;
-			this.windowHeight = this.window.innerHeight;
+			this.width = this.window.innerWidth;
+			this.height = this.window.innerHeight;
 
-			this.scrollTop = (this.window.pageYOffset !== undefined) ? this.window.pageYOffset : document.documentElement.scrollTop;
-			this.scrollBottom = this.scrollTop + this.windowHeight;
+			this.scrollTop = (this.window.scrollY !== undefined) ? this.window.scrollY : document.documentElement.scrollTop;
+			this.scrollBottom = this.scrollTop + this.height;
 		}
 
-		public static addEventListener(eventType:string, listener:(event:WindowWatcherEvent) => void):void {
+		public static addEventListener(eventType:string, listener:(event:WinWatcherEvent) => void):void {
 			this.initialize();
 			this.eventDispatcher.addEventListener(eventType, listener);
 		}
 
-		public static removeEventListener(eventType:string, listener:(event:WindowWatcherEvent) => void):void {
+		public static removeEventListener(eventType:string, listener:(event:WinWatcherEvent) => void):void {
 			this.initialize();
 			this.eventDispatcher.removeEventListener(eventType, listener);
 		}
@@ -67,12 +67,12 @@ namespace alm.browser {
 		};
 
 		public static calcScrolledPositionRatio(y:number):number {
-			return this.calcScrolledPosition(y) / this.windowHeight;
+			return this.calcScrolledPosition(y) / this.height;
 		}
 
 		private static resize(event:Event):void {
-			WindowWatcher.apply();
-			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.RESIZE, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
+			WinWatcher.apply();
+			WinWatcher.eventDispatcher.dispatchEvent(new WinWatcherEvent(WinWatcherEvent.resize, WinWatcher, event, WinWatcher.scrollTop, WinWatcher.scrollBottom, WinWatcher.width, WinWatcher.height));
 		};
 
 
@@ -80,20 +80,20 @@ namespace alm.browser {
 
 
 		private static windowResizeHandler = (event:Event):void => {
-			if (!DeviceInfo.getIsDesktop() && WindowWatcher.isMobileOrientationResize) return;
-			trace('[WindowWatcher] resize by window.resize');
-			WindowWatcher.resize(event);
+			if (!DeviceInfo.getIsDesktop() && WinWatcher.isMobileOrientationResize) return;
+			trace('[WinWatcher] resize by window.resize');
+			WinWatcher.resize(event);
 		};
 
 		private static windowOrientationChangeHandler = (event:Event):void => {
-			if (DeviceInfo.getIsDesktop() || !WindowWatcher.isMobileOrientationResize) return;
-			trace('[WindowWatcher] resize by window.orientationchange');
-			WindowWatcher.resize(event);
+			if (DeviceInfo.getIsDesktop() || !WinWatcher.isMobileOrientationResize) return;
+			trace('[WinWatcher] resize by window.orientationchange');
+			WinWatcher.resize(event);
 		};
 
 		private static windowScrollHandler = (event:Event):void => {
-			WindowWatcher.apply();
-			WindowWatcher.eventDispatcher.dispatchEvent(new WindowWatcherEvent(WindowWatcherEvent.SCROLL, WindowWatcher, event, WindowWatcher.scrollTop, WindowWatcher.scrollBottom, WindowWatcher.windowWidth, WindowWatcher.windowHeight));
+			WinWatcher.apply();
+			WinWatcher.eventDispatcher.dispatchEvent(new WinWatcherEvent(WinWatcherEvent.scroll, WinWatcher, event, WinWatcher.scrollTop, WinWatcher.scrollBottom, WinWatcher.width, WinWatcher.height));
 		};
 
 
@@ -102,7 +102,7 @@ namespace alm.browser {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 
@@ -118,11 +118,11 @@ namespace alm.browser {
 		public static getScrollBottom():number { return this.scrollBottom; }
 		private static scrollBottom:number;
 
-		public static getWindowWidth():number { return this.windowWidth; }
-		private static windowWidth:number = 0;
+		public static getWidth():number { return this.width; }
+		private static width:number = 0;
 
-		public static getWindowHeight():number { return this.windowHeight; }
-		private static windowHeight:number = 0;
+		public static getHeight():number { return this.height; }
+		private static height:number = 0;
 
 		public static getIsMobileOrientationResize():boolean { return this.isMobileOrientationResize; }
 		public static setIsMobileOrientationResize(value:boolean):void { this.isMobileOrientationResize = value; }

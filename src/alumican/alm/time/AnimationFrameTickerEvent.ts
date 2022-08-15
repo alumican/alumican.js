@@ -12,7 +12,7 @@ namespace alm.time {
 		//
 		// --------------------------------------------------
 
-		public static TICK:string = 'tick';
+		public static readonly tick:string = 'AnimationFrameTickerEvent.tick';
 
 
 
@@ -52,7 +52,7 @@ namespace alm.time {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 	}

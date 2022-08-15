@@ -34,9 +34,17 @@ namespace cmd {
 		protected implExecuteFunction(command:Command):void {
 			if (this.eventDispatcher && this.eventType) {
 				this.eventDispatcher.addEventListener(this.eventType, this.completeHandler);
-				this.func(...this.args);
+				if (this.args) {
+					this.func(...this.args);
+				} else {
+					this.func();
+				}
 			} else {
-				this.func(...this.args);
+				if (this.args) {
+					this.func(...this.args);
+				} else {
+					this.func();
+				}
 				this.notifyComplete();
 			}
 		}
@@ -68,7 +76,7 @@ namespace cmd {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

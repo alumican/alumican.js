@@ -12,7 +12,7 @@ namespace scn {
 		//
 		// --------------------------------------------------
 
-		public static REQUIRE_SCENE:string = 'SceneManagerRequireSceneEvent.requireScene';
+		public static readonly requireScene:string = 'SceneManagerRequireSceneEvent.requireScene';
 
 
 
@@ -53,7 +53,7 @@ namespace scn {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

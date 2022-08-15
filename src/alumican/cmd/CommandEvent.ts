@@ -12,7 +12,7 @@ namespace cmd {
 		//
 		// --------------------------------------------------
 
-		public static COMPLETE:string = 'complete';
+		public static readonly complete:string = 'CommandEvent.complete';
 
 
 
@@ -52,7 +52,7 @@ namespace cmd {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 	}

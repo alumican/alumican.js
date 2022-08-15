@@ -4,8 +4,8 @@ namespace alm.event {
 
 	export interface IEventDispatcher {
 
-		addEventListener(eventType:string, listener:EventListener):void;
-		removeEventListener(eventType:string, listener:EventListener):void;
+		addEventListener(eventType:string, listener:EventListener):boolean;
+		removeEventListener(eventType:string, listener:EventListener):boolean;
 		removeAllEventListener(eventType:string):void;
 		hasEventListener(eventType:string):boolean;
 		dispatchEvent(event:Event):void;

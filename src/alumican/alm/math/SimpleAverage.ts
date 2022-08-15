@@ -11,8 +11,7 @@ namespace alm.math {
 		// --------------------------------------------------
 
 		constructor() {
-			this.value = this._value = 0;
-			this.count = this._count = 0;
+			this.reset();
 		}
 
 
@@ -34,13 +33,18 @@ namespace alm.math {
 			return this._value;
 		}
 
+		public reset():void {
+			this.value = this._value = 0;
+			this.count = this._count = 0;
+		}
+
 
 
 
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

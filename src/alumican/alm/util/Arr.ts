@@ -114,6 +114,34 @@ namespace alm.util {
 			return list[Math.floor(Math.random() * list.length)];
 		}
 
+		/**
+		 * 空要素を削除した配列を返す、元の配列は変更しない
+		 * Booleanのコンストラクタを使って判定しているため、0も削除される
+		 * @param list 入力配列
+		 * @returns {T[]} 出力配列
+		 */
+		public static clean<T>(list:T[]):T[] {
+			return list.filter(Boolean);
+		}
+
+
+		/**
+		 * 元の配列に対して、指定した関数を各要素に実行してfalseを返した要素を削除する
+		 * @param list 入力配列
+		 * @param f 各要素に実行する関数、falseを返すとその要素が削除される
+		 */
+		public static update<T>(list:T[], f:(item:T) => (void | boolean)):void {
+			let n = list.length;
+			for (let i = 0; i < n; ++i) {
+				const item = list[i];
+				if (f(item) === false) {
+					list.splice(i, 1);
+					--i;
+					--n;
+				}
+			}
+		}
+
 
 		private constructor() {}
 	}

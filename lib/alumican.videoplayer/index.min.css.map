@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAEC,0BAAA,2BAEC,SAAA,SACA,IAAA,EACA,KAAA,EACA,MAAA,KACA,OAAA","file":"index.min.css","sourcesContent":[".video-player {\n\n\t.video-clip,\n\t.video-media {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n}\n"]}

@@ -10,9 +10,9 @@ namespace alm.state {
 		//
 		// --------------------------------------------------
 
-		public static CHANGE:string = 'change';
-		public static PREV:string = 'prev';
-		public static NEXT:string = 'next';
+		public static readonly change:string = 'SwitcherEvent.change';
+		public static readonly prev:string = 'SwitcherEvent.prev';
+		public static readonly next:string = 'SwitcherEvent.next';
 
 
 
@@ -57,7 +57,7 @@ namespace alm.state {
 
 		// --------------------------------------------------
 		//
-		// VARIABLE
+		// MEMBER
 		//
 		// --------------------------------------------------
 

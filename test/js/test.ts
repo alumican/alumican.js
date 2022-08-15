@@ -1,5 +1,5 @@
 /// <reference path='../../build/node_modules/@types/jquery/index.d.ts' />
-/// <reference path='../../lib/alumican.d.ts' />
+/// <reference path='../../lib/alumican/index.d.ts' />
 
 namespace test {
 
